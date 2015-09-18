@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "F:/Workspace/ASM/Hard/CPU/t_1_isim_beh.exe" -prj "F:/Workspace/ASM/Hard/CPU/t_1_beh.prj" "work.t_1" "work.glbl" 
