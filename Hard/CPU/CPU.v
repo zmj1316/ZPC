@@ -18,10 +18,10 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module CPU(input clk,rst,input [31:0] Memin,output reg [31:0] Memout,
+module CPU(input clk,rst,inout [31:0] BUS,
 		   output reg Memread,output reg Memwrite, output reg [31:0] Addr
-			,output [31:0] Regtest,output [31:0] PC,
-			output [2:0]stage,output [12:0] signal,output [31:0] MDR
+			// ,output [31:0] Regtest,output [31:0] PC,
+			// output [2:0]stage,output [12:0] signal,output [31:0] MDR
     );
 reg [ 2: 0] stage;
 
@@ -52,6 +52,15 @@ reg [31:0] A;
 reg [31:0] B;
 
 reg [31:0] MDR;
+
+reg [31:0] Memin;
+reg [31:0] Memout;
+assign BUS = Memwrite?Memout:32'bz;
+always @(*) begin
+	if (Memread == 1) begin
+		Memin = BUS;
+	end
+end
 Ctrl C(OP,signal);
 initial begin
 	Memread = 0;
@@ -149,6 +158,7 @@ always @(posedge clk or posedge rst) begin
 				end
 			end
 			3'h4:begin
+				//WBS
 				if (signal[5] == 1) begin
 					if (signal[6] == 1) begin
 						Regfile[Dst] = MDR;
