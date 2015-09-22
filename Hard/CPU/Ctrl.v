@@ -26,15 +26,15 @@ module Ctrl(input wire [5:0] OP,output reg [12:0] signal
  */
 always @(*) begin
 	case(OP)
-		6'h0: signal = 13'b1100010100000;//R
-		6'h2: signal = 13'b0011000000101;//J
-		6'h3: signal = 13'b0011100100101;//JAL
-		6'h4,6'h5:signal = 13'b0011000000010;//beq bne
-		6'h8: signal = 13'b0110000100000;//ADDI
-		6'h23: signal = 13'b0110001110000;//LW
-		6'h2B: signal = 13'b0110000001000;//SW
+		6'h0: signal <= 13'b1100010100000;//R
+		6'h2: signal <= 13'b0011000000101;//J
+		6'h3: signal <= 13'b0011100100101;//JAL
+		6'h4,6'h5:signal <= 13'b0011000000010;//beq bne
+		6'h8: signal <= 13'b0110000100000;//ADDI
+		6'h23: signal <= 13'b0110001110000;//LW
+		6'h2B: signal <= 13'b0110000001000;//SW
 		//I-Type
-		default: signal = 13'b0110000100000;//I-type
+		default: signal <= 13'b0110000100000;//I-type
 	endcase
 end
 

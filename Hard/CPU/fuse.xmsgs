@@ -5,17 +5,5 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="751" delta="unknown" >"F:/Workspace/ASM/Hard/CPU/CPU.v" Line 26: Redeclaration of ansi port <arg fmt="%s" index="1">stage</arg> is not allowed
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="751" delta="unknown" >"F:/Workspace/ASM/Hard/CPU/CPU.v" Line 28: Redeclaration of ansi port <arg fmt="%s" index="1">signal</arg> is not allowed
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="751" delta="unknown" >"F:/Workspace/ASM/Hard/CPU/CPU.v" Line 33: Redeclaration of ansi port <arg fmt="%s" index="1">PC</arg> is not allowed
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="751" delta="unknown" >"F:/Workspace/ASM/Hard/CPU/CPU.v" Line 54: Redeclaration of ansi port <arg fmt="%s" index="1">MDR</arg> is not allowed
-</msg>
-
 </messages>
 
