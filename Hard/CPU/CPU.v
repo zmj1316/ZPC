@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module CPU(input clk,rst,inout [31:0] BUS,
 		   output reg Memread,output reg Memwrite, output reg [31:0] Addr
-		  ,output reg [31:0] A
+		  // ,output reg [31:0] A,output reg [31:0]PC,output reg [31:0] IR,output reg [31:0] Alures
     );
 reg [ 2: 0] stage;
 
@@ -29,9 +29,12 @@ wire [12:0] signal;
 
 
 reg [31: 0] Regfile[31:0];
+
+// assign RegT = Regfile[1];
+
 reg [31: 0] PC;
 
-assign Regtest = Regfile[1];
+
 
 wire [25:0] JUMP;
 wire [5:0] OP;
@@ -49,10 +52,9 @@ reg [31:0] RA;
 reg [31:0] RB;
 
 reg [31:0] Alures;
-// reg [31:0] A;
+reg [31:0] A;
 reg [31:0] B;
 
-// reg [31:0] MDR;
 
 wire [31:0] Memin;
 reg [31:0] Memout;
@@ -77,7 +79,13 @@ assign func = IR[5:0];
 assign imme0 = IR[15:0];
 assign imme = {{16{imme0[15]}},imme0[15:0]};
 Ctrl C(OP,signal);
-
+	integer i;
+	initial begin 
+		for(i=0;i<32;i=i+1)
+		begin 
+			Regfile[i]=i;
+		end
+	end
 initial begin
 	A = 0;
 	B = 0;
@@ -86,8 +94,7 @@ initial begin
 	stage = 0;
 	PC = 0;
 	IR = 0;
-	Regfile[0] = 0;
-	Regfile[1] = 233;
+
 end
 always @(posedge clk or posedge rst) begin
 	if (rst) begin
@@ -98,16 +105,15 @@ always @(posedge clk or posedge rst) begin
 		Memwrite = 0;
 		case(stage)
 			3'h0:begin
-
-			end
-			3'h1:begin				
 				//IFS
 				Addr = PC;
 				PC = PC + 4;
 				Memread = 1;
 			end
-			3'h2:begin
+			3'h1:begin				
 				IR = Memin;
+			end
+			3'h2:begin
 				//IDS
 				RA = Regfile[RS];
 				RB = Regfile[RT];
@@ -172,7 +178,6 @@ always @(posedge clk or posedge rst) begin
 				if (signal[4]) begin
 					Addr = Alures;
 					Memread = 1;					
-					MDR = Memin;
 				end
 				if (signal[3]) begin
 					Addr = Alures;
