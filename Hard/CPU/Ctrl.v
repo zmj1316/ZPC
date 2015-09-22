@@ -33,7 +33,8 @@ always @(*) begin
 		6'h8: signal = 13'b0110000100000;//ADDI
 		6'h23: signal = 13'b0110001110000;//LW
 		6'h2B: signal = 13'b0110000001000;//SW
-		default: signal = 0;
+		//I-Type
+		default: signal = 13'b0110000100000;//I-type
 	endcase
 end
 

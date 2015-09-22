@@ -53,14 +53,20 @@ reg [31:0] B;
 
 reg [31:0] MDR;
 
-reg [31:0] Memin;
+// reg [31:0] Memin;
+wire [31:0] Memin;
+assign Memin = BUS;
 reg [31:0] Memout;
+
+wire [31:0] shiftRes;
+shifter S(B,shamt,shiftRes);
+
 assign BUS = Memwrite?Memout:32'bz;
-always @(*) begin
-	if (Memread == 1) begin
-		Memin = BUS;
-	end
-end
+// always @(*) begin
+// 	if (Memread == 1) begin
+// 		Memin = BUS;
+// 	end
+// end
 Ctrl C(OP,signal);
 initial begin
 	Memread = 0;
@@ -121,10 +127,19 @@ always @(posedge clk or posedge rst) begin
 						6'h25: Alures = A | B;
 						6'h26: Alures = A ^ B;
 						6'h27: Alures = ~(A | B);
+						6'h2A: Alures = ((A - B) & 32'h80000000 == 32'h80000000)? 1:0;
+						6'h2B: Alures = (A < B)? 1:0;
+						6'h0 : Alures = shiftRes;
 					endcase
 				end
 				else begin
 					Alures = A + B;
+					case(OP)
+						6'h0C: Alures = A & B;
+						6'h0D: Alures = A | B;
+						6'h0E: Alures = A ^ B;
+						6'h0F: Alures = {B[15:0],16'b0};
+					endcase
 				end
 				if (signal[0] == 1) begin
 					PC = signal[2]? Alures: {PC[31:28],JUMP,2'b00};
@@ -176,4 +191,13 @@ always @(posedge clk or posedge rst) begin
 		stage = stage + 1;
 	end
 end
+endmodule
+
+module shifter(data,b,result);
+parameter Nminus1 = 31; /* 32-bit shifter */
+input [Nminus1:0] data; /* compute parity of these bits */
+input [4:0] b; /* amount to shift */
+output [Nminus1:0] result; /* shift result */
+
+assign result = data << b; 
 endmodule
