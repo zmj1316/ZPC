@@ -1,6 +1,7 @@
 # Output products list for <CM>
 CM.asy
 CM.gise
+CM.mif
 CM.ngc
 CM.sym
 CM.v
