@@ -18,15 +18,16 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module VGA(vga_red, vga_green, vga_blue, vga_hsync, vga_vsync,clk_50mhz,rst,
-    		BUS,Memwrite,Addrin);
+module VGA(vga_red, vga_green, vga_blue, vga_hsync, vga_vsync,clk_50mhz
+//,rst,BUS,Memwrite,Addrin
+);
 output vga_red, vga_green, vga_blue, vga_hsync, vga_vsync;
 input clk_50mhz;
-input rst;
-
-input [31:0]BUS;
-input [1:0]Memwrite;
-input [31:0] Addrin;
+//input rst;
+reg rst;
+//input [31:0]BUS;
+//input [1:0]Memwrite;
+//input [31:0] Addrin;
 
 wire [10:0] h_counter;
 wire [10:0] v_counter;
@@ -68,15 +69,15 @@ char c(doutb,h_counter[2:0],v_counter[3:0],topval[0],clk_50mhz);
 always @(posedge clk_50mhz or posedge rst) begin
 	if (rst) begin
 		// reset
-		
+		we=0;
 	end
 	else begin
 		addrb = {v_counter[8:4],h_counter[8:4]};
-		if (Memwrite[0]) begin
-			addra = Addrin;
-			datain = BUS[7:0];
-			we = 1;
-		end
+//		if (Memwrite[0]) begin
+//			addra = Addrin;
+//			datain = BUS[7:0];
+//			we = 1;
+//		end
 
 	end
 end

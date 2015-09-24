@@ -1,0 +1,6 @@
+NET "vga_red" LOC="H14";
+NET "vga_green" LOC="H15";
+NET "vga_blue" LOC="G15";
+NET "vga_hsync" LOC="F15";
+NET "vga_vsync" LOC="F14";
+NET "clk_50mhz" LOC="C9";
