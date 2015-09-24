@@ -19,12 +19,12 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module CPU(input clk,rst,inout [31:0] BUS,
-		   output reg Memread,output reg Memwrite, output reg [31:0] Addr
+		   output reg Memread,output reg [1:0]Memwrite, output reg [31:0] Addr
 		  // ,output reg [31:0] A,output reg [31:0]PC,output reg [31:0] IR,output reg [31:0] Alures
     );
 reg [ 2: 0] stage;
 
-wire [12:0] signal;
+wire [13:0] signal;
 
 
 
@@ -182,14 +182,14 @@ always @(posedge clk or posedge rst) begin
 				if (signal[3]) begin
 					Addr = Alures;
 					Memout = RB;
-					Memwrite = 1;
+					Memwrite = signal[13]?3:1;
 				end
 			end
 			3'h5:begin
 				//WBS
 				if (signal[5]) begin
 					if (signal[6]) begin
-						Regfile[Dst] = Memin;
+						Regfile[Dst] = signal[13]?{0,Memin[7:0]}:Memin;
 					end
 					else begin
 						Regfile[Dst] = Alures;

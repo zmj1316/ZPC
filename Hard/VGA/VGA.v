@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module VGA(vga_red, vga_green, vga_blue, vga_hsync, vga_vsync,clk_50mhz,rst
+module VGA(vga_red, vga_green, vga_blue, vga_hsync, vga_vsync,clk_50mhz,rst,
     );
 output vga_red, vga_green, vga_blue, vga_hsync, vga_vsync;
 input clk_50mhz;
@@ -166,7 +166,6 @@ module layer_compositor(screenout, blank, topval);
 	input blank;
 	output [2:0] screenout;
 	reg [2:0] screenout;
-	//本来计划添加分数和背景的，结果没用上，layer里面保留了，作为纪念
 	always@* begin
 		if (blank)
 			screenout = 3'b000;

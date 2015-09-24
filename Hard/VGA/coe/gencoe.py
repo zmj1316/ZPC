@@ -20,7 +20,7 @@ def prhz(a,b):
 			# 		print 'm',
 			# 	else:
 			# 		print '.' ,
-			print "%016X," % (((buff[i*2] & 0xff) << 8) | (buff[i*2+1] & 0xff))
+			print "%04X," % (((buff[i*2] & 0xff) << 8) | (buff[i*2+1] & 0xff))
 for i in xrange(256):
 	prhz(0xa3,128 + i)
 
