@@ -26,7 +26,7 @@ output vga_red, vga_green, vga_blue, vga_hsync, vga_vsync;
 wire [31:0]BUS;
 wire Memread;
 wire [1:0] Memwrite;
-wire [31;0] Addr;
+wire [31:0] Addr;
 CPU cpu(
 	.clk(clk),
 	.rst(rst),
@@ -40,7 +40,7 @@ Mem mem(
 	.BUS(BUS),
 	.Memread(Memread),
 	.Memwrite(Memwrite),
-	.Addr(Addr)
+	.Addrin(Addr)
 	);
 VGA vga(vga_red, vga_green, vga_blue, vga_hsync, vga_vsync,clk,rst);
 

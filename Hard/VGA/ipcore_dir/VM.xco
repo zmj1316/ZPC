@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.7
-# Date: Wed Sep 23 02:21:47 2015
+# Date: Thu Sep 24 08:55:25 2015
 #
 ##############################################################
 #
@@ -46,7 +46,7 @@ CSET axi_id_width=4
 CSET axi_slave_type=Memory_Slave
 CSET axi_type=AXI4_Full
 CSET byte_size=9
-CSET coe_file=no_coe_file_loaded
+CSET coe_file=F:\Workspace\ASM\Hard\VGA\coe\text.coe
 CSET collision_warnings=ALL
 CSET component_name=VM
 CSET disable_collision_warnings=false
@@ -59,7 +59,7 @@ CSET enable_b=Always_Enabled
 CSET error_injection_type=Single_Bit_Error_Injection
 CSET fill_remaining_memory_locations=false
 CSET interface_type=Native
-CSET load_init_file=false
+CSET load_init_file=true
 CSET mem_file=no_Mem_file_loaded
 CSET memory_type=Simple_Dual_Port_RAM
 CSET operating_mode_a=WRITE_FIRST
@@ -97,7 +97,7 @@ CSET use_regcea_pin=false
 CSET use_regceb_pin=false
 CSET use_rsta_pin=false
 CSET use_rstb_pin=false
-CSET write_depth_a=2400
+CSET write_depth_a=4096
 CSET write_width_a=8
 CSET write_width_b=8
 # END Parameters
@@ -105,4 +105,4 @@ CSET write_width_b=8
 MISC pkg_timestamp=2012-11-19T16:22:25Z
 # END Extra information
 GENERATE
-# CRC: a1e7b0f4
+# CRC: 5fed5cee

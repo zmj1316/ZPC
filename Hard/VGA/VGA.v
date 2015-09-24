@@ -19,10 +19,15 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module VGA(vga_red, vga_green, vga_blue, vga_hsync, vga_vsync,clk_50mhz,rst,
-    );
+    		BUS,Memwrite,Addrin);
 output vga_red, vga_green, vga_blue, vga_hsync, vga_vsync;
 input clk_50mhz;
 input rst;
+
+input [31:0]BUS;
+input [1:0]Memwrite;
+input [31:0] Addrin;
+
 wire [10:0] h_counter;
 wire [10:0] v_counter;
 wire blank;
@@ -42,6 +47,7 @@ layer_compositor layering({vga_blue, vga_green, vga_red}, blank,topval);
 reg we;
 reg [11:0] addra;
 reg [11:0] addrb;
+reg [7:0] datain;
 reg [7:0] dina;
 // reg [7:0] douta;
 wire [7:0] doutb;
@@ -66,6 +72,12 @@ always @(posedge clk_50mhz or posedge rst) begin
 	end
 	else begin
 		addrb = {v_counter[8:4],h_counter[8:4]};
+		if (Memwrite[0]) begin
+			addra = Addrin;
+			datain = BUS[7:0];
+			we = 1;
+		end
+
 	end
 end
 endmodule

@@ -1,6 +1,7 @@
 # Output products list for <VM>
 VM.asy
 VM.gise
+VM.mif
 VM.ngc
 VM.sym
 VM.v
