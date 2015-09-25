@@ -2,96 +2,212 @@ Created by PLY version 3.6 (http://www.dabeaz.com/ply)
 
 Grammar
 
-Rule 0     S' -> IR
-Rule 1     IR -> OP REG REG REG
-Rule 2     IR -> OP REG REG IMME
-Rule 3     IMME -> DEC
-Rule 4     IMME -> HEX
+Rule 0     S' -> program
+Rule 1     program -> IR
+Rule 2     program -> IR program
+Rule 3     program -> LABLE program
+Rule 4     IR -> OP REG REG REG
+Rule 5     IR -> OP REG REG IMME
+Rule 6     IR -> OP IMME
+Rule 7     IR -> OP FLAG
+Rule 8     IR -> OP REG REG FLAG
+Rule 9     IMME -> DEC
+Rule 10    IMME -> HEX
 
 Terminals, with rules where they appear
 
-DEC                  : 3
-HEX                  : 4
-OP                   : 1 2
-REG                  : 1 1 1 2 2
+DEC                  : 9
+FLAG                 : 7 8
+HEX                  : 10
+LABLE                : 3
+OP                   : 4 5 6 7 8
+REG                  : 4 4 4 5 5 8 8
 error                : 
 
 Nonterminals, with rules where they appear
 
-IMME                 : 2
-IR                   : 0
+IMME                 : 5 6
+IR                   : 1 2
+program              : 2 3 0
 
 Parsing method: LALR
 
 state 0
 
-    (0) S' -> . IR
-    (1) IR -> . OP REG REG REG
-    (2) IR -> . OP REG REG IMME
+    (0) S' -> . program
+    (1) program -> . IR
+    (2) program -> . IR program
+    (3) program -> . LABLE program
+    (4) IR -> . OP REG REG REG
+    (5) IR -> . OP REG REG IMME
+    (6) IR -> . OP IMME
+    (7) IR -> . OP FLAG
+    (8) IR -> . OP REG REG FLAG
 
-    OP              shift and go to state 2
+    LABLE           shift and go to state 1
+    OP              shift and go to state 4
 
-    IR                             shift and go to state 1
+    program                        shift and go to state 3
+    IR                             shift and go to state 2
 
 state 1
 
-    (0) S' -> IR .
+    (3) program -> LABLE . program
+    (1) program -> . IR
+    (2) program -> . IR program
+    (3) program -> . LABLE program
+    (4) IR -> . OP REG REG REG
+    (5) IR -> . OP REG REG IMME
+    (6) IR -> . OP IMME
+    (7) IR -> . OP FLAG
+    (8) IR -> . OP REG REG FLAG
 
+    LABLE           shift and go to state 1
+    OP              shift and go to state 4
 
+    program                        shift and go to state 5
+    IR                             shift and go to state 2
 
 state 2
 
-    (1) IR -> OP . REG REG REG
-    (2) IR -> OP . REG REG IMME
+    (1) program -> IR .
+    (2) program -> IR . program
+    (1) program -> . IR
+    (2) program -> . IR program
+    (3) program -> . LABLE program
+    (4) IR -> . OP REG REG REG
+    (5) IR -> . OP REG REG IMME
+    (6) IR -> . OP IMME
+    (7) IR -> . OP FLAG
+    (8) IR -> . OP REG REG FLAG
 
-    REG             shift and go to state 3
+    $end            reduce using rule 1 (program -> IR .)
+    LABLE           shift and go to state 1
+    OP              shift and go to state 4
 
+    program                        shift and go to state 6
+    IR                             shift and go to state 2
 
 state 3
 
-    (1) IR -> OP REG . REG REG
-    (2) IR -> OP REG . REG IMME
+    (0) S' -> program .
 
-    REG             shift and go to state 4
 
 
 state 4
 
-    (1) IR -> OP REG REG . REG
-    (2) IR -> OP REG REG . IMME
-    (3) IMME -> . DEC
-    (4) IMME -> . HEX
+    (4) IR -> OP . REG REG REG
+    (5) IR -> OP . REG REG IMME
+    (6) IR -> OP . IMME
+    (7) IR -> OP . FLAG
+    (8) IR -> OP . REG REG FLAG
+    (9) IMME -> . DEC
+    (10) IMME -> . HEX
 
-    REG             shift and go to state 8
-    DEC             shift and go to state 6
-    HEX             shift and go to state 5
+    REG             shift and go to state 11
+    FLAG            shift and go to state 9
+    DEC             shift and go to state 10
+    HEX             shift and go to state 8
 
     IMME                           shift and go to state 7
 
 state 5
 
-    (4) IMME -> HEX .
+    (3) program -> LABLE program .
 
-    $end            reduce using rule 4 (IMME -> HEX .)
+    $end            reduce using rule 3 (program -> LABLE program .)
 
 
 state 6
 
-    (3) IMME -> DEC .
+    (2) program -> IR program .
 
-    $end            reduce using rule 3 (IMME -> DEC .)
+    $end            reduce using rule 2 (program -> IR program .)
 
 
 state 7
 
-    (2) IR -> OP REG REG IMME .
+    (6) IR -> OP IMME .
 
-    $end            reduce using rule 2 (IR -> OP REG REG IMME .)
+    LABLE           reduce using rule 6 (IR -> OP IMME .)
+    OP              reduce using rule 6 (IR -> OP IMME .)
+    $end            reduce using rule 6 (IR -> OP IMME .)
 
 
 state 8
 
-    (1) IR -> OP REG REG REG .
+    (10) IMME -> HEX .
 
-    $end            reduce using rule 1 (IR -> OP REG REG REG .)
+    LABLE           reduce using rule 10 (IMME -> HEX .)
+    OP              reduce using rule 10 (IMME -> HEX .)
+    $end            reduce using rule 10 (IMME -> HEX .)
+
+
+state 9
+
+    (7) IR -> OP FLAG .
+
+    LABLE           reduce using rule 7 (IR -> OP FLAG .)
+    OP              reduce using rule 7 (IR -> OP FLAG .)
+    $end            reduce using rule 7 (IR -> OP FLAG .)
+
+
+state 10
+
+    (9) IMME -> DEC .
+
+    LABLE           reduce using rule 9 (IMME -> DEC .)
+    OP              reduce using rule 9 (IMME -> DEC .)
+    $end            reduce using rule 9 (IMME -> DEC .)
+
+
+state 11
+
+    (4) IR -> OP REG . REG REG
+    (5) IR -> OP REG . REG IMME
+    (8) IR -> OP REG . REG FLAG
+
+    REG             shift and go to state 12
+
+
+state 12
+
+    (4) IR -> OP REG REG . REG
+    (5) IR -> OP REG REG . IMME
+    (8) IR -> OP REG REG . FLAG
+    (9) IMME -> . DEC
+    (10) IMME -> . HEX
+
+    REG             shift and go to state 15
+    FLAG            shift and go to state 14
+    DEC             shift and go to state 10
+    HEX             shift and go to state 8
+
+    IMME                           shift and go to state 13
+
+state 13
+
+    (5) IR -> OP REG REG IMME .
+
+    LABLE           reduce using rule 5 (IR -> OP REG REG IMME .)
+    OP              reduce using rule 5 (IR -> OP REG REG IMME .)
+    $end            reduce using rule 5 (IR -> OP REG REG IMME .)
+
+
+state 14
+
+    (8) IR -> OP REG REG FLAG .
+
+    LABLE           reduce using rule 8 (IR -> OP REG REG FLAG .)
+    OP              reduce using rule 8 (IR -> OP REG REG FLAG .)
+    $end            reduce using rule 8 (IR -> OP REG REG FLAG .)
+
+
+state 15
+
+    (4) IR -> OP REG REG REG .
+
+    LABLE           reduce using rule 4 (IR -> OP REG REG REG .)
+    OP              reduce using rule 4 (IR -> OP REG REG REG .)
+    $end            reduce using rule 4 (IR -> OP REG REG REG .)
 
