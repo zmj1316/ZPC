@@ -55,8 +55,6 @@ isim set radix hex
 wave add /CM_tb/status
       wave add  /CM_tb/CM_synth_inst/BMG_PORT/CLKA
       wave add  /CM_tb/CM_synth_inst/BMG_PORT/ADDRA
-      wave add  /CM_tb/CM_synth_inst/BMG_PORT/DINA
-      wave add  /CM_tb/CM_synth_inst/BMG_PORT/WEA
       wave add  /CM_tb/CM_synth_inst/BMG_PORT/DOUTA
 run all
 quit

@@ -18,9 +18,15 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Mem(input clk,inout [31:0] BUS,input Memread,input [1:0]Memwrite,
-		input [31:0] Addrin,input rst
+module Mem(clk,BUS,Memread,Memwrite,Addrin,rst
     );
+input clk;// memory clock
+inout [31:0] BUS;// data BUS
+input Memread;
+input [1:0] Memwrite;
+input [11:0] Addrin;
+input rst;
+//clock divider
 reg st;
 initial st = 0;
 always @(posedge clk or posedge rst) begin
@@ -32,12 +38,15 @@ always @(posedge clk or posedge rst) begin
 		st = ~st;
 	end
 end
+
 wire [31:0] douta;
-reg [31:0] datain;
+
+reg [31:0] datain;// data to be writeen
 reg [11:0] addr;
 reg [63:0] tmp;
-reg [31:0] Memout;
-reg we;
+reg [31:0] Memout;// data to be sent
+reg we;// write enable
+
 assign BUS = Memread?Memout:32'bz;
 
 BB ram(
@@ -51,7 +60,8 @@ BB ram(
 always @(posedge clk or posedge rst) begin
 	if (rst) begin
 		// reset
-		
+		we = 0;
+		st = 0;
 	end
 	else begin
 		we = 0;

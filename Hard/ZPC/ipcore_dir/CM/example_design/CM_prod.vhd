@@ -81,14 +81,14 @@
 --    C_AXI_TYPE                  :  1 
 --    C_AXI_SLAVE_TYPE            :  0 
 --    C_AXI_ID_WIDTH              :  4 
---    C_MEM_TYPE                  :  0 
+--    C_MEM_TYPE                  :  3 
 --    C_BYTE_SIZE                 :  9 
 --    C_ALGORITHM                 :  1 
 --    C_PRIM_TYPE                 :  1 
 --    C_LOAD_INIT_FILE            :  1 
 --    C_INIT_FILE_NAME            :  CM.mif 
---    C_USE_DEFAULT_DATA          :  0 
---    C_DEFAULT_DATA              :  0 
+--    C_USE_DEFAULT_DATA          :  1 
+--    C_DEFAULT_DATA              :  F 
 --    C_RST_TYPE                  :  SYNC 
 --    C_HAS_RSTA                  :  0 
 --    C_RST_PRIORITY_A            :  CE 
@@ -231,11 +231,7 @@ ARCHITECTURE xilinx OF CM_prod IS
   COMPONENT CM_exdes IS
   PORT (
       --Port A
-  
-    WEA            : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     ADDRA          : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
-  
-    DINA           : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
   
     DOUTA          : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 
@@ -252,11 +248,7 @@ BEGIN
   bmg0 : CM_exdes
     PORT MAP (
       --Port A
-  
-      WEA        => WEA,
       ADDRA      => ADDRA,
-  
-      DINA       => DINA,
   
       DOUTA      => DOUTA,
 

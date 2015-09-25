@@ -1,6 +1,7 @@
 # Output products list for <BB>
 BB.asy
 BB.gise
+BB.mif
 BB.ngc
 BB.sym
 BB.v

@@ -54,10 +54,7 @@ vhdlan  ../../example_design/CM_exdes.vhd
 
 echo "Compiling Test Bench Files"
 vhdlan    ../bmg_tb_pkg.vhd
-vhdlan    ../random.vhd
-vhdlan    ../data_gen.vhd
 vhdlan    ../addr_gen.vhd
-vhdlan    ../checker.vhd
 vhdlan    ../bmg_stim_gen.vhd
 vhdlan    ../CM_synth.vhd 
 vhdlan    ../CM_tb.vhd

@@ -18,15 +18,30 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module PC(clk,vga_red, vga_green, vga_blue, vga_hsync, vga_vsync,rst
+module PC(clk_50mhz,vga_red, vga_green, vga_blue, vga_hsync, vga_vsync,rst
     );
-input wire clk,rst;
-output vga_red, vga_green, vga_blue, vga_hsync, vga_vsync;
-
-wire [31:0]BUS;
+input wire clk_50mhz,rst;//clock and reset signal
+output vga_red, vga_green, vga_blue, vga_hsync, vga_vsync;//VGA signals
+// input run;
+wire [31:0]BUS;//data BUS
 wire Memread;
 wire [1:0] Memwrite;
-wire [31:0] Addr;
+wire [31:0] Addr;//Memory address
+wire clk;//CPU clock
+
+//slow clock generator
+reg [1:0]tmp;
+always @(posedge clk_50mhz or posedge rst) begin
+	if (rst) begin
+		// reset
+		tmp = 0;
+	end
+	else begin
+		tmp = ~tmp;
+	end
+end
+assign clk = tmp[0];
+
 CPU cpu(
 	.clk(clk),
 	.rst(rst),
@@ -40,8 +55,12 @@ Mem mem(
 	.BUS(BUS),
 	.Memread(Memread),
 	.Memwrite(Memwrite),
-	.Addrin(Addr)
+	.Addrin(Addr[11:0])
 	);
-VGA vga(vga_red, vga_green, vga_blue, vga_hsync, vga_vsync,clk,rst);
+
+wire VMwrite;// signal for Video memory write
+assign VMwrite = (Addr[31:28] == 4'hA)?Memwrite:0;
+
+VGA vga(vga_red, vga_green, vga_blue, vga_hsync, vga_vsync,clk_50mhz,rst,BUS,VMwrite,{0,Addr[27:0]});
 
 endmodule

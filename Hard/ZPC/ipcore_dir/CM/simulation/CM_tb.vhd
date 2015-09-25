@@ -125,6 +125,7 @@ PROCESS BEGIN
 END PROCESS;	 
   
   CM_synth_inst:ENTITY work.CM_synth
+  GENERIC MAP (C_ROM_SYNTH => 0)
   PORT MAP(
            CLK_IN   => CLK,
      	   RESET_IN => RESET,

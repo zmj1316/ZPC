@@ -75,8 +75,6 @@ gui_list_add_group -id Wave.1 {CM_Group}
       gui_sg_addsignal -group CM_Group  /CM_tb/status
       gui_sg_addsignal -group CM_Group  /CM_tb/CM_synth_inst/bmg_port/CLKA
       gui_sg_addsignal -group CM_Group  /CM_tb/CM_synth_inst/bmg_port/ADDRA
-      gui_sg_addsignal -group CM_Group  /CM_tb/CM_synth_inst/bmg_port/DINA
-      gui_sg_addsignal -group CM_Group  /CM_tb/CM_synth_inst/bmg_port/WEA
       gui_sg_addsignal -group CM_Group  /CM_tb/CM_synth_inst/bmg_port/DOUTA
 
 gui_zoom -window Wave.1 -full

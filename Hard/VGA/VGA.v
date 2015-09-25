@@ -19,16 +19,15 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module VGA(vga_red, vga_green, vga_blue, vga_hsync, vga_vsync,clk_50mhz
-//,rst,BUS,Memwrite,Addrin
+,rst,BUS,Memwrite,Addrin
 );
 output vga_red, vga_green, vga_blue, vga_hsync, vga_vsync;
 input clk_50mhz;
-//input rst;
-reg rst;
-//input [31:0]BUS;
-//input [1:0]Memwrite;
-//input [31:0] Addrin;
-
+input rst;
+inout [31:0]BUS;
+input [1:0]Memwrite;
+input [31:0] Addrin;
+assign BUS = 32'bz;
 wire [10:0] h_counter;
 wire [10:0] v_counter;
 wire blank;
@@ -49,7 +48,6 @@ reg we;
 reg [11:0] addra;
 reg [11:0] addrb;
 reg [7:0] datain;
-reg [7:0] dina;
 // reg [7:0] douta;
 wire [7:0] doutb;
 
@@ -64,20 +62,28 @@ VM vm(
 	.doutb(doutb)
 	);
 
-char c(doutb,h_counter[2:0],v_counter[3:0],topval[0],clk_50mhz);
-
+char c(doutb,h_counter[3:0],v_counter[3:0],topval[0],clk_50mhz);
+initial begin
+	we = 0;
+	addra = 0;
+	addrb = 0;
+	datain = 0;
+end
 always @(posedge clk_50mhz or posedge rst) begin
+	we = 0;
 	if (rst) begin
 		// reset
+		datain = 0;
+
 		we=0;
 	end
 	else begin
 		addrb = {v_counter[8:4],h_counter[8:4]};
-//		if (Memwrite[0]) begin
-//			addra = Addrin;
-//			datain = BUS[7:0];
-//			we = 1;
-//		end
+		if (Memwrite[0]) begin
+			addra = Addrin;
+			datain = BUS[7:0];
+			we = 1;
+		end
 
 	end
 end

@@ -23,14 +23,17 @@ module char(c,x,y,d,clk
 input [7:0] c;
 input [3:0] x;
 input [3:0] y;
-output wire d;
+output reg d;
 input clk;
 
 wire [15:0] douta;
 CM cm(
-	.addra({c,y}),
+	.addra({c[7:0],y[3:0]}),
 	.clka(clk),
 	.douta(douta)
 );
-assign	d = douta[x];
+// assign d = douta[15-x];
+always @(posedge clk ) begin
+		d = douta[15-x];
+	end	
 endmodule

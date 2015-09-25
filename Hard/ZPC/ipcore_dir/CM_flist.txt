@@ -27,8 +27,6 @@ CM\simulation\CM_tb.vhd
 CM\simulation\addr_gen.vhd
 CM\simulation\bmg_stim_gen.vhd
 CM\simulation\bmg_tb_pkg.vhd
-CM\simulation\checker.vhd
-CM\simulation\data_gen.vhd
 CM\simulation\functional\simcmds.tcl
 CM\simulation\functional\simulate_isim.bat
 CM\simulation\functional\simulate_mti.bat
