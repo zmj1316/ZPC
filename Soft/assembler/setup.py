@@ -1,4 +1,4 @@
 from distutils.core import setup
 import py2exe
 
-setup(console=['asm.py'])
+setup(name = 'mips asm',console=[{"script":'asm.py'}])

@@ -55,3 +55,7 @@ webtalk_pn.xml
 */*/xst/
 */*/_ngo/
 */*/_xmsgs/
+
+#SOFT
+*.pyc
+*.out

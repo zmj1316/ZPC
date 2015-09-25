@@ -1,8 +1,5 @@
 import ply.lex as lex
 
-f = open("1.asm",'r')
-r = open("1.out",'w')
-
 tokens = (
 	"OP",
 	"REG",
@@ -99,7 +96,7 @@ def t_HEX(t):
 
 def t_OP(t):
   r'\b[a-z]+\b'
-  t.value = (OPdict[t.value],t.lexer.lineno)
+  t.value = OPdict[t.value]
   t.lexer.lineno+=1
   return t
 
@@ -111,6 +108,7 @@ def t_LABLE(t):
 
 def t_FLAG(t):
   r'[A-Z]+[A-Za-z0-9]*'
+  t.value = ((LABLEdict[t.value+':'] - t.lexer.lineno + 1) &0x0000FFFF, LABLEdict[t.value+':'])
   return t
 
 def t_newline(t):
@@ -127,81 +125,3 @@ def t_error(t):
     print "Illegal character '%s'" % t.value[0]
     t.lexer.skip(1)
 lexer = lex.lex()
-
-
-import ply.yacc as yacc
-
-def p_expression_program(p):
-  '''program : IR
-              | IR program
-              | LABLE program'''
-
-
-def p_expression_R(p):
-  'IR : OP REG REG REG'
-  # print "R_TYPE"
-  res = (p[1][0])|(p[2]<<11)|(p[3])<<21|(p[4]<<16)
-  print bin(res)[2:]
-  # r.write(bin((p[1])|(p[2]<<11)|(p[3])<<21|(p[4]<<16))[2:] + "\n")
-  r.write("%08X" % res + "\n")
-
-def p_expression_I(p):
-  '''IR : OP REG REG IMME'''
-  # print "I_TYPE"
-  res = (p[1][0])|(p[2]<<16)|(p[3]<<21)|(p[4])
-  print bin(res)[2:]
-  # r.write(bin(((p[1])|(p[2]<<16)|(p[3]<<21)|(p[4])))[2:] + "\n")
-  r.write("%08X" % res + "\n")
-
-def p_expression_J(p):
-  'IR : OP IMME'
-  res = p[1][0]|p[2]
-  print bin(res)[2:]
-  r.write("%08X" % res + "\n")
-
-def p_expression_JFLAG(p):
-  'IR : OP FLAG'
-  res = p[1][0]|(LABLEdict[p[2]+':'])
-  print bin(res)[2:]
-  r.write("%08X" % res + "\n")
-
-def p_expression_IFLAG(p):
-  '''IR : OP REG REG FLAG'''
-  # print "I_TYPE"
-  res = (p[1][0])|(p[2]<<16)|(p[3]<<21)|((LABLEdict[p[4]+':'] - p[1][1]) & 0x0000FFFF)
-  print bin(res)[2:]
-  # r.write(bin(((p[1])|(p[2]<<16)|(p[3]<<21)|(p[4])))[2:] + "\n")
-  r.write("%08X" % res + "\n")
-  
-def p_expression_DEC(p):
-  'IMME : DEC'
-  p[0] = p[1]
-
-def p_expression_HEX(p):
-  'IMME : HEX'
-  p[0] = p[1]
-
-
-parser = yacc.yacc()
-
-# lexer.input('''add $at $at 123\n''')
-# for i in lexer:
-#   print i
-
-# while True:
-#   try:
-#       s = raw_input()
-#   except EOFError:
-#       break
-#   if not s: continue
-#   parser.parse(s)
-s = f.read()
-
-parser.parse(s)
-r.close()
-# lexer.input(s)
-# for i in lexer:
-#   print i
-# s = '''addi $s1 $s2 0x1234 '''
-# result = parser.parse(s)
-# print result
