@@ -187,6 +187,7 @@ always @(posedge clk or posedge rst) begin
 						6'h0D: Alures = A | B;
 						6'h0E: Alures = A ^ B;
 						6'h0F: Alures = {B[15:0],16'b0};
+						6'h0A: Alures = (A < B)? 1 : 0;
 					endcase
 				end
 				//PC write

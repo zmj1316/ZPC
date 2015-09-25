@@ -1,0 +1,97 @@
+Created by PLY version 3.6 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> IR
+Rule 1     IR -> OP REG REG REG
+Rule 2     IR -> OP REG REG IMME
+Rule 3     IMME -> DEC
+Rule 4     IMME -> HEX
+
+Terminals, with rules where they appear
+
+DEC                  : 3
+HEX                  : 4
+OP                   : 1 2
+REG                  : 1 1 1 2 2
+error                : 
+
+Nonterminals, with rules where they appear
+
+IMME                 : 2
+IR                   : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . IR
+    (1) IR -> . OP REG REG REG
+    (2) IR -> . OP REG REG IMME
+
+    OP              shift and go to state 2
+
+    IR                             shift and go to state 1
+
+state 1
+
+    (0) S' -> IR .
+
+
+
+state 2
+
+    (1) IR -> OP . REG REG REG
+    (2) IR -> OP . REG REG IMME
+
+    REG             shift and go to state 3
+
+
+state 3
+
+    (1) IR -> OP REG . REG REG
+    (2) IR -> OP REG . REG IMME
+
+    REG             shift and go to state 4
+
+
+state 4
+
+    (1) IR -> OP REG REG . REG
+    (2) IR -> OP REG REG . IMME
+    (3) IMME -> . DEC
+    (4) IMME -> . HEX
+
+    REG             shift and go to state 8
+    DEC             shift and go to state 6
+    HEX             shift and go to state 5
+
+    IMME                           shift and go to state 7
+
+state 5
+
+    (4) IMME -> HEX .
+
+    $end            reduce using rule 4 (IMME -> HEX .)
+
+
+state 6
+
+    (3) IMME -> DEC .
+
+    $end            reduce using rule 3 (IMME -> DEC .)
+
+
+state 7
+
+    (2) IR -> OP REG REG IMME .
+
+    $end            reduce using rule 2 (IR -> OP REG REG IMME .)
+
+
+state 8
+
+    (1) IR -> OP REG REG REG .
+
+    $end            reduce using rule 1 (IR -> OP REG REG REG .)
+
