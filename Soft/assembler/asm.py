@@ -132,9 +132,9 @@ lexer = lex.lex()
 import ply.yacc as yacc
 
 def p_expression_program(p):
-  '''program : IR
-              | IR program
-              | LABLE program'''
+  '''program :   IR
+               | IR program
+               | LABLE program'''
 
 
 def p_expression_R(p):

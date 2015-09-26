@@ -1,9 +1,12 @@
-;comments here
+.text
 SS:;this is lable uppercase only
-addi $t1 $zero 0xFFFF
+addi $t1 $zero X
 SR:
 add $t1 $t2 $t3
 beq $zero $zero SSS
+
+bne $zero $at SS
 SSS:
-bne $zero $at SSS
 j SR
+.data
+X:	.word 0xEEEE

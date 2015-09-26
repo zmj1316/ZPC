@@ -1,213 +1,353 @@
 Created by PLY version 3.6 (http://www.dabeaz.com/ply)
 
+Unused terminals:
+
+    STRING
+    SPACE
+    ASCII
+
 Grammar
 
 Rule 0     S' -> program
-Rule 1     program -> IR
-Rule 2     program -> IR program
-Rule 3     program -> LABLE program
-Rule 4     IR -> OP REG REG REG
-Rule 5     IR -> OP REG REG IMME
-Rule 6     IR -> OP IMME
-Rule 7     IR -> OP FLAG
-Rule 8     IR -> OP REG REG FLAG
-Rule 9     IMME -> DEC
-Rule 10    IMME -> HEX
+Rule 1     program -> TEXT textseg DATA dataseg
+Rule 2     program -> TEXT textseg
+Rule 3     textseg -> IR
+Rule 4     textseg -> IR textseg
+Rule 5     textseg -> LABLEdef textseg
+Rule 6     dataseg -> datastate
+Rule 7     dataseg -> dataseg datastate
+Rule 8     datastate -> LABLEdef WORD INT
+Rule 9     datastate -> LABLEdef BYTE INT
+Rule 10    IR -> OP REG REG REG
+Rule 11    IR -> OP REG REG INT
+Rule 12    IR -> OP REG REG LABLEref
+Rule 13    IR -> OP INT
+Rule 14    IR -> OP LABLEref
+Rule 15    INT -> DEC
+Rule 16    INT -> HEX
 
 Terminals, with rules where they appear
 
-DEC                  : 9
-FLAG                 : 7 8
-HEX                  : 10
-LABLE                : 3
-OP                   : 4 5 6 7 8
-REG                  : 4 4 4 5 5 8 8
+ASCII                : 
+BYTE                 : 9
+DATA                 : 1
+DEC                  : 15
+HEX                  : 16
+LABLEdef             : 5 8 9
+LABLEref             : 12 14
+OP                   : 10 11 12 13 14
+REG                  : 10 10 10 11 11 12 12
+SPACE                : 
+STRING               : 
+TEXT                 : 1 2
+WORD                 : 8
 error                : 
 
 Nonterminals, with rules where they appear
 
-IMME                 : 5 6
-IR                   : 1 2
-program              : 2 3 0
+INT                  : 8 9 11 13
+IR                   : 3 4
+dataseg              : 1 7
+datastate            : 6 7
+program              : 0
+textseg              : 1 2 4 5
 
 Parsing method: LALR
 
 state 0
 
     (0) S' -> . program
-    (1) program -> . IR
-    (2) program -> . IR program
-    (3) program -> . LABLE program
-    (4) IR -> . OP REG REG REG
-    (5) IR -> . OP REG REG IMME
-    (6) IR -> . OP IMME
-    (7) IR -> . OP FLAG
-    (8) IR -> . OP REG REG FLAG
+    (1) program -> . TEXT textseg DATA dataseg
+    (2) program -> . TEXT textseg
 
-    LABLE           shift and go to state 1
-    OP              shift and go to state 4
+    TEXT            shift and go to state 1
 
-    program                        shift and go to state 3
-    IR                             shift and go to state 2
+    program                        shift and go to state 2
 
 state 1
 
-    (3) program -> LABLE . program
-    (1) program -> . IR
-    (2) program -> . IR program
-    (3) program -> . LABLE program
-    (4) IR -> . OP REG REG REG
-    (5) IR -> . OP REG REG IMME
-    (6) IR -> . OP IMME
-    (7) IR -> . OP FLAG
-    (8) IR -> . OP REG REG FLAG
+    (1) program -> TEXT . textseg DATA dataseg
+    (2) program -> TEXT . textseg
+    (3) textseg -> . IR
+    (4) textseg -> . IR textseg
+    (5) textseg -> . LABLEdef textseg
+    (10) IR -> . OP REG REG REG
+    (11) IR -> . OP REG REG INT
+    (12) IR -> . OP REG REG LABLEref
+    (13) IR -> . OP INT
+    (14) IR -> . OP LABLEref
 
-    LABLE           shift and go to state 1
-    OP              shift and go to state 4
+    LABLEdef        shift and go to state 5
+    OP              shift and go to state 6
 
-    program                        shift and go to state 5
-    IR                             shift and go to state 2
+    textseg                        shift and go to state 3
+    IR                             shift and go to state 4
 
 state 2
-
-    (1) program -> IR .
-    (2) program -> IR . program
-    (1) program -> . IR
-    (2) program -> . IR program
-    (3) program -> . LABLE program
-    (4) IR -> . OP REG REG REG
-    (5) IR -> . OP REG REG IMME
-    (6) IR -> . OP IMME
-    (7) IR -> . OP FLAG
-    (8) IR -> . OP REG REG FLAG
-
-    $end            reduce using rule 1 (program -> IR .)
-    LABLE           shift and go to state 1
-    OP              shift and go to state 4
-
-    program                        shift and go to state 6
-    IR                             shift and go to state 2
-
-state 3
 
     (0) S' -> program .
 
 
 
+state 3
+
+    (1) program -> TEXT textseg . DATA dataseg
+    (2) program -> TEXT textseg .
+
+    DATA            shift and go to state 7
+    $end            reduce using rule 2 (program -> TEXT textseg .)
+
+
 state 4
 
-    (4) IR -> OP . REG REG REG
-    (5) IR -> OP . REG REG IMME
-    (6) IR -> OP . IMME
-    (7) IR -> OP . FLAG
-    (8) IR -> OP . REG REG FLAG
-    (9) IMME -> . DEC
-    (10) IMME -> . HEX
+    (3) textseg -> IR .
+    (4) textseg -> IR . textseg
+    (3) textseg -> . IR
+    (4) textseg -> . IR textseg
+    (5) textseg -> . LABLEdef textseg
+    (10) IR -> . OP REG REG REG
+    (11) IR -> . OP REG REG INT
+    (12) IR -> . OP REG REG LABLEref
+    (13) IR -> . OP INT
+    (14) IR -> . OP LABLEref
 
-    REG             shift and go to state 11
-    FLAG            shift and go to state 9
-    DEC             shift and go to state 10
-    HEX             shift and go to state 8
+    DATA            reduce using rule 3 (textseg -> IR .)
+    $end            reduce using rule 3 (textseg -> IR .)
+    LABLEdef        shift and go to state 5
+    OP              shift and go to state 6
 
-    IMME                           shift and go to state 7
+    textseg                        shift and go to state 8
+    IR                             shift and go to state 4
 
 state 5
 
-    (3) program -> LABLE program .
+    (5) textseg -> LABLEdef . textseg
+    (3) textseg -> . IR
+    (4) textseg -> . IR textseg
+    (5) textseg -> . LABLEdef textseg
+    (10) IR -> . OP REG REG REG
+    (11) IR -> . OP REG REG INT
+    (12) IR -> . OP REG REG LABLEref
+    (13) IR -> . OP INT
+    (14) IR -> . OP LABLEref
 
-    $end            reduce using rule 3 (program -> LABLE program .)
+    LABLEdef        shift and go to state 5
+    OP              shift and go to state 6
 
+    textseg                        shift and go to state 9
+    IR                             shift and go to state 4
 
 state 6
 
-    (2) program -> IR program .
+    (10) IR -> OP . REG REG REG
+    (11) IR -> OP . REG REG INT
+    (12) IR -> OP . REG REG LABLEref
+    (13) IR -> OP . INT
+    (14) IR -> OP . LABLEref
+    (15) INT -> . DEC
+    (16) INT -> . HEX
 
-    $end            reduce using rule 2 (program -> IR program .)
+    REG             shift and go to state 14
+    LABLEref        shift and go to state 12
+    DEC             shift and go to state 13
+    HEX             shift and go to state 11
 
+    INT                            shift and go to state 10
 
 state 7
 
-    (6) IR -> OP IMME .
+    (1) program -> TEXT textseg DATA . dataseg
+    (6) dataseg -> . datastate
+    (7) dataseg -> . dataseg datastate
+    (8) datastate -> . LABLEdef WORD INT
+    (9) datastate -> . LABLEdef BYTE INT
 
-    LABLE           reduce using rule 6 (IR -> OP IMME .)
-    OP              reduce using rule 6 (IR -> OP IMME .)
-    $end            reduce using rule 6 (IR -> OP IMME .)
+    LABLEdef        shift and go to state 17
 
+    dataseg                        shift and go to state 15
+    datastate                      shift and go to state 16
 
 state 8
 
-    (10) IMME -> HEX .
+    (4) textseg -> IR textseg .
 
-    LABLE           reduce using rule 10 (IMME -> HEX .)
-    OP              reduce using rule 10 (IMME -> HEX .)
-    $end            reduce using rule 10 (IMME -> HEX .)
+    DATA            reduce using rule 4 (textseg -> IR textseg .)
+    $end            reduce using rule 4 (textseg -> IR textseg .)
 
 
 state 9
 
-    (7) IR -> OP FLAG .
+    (5) textseg -> LABLEdef textseg .
 
-    LABLE           reduce using rule 7 (IR -> OP FLAG .)
-    OP              reduce using rule 7 (IR -> OP FLAG .)
-    $end            reduce using rule 7 (IR -> OP FLAG .)
+    DATA            reduce using rule 5 (textseg -> LABLEdef textseg .)
+    $end            reduce using rule 5 (textseg -> LABLEdef textseg .)
 
 
 state 10
 
-    (9) IMME -> DEC .
+    (13) IR -> OP INT .
 
-    LABLE           reduce using rule 9 (IMME -> DEC .)
-    OP              reduce using rule 9 (IMME -> DEC .)
-    $end            reduce using rule 9 (IMME -> DEC .)
+    LABLEdef        reduce using rule 13 (IR -> OP INT .)
+    OP              reduce using rule 13 (IR -> OP INT .)
+    DATA            reduce using rule 13 (IR -> OP INT .)
+    $end            reduce using rule 13 (IR -> OP INT .)
 
 
 state 11
 
-    (4) IR -> OP REG . REG REG
-    (5) IR -> OP REG . REG IMME
-    (8) IR -> OP REG . REG FLAG
+    (16) INT -> HEX .
 
-    REG             shift and go to state 12
+    LABLEdef        reduce using rule 16 (INT -> HEX .)
+    OP              reduce using rule 16 (INT -> HEX .)
+    DATA            reduce using rule 16 (INT -> HEX .)
+    $end            reduce using rule 16 (INT -> HEX .)
 
 
 state 12
 
-    (4) IR -> OP REG REG . REG
-    (5) IR -> OP REG REG . IMME
-    (8) IR -> OP REG REG . FLAG
-    (9) IMME -> . DEC
-    (10) IMME -> . HEX
+    (14) IR -> OP LABLEref .
 
-    REG             shift and go to state 15
-    FLAG            shift and go to state 14
-    DEC             shift and go to state 10
-    HEX             shift and go to state 8
+    LABLEdef        reduce using rule 14 (IR -> OP LABLEref .)
+    OP              reduce using rule 14 (IR -> OP LABLEref .)
+    DATA            reduce using rule 14 (IR -> OP LABLEref .)
+    $end            reduce using rule 14 (IR -> OP LABLEref .)
 
-    IMME                           shift and go to state 13
 
 state 13
 
-    (5) IR -> OP REG REG IMME .
+    (15) INT -> DEC .
 
-    LABLE           reduce using rule 5 (IR -> OP REG REG IMME .)
-    OP              reduce using rule 5 (IR -> OP REG REG IMME .)
-    $end            reduce using rule 5 (IR -> OP REG REG IMME .)
+    LABLEdef        reduce using rule 15 (INT -> DEC .)
+    OP              reduce using rule 15 (INT -> DEC .)
+    DATA            reduce using rule 15 (INT -> DEC .)
+    $end            reduce using rule 15 (INT -> DEC .)
 
 
 state 14
 
-    (8) IR -> OP REG REG FLAG .
+    (10) IR -> OP REG . REG REG
+    (11) IR -> OP REG . REG INT
+    (12) IR -> OP REG . REG LABLEref
 
-    LABLE           reduce using rule 8 (IR -> OP REG REG FLAG .)
-    OP              reduce using rule 8 (IR -> OP REG REG FLAG .)
-    $end            reduce using rule 8 (IR -> OP REG REG FLAG .)
+    REG             shift and go to state 18
 
 
 state 15
 
-    (4) IR -> OP REG REG REG .
+    (1) program -> TEXT textseg DATA dataseg .
+    (7) dataseg -> dataseg . datastate
+    (8) datastate -> . LABLEdef WORD INT
+    (9) datastate -> . LABLEdef BYTE INT
 
-    LABLE           reduce using rule 4 (IR -> OP REG REG REG .)
-    OP              reduce using rule 4 (IR -> OP REG REG REG .)
-    $end            reduce using rule 4 (IR -> OP REG REG REG .)
+    $end            reduce using rule 1 (program -> TEXT textseg DATA dataseg .)
+    LABLEdef        shift and go to state 17
+
+    datastate                      shift and go to state 19
+
+state 16
+
+    (6) dataseg -> datastate .
+
+    LABLEdef        reduce using rule 6 (dataseg -> datastate .)
+    $end            reduce using rule 6 (dataseg -> datastate .)
+
+
+state 17
+
+    (8) datastate -> LABLEdef . WORD INT
+    (9) datastate -> LABLEdef . BYTE INT
+
+    WORD            shift and go to state 21
+    BYTE            shift and go to state 20
+
+
+state 18
+
+    (10) IR -> OP REG REG . REG
+    (11) IR -> OP REG REG . INT
+    (12) IR -> OP REG REG . LABLEref
+    (15) INT -> . DEC
+    (16) INT -> . HEX
+
+    REG             shift and go to state 24
+    LABLEref        shift and go to state 23
+    DEC             shift and go to state 13
+    HEX             shift and go to state 11
+
+    INT                            shift and go to state 22
+
+state 19
+
+    (7) dataseg -> dataseg datastate .
+
+    LABLEdef        reduce using rule 7 (dataseg -> dataseg datastate .)
+    $end            reduce using rule 7 (dataseg -> dataseg datastate .)
+
+
+state 20
+
+    (9) datastate -> LABLEdef BYTE . INT
+    (15) INT -> . DEC
+    (16) INT -> . HEX
+
+    DEC             shift and go to state 13
+    HEX             shift and go to state 11
+
+    INT                            shift and go to state 25
+
+state 21
+
+    (8) datastate -> LABLEdef WORD . INT
+    (15) INT -> . DEC
+    (16) INT -> . HEX
+
+    DEC             shift and go to state 13
+    HEX             shift and go to state 11
+
+    INT                            shift and go to state 26
+
+state 22
+
+    (11) IR -> OP REG REG INT .
+
+    LABLEdef        reduce using rule 11 (IR -> OP REG REG INT .)
+    OP              reduce using rule 11 (IR -> OP REG REG INT .)
+    DATA            reduce using rule 11 (IR -> OP REG REG INT .)
+    $end            reduce using rule 11 (IR -> OP REG REG INT .)
+
+
+state 23
+
+    (12) IR -> OP REG REG LABLEref .
+
+    LABLEdef        reduce using rule 12 (IR -> OP REG REG LABLEref .)
+    OP              reduce using rule 12 (IR -> OP REG REG LABLEref .)
+    DATA            reduce using rule 12 (IR -> OP REG REG LABLEref .)
+    $end            reduce using rule 12 (IR -> OP REG REG LABLEref .)
+
+
+state 24
+
+    (10) IR -> OP REG REG REG .
+
+    LABLEdef        reduce using rule 10 (IR -> OP REG REG REG .)
+    OP              reduce using rule 10 (IR -> OP REG REG REG .)
+    DATA            reduce using rule 10 (IR -> OP REG REG REG .)
+    $end            reduce using rule 10 (IR -> OP REG REG REG .)
+
+
+state 25
+
+    (9) datastate -> LABLEdef BYTE INT .
+
+    LABLEdef        reduce using rule 9 (datastate -> LABLEdef BYTE INT .)
+    $end            reduce using rule 9 (datastate -> LABLEdef BYTE INT .)
+
+
+state 26
+
+    (8) datastate -> LABLEdef WORD INT .
+
+    LABLEdef        reduce using rule 8 (datastate -> LABLEdef WORD INT .)
+    $end            reduce using rule 8 (datastate -> LABLEdef WORD INT .)
 
