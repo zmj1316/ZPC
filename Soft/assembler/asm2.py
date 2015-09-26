@@ -1,5 +1,4 @@
 import ply.lex as lex
-
 dodo = True
 
 
@@ -125,7 +124,9 @@ def t_HEX(t):
 	return t
 
 
-OPdict = {}
+OPdict = {
+	
+}
 # R-type
 OPdict['add'] = 0x20
 OPdict['addu']= 0x21
@@ -229,6 +230,26 @@ def p_expression_datastate(p):
 	print "%08X" % res
 	r.write("%08X" % res + "\n")
 
+
+def p_expression_datastate_string(p):
+	'''datastate : LABLEdef ASCII STRING'''
+	arr = map(ord,p[3])
+	res = 0
+	N = 0
+	for i in arr:
+		res |= (i<<N*8)
+		N+=1
+		if N == 4:
+			print "%08X" % res
+			r.write("%08X" % res + "\n")
+			N = 0
+			res = 0
+	if N > 0:
+		print "%08X" % res
+		r.write("%08X" % res + "\n")
+		
+
+
 def p_expression_IR_R(p):
 	'''IR : OP REG REG REG'''
 	res = (p[1])|(p[2]<<11)|(p[3])<<21|(p[4]<<16)
@@ -238,7 +259,7 @@ def p_expression_IR_R(p):
 def p_expression_IR_I(p):
 	'''IR : OP REG REG INT'''
 	res = (p[1])|(p[2]<<16)|(p[3]<<21)|(p[4] & 0xFFFF)
-	print "%08X" % res + "\n"
+	print "%08X" % res
 	r.write("%08X" % res + "\n")
 
 def p_expression_IR_I_LABLE(p):
@@ -247,7 +268,7 @@ def p_expression_IR_I_LABLE(p):
 		res = (p[1])|(p[2]<<16)|(p[3]<<21)|((LABLEdict[p[4][0]] - p[4][1]) & 0x0000FFFF)
 	else:
 		res = (p[1])|(p[2]<<16)|(p[3]<<21)|((LABLEdict[p[4][0]]) & 0x0000FFFF)
-	print "%08X" % res + "\n"
+	print "%08X" % res 
 	r.write("%08X" % res + "\n")
 
 
@@ -267,25 +288,19 @@ def p_expression_IR_I_LABLE(p):
 def p_expression_IR_J(p):
 	'IR : OP INT'
 	res = p[1]|p[2]
-	print "%08X" % res + "\n"
+	print "%08X" % res
 	r.write("%08X" % res + "\n")
 
 def p_expression_J_L(p):
 	'IR : OP LABLEref'
 	res = p[1]|(LABLEdict[p[2][0]])
-	print "%08X" % res + "\n"
+	print "%08X" % res
 	r.write("%08X" % res + "\n")
 
 def p_expression_INT(p):
 	'''INT  : DEC 
 			| HEX'''
 	p[0] = p[1]
-
-
-
-
-
-
 
 parser = yacc.yacc()
 
