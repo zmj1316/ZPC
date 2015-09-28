@@ -314,5 +314,5 @@ for i in lexer:
   print i
 lex.lexer.lineno = 1
 parser.parse(s)
-print LABLEdict
+# print LABLEdict
 r.close()
