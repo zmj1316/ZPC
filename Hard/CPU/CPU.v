@@ -18,8 +18,9 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+`define INTstart 216
 module CPU(clk,rst,BUS,
-		   Memread,Memwrite,Addr
+		   Memread,Memwrite,Addr,INT
 		  // ,output reg [31:0] A,output reg [31:0]PC,output reg [31:0] IR,output reg [31:0] Alures
     );
 input clk;// CPU clock
@@ -32,6 +33,7 @@ output reg [1:0] Memwrite;// memory write
 					  // 0:N/A 1:WORD 2:DMA 3:BYTE
 output reg [31:0] Addr;// memory address
 
+input INT;
 reg [ 2: 0] stage;// CPU stage counter
 
 wire [13:0] signal;// control signal
@@ -46,6 +48,8 @@ reg [31: 0] Regfile[31:0];// Register file
 // assign RegT = Regfile[1];
 
 reg [31: 0] PC; //PC
+// 13 EPC 12 Cause
+reg [31: 0] cReg[31:0];
 
 
 
@@ -145,6 +149,10 @@ always @(posedge clk or posedge rst) begin
 				// deal with memory & control latency	
 				IR = Memin;
 				// interrupt here
+				if (INT) begin
+					cReg[13] = PC -4;
+					PC = INTstart;
+				end
 			end
 			3'h2:begin
 				//IDS
