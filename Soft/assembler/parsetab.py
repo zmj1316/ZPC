@@ -5,9 +5,9 @@ _tabversion = '3.5'
 
 _lr_method = 'LALR'
 
-_lr_signature = '86C046EC6DE2A207C326B496D42BAE60'
+_lr_signature = '7CA05C3B3CEB4D6D801152D202B23359'
     
-_lr_action_items = {'DEC':([6,18,20,21,],[13,13,13,13,]),'WORD':([17,],[20,]),'STRING':([22,],[28,]),'TEXT':([0,],[1,]),'HEX':([6,18,20,21,],[11,11,11,11,]),'ASCII':([17,],[22,]),'LABLEref':([6,18,],[12,24,]),'LABLEdef':([1,4,5,7,10,11,12,13,15,16,19,23,24,25,26,27,28,],[5,5,5,17,-14,-17,-15,-16,17,-6,-7,-12,-13,-11,-8,-9,-10,]),'BYTE':([17,],[21,]),'$end':([2,3,4,8,9,10,11,12,13,15,16,19,23,24,25,26,27,28,],[0,-2,-3,-4,-5,-14,-17,-15,-16,-1,-6,-7,-12,-13,-11,-8,-9,-10,]),'DATA':([3,4,8,9,10,11,12,13,23,24,25,],[7,-3,-4,-5,-14,-17,-15,-16,-12,-13,-11,]),'REG':([6,14,18,],[14,18,25,]),'OP':([1,4,5,10,11,12,13,23,24,25,],[6,6,6,-14,-17,-15,-16,-12,-13,-11,]),}
+_lr_action_items = {'DEC':([9,22,24,25,],[17,17,17,17,]),'WORD':([21,],[24,]),'STRING':([26,],[32,]),'ERET':([1,4,5,7,8,12,14,15,16,17,27,28,29,],[4,-15,4,-14,4,-16,-17,-20,-18,-19,-12,-13,-11,]),'SYSCALL':([1,4,5,7,8,12,14,15,16,17,27,28,29,],[7,-15,7,-14,7,-16,-17,-20,-18,-19,-12,-13,-11,]),'TEXT':([0,],[1,]),'HEX':([9,22,24,25,],[15,15,15,15,]),'JR':([1,4,5,7,8,12,14,15,16,17,27,28,29,],[6,-15,6,-14,6,-16,-17,-20,-18,-19,-12,-13,-11,]),'ASCII':([21,],[26,]),'LABLEref':([9,22,],[16,28,]),'LABLEdef':([1,4,5,7,8,10,12,14,15,16,17,19,20,23,27,28,29,30,31,32,],[8,-15,8,-14,8,21,-16,-17,-20,-18,-19,21,-6,-7,-12,-13,-11,-8,-9,-10,]),'BYTE':([21,],[25,]),'$end':([2,3,4,5,7,11,12,13,14,15,16,17,19,20,23,27,28,29,30,31,32,],[0,-2,-15,-3,-14,-4,-16,-5,-17,-20,-18,-19,-1,-6,-7,-12,-13,-11,-8,-9,-10,]),'DATA':([3,4,5,7,11,12,13,14,15,16,17,27,28,29,],[10,-15,-3,-14,-4,-16,-5,-17,-20,-18,-19,-12,-13,-11,]),'REG':([6,9,18,22,],[12,18,22,29,]),'OP':([1,4,5,7,8,12,14,15,16,17,27,28,29,],[9,-15,9,-14,9,-16,-17,-20,-18,-19,-12,-13,-11,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -16,7 +16,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'IR':([1,4,5,],[4,4,4,]),'INT':([6,18,20,21,],[10,23,26,27,]),'textseg':([1,4,5,],[3,8,9,]),'program':([0,],[2,]),'datastate':([7,15,],[16,19,]),'dataseg':([7,],[15,]),}
+_lr_goto_items = {'IR':([1,5,8,],[5,5,5,]),'INT':([9,22,24,25,],[14,27,30,31,]),'textseg':([1,5,8,],[3,11,13,]),'program':([0,],[2,]),'datastate':([10,19,],[20,23,]),'dataseg':([10,],[19,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -26,21 +26,24 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> program","S'",1,None,None,None),
-  ('program -> TEXT textseg DATA dataseg','program',4,'p_expression_program','asm2.py',213),
-  ('program -> TEXT textseg','program',2,'p_expression_program','asm2.py',214),
-  ('textseg -> IR','textseg',1,'p_expression_textseg','asm2.py',218),
-  ('textseg -> IR textseg','textseg',2,'p_expression_textseg','asm2.py',219),
-  ('textseg -> LABLEdef textseg','textseg',2,'p_expression_textseg','asm2.py',220),
-  ('dataseg -> datastate','dataseg',1,'p_expression_dataseg','asm2.py',223),
-  ('dataseg -> dataseg datastate','dataseg',2,'p_expression_dataseg','asm2.py',224),
-  ('datastate -> LABLEdef WORD INT','datastate',3,'p_expression_datastate','asm2.py',227),
-  ('datastate -> LABLEdef BYTE INT','datastate',3,'p_expression_datastate','asm2.py',228),
-  ('datastate -> LABLEdef ASCII STRING','datastate',3,'p_expression_datastate_string','asm2.py',235),
-  ('IR -> OP REG REG REG','IR',4,'p_expression_IR_R','asm2.py',252),
-  ('IR -> OP REG REG INT','IR',4,'p_expression_IR_I','asm2.py',258),
-  ('IR -> OP REG REG LABLEref','IR',4,'p_expression_IR_I_LABLE','asm2.py',264),
-  ('IR -> OP INT','IR',2,'p_expression_IR_J','asm2.py',287),
-  ('IR -> OP LABLEref','IR',2,'p_expression_J_L','asm2.py',293),
-  ('INT -> DEC','INT',1,'p_expression_INT','asm2.py',299),
-  ('INT -> HEX','INT',1,'p_expression_INT','asm2.py',300),
+  ('program -> TEXT textseg DATA dataseg','program',4,'p_expression_program','asm2.py',224),
+  ('program -> TEXT textseg','program',2,'p_expression_program','asm2.py',225),
+  ('textseg -> IR','textseg',1,'p_expression_textseg','asm2.py',229),
+  ('textseg -> IR textseg','textseg',2,'p_expression_textseg','asm2.py',230),
+  ('textseg -> LABLEdef textseg','textseg',2,'p_expression_textseg','asm2.py',231),
+  ('dataseg -> datastate','dataseg',1,'p_expression_dataseg','asm2.py',234),
+  ('dataseg -> dataseg datastate','dataseg',2,'p_expression_dataseg','asm2.py',235),
+  ('datastate -> LABLEdef WORD INT','datastate',3,'p_expression_datastate','asm2.py',238),
+  ('datastate -> LABLEdef BYTE INT','datastate',3,'p_expression_datastate','asm2.py',239),
+  ('datastate -> LABLEdef ASCII STRING','datastate',3,'p_expression_datastate_string','asm2.py',246),
+  ('IR -> OP REG REG REG','IR',4,'p_expression_IR_R','asm2.py',265),
+  ('IR -> OP REG REG INT','IR',4,'p_expression_IR_I','asm2.py',271),
+  ('IR -> OP REG REG LABLEref','IR',4,'p_expression_IR_I_LABLE','asm2.py',277),
+  ('IR -> SYSCALL','IR',1,'p_expression_IR_syscall','asm2.py',286),
+  ('IR -> ERET','IR',1,'p_expression_IR_syscall','asm2.py',287),
+  ('IR -> JR REG','IR',2,'p_expression_IR_jr','asm2.py',293),
+  ('IR -> OP INT','IR',2,'p_expression_IR_J','asm2.py',311),
+  ('IR -> OP LABLEref','IR',2,'p_expression_J_L','asm2.py',317),
+  ('INT -> DEC','INT',1,'p_expression_INT','asm2.py',323),
+  ('INT -> HEX','INT',1,'p_expression_INT','asm2.py',324),
 ]

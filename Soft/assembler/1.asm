@@ -8,7 +8,9 @@ beq $zero $zero SSS
 bne $zero $at SS
 SSS:
 j SR
-
+syscall
+eret
+jr $ra
 .data
 X:	.word 0xEEEE
 S:  .ascii "ABCDEFGHIJKLMNOPQ"

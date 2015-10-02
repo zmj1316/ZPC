@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 `define INTstart 216
 module CPU(clk,rst,BUS,
-		   Memread,Memwrite,Addr,INT
+		   Memread,Memwrite,Addr,INTin,INTnum
 		  // ,output reg [31:0] A,output reg [31:0]PC,output reg [31:0] IR,output reg [31:0] Alures
     );
 input clk;// CPU clock
@@ -32,8 +32,9 @@ output reg Memread;// memory read signal
 output reg [1:0] Memwrite;// memory write
 					  // 0:N/A 1:WORD 2:DMA 3:BYTE
 output reg [31:0] Addr;// memory address
-
-input INT;
+input INTin;
+input [31:0] INTnum;
+reg INT;
 reg [ 2: 0] stage;// CPU stage counter
 
 wire [13:0] signal;// control signal
@@ -48,9 +49,10 @@ reg [31: 0] Regfile[31:0];// Register file
 // assign RegT = Regfile[1];
 
 reg [31: 0] PC; //PC
-// 13 EPC 12 Cause
+// 14: EPC 13: Cause 12: STATUS
 reg [31: 0] cReg[31:0];
-
+wire [31:0] STATUS
+assign STATUS = cReg[12];
 
 
 wire [25:0] JUMP;// JUMP address
@@ -120,6 +122,13 @@ initial begin
 	IR = 0;
 end
 
+always @(*) begin
+	if (INTin) begin
+		INT = 1;
+		cReg[13] = INTnum;
+	end
+end
+
 // main loop
 always @(posedge clk or posedge rst) begin
 	if (rst) begin
@@ -149,9 +158,11 @@ always @(posedge clk or posedge rst) begin
 				// deal with memory & control latency	
 				IR = Memin;
 				// interrupt here
-				if (INT) begin
-					cReg[13] = PC -4;
+				if (INT & STATUS[0]) begin
+					cReg[14] = PC -4;
 					PC = INTstart;
+					INT = 0;
+					cReg[12] = cReg[12] & 0;
 				end
 			end
 			3'h2:begin
@@ -163,6 +174,28 @@ always @(posedge clk or posedge rst) begin
 					2'b1: Dst = RD;
 					2'b10: Dst = 5'h1F;
 				endcase
+				else if( OP == 16)  begin
+					case (RS)
+						5'h0: Regfile[RT] = cReg[RD];
+						5'h4: cReg[RD] = Regfile[RT];
+						5'h10: begin
+							PC = cReg[14];
+							cReg[12] = cReg[12] | 1;
+						end
+					endcase
+				end
+				else if(OP == 0) begin
+					case(func)
+						6'h8: begin // JR
+							PC = {0,RA[31:2]};
+							stage = 0;
+						end
+						6'hC: begin
+							cReg[13] = 8;
+							INT = 1;
+						end
+					endcase
+				end
 			end
 			3'h3:begin
 				//EXS

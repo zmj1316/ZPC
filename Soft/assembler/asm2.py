@@ -11,6 +11,9 @@ tokens=(
 	"DEC",
 	"HEX",
 	"OP",
+	"SYSCALL",
+	"ERET",
+	"JR",
 	"TEXT",
 	"DATA",
 	"WORD",
@@ -27,9 +30,19 @@ t_TEXT = '.text'
 
 
 
-
+def t_JR(t):
+	'jr'
+	return t
 t_DATA = '.data'
+def t_SYSCALL(t):
+	'syscall'
+	t.value = 12
+	return t
 
+def t_ERET(t):
+	'eret'
+	t.value = 0x32000018
+	return t
 def t_WORD(t):
 	'.word'
 	t.value = t.lexer.lineno
@@ -265,13 +278,24 @@ def p_expression_IR_I(p):
 def p_expression_IR_I_LABLE(p):
 	'''IR : OP REG REG LABLEref'''
 	if p[1] == 0x10000000 or p[1] == 0x14000000:
-		res = (p[1])|(p[2]<<16)|(p[3]<<21)|((LABLEdict[p[4][0]] - p[4][1]) & 0x0000FFFF)
+		res = (p[1])|(p[2]<<16)|(p[3]<<21)|(((LABLEdict[p[4][0]] - p[4][1]) & 0x0000FFFF) >> 2)
 	else:
 		res = (p[1])|(p[2]<<16)|(p[3]<<21)|((LABLEdict[p[4][0]]) & 0x0000FFFF)
 	print "%08X" % res 
 	r.write("%08X" % res + "\n")
 
+def p_expression_IR_syscall(p):
+	'''IR : SYSCALL
+			| ERET'''
+	res = p[1]
+	print "%08X" % res 
+	r.write("%08X" % res + "\n")
 
+def p_expression_IR_jr(p):
+	'IR : JR REG'
+	res = 8 | (p[2] << 21)
+	print "%08X" % res 
+	r.write("%08X" % res + "\n")
 # def p_expression_IR_I_DATA(p):
 # 	'IR : OP REG REG ADDR'
 # 	res = (p[1])|(p[2]<<16)|(p[3]<<21)|p[4]
@@ -287,13 +311,13 @@ def p_expression_IR_I_LABLE(p):
 
 def p_expression_IR_J(p):
 	'IR : OP INT'
-	res = p[1]|p[2]
+	res = p[1]|(p[2] >> 2)
 	print "%08X" % res
 	r.write("%08X" % res + "\n")
 
 def p_expression_J_L(p):
 	'IR : OP LABLEref'
-	res = p[1]|(LABLEdict[p[2][0]])
+	res = p[1]|(LABLEdict[p[2][0]] >> 2)
 	print "%08X" % res
 	r.write("%08X" % res + "\n")
 
