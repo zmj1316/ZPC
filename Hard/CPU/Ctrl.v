@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Ctrl(input wire [5:0] OP,output wire [13:0] signal
+module Ctrl(input wire [5:0] OP,output reg [13:0] signal
     );
 /* signal define:
  * 13:Membyte? 12:ALUOP 11:SA 10-9:SB 8-7:RegDst 6:Mem2Reg 5:RegW 
