@@ -74,7 +74,6 @@ always @(posedge clk_50mhz or posedge rst) begin
 	if (rst) begin
 		// reset
 		datain = 0;
-
 		we=0;
 	end
 	else begin
@@ -84,7 +83,6 @@ always @(posedge clk_50mhz or posedge rst) begin
 			datain = BUS[7:0];
 			we = 1;
 		end
-
 	end
 end
 endmodule

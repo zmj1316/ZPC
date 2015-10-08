@@ -61,7 +61,6 @@ always @(posedge clk or posedge rst) begin
 	if (rst) begin
 		// reset
 		we = 0;
-		st = 0;
 	end
 	else begin
 		we = 0;
