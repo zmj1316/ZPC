@@ -19,24 +19,27 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module VGA(vga_red, vga_green, vga_blue, vga_hsync, vga_vsync,clk_50mhz
-,rst,BUS,Memwrite,Addrin
+,BUS,Memwrite,Addrin
+// ,doutb,h_counter,clk_25mhz
 );
 output vga_red, vga_green, vga_blue, vga_hsync, vga_vsync;
 input clk_50mhz;
-input rst;
+// input rst;
 inout [31:0]BUS;
-input [1:0]Memwrite;
+input Memwrite;
 input [31:0] Addrin;
 assign BUS = 32'bz;
+
 wire [10:0] h_counter;
+
 wire [10:0] v_counter;
 wire blank;
 wire [2:0]topval;
-wire clk_25mhz,clk_24hz;
-wire vga_red, vga_green, vga_blue;
-reg [7:0]mem;
+wire clk_25mhz;
+wire clk_24hz;
 
-initial mem <= 0;
+wire vga_red, vga_green, vga_blue;
+
 
 clock_manager clocking(clk_25mhz, clk_6hz, clk_24hz, clk_50mhz, 0);
 
@@ -50,12 +53,12 @@ reg [11:0] addrb;
 reg [7:0] datain;
 // reg [7:0] douta;
 wire [7:0] doutb;
-
+// output [7:0]doutb;
 VM vm(
 	.clka(clk_50mhz),
 	.wea(we),
-	.addra(addra),
-	.dina(datain),
+	.addra(Addrin),
+	.dina(BUS[7:0]),
 	// .douta(douta),
 	.addrb(addrb),
 	.clkb(clk_50mhz),
@@ -69,22 +72,14 @@ initial begin
 	addrb = 0;
 	datain = 0;
 end
-always @(posedge clk_50mhz or posedge rst) begin
+always @(posedge clk_50mhz) begin
 	we = 0;
-	if (rst) begin
-		// reset
-		datain = 0;
-
-		we=0;
-	end
-	else begin
+	begin
 		addrb = {v_counter[8:4],h_counter[8:4]};
-		if (Memwrite[0]) begin
-			addra = Addrin;
-			datain = BUS[7:0];
+		if (Memwrite) begin
 			we = 1;
+			
 		end
-
 	end
 end
 endmodule
@@ -101,7 +96,7 @@ module clock_manager(clk_25mhz, clk_6hz, clk_24hz, clk_50mhz, reset);
 	
 	wire  clk_6hz, clk_24hz;
 
-	reg clk_25mhz;
+	reg clk_25mhz = 0;
 	
 	 
 	always @(posedge clk_50mhz) begin

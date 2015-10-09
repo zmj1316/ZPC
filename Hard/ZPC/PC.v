@@ -30,7 +30,7 @@ wire [31:0] Addr;//Memory address
 wire clk;//CPU clock
 
 //slow clock generator
-reg [1:0]tmp;
+reg tmp;
 always @(posedge clk_50mhz or posedge rst) begin
 	if (rst) begin
 		// reset
@@ -40,7 +40,7 @@ always @(posedge clk_50mhz or posedge rst) begin
 		tmp = ~tmp;
 	end
 end
-assign clk = tmp[0];
+assign clk = tmp;
 
 CPU cpu(
 	.clk(clk),
@@ -61,6 +61,16 @@ Mem mem(
 wire VMwrite;// signal for Video memory write
 assign VMwrite = (Addr[31:28] == 4'hA)?Memwrite:0;
 
-VGA vga(vga_red, vga_green, vga_blue, vga_hsync, vga_vsync,clk_50mhz,rst,BUS,VMwrite,{0,Addr[27:0]});
-
+// VGA vga(vga_red, vga_green, vga_blue, vga_hsync, vga_vsync,clk_50mhz,rst,BUS,0,{4'b0,Addr[27:0]});
+VGA vga(
+	.vga_red(vga_red),
+	.vga_green(vga_green),
+	.vga_blue(vga_blue),
+	.vga_hsync(vga_hsync),
+	.vga_vsync(vga_vsync),
+	.clk_50mhz(clk_50mhz),
+	.BUS(BUS),
+	.Memwrite(VMwrite),
+	.Addrin(Addr[27:0])
+	);
 endmodule

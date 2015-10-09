@@ -61,7 +61,6 @@ always @(posedge clk or posedge rst) begin
 	if (rst) begin
 		// reset
 		we = 0;
-		st = 0;
 	end
 	else begin
 		we = 0;
@@ -83,6 +82,7 @@ always @(posedge clk or posedge rst) begin
 					2: datain = st? {tmp[63:48],BUS[31:16]}:{BUS[15:0],tmp[15:0]};
 					3: datain = st? {tmp[63:56],BUS[31:8]}:{BUS[7:0],tmp[23:0]};
 				endcase
+				we = 1;
 			end
 			3: begin
 				case(Addrin[1:0])
@@ -91,10 +91,9 @@ always @(posedge clk or posedge rst) begin
 					2: datain = st? tmp[63:32]:{tmp[31:24],BUS[7:0],tmp[15:0]};
 					3: datain = st? tmp[63:32]:{BUS[7:0],BUS[7:0],tmp[23:0]};
 				endcase
+				we = 1;
 			end
-			
 		endcase
-		we = 1;
 	end
 end
 always @(*) begin
