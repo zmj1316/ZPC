@@ -61,7 +61,7 @@ wire [4:0] RT;
 wire [4:0] RD;
 wire [4:0] shamt;
 wire [5:0] func;
-wire [15:0] imme0;// imme in IR
+wire [31:0] imme0;// imme in IR
 
 wire [31:0] imme;// sign extend imme
 
@@ -95,7 +95,7 @@ assign RD = IR[15:11];
 assign JUMP = {6'b0,IR[25:0]};
 assign shamt = IR[10:6];
 assign func = IR[5:0];
-assign imme0 = IR[15:0];
+assign imme0 = {0,IR[15:0]};
 assign imme = {{16{imme0[15]}},imme0[15:0]};
 
 //control unit
@@ -147,7 +147,7 @@ always @(posedge clk or posedge rst) begin
 				PC = PC + 4;
 				Memread = 1;
 				// Check INT from outside
-				if (INTin) begin
+				if (INTin & STATUS[0]) begin
 					INT = 1;
 					cReg[13] = INTnum;
 				end
@@ -156,11 +156,11 @@ always @(posedge clk or posedge rst) begin
 				// deal with memory & control latency	
 				IR = Memin;
 				// interrupt here
-				if (INT & STATUS[0]) begin
+				if (INT) begin
 					cReg[14] = PC -4;
 					PC = 216;
 					INT = 0;
-					cReg[12] = cReg[12] & 0;
+					cReg[12] = cReg[12] & 32'hFFFFFFF7;
 				end
 			end
 			3'h2:begin
@@ -171,6 +171,16 @@ always @(posedge clk or posedge rst) begin
 					2'b0: Dst = RT;
 					2'b1: Dst = RD;
 					2'b10: Dst = 5'h1F;
+				endcase
+			end
+			3'h3:begin
+				//EXS
+				A = signal[11]? RA : PC;//ALUsourseA
+				case(signal[10:9])// ALUsourseB
+					2'h0: B = RB;
+					2'h1: B = 4;
+					2'h2: B = imme;
+					2'h3: B = {imme[29:0],2'b00};//imme << 2
 				endcase
 				// CO
 				if( OP == 16) begin
@@ -183,29 +193,7 @@ always @(posedge clk or posedge rst) begin
 						end
 					endcase
 				end
-				// other R-type instructions
-				else if(OP == 0) begin
-					case(func)
-						6'h8: begin // JR
-							PC = {0,RA[31:2]};
-							stage = 0;
-						end
-						6'hC: begin // syscall
-							cReg[13] = 8;
-							INT = 1;
-						end
-					endcase
-				end
-			end
-			3'h3:begin
-				//EXS
-				A = signal[11]? RA : PC;//ALUsourseA
-				case(signal[10:9])// ALUsourseB
-					2'h0: B = RB;
-					2'h1: B = 4;
-					2'h2: B = imme;
-					2'h3: B = {imme[29:0],2'b00};//imme << 2
-				endcase
+
 				if (signal[12]) begin// ALUOP
 					//ALU
 					case(func)
@@ -218,17 +206,28 @@ always @(posedge clk or posedge rst) begin
 						6'h2A: Alures = ((A - B) & 32'h80000000 == 32'h80000000)? 1:0;
 						6'h2B: Alures = (A < B)? 1:0;
 						6'h2 : Alures = shiftRes;//srl
+						6'h8: begin // JR
+							PC = {0,RA[31:2]};
+						end
+						6'hC: begin // syscall
+							cReg[13] = 8;
+							INT = 1;
+						end
 					endcase
 				end
 				else begin
 					Alures = A + B;
 					//I-type
 					case(OP)
-						6'h0C: Alures = A & B;
-						6'h0D: Alures = A | B;
-						6'h0E: Alures = A ^ B;
-						6'h0F: Alures = {B[15:0],16'b0};
-						6'h0A: Alures = (A < B)? 1 : 0;
+						6'h08: Alures = A + B;// addi
+						6'h09: Alures = A + imme0;// addiu
+
+						6'h0C: Alures = A & imme0;
+						6'h0D: Alures = A | imme0;
+						6'h0E: Alures = A ^ imme0;
+						6'h0F: Alures = {B[15:0],16'b0};//lui
+						// 6'h0A: Alures = (A < B)^(A[31]^B[31]) 1 : 0;//slti
+						6'h0B: Alures = (A<imme0)?1:0;//sltiu
 					endcase
 				end
 				//PC write
@@ -248,7 +247,7 @@ always @(posedge clk or posedge rst) begin
 								PC = Alures;
 							end
 						end
-					endcase					
+					endcase
 				end
 			end
 			3'h4:begin
