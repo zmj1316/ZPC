@@ -54,7 +54,7 @@ wire [31:0] STATUS;
 assign STATUS = cReg[12];
 
 
-wire [25:0] JUMP;// JUMP address
+wire [25:0] Label;// JUMP address
 wire [5:0] OP;// OP code
 wire [4:0] RS;
 wire [4:0] RT;
@@ -92,7 +92,7 @@ assign OP = IR[31:26];
 assign RS = IR[25:21];
 assign RT = IR[20:16];
 assign RD = IR[15:11];
-assign JUMP = {6'b0,IR[25:0]};
+assign Label = IR[25:0];
 assign shamt = IR[10:6];
 assign func = IR[5:0];
 assign imme0 = {0,IR[15:0]};
@@ -158,7 +158,7 @@ always @(posedge clk or posedge rst) begin
 				// interrupt here
 				if (INT) begin
 					cReg[14] = PC -4;
-					PC = 216;
+					PC = 256;
 					INT = 0;
 					cReg[12] = cReg[12] & 32'hFFFFFFF7;
 				end
@@ -182,17 +182,7 @@ always @(posedge clk or posedge rst) begin
 					2'h2: B = imme;
 					2'h3: B = {imme[29:0],2'b00};//imme << 2
 				endcase
-				// CO
-				if( OP == 16) begin
-					case (RS)
-						5'h0: Regfile[RT] = cReg[RD]; // mfc
-						5'h4: cReg[RD] = Regfile[RT]; // mtc
-						5'h10: begin // eret
-							PC = cReg[14];
-							cReg[12] = cReg[12] | 1;
-						end
-					endcase
-				end
+
 
 				if (signal[12]) begin// ALUOP
 					//ALU
@@ -207,7 +197,7 @@ always @(posedge clk or posedge rst) begin
 						6'h2B: Alures = (A < B)? 1:0;
 						6'h2 : Alures = shiftRes;//srl
 						6'h8: begin // JR
-							PC = {0,RA[31:2]};
+							PC = {RA[31:2],2'b0};
 						end
 						6'hC: begin // syscall
 							cReg[13] = 8;
@@ -219,20 +209,35 @@ always @(posedge clk or posedge rst) begin
 					Alures = A + B;
 					//I-type
 					case(OP)
+						6'h03: Alures = PC; //jal
 						6'h08: Alures = A + B;// addi
 						6'h09: Alures = A + imme0;// addiu
 
 						6'h0C: Alures = A & imme0;
 						6'h0D: Alures = A | imme0;
 						6'h0E: Alures = A ^ imme0;
-						6'h0F: Alures = {B[15:0],16'b0};//lui
+						6'h0F: Alures = {imme[15:0],16'b0};//lui
 						// 6'h0A: Alures = (A < B)^(A[31]^B[31]) 1 : 0;//slti
 						6'h0B: Alures = (A<imme0)?1:0;//sltiu
+						6'h10: Alures = 
+					endcase
+				end
+				// CO
+				if( OP == 16) begin
+					case (RS)
+						5'h0: Alures = cReg[RD]; // mfc
+						5'h4: cReg[RD] = RB; // mtc
+						// 5'h4: cReg[RD] = Regfile[RT]; // mtc
+						5'h10: begin // eret
+							PC = cReg[14];
+							cReg[12] = cReg[12] | 1;
+						end
 					endcase
 				end
 				//PC write
 				if (signal[0]) begin
-					PC = signal[2]? Alures: {PC[31:28],JUMP,2'b00};
+					// PC = signal[2]? Alures: {PC[31:28],JUMP,2'b00};
+					PC = {PC[31:28],Label,2'b00};
 				end
 				//PC write cond
 				if (signal[1]) begin
@@ -262,7 +267,7 @@ always @(posedge clk or posedge rst) begin
 					Memwrite = signal[13]?3:1;// BYTE?WORD
 				end
 			end
-			3'h5:begin
+			3'h7:begin
 				//WBS
 				if (signal[5]) begin// Reg write
 					if (signal[6]) begin// Mem to Reg
@@ -273,9 +278,6 @@ always @(posedge clk or posedge rst) begin
 					end
 					Regfile[0] = 0;// $zero = 0
 				end
-			end
-			3'h6: begin
-
 			end
 		endcase
 		stage = stage + 1;

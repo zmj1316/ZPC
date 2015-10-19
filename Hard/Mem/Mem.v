@@ -96,7 +96,7 @@ always @(posedge clk or posedge rst) begin
 		endcase
 	end
 end
-always @(*) begin
+always @(clk) begin
 	case(Addrin[1:0])
 		0: Memout = tmp[31: 0];
 		1: Memout = tmp[39: 8];

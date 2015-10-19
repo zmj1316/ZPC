@@ -57,8 +57,8 @@ wire [7:0] doutb;
 VM vm(
 	.clka(clk_50mhz),
 	.wea(we),
-	.addra(Addrin),
-	.dina(BUS[7:0]),
+	.addra(Addrin[12:0]),
+	.dina(BUS),
 	// .douta(douta),
 	.addrb(addrb),
 	.clkb(clk_50mhz),
@@ -72,16 +72,18 @@ initial begin
 	addrb = 0;
 	datain = 0;
 end
-always @(posedge clk_50mhz) begin
+always @(posedge clk_25mhz) begin
 	we = 0;
 	begin
 		addrb = {v_counter[8:4],h_counter[8:4]};
-		if (Memwrite) begin
+		// we = 1;
+		if (Memwrite==1'b1) begin
 			we = 1;
-			
 		end
 	end
 end
+
+
 endmodule
 
 
@@ -169,7 +171,9 @@ module vga_controller_640_60 (pixel_clk,HS,VS,hcounter,vcounter,blank);
 		else VS <= ~SPP; 
 	end
 
-	assign video_enable = (hcounter < HLINES && vcounter < VLINES) ? 1'b1 : 1'b0;
+	// assign video_enable = (hcounter < HLINES && vcounter < VLINES) ? 1'b1 : 1'b0;
+	assign video_enable = (hcounter < 512 && vcounter < VLINES) ? 1'b1 : 1'b0;
+
 
 endmodule
 

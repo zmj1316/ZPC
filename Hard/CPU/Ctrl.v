@@ -36,6 +36,7 @@ always @(*) begin
 		6'h2B: signal = 14'b00110000001000;//SW
 		6'h20: signal = 14'b10110001110000; //LB
 		6'h28: signal = 14'b10110000001000; //SB
+		// 6'h10: signal = 14'b00110000100000;//CO
 		//I-Type
 		default: signal = 14'b00110000100000;//I-type
 	endcase
