@@ -143,7 +143,7 @@ always @(posedge clk or posedge rst) begin
 				//read instruction
 				Memwrite = 0;
 				Addr = PC;
-				PC = PC + 4;
+				PC = PC + 2;
 				Memread = 1;
 				// Check INT from outside
 				if (INTin & STATUS[0]) begin
@@ -156,7 +156,7 @@ always @(posedge clk or posedge rst) begin
 				IR = Memin;
 				// interrupt here
 				if (INT) begin
-					cReg[14] = PC -4;
+					cReg[14] = PC - 2;
 					PC = 256;
 					INT = 0;
 					cReg[12] = cReg[12] & 32'hFFFFFFF7;
@@ -181,7 +181,7 @@ always @(posedge clk or posedge rst) begin
 					2'h0: B = RB;
 					2'h1: B = 4;
 					2'h2: B = imme;
-					2'h3: B = {imme[29:0],2'b00};//imme << 2
+					2'h3: B = {imme[30:0],1'b0};//imme << 1
 				endcase
 
 
@@ -198,7 +198,7 @@ always @(posedge clk or posedge rst) begin
 						6'h2B: Alures = (A < B)? 1:0;
 						6'h2 : Alures = shiftRes;//srl
 						6'h8: begin // JR
-							PC = {RA[31:2],2'b0};
+							PC = {RA[31:1],1'b0};
 						end
 						6'hC: begin // syscall
 							cReg[13] = 8;
@@ -237,7 +237,7 @@ always @(posedge clk or posedge rst) begin
 				//PC write
 				if (signal[0]) begin
 					// PC = signal[2]? Alures: {PC[31:28],JUMP,2'b00};
-					PC = {PC[31:28],Label,2'b00};
+					PC = {PC[31:27],Label,1'b0};
 				end
 				//PC write cond
 				if (signal[1]) begin

@@ -54,7 +54,7 @@ CPU cpu(
 	.Memwrite(Memwrite),
 	.Addr(Addr)
 	);
-Mem mem(
+Mem16 mem(
 	.clk(clk_50mhz),
 	.BUS(BUS),
 	.Memread(Memread),
