@@ -54,12 +54,12 @@ module t_mem;
 
 		// Wait 100 ns for global reset to finish
 		#100;
-      Addrin = Addrin + 4;
+      Addrin = Addrin + 1;
 		// Add stimulus here
 		#100;
-      Addrin = Addrin + 4;
+      Addrin = Addrin + 1;
 		#100;
-      Addrin = Addrin + 4;
+      Addrin = Addrin + 1;
 
 	end
       initial forever begin

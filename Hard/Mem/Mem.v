@@ -46,7 +46,6 @@ reg [11:0] addr;
 reg [63:0] tmp;
 reg [31:0] Memout;// data to be sent
 reg we;// write enable
-
 assign BUS = Memread?Memout:32'bz;
 
 BB ram(
@@ -56,7 +55,6 @@ BB ram(
 	.dina(datain),
 	.douta(douta)
 );
-
 always @(posedge clk or posedge rst) begin
 	if (rst) begin
 		// reset
@@ -66,11 +64,11 @@ always @(posedge clk or posedge rst) begin
 		we = 0;
 		case(st)
 			0: begin
-				addr = Addrin;
+				addr = Addrin[11:2];
 				tmp[31:0] = douta;
 			end
 			1: begin
-				addr = Addrin + 1;
+				addr = Addrin[11:2] + 1;
 				tmp[63:32] = douta;
 			end
 		endcase

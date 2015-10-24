@@ -24,7 +24,6 @@
 static const char *ng0 = "F:/Workspace/ASM/Hard/ZPC/t_mem.v";
 static int ng1[] = {0, 0};
 static int ng2[] = {1, 0};
-static int ng3[] = {4, 0};
 
 
 
@@ -77,7 +76,7 @@ LAB5:    xsi_set_current_line(57, ng0);
     t2 = (t0 + 1928);
     t3 = (t2 + 56U);
     t4 = *((char **)t3);
-    t5 = ((char*)((ng3)));
+    t5 = ((char*)((ng2)));
     memset(t6, 0, 8);
     xsi_vlog_unsigned_add(t6, 32, t4, 12, t5, 32);
     t7 = (t0 + 1928);
@@ -92,7 +91,7 @@ LAB6:    xsi_set_current_line(60, ng0);
     t2 = (t0 + 1928);
     t3 = (t2 + 56U);
     t4 = *((char **)t3);
-    t5 = ((char*)((ng3)));
+    t5 = ((char*)((ng2)));
     memset(t6, 0, 8);
     xsi_vlog_unsigned_add(t6, 32, t4, 12, t5, 32);
     t7 = (t0 + 1928);
@@ -107,7 +106,7 @@ LAB7:    xsi_set_current_line(62, ng0);
     t2 = (t0 + 1928);
     t3 = (t2 + 56U);
     t4 = *((char **)t3);
-    t5 = ((char*)((ng3)));
+    t5 = ((char*)((ng2)));
     memset(t6, 0, 8);
     xsi_vlog_unsigned_add(t6, 32, t4, 12, t5, 32);
     t7 = (t0 + 1928);

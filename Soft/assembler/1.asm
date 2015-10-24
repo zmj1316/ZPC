@@ -1,16 +1,46 @@
 .text
-SS:;this is lable uppercase only
-addi $t1 $zero S
-lw $t2 $t1 0
-SR:
-add $t1 $t2 $t3
-beq $zero $zero SSS
-bne $zero $at SS
-SSS:
-j SR
-syscall
-eret
-jr $ra
-.data
-X:	.word 0xEEEE
-S:  .ascii "ABCDEFGHIJKLMNOPQ"
+addi $t1 $zero 0
+lui $t1 $zero 0xA000
+addi $t0 $zero 0x48
+sw $t0 $t1 0
+addi $t1 $t1 1
+addi $t0 $zero 0x65
+sw $t0 $t1 0
+addi $t1 $t1 1
+addi $t0 $zero 0x6C
+sw $t0 $t1 0
+addi $t1 $t1 1
+addi $t0 $zero 0x6C
+sw $t0 $t1 0
+addi $t1 $t1 1
+addi $t0 $zero 0x6F
+sw $t0 $t1 0
+addi $t1 $t1 1
+addi $t0 $zero 0x2C
+sw $t0 $t1 0
+addi $t1 $t1 1
+addi $t0 $zero 0x20
+sw $t0 $t1 0
+addi $t1 $t1 1
+addi $t0 $zero 0x77
+sw $t0 $t1 0
+addi $t1 $t1 1
+addi $t0 $zero 0x6F
+sw $t0 $t1 0
+addi $t1 $t1 1
+addi $t0 $zero 0x72
+sw $t0 $t1 0
+addi $t1 $t1 1
+addi $t0 $zero 0x6C
+sw $t0 $t1 0
+addi $t1 $t1 1
+addi $t0 $zero 0x64
+sw $t0 $t1 0
+addi $t1 $t1 1
+addi $t0 $zero 0x21
+sw $t0 $t1 0
+addi $t1 $t1 1
+addi $t0 $zero 0xD5
+sw $t0 $t1 0
+addi $t1 $t1 1
+beq $zero $zero -1

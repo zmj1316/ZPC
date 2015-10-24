@@ -136,13 +136,12 @@ always @(posedge clk or posedge rst) begin
 	end
 	else begin
 		// reset signals
-		Memread = 0;
-		Memwrite = 0;
 		// stages
 		case(stage)
 			3'h0:begin
 				//IFS
 				//read instruction
+				Memwrite = 0;
 				Addr = PC;
 				PC = PC + 4;
 				Memread = 1;
@@ -164,6 +163,8 @@ always @(posedge clk or posedge rst) begin
 				end
 			end
 			3'h2:begin
+				Memread = 0;
+
 				//IDS
 				RA = Regfile[RS];
 				RB = Regfile[RT];
@@ -219,7 +220,6 @@ always @(posedge clk or posedge rst) begin
 						6'h0F: Alures = {imme[15:0],16'b0};//lui
 						// 6'h0A: Alures = (A < B)^(A[31]^B[31]) 1 : 0;//slti
 						6'h0B: Alures = (A<imme0)?1:0;//sltiu
-						6'h10: Alures = 
 					endcase
 				end
 				// CO
@@ -259,11 +259,13 @@ always @(posedge clk or posedge rst) begin
 				//MYS
 				if (signal[4]) begin// Memread
 					Addr = Alures;
+					Memwrite = 0;
 					Memread = 1;					
 				end
 				if (signal[3]) begin// Memwrite
 					Addr = Alures;
 					Memout = RB;
+					Memread = 0;
 					Memwrite = signal[13]?3:1;// BYTE?WORD
 				end
 			end

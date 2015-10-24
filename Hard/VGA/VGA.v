@@ -41,7 +41,7 @@ wire clk_24hz;
 wire vga_red, vga_green, vga_blue;
 
 
-clock_manager clocking(clk_25mhz, clk_6hz, clk_24hz, clk_50mhz, 0);
+clock_manager clocking(clk_25mhz, clk_6hz, clk_24hz, clk_50mhz, 1'b0);
 
 vga_controller_640_60 vga_controller(clk_25mhz, vga_hsync, vga_vsync, h_counter, v_counter, blank);
 
@@ -188,7 +188,7 @@ module layer_compositor(screenout, blank, topval);
 		if (blank)
 			screenout = 3'b000;
 		else if (topval != 3'b000)
-			screenout = topval;
+			screenout = {3{topval[0]}};
 		
 	end
 endmodule

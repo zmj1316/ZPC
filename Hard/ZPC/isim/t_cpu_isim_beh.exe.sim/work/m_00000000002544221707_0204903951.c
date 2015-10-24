@@ -129,7 +129,7 @@ LAB24:    t2 = ((char*)((ng18)));
 
 LAB26:
 LAB28:
-LAB27:    xsi_set_current_line(40, ng0);
+LAB27:    xsi_set_current_line(41, ng0);
     t2 = ((char*)((ng11)));
     t3 = (t0 + 1448);
     xsi_vlogvar_assign_value(t3, t2, 0, 0, 14);

@@ -25,7 +25,7 @@ static const char *ng0 = "F:/Workspace/ASM/Hard/CPU/CPU.v";
 
 
 
-static void Cont_292_0(char *t0)
+static void Cont_295_0(char *t0)
 {
     char t5[8];
     char *t1;
@@ -45,7 +45,7 @@ LAB0:    t1 = (t0 + 2664U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(292, ng0);
+LAB2:    xsi_set_current_line(295, ng0);
     t2 = (t0 + 1184U);
     t3 = *((char **)t2);
     t2 = (t0 + 1344U);
@@ -68,7 +68,7 @@ LAB1:    return;
 
 extern void work_m_00000000002383065040_2207681426_init()
 {
-	static char *pe[] = {(void *)Cont_292_0};
+	static char *pe[] = {(void *)Cont_295_0};
 	xsi_register_didat("work_m_00000000002383065040_2207681426", "isim/t_cpu_isim_beh.exe.sim/work/m_00000000002383065040_2207681426.didat");
 	xsi_register_executes(pe);
 }
