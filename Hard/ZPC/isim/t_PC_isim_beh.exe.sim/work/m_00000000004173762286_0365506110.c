@@ -25,7 +25,7 @@ static const char *ng0 = "F:/Workspace/ASM/Hard/VGA/VGA.v";
 
 
 
-static void Always_104_0(char *t0)
+static void Always_115_0(char *t0)
 {
     char t4[8];
     char *t1;
@@ -60,7 +60,7 @@ LAB0:    t1 = (t0 + 2848U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(104, ng0);
+LAB2:    xsi_set_current_line(115, ng0);
     t2 = (t0 + 3168);
     *((int *)t2) = 1;
     t3 = (t0 + 2880);
@@ -68,9 +68,9 @@ LAB2:    xsi_set_current_line(104, ng0);
     *((char **)t1) = &&LAB4;
 
 LAB1:    return;
-LAB4:    xsi_set_current_line(104, ng0);
+LAB4:    xsi_set_current_line(115, ng0);
 
-LAB5:    xsi_set_current_line(105, ng0);
+LAB5:    xsi_set_current_line(116, ng0);
     t5 = (t0 + 1928);
     t6 = (t5 + 56U);
     t7 = *((char **)t6);
@@ -124,7 +124,7 @@ LAB11:    t19 = *((unsigned int *)t4);
 
 extern void work_m_00000000004173762286_0365506110_init()
 {
-	static char *pe[] = {(void *)Always_104_0};
+	static char *pe[] = {(void *)Always_115_0};
 	xsi_register_didat("work_m_00000000004173762286_0365506110", "isim/t_PC_isim_beh.exe.sim/work/m_00000000004173762286_0365506110.didat");
 	xsi_register_executes(pe);
 }

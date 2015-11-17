@@ -58,7 +58,8 @@ Mem16 mem(
 	.clk(clk_50mhz),
 	.BUS(BUS),
 	.Memread(Memread),
-	.Memwrite((Addr[31:28] == 4'hA)?2'b0:Memwrite),
+	// .Memwrite((Addr[31:28] == 4'hA)?2'b0:Memwrite),
+	.Memwrite(0),
 	.Addrin(Addr[31:0])
 	);
 
@@ -74,6 +75,15 @@ VGA vga(
 	.clk_50mhz(clk_50mhz),
 	.BUS(BUS),
 	.Memwrite(VMwrite),
-	.Addrin(Addr[27:0])
+	.Addrin({0,Addr[3:0]})
 	);
+ps2scan ps2(
+	.clk(clk_50mhz),
+	.rst_n(1),
+	.ps2k_clk(),
+	.ps2k_data(),
+	.ps2_byte(),
+	.ps2_state()
+	);
+
 endmodule

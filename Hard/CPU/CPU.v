@@ -157,7 +157,7 @@ always @(posedge clk or posedge rst) begin
 				// interrupt here
 				if (INT) begin
 					cReg[14] = PC - 2;
-					PC = 256;
+					PC = 16;
 					INT = 0;
 					cReg[12] = cReg[12] & 32'hFFFFFFF7;
 				end
@@ -184,7 +184,6 @@ always @(posedge clk or posedge rst) begin
 					2'h3: B = {imme[30:0],1'b0};//imme << 1
 				endcase
 
-
 				if (signal[12]) begin// ALUOP
 					//ALU
 					case(func)
@@ -198,7 +197,7 @@ always @(posedge clk or posedge rst) begin
 						6'h2B: Alures = (A < B)? 1:0;
 						6'h2 : Alures = shiftRes;//srl
 						6'h8: begin // JR
-							PC = {RA[31:1],1'b0};
+							PC = {RA[31:0]};
 						end
 						6'hC: begin // syscall
 							cReg[13] = 8;
@@ -273,7 +272,7 @@ always @(posedge clk or posedge rst) begin
 				//WBS
 				if (signal[5]) begin// Reg write
 					if (signal[6]) begin// Mem to Reg
-						Regfile[Dst] = signal[13]?{0,Memin[7:0]}:Memin;
+						Regfile[Dst] = signal[13]?{0,Memin[15:0]}:Memin;
 					end
 					else begin
 						Regfile[Dst] = Alures;

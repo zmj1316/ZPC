@@ -1,0 +1,605 @@
+ISim log file
+Running: F:\Workspace\ASM\Hard\TTY\t_vga_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb F:/Workspace/ASM/Hard/TTY/t_vga_isim_beh.wdb 
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/Workspace/ASM/Hard/TTY/VGA.v" Line 62.  For instance uut/vm/, width 12 of formal port addra is not equal to width 8 of actual variable cur. 
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.vm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.c.cm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Finished circuit initialization process.
+# run 1000.00us
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/Workspace/ASM/Hard/TTY/VGA.v" Line 62.  For instance uut/vm/, width 12 of formal port addra is not equal to width 8 of actual variable cur. 
+# run 1000 ns
+Simulator is doing circuit initialization process.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.vm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.c.cm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Finished circuit initialization process.
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/Workspace/ASM/Hard/TTY/VGA.v" Line 62.  For instance uut/vm/, width 12 of formal port addra is not equal to width 8 of actual variable cur. 
+# run 1000 ns
+Simulator is doing circuit initialization process.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.vm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.c.cm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Finished circuit initialization process.
+# run 1000.00us
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/Workspace/ASM/Hard/TTY/VGA.v" Line 62.  For instance uut/vm/, width 12 of formal port addra is not equal to width 8 of actual variable cur. 
+# run 1000 ns
+Simulator is doing circuit initialization process.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.vm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.c.cm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Finished circuit initialization process.
+# run 1000.00us
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/Workspace/ASM/Hard/TTY/VGA.v" Line 62.  For instance uut/vm/, width 12 of formal port addra is not equal to width 8 of actual variable cur. 
+# run 1000 ns
+Simulator is doing circuit initialization process.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.vm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.c.cm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Finished circuit initialization process.
+# run 1000.00us
+# run 0.00us
+# run 0.00us
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING:  For instance uut/vm/, width 1 of formal port wea is not equal to width 32 of actual constant.
+WARNING: File "F:/Workspace/ASM/Hard/TTY/VGA.v" Line 62.  For instance uut/vm/, width 12 of formal port addra is not equal to width 8 of actual variable cur. 
+# run 1000 ns
+Simulator is doing circuit initialization process.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.vm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.c.cm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Finished circuit initialization process.
+# run 0.00us
+# run 100.00us
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING:  For instance uut/vm/, width 1 of formal port wea is not equal to width 32 of actual constant.
+WARNING:  For instance uut/vm/, width 12 of formal port addra is not equal to width 32 of actual constant.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.vm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.c.cm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Finished circuit initialization process.
+blk_mem_gen_v7_3 collision detected at time: 345000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 355000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 365000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 375000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 385000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 395000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 405000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 415000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 425000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 435000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 445000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 455000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 465000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 475000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 485000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 495000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 505000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 515000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 525000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 535000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 545000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 555000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 565000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 575000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 585000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 595000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 605000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 615000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 625000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 635000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 645000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 655000, A write address: 1, B  read address: 2
+# run 100.00us
+blk_mem_gen_v7_3 collision detected at time: 10585000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10595000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10605000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10615000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10625000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10635000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10645000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10655000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10665000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10675000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10685000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10695000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10705000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10715000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10725000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10735000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10745000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10755000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10765000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10775000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10785000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10795000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10805000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10815000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10825000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10835000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10845000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10855000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10865000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10875000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10885000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 10895000, A write address: 1, B  read address: 2
+blk_mem_gen_v7_3 collision detected at time: 16365000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16375000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16385000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16395000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16405000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16415000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16425000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16435000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16445000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16455000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16465000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16475000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16485000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16495000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16505000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16515000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16525000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16535000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16545000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16555000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16565000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16575000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16585000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16595000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16605000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16615000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16625000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16635000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16645000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16655000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16665000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 16675000, A write address: 1, B  read address: 2
+blk_mem_gen_v7_3 collision detected at time: 26605000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26615000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26625000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26635000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26645000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26655000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26665000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26675000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26685000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26695000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26705000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26715000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26725000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26735000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26745000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26755000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26765000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26775000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26785000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26795000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26805000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26815000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26825000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26835000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26845000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26855000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26865000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26875000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26885000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26895000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26905000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 26915000, A write address: 1, B  read address: 2
+blk_mem_gen_v7_3 collision detected at time: 32385000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32395000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32405000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32415000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32425000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32435000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32445000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32455000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32465000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32475000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32485000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32495000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32505000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32515000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32525000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32535000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32545000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32555000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32565000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32575000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32585000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32595000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32605000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32615000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32625000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32635000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32645000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32655000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32665000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32675000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32685000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 32695000, A write address: 1, B  read address: 2
+blk_mem_gen_v7_3 collision detected at time: 42625000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42635000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42645000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42655000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42665000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42675000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42685000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42695000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42705000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42715000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42725000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42735000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42745000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42755000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42765000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42775000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42785000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42795000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42805000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42815000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42825000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42835000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42845000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42855000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42865000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42875000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42885000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42895000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42905000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42915000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42925000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 42935000, A write address: 1, B  read address: 2
+blk_mem_gen_v7_3 collision detected at time: 48405000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48415000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48425000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48435000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48445000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48455000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48465000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48475000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48485000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48495000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48505000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48515000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48525000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48535000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48545000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48555000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48565000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48575000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48585000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48595000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48605000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48615000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48625000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48635000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48645000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48655000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48665000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48675000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48685000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48695000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48705000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 48715000, A write address: 1, B  read address: 2
+blk_mem_gen_v7_3 collision detected at time: 58645000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58655000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58665000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58675000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58685000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58695000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58705000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58715000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58725000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58735000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58745000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58755000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58765000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58775000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58785000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58795000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58805000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58815000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58825000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58835000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58845000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58855000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58865000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58875000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58885000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58895000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58905000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58915000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58925000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58935000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58945000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 58955000, A write address: 1, B  read address: 2
+blk_mem_gen_v7_3 collision detected at time: 64425000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64435000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64445000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64455000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64465000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64475000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64485000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64495000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64505000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64515000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64525000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64535000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64545000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64555000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64565000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64575000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64585000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64595000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64605000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64615000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64625000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64635000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64645000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64655000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64665000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64675000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64685000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64695000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64705000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64715000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64725000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 64735000, A write address: 1, B  read address: 2
+blk_mem_gen_v7_3 collision detected at time: 74665000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74675000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74685000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74695000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74705000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74715000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74725000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74735000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74745000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74755000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74765000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74775000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74785000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74795000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74805000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74815000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74825000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74835000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74845000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74855000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74865000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74875000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74885000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74895000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74905000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74915000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74925000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74935000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74945000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74955000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74965000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 74975000, A write address: 1, B  read address: 2
+blk_mem_gen_v7_3 collision detected at time: 80445000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80455000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80465000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80475000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80485000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80495000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80505000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80515000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80525000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80535000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80545000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80555000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80565000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80575000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80585000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80595000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80605000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80615000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80625000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80635000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80645000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80655000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80665000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80675000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80685000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80695000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80705000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80715000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80725000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80735000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80745000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 80755000, A write address: 1, B  read address: 2
+blk_mem_gen_v7_3 collision detected at time: 90685000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90695000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90705000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90715000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90725000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90735000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90745000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90755000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90765000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90775000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90785000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90795000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90805000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90815000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90825000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90835000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90845000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90855000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90865000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90875000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90885000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90895000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90905000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90915000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90925000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90935000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90945000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90955000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90965000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90975000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90985000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 90995000, A write address: 1, B  read address: 2
+blk_mem_gen_v7_3 collision detected at time: 96465000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96475000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96485000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96495000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96505000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96515000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96525000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96535000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96545000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96555000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96565000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96575000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96585000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96595000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96605000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96615000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96625000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96635000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96645000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96655000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96665000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96675000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96685000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96695000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96705000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96715000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96725000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96735000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96745000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96755000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96765000, A write address: 1, B  read address: 1
+blk_mem_gen_v7_3 collision detected at time: 96775000, A write address: 1, B  read address: 2
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING:  For instance uut/vm/, width 12 of formal port addra is not equal to width 32 of actual constant.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.vm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.c.cm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Finished circuit initialization process.
+# run 100.00us
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/Workspace/ASM/Hard/TTY/VGA.v" Line 62.  For instance uut/vm/, width 12 of formal port addra is not equal to width 8 of actual variable cur. 
+# run 1000 ns
+Simulator is doing circuit initialization process.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.vm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.c.cm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Finished circuit initialization process.
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/Workspace/ASM/Hard/TTY/VGA.v" Line 62.  For instance uut/vm/, width 12 of formal port addra is not equal to width 8 of actual variable cur. 
+# run 1000 ns
+Simulator is doing circuit initialization process.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.vm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.c.cm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Finished circuit initialization process.
+# run 100.00us
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/Workspace/ASM/Hard/TTY/t_vga.v" Line 39.  For instance t_vga/uut/, width 12 of formal port cur is not equal to width 8 of actual signal cur.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.vm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.c.cm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Finished circuit initialization process.
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/Workspace/ASM/Hard/TTY/t_vga.v" Line 39.  For instance t_vga/uut/, width 12 of formal port cur is not equal to width 8 of actual signal cur.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.vm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.c.cm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Finished circuit initialization process.
+# run 100.00us
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/Workspace/ASM/Hard/TTY/t_vga.v" Line 39.  For instance t_vga/uut/, width 12 of formal port cur is not equal to width 8 of actual signal cur.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.vm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.c.cm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Finished circuit initialization process.
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/Workspace/ASM/Hard/TTY/t_vga.v" Line 39.  For instance t_vga/uut/, width 12 of formal port cur is not equal to width 8 of actual signal cur.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.vm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator CORE Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator CORE Generator module t_vga.uut.c.cm.inst.\native_mem_module.blk_mem_gen_v7_3_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Finished circuit initialization process.
+blk_mem_gen_v7_3 collision detected at time: 45000, A write address: 0, B  read address: 0
+# run 100.00us

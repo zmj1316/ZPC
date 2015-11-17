@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=F:\Workspace\ASM\Hard\ZPC\impact.xsl
+OUTFILE=F:\Workspace\ASM\Hard\ZPC\impact.xsl
+FAMILY=Multiple
+PART=Multiple
+WORKINGDIR=F:\Workspace\ASM\Hard\ZPC
+LICENSE=iMPACT
+USER_INFO=iMPACT

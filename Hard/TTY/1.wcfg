@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="F:/Workspace/ASM/Hard/TTY/t_vga_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="t_vga" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="17" />
+   <wvobject fp_name="/t_vga/vga_red" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">vga_red</obj_property>
+      <obj_property name="ObjectShortName">vga_red</obj_property>
+   </wvobject>
+   <wvobject fp_name="/t_vga/vga_green" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">vga_green</obj_property>
+      <obj_property name="ObjectShortName">vga_green</obj_property>
+   </wvobject>
+   <wvobject fp_name="/t_vga/vga_blue" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">vga_blue</obj_property>
+      <obj_property name="ObjectShortName">vga_blue</obj_property>
+   </wvobject>
+   <wvobject fp_name="/t_vga/vga_hsync" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">vga_hsync</obj_property>
+      <obj_property name="ObjectShortName">vga_hsync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/t_vga/vga_vsync" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">vga_vsync</obj_property>
+      <obj_property name="ObjectShortName">vga_vsync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/t_vga/doutb" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">doutb[7:0]</obj_property>
+      <obj_property name="ObjectShortName">doutb[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/t_vga/cur" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cur[7:0]</obj_property>
+      <obj_property name="ObjectShortName">cur[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/t_vga/ttyWFlag" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ttyWFlag</obj_property>
+      <obj_property name="ObjectShortName">ttyWFlag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/t_vga/ttywrite" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ttywrite</obj_property>
+      <obj_property name="ObjectShortName">ttywrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/t_vga/ttydata" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ttydata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ttydata[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/t_vga/h_counter" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">h_counter[10:0]</obj_property>
+      <obj_property name="ObjectShortName">h_counter[10:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/t_vga/BUS" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">BUS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BUS[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/t_vga/clk_25mhz" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_25mhz</obj_property>
+      <obj_property name="ObjectShortName">clk_25mhz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/t_vga/clk_50mhz" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_50mhz</obj_property>
+      <obj_property name="ObjectShortName">clk_50mhz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/t_vga/Memwrite" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">Memwrite</obj_property>
+      <obj_property name="ObjectShortName">Memwrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/t_vga/Addrin" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Addrin[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Addrin[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/t_vga/Memin" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Memin[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Memin[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+</wave_config>

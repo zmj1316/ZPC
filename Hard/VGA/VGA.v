@@ -48,6 +48,9 @@ vga_controller_640_60 vga_controller(clk_25mhz, vga_hsync, vga_vsync, h_counter,
 layer_compositor layering({vga_blue, vga_green, vga_red}, blank,topval);
 
 reg we;
+reg [7:0] cur;
+reg ttywrite;
+reg [7:0] ttydata;
 reg [11:0] addra;
 reg [11:0] addrb;
 reg [7:0] datain;
@@ -56,21 +59,29 @@ wire [7:0] doutb;
 // output [7:0]doutb;
 VM vm(
 	.clka(clk_50mhz),
-	.wea(we),
-	.addra(Addrin[12:0]),
-	.dina(BUS),
+	.wea(ttywrite),
+	.addra(ttydata),
+	.dina(ttydata),
 	// .douta(douta),
 	.addrb(addrb),
 	.clkb(clk_50mhz),
 	.doutb(doutb)
 	);
-
+always @(posedge Memwrite) begin
+	addra = cur;
+	ttydata = BUS;
+	ttywrite=1;
+	cur=cur+1;
+end
 char c(doutb,h_counter[3:0],v_counter[3:0],topval[0],clk_50mhz);
 initial begin
 	we = 0;
 	addra = 0;
 	addrb = 0;
 	datain = 0;
+	cur=0;
+	ttywrite=0;
+	ttydata = 0;
 end
 always @(posedge clk_25mhz) begin
 	we = 0;
