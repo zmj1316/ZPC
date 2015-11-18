@@ -27,7 +27,7 @@ static int ng2[] = {3, 0};
 
 
 
-static void Always_218_0(char *t0)
+static void Always_243_0(char *t0)
 {
     char t13[8];
     char t26[8];
@@ -75,7 +75,7 @@ LAB0:    t1 = (t0 + 2528U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(218, ng0);
+LAB2:    xsi_set_current_line(243, ng0);
     t2 = (t0 + 2848);
     *((int *)t2) = 1;
     t3 = (t0 + 2560);
@@ -83,9 +83,9 @@ LAB2:    xsi_set_current_line(218, ng0);
     *((char **)t1) = &&LAB4;
 
 LAB1:    return;
-LAB4:    xsi_set_current_line(218, ng0);
+LAB4:    xsi_set_current_line(243, ng0);
 
-LAB5:    xsi_set_current_line(219, ng0);
+LAB5:    xsi_set_current_line(244, ng0);
     t4 = (t0 + 1208U);
     t5 = *((char **)t4);
     t4 = (t5 + 4);
@@ -97,7 +97,7 @@ LAB5:    xsi_set_current_line(219, ng0);
     if (t10 > 0)
         goto LAB6;
 
-LAB7:    xsi_set_current_line(221, ng0);
+LAB7:    xsi_set_current_line(246, ng0);
     t2 = (t0 + 1048U);
     t3 = *((char **)t2);
     t2 = ((char*)((ng1)));
@@ -135,7 +135,7 @@ LAB14:
 LAB15:
 LAB8:    goto LAB2;
 
-LAB6:    xsi_set_current_line(220, ng0);
+LAB6:    xsi_set_current_line(245, ng0);
     t11 = ((char*)((ng1)));
     t12 = (t0 + 1608);
     xsi_vlogvar_assign_value(t12, t11, 0, 0, 3);
@@ -149,7 +149,7 @@ LAB11:    t11 = (t13 + 4);
     *((unsigned int *)t11) = 1;
     goto LAB12;
 
-LAB13:    xsi_set_current_line(222, ng0);
+LAB13:    xsi_set_current_line(247, ng0);
     t27 = ((char*)((ng2)));
     t28 = (t0 + 1048U);
     t29 = *((char **)t28);
@@ -174,7 +174,7 @@ LAB13:    xsi_set_current_line(222, ng0);
 
 extern void work_m_00000000003319913314_3887546801_init()
 {
-	static char *pe[] = {(void *)Always_218_0};
+	static char *pe[] = {(void *)Always_243_0};
 	xsi_register_didat("work_m_00000000003319913314_3887546801", "isim/t_vga_isim_beh.exe.sim/work/m_00000000003319913314_3887546801.didat");
 	xsi_register_executes(pe);
 }

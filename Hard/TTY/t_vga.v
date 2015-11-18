@@ -53,15 +53,7 @@ module t_vga;
 		.vga_vsync(vga_vsync), 
 		.clk_50mhz(clk_50mhz), 
 		.BUS(BUS), 
-		.Memwrite(Memwrite), 
-		.Addrin(Addrin), 
-		.doutb(doutb), 
-		.cur(cur), 
-		.ttyWFlag(ttyWFlag), 
-		.ttywrite(ttywrite), 
-		.ttydata(ttydata),
-		.clk_25mhz(clk_25mhz),
-		.h_counter(h_counter)
+		.Memwrite(Memwrite)
 	);
 
 	reg [31:0] Memin;

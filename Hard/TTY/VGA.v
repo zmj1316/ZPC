@@ -32,7 +32,7 @@ input clk_50mhz;
 // input rst;
 input [31:0]BUS;
 input Memwrite;
-input [31:0] Addrin;
+wire [31:0] Addrin;
 
 wire [10:0] h_counter;
 
@@ -44,12 +44,7 @@ wire clk_24hz;
 
 wire vga_red, vga_green, vga_blue;
 
-
-clock_manager clocking(clk_25mhz, clk_6hz, clk_24hz, clk_50mhz, 1'b0);
-
-vga_controller_640_60 vga_controller(clk_25mhz, vga_hsync, vga_vsync, h_counter, v_counter, blank);
-
-layer_compositor layering({vga_blue, vga_green, vga_red}, blank,topval);
+wire clk_1hz;
 
 reg we;
 
@@ -58,22 +53,30 @@ reg [11:0] addrb;
 reg [7:0] datain;
 // reg [7:0] douta;
 // wire [7:0] doutb;
-[7:0]doutb;
-
-reg [11:0] cur;
+wire [7:0]doutb;
+reg [5:0] curx = 0;
+reg [5:0] cury = 0;
 output reg ttywrite;
 reg [7:0] ttydata;
 reg ttyWFlag;
+
+clock_manager clocking(clk_25mhz, clk_6hz, clk_24hz, clk_50mhz, 1'b0,clk_1hz);
+
+vga_controller_640_60 vga_controller(clk_25mhz, vga_hsync, vga_vsync, h_counter, v_counter, blank);
+
+layer_compositor layering({vga_blue, vga_green, vga_red}, blank, (clk_1hz == 0 && ((curx + cury*40) + 1) == addrb)? 3'b111: topval);
+
 VM vm(
 	.clka(clk_25mhz),
 	.wea(ttywrite),
-	.addra(cur),
+	.addra(curx + cury*40),
 	.dina(ttydata),
 	// .douta(douta),
 	.addrb(addrb),
 	.clkb(clk_50mhz),
 	.doutb(doutb)
 	);
+
 // VM vm(
 // 	.clka(clk_50mhz),
 // 	.wea(1),
@@ -91,7 +94,6 @@ initial begin
 	addra = 0;
 	addrb = 0;
 	datain = 0;
-	cur=-1;
 	ttywrite=0;
 	ttydata = 0;
 	ttyWFlag = 1'b0;
@@ -100,18 +102,26 @@ end
 always @(posedge clk_25mhz) begin
 	// we = 0;
 	ttywrite = 0;
-	addrb = {v_counter[8:4],h_counter[8:4]};
+	addrb = v_counter[8:4] * 40 + h_counter[9:4];
 	// we = 1;
 	if (Memwrite==1'b1 && ttyWFlag == 1'b0) begin
+
 		ttyWFlag = 1;
+
 		if (BUS == 8'h0d) begin
-			cur = cur & 11'hFE0 + 11'h20;
+			curx = -1;
+			cury = cury + 1;
 		end
 		else begin
-			cur = cur + 1;
+			if (curx == 40) begin
+				curx = -1;
+				cury = cury + 1;
+			end
+			
 			ttydata = BUS;
+			ttywrite = 1;
+			curx = curx + 1;
 		end
-		ttywrite = 1;
 	end
 	else if (Memwrite == 1'b0 && ttyWFlag == 1'b1) begin
 		ttyWFlag = 0;
@@ -120,16 +130,27 @@ always @(posedge clk_25mhz) begin
 		ttywrite = 0;
 end
 
+// always @(posedge clk_25mhz) begin
+// 	we = 0;
+// 	begin
+// 		addrb = {v_counter[8:4],h_counter[8:4]};
+// 		// we = 1;
+// 		if (Memwrite==1'b1) begin
+// 			// we = 1;
+// 		end
+// 	end
+// end
+
 
 endmodule
 
 
 
-module clock_manager(clk_25mhz, clk_6hz, clk_24hz, clk_50mhz, reset);
+module clock_manager(clk_25mhz, clk_6hz, clk_24hz, clk_50mhz, reset,clk_1hz);
 	output clk_25mhz;
 	output clk_6hz;
 	output clk_24hz;
-	
+	output reg clk_1hz = 0;
 	input clk_50mhz;
 	input reset;
 	
@@ -142,7 +163,14 @@ module clock_manager(clk_25mhz, clk_6hz, clk_24hz, clk_50mhz, reset);
 		clk_25mhz <= ~clk_25mhz;
 	end
 	clock_divider slow_clk(clk_6hz, clk_24hz, clk_50mhz);
-
+	reg [2:0]counter = 0;
+	always @(posedge clk_6hz ) begin
+		counter = counter + 1;
+		if (counter == 6) begin
+			clk_1hz = ~clk_1hz;
+			counter = 0;
+		end
+	end
 endmodule
 
 module clock_divider(out, out8x, clk);
@@ -208,8 +236,8 @@ module vga_controller_640_60 (pixel_clk,HS,VS,hcounter,vcounter,blank);
 		else VS <= ~SPP; 
 	end
 
-	// assign video_enable = (hcounter < HLINES && vcounter < VLINES) ? 1'b1 : 1'b0;
-	assign video_enable = (hcounter < 512 && vcounter < VLINES) ? 1'b1 : 1'b0;
+	assign video_enable = (hcounter < HLINES && vcounter < VLINES) ? 1'b1 : 1'b0;
+	// assign video_enable = (hcounter < 512 && vcounter < VLINES) ? 1'b1 : 1'b0;
 
 
 endmodule
@@ -224,8 +252,7 @@ module layer_compositor(screenout, blank, topval);
 	always@* begin
 		if (blank)
 			screenout = 3'b000;
-		else if (topval != 3'b000)
+		else 
 			screenout = {3{topval[0]}};
-		
 	end
 endmodule

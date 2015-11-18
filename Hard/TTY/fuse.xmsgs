@@ -5,7 +5,10 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"F:/Workspace/ASM/Hard/TTY/t_vga.v" Line 59: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">cur</arg>&gt;. Formal port size is <arg fmt="%d" index="2">12</arg>-bit while actual signal size is <arg fmt="%d" index="1">8</arg>-bit.
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"F:/Workspace/ASM/Hard/TTY/t_vga.v" Line 48: Port <arg fmt="%s" index="1">ttywrite</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"F:/Workspace/ASM/Hard/TTY/VGA.v" Line 66: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">topval</arg>&gt;. Formal port size is <arg fmt="%d" index="2">3</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
 </msg>
 
 </messages>

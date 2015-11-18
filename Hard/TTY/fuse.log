@@ -1,4 +1,4 @@
-Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "F:/Workspace/ASM/Hard/TTY/t_vga_isim_beh.exe" -prj "F:/Workspace/ASM/Hard/TTY/t_vga_beh.prj" "work.t_vga" "work.glbl" 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o F:/Workspace/ASM/Hard/TTY/t_vga_isim_beh.exe -prj F:/Workspace/ASM/Hard/TTY/t_vga_beh.prj work.t_vga work.glbl 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
@@ -10,7 +10,8 @@ Analyzing Verilog file "F:/Workspace/ASM/Hard/TTY/VGA.v" into library work
 Analyzing Verilog file "F:/Workspace/ASM/Hard/TTY/t_vga.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
-WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/TTY/t_vga.v" Line 59: Size mismatch in connection of port <cur>. Formal port size is 12-bit while actual signal size is 8-bit.
+WARNING:HDLCompiler:1016 - "F:/Workspace/ASM/Hard/TTY/t_vga.v" Line 48: Port ttywrite is not connected to this instance
+WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/TTY/VGA.v" Line 66: Size mismatch in connection of port <topval>. Formal port size is 3-bit while actual signal size is 32-bit.
 Completed static elaboration
 Compiling module clock_divider
 Compiling module clock_manager
@@ -31,8 +32,8 @@ Compiling module VGA
 Compiling module t_vga
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 11 sub-compilation(s) to finish...
+Waiting for 8 sub-compilation(s) to finish...
 Compiled 18 Verilog Units
 Built simulation executable F:/Workspace/ASM/Hard/TTY/t_vga_isim_beh.exe
-Fuse Memory Usage: 35068 KB
-Fuse CPU Usage: 623 ms
+Fuse Memory Usage: 35748 KB
+Fuse CPU Usage: 654 ms
