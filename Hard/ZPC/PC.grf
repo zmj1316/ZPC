@@ -1,7 +1,7 @@
 Release 14.7 - par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Thu Nov 05 18:58:23 2015
+Tue Dec 01 21:40:11 2015
 
   SmartGuide Results
   ------------------
@@ -9,2075 +9,3146 @@ Thu Nov 05 18:58:23 2015
   report accurately reflects the differences between the input design
   and the guide design.
 
-  Number of Components in the input design    |   3328
-    Number of guided Components               |   3047 out of   3328  91.6%
-    Number of re-implemented Components       |    261 out of   3328   7.8%
-    Number of new/changed Components          |     20 out of   3328   0.6%
-  Number of Nets in the input design          |   5200
-    Number of guided Nets                     |   3438 out of   5200  66.1%
-    Number of partially guided Nets           |    610 out of   5200  11.7%
-    Number of re-routed Nets                  |   1083 out of   5200  20.8%
-    Number of new/changed Nets                |     69 out of   5200   1.3%
+  Number of Components in the input design    |   3513
+    Number of guided Components               |   3171 out of   3513  90.3%
+    Number of re-implemented Components       |    314 out of   3513   8.9%
+    Number of new/changed Components          |     28 out of   3513   0.8%
+  Number of Nets in the input design          |   6226
+    Number of guided Nets                     |   3454 out of   6226  55.5%
+    Number of partially guided Nets           |   1004 out of   6226  16.1%
+    Number of re-routed Nets                  |   1704 out of   6226  27.4%
+    Number of new/changed Nets                |     64 out of   6226   1.0%
 
 
 The following Components were re-implemented.
 ---------------------------------------------
- cpu/cReg_9_26 : SLICE_X51Y67.
- cpu/cReg_19_31 : SLICE_X49Y62.
- cpu/Regfile_10_11 : SLICE_X40Y25.
- N5 : SLICE_X50Y28.
- cpu/cReg_29_29 : SLICE_X48Y58.
- cpu/Memwrite<1> : SLICE_X53Y30.
- cpu/cReg_7_30 : SLICE_X49Y57.
- cpu/Regfile_14_11 : SLICE_X45Y21.
- cpu/Regfile_28_0 : SLICE_X35Y46.
- cpu/Regfile_31_30 : SLICE_X51Y64.
- cpu/cReg_12_30 : SLICE_X45Y60.
- cpu/IR<1> : SLICE_X53Y42.
- cpu/Regfile_7_30 : SLICE_X53Y62.
- cpu/cReg_30_30 : SLICE_X44Y52.
- cpu/cReg_19_30 : SLICE_X39Y57.
- cpu/Regfile_8_15 : SLICE_X36Y52.
- cpu/Regfile_31_7 : SLICE_X50Y54.
- cpu/cReg_4_30 : SLICE_X45Y61.
- cpu/cReg_9_29 : SLICE_X49Y61.
- cpu/Regfile_26_30 : SLICE_X52Y61.
- cpu/Regfile_28_30 : SLICE_X54Y62.
- cpu/cReg_27_29 : SLICE_X55Y33.
- cpu/Regfile_1_21 : SLICE_X35Y56.
- cpu/cReg_12_29 : SLICE_X55Y46.
- cpu/Regfile_19_27 : SLICE_X32Y61.
- cpu/cReg_15_31 : SLICE_X37Y51.
- cpu/stage<1> : SLICE_X37Y50.
- cpu/cReg_11_1 : SLICE_X39Y32.
- cpu/Regfile_20_0 : SLICE_X38Y49.
- cpu/Regfile_23_9 : SLICE_X40Y30.
- cpu/Regfile_30_15 : SLICE_X36Y49.
- cpu/cReg_31_30 : SLICE_X37Y53.
- cpu/cReg_26_30 : SLICE_X38Y52.
- cpu/cReg_29_1 : SLICE_X43Y30.
- cpu/Alures<6> : SLICE_X41Y30.
- cpu/PC_mux0000<10>18 : SLICE_X36Y50.
- cpu/old_Alures_16_mux0002<23>4 : SLICE_X43Y55.
- cpu/Alures<13> : SLICE_X40Y31.
- cpu/Alures<26> : SLICE_X43Y50.
- cpu/cReg_28_30 : SLICE_X40Y52.
- cpu/Alures<25> : SLICE_X43Y54.
- N409 : SLICE_X43Y49.
- cpu/Regfile_26_15 : SLICE_X42Y52.
- cpu/_old_A_12<29> : SLICE_X43Y48.
- cpu/cReg_16_30 : SLICE_X42Y54.
- cpu/old_Alures_16_mux0002<24>4 : SLICE_X46Y50.
- cpu/Memout<31> : SLICE_X49Y28.
- cpu/Regfile_18_9 : SLICE_X46Y30.
- N419 : SLICE_X46Y51.
- N407 : SLICE_X48Y49.
- cpu/Alures<30> : SLICE_X47Y52.
- cpu/cReg_16_29 : SLICE_X51Y56.
- N373 : SLICE_X51Y33.
- cpu/Regfile_13_7 : SLICE_X49Y55.
- cpu/IR<15> : SLICE_X49Y46.
- cpu/Regfile_7_7 : SLICE_X48Y54.
- cpu/Regfile_22_7 : SLICE_X51Y53.
- cpu/Regfile_27_7 : SLICE_X49Y49.
- cpu/Regfile_14_7 : SLICE_X49Y51.
- cpu/Regfile_28_7 : SLICE_X50Y53.
- cpu/Regfile_21_7 : SLICE_X52Y55.
- mem/tmp<38> : SLICE_X54Y46.
- cpu/B<21> : SLICE_X51Y54.
- cpu/Regfile_19_7 : SLICE_X51Y55.
- cpu/Regfile_29_7 : SLICE_X49Y48.
- cpu/Regfile_10_7 : SLICE_X47Y55.
- cpu/Regfile_17_7 : SLICE_X54Y54.
- cpu/Regfile_23_7 : SLICE_X52Y46.
- cpu/Regfile_1_30 : SLICE_X55Y50.
- mem/tmp<30> : SLICE_X54Y36.
- mem/tmp<28> : SLICE_X53Y46.
- cpu/Regfile_16_7 : SLICE_X54Y56.
- N745 : SLICE_X52Y47.
- cpu/old_Alures_16_mux0001<31>33 : SLICE_X55Y52.
- cpu/Regfile_29_30 : SLICE_X55Y57.
- N532 : SLICE_X66Y61.
- cpu/Regfile_30_7 : SLICE_X65Y56.
- cpu/IR<6> : SLICE_X64Y56.
- cpu/Regfile_3_7 : SLICE_X64Y57.
- cpu/Regfile_8_7 : SLICE_X66Y60.
- cpu/Regfile_2_7 : SLICE_X67Y58.
- cpu/IR<7> : SLICE_X66Y57.
- cpu/cReg_23_29 : SLICE_X65Y53.
- cpu/Regfile_4_7 : SLICE_X65Y61.
- N535 : SLICE_X51Y46.
- N1049 : SLICE_X49Y29.
- cpu/Sh59 : SLICE_X55Y59.
- cpu/PC<1> : SLICE_X46Y31.
- cpu/PC<9> : SLICE_X37Y49.
- cpu/Sh5020 : SLICE_X67Y59.
- cpu/Sh5120 : SLICE_X67Y61.
- cpu/cReg_18_29 : SLICE_X64Y52.
- mem/tmp<1> : SLICE_X53Y31.
- cpu/PC<20> : SLICE_X39Y54.
- cpu/PC<23> : SLICE_X38Y53.
- cpu/PC<25> : SLICE_X40Y53.
- cpu/PC<4> : SLICE_X37Y29.
- cpu/Memout<5> : SLICE_X48Y28.
- cpu/old_Alures_16_mux0001<0>80 : SLICE_X64Y60.
- cpu/old_Alures_16_mux0001<3>90 : SLICE_X65Y52.
- cpu/Regfile_6_11 : SLICE_X42Y29.
- cpu/old_Alures_16_mux0001<7>47 : SLICE_X66Y62.
- cpu/old_Alures_16_mux0001<8>47 : SLICE_X64Y48.
- N1039 : SLICE_X52Y32.
- BUS<15>_MLTSRCEDGE : SLICE_X51Y30.
- N1041 : SLICE_X52Y28.
- N1043 : SLICE_X44Y27.
- mem/tmp<20> : SLICE_X53Y32.
- cpu/Memout<14> : SLICE_X47Y32.
- cpu/signal<12>_mmx_out10 : SLICE_X46Y53.
- cpu/signal<12>_mmx_out14 : SLICE_X48Y32.
- BUS<25>_MLTSRCEDGE : SLICE_X55Y32.
- mem/tmp<8> : SLICE_X55Y28.
- BUS<8>_MLTSRCEDGE : SLICE_X54Y24.
- cpu/Sh20 : SLICE_X64Y61.
- cpu/Sh15 : SLICE_X67Y56.
- cpu/Sh16 : SLICE_X67Y52.
- cpu/Regfile_15_7 : SLICE_X67Y57.
- cpu/Sh54 : SLICE_X65Y49.
- cpu/Sh55 : SLICE_X66Y63.
- cpu/old_Alures_16_mux0001<10>47 : SLICE_X65Y58.
- cpu/old_Alures_16_mux0001<11>47 : SLICE_X67Y62.
- cpu/INT : SLICE_X54Y31.
- cpu/old_Alures_16_mux0001<12>85 : SLICE_X65Y67.
- cpu/old_Alures_16_mux0002<0>124 : SLICE_X43Y29.
- BUS<29>_MLTSRCEDGE : SLICE_X51Y61.
- BUS<12>_MLTSRCEDGE : SLICE_X46Y27.
- cpu/cReg_27_30 : SLICE_X47Y56.
- cpu/signal<12>_mmx_out20 : SLICE_X46Y52.
- cpu/signal<12>_mmx_out31 : SLICE_X42Y55.
- cpu/signal<12>_mmx_out26 : SLICE_X39Y53.
- mem/tmp<31> : SLICE_X51Y52.
- mem/tmp<33> : SLICE_X51Y32.
- cpu/old_Alures_16_mux0001<5>7 : SLICE_X66Y52.
- cpu/Regfile_11_7 : SLICE_X51Y50.
- BUS<26>_MLTSRCEDGE : SLICE_X53Y33.
- cpu/Addr<1> : SLICE_X48Y31.
- cpu/Addr<9> : SLICE_X65Y64.
- cpu/Addr<11> : SLICE_X64Y64.
- cpu/cReg_14_4 : SLICE_X35Y48.
- cpu/Addr<30> : SLICE_X49Y53.
- cpu/Addr<28> : SLICE_X64Y62.
- cpu/Addr<29> : SLICE_X50Y47.
- mem/addr<1> : SLICE_X55Y31.
- cpu/Regfile_25_15 : SLICE_X37Y52.
- cpu/Regfile_4_15 : SLICE_X36Y55.
- cpu/PC_mux0000<17>4 : SLICE_X32Y51.
- cpu/PC_mux0000<23>21 : SLICE_X39Y58.
- cpu/Regfile_21_23 : SLICE_X39Y55.
- cpu/Memout<20> : SLICE_X41Y52.
- cpu/Regfile_4_0 : SLICE_X38Y54.
- cpu/cReg_29_3 : SLICE_X42Y30.
- cpu/Regfile_5_8 : SLICE_X38Y51.
- cpu/cReg_27_31 : SLICE_X45Y62.
- N374 : SLICE_X51Y47.
- N716 : SLICE_X50Y32.
- cpu/Sh500 : SLICE_X66Y54.
- N957 : SLICE_X66Y59.
- N955 : SLICE_X65Y48.
- cpu/Sh6 : SLICE_X66Y49.
- cpu/Sh7 : SLICE_X66Y51.
- N543 : SLICE_X55Y45.
- N651 : SLICE_X52Y45.
- cpu/old_Alures_16_mux0002<31>4 : SLICE_X50Y49.
- cpu/old_Alures_16_mux0002<5>84 : SLICE_X52Y29.
- N540 : SLICE_X55Y47.
- cpu/old_Alures_16_mux0002<7>84 : SLICE_X45Y26.
- N781 : SLICE_X53Y49.
- cpu/Sh10 : SLICE_X67Y55.
- cpu/Sh12 : SLICE_X66Y53.
- cpu/Sh18 : SLICE_X66Y56.
- cpu/old_Alures_16_mux0001<30>20 : SLICE_X48Y47.
- cpu/old_Alures_16_mux0001<13>85 : SLICE_X64Y49.
- cpu/old_Alures_16_mux0001<0>130 : SLICE_X66Y50.
- cpu/old_Alures_16_mux0001<14>85 : SLICE_X66Y69.
- cpu/old_Alures_16_mux0001<15>38 : SLICE_X67Y60.
- cpu/old_Alures_16_mux0001<0>164 : SLICE_X54Y47.
- cpu/old_Alures_16_mux0002<15>84 : SLICE_X41Y49.
- cpu/old_Alures_16_mux0001<7>112 : SLICE_X64Y59.
- cpu/old_Alures_16_mux0001<8>112 : SLICE_X64Y50.
- N498 : SLICE_X55Y44.
- N486 : SLICE_X48Y50.
- N313 : SLICE_X49Y45.
- cpu/old_Alures_16_mux0001<8>0 : SLICE_X64Y53.
- cpu/old_Alures_16_mux0001<9>0 : SLICE_X64Y58.
- N492 : SLICE_X51Y51.
- cpu/old_Alures_16_mux0001<10>112 : SLICE_X65Y60.
- cpu/old_Alures_16_mux0001<11>112 : SLICE_X54Y59.
- cpu/old_Alures_16_mux0001<12>124 : SLICE_X64Y51.
- cpu/old_Alures_16_mux0001<15>125 : SLICE_X54Y58.
- cpu/old_Alures_16_mux0001<24>149 : SLICE_X50Y56.
- cpu/Alures<2> : SLICE_X49Y32.
- cpu/Alures<5> : SLICE_X49Y30.
- cpu/B<6> : SLICE_X52Y44.
- cpu/B<7> : SLICE_X48Y45.
- cpu/B<8> : SLICE_X55Y42.
- cpu/Alures<15> : SLICE_X37Y54.
- cpu/B<20> : SLICE_X53Y51.
- cpu/B<22> : SLICE_X53Y54.
- cpu/B<30> : SLICE_X55Y53.
- cpu/B<15> : SLICE_X49Y52.
- cpu/B<23> : SLICE_X53Y55.
- cpu/B<31> : SLICE_X48Y53.
- cpu/B<16> : SLICE_X55Y49.
- cpu/B<24> : SLICE_X50Y57.
- cpu/B<17> : SLICE_X52Y49.
- cpu/B<25> : SLICE_X55Y56.
- cpu/B<18> : SLICE_X53Y47.
- cpu/B<26> : SLICE_X54Y55.
- cpu/B<19> : SLICE_X54Y48.
- cpu/B<27> : SLICE_X48Y57.
- cpu/B<28> : SLICE_X52Y50.
- cpu/B<29> : SLICE_X54Y52.
- N815 : SLICE_X50Y60.
- N817 : SLICE_X54Y49.
- cpu/PC_mux0000<28>4 : SLICE_X36Y59.
- cpu/Regfile_12_7 : SLICE_X52Y54.
- cpu/Regfile_20_7 : SLICE_X55Y58.
- cpu/Regfile_21_9 : SLICE_X49Y24.
- cpu/Regfile_24_7 : SLICE_X50Y55.
- cpu/Regfile_25_7 : SLICE_X54Y57.
- cpu/_old_A_12<24> : SLICE_X49Y44.
- cpu/cReg_23_30 : SLICE_X38Y55.
- mem/tmp<2> : SLICE_X54Y32.
- cpu/old_Alures_16_mux0001<9>215 : SLICE_X54Y44.
- cpu/old_Alures_16_mux0002<20>13 : SLICE_X42Y51.
- cpu/old_Alures_16_mux0002<23>13 : SLICE_X40Y50.
- cpu/old_Alures_16_mux0002<24>13 : SLICE_X48Y55.
- cpu/old_Alures_16_mux0002<17>4 : SLICE_X36Y51.
- cpu/old_Alures_16_mux0002<26>13 : SLICE_X47Y53.
- cpu/old_Alures_16_mux0002<19>13 : SLICE_X43Y53.
- cpu/old_Alures_16_mux0002<29>13 : SLICE_X47Y54.
- cpu/cReg_3_5 : SLICE_X37Y31.
- N1031 : SLICE_X50Y46.
- mem/tmp<35> : SLICE_X46Y29.
- cpu/Sh52 : SLICE_X53Y50.
- cpu/cReg_14_and0000 : SLICE_X41Y28.
- cpu/PC_mux0000<30>40 : SLICE_X49Y54.
- cpu/old_Alures_16_mux0001<30>33 : SLICE_X67Y64.
- N68 : SLICE_X50Y30.
- N118 : SLICE_X51Y48.
- N359 : SLICE_X50Y50.
- N88 : SLICE_X53Y48.
- N552 : SLICE_X54Y42.
- N549 : SLICE_X49Y50.
- cpu/Regfile_17_9 : SLICE_X39Y24.
- cpu/cReg_9_30 : SLICE_X51Y57.
- cpu/PC_mux0000<29>4 : SLICE_X48Y59.
- cpu/Regfile_3_0 : SLICE_X34Y50.
- cpu/Regfile_1_7 : SLICE_X55Y55.
- cpu/cReg_17_29 : SLICE_X65Y65.
- cpu/Memwrite<0> : SLICE_X54Y30.
- cpu/PC_mux0000<21>67 : SLICE_X37Y56.
- cpu/Regfile_19_9 : SLICE_X48Y22.
- cpu/Regfile_28_8 : SLICE_X39Y22.
- cpu/Regfile_24_30 : SLICE_X52Y62.
- cpu/cReg_2_29 : SLICE_X49Y60.
- cpu/Addr<20> : SLICE_X33Y50.
- cpu/Addr<13> : SLICE_X41Y51.
- cpu/Addr<16> : SLICE_X37Y55.
- cpu/Addr<19> : SLICE_X35Y49.
+ t/vga/AUX_addra_31_addsub0000<0> : SLICE_X1Y4.
+ t/vga/AUX_addra_31_addsub0000<2> : SLICE_X1Y5.
+ t/vga/AUX_addra_31_addsub0000<4> : SLICE_X1Y6.
+ t/vga/AUX_addra_31_addsub0000<6> : SLICE_X1Y7.
+ t/vga/AUX_addra_31_addsub0000<8> : SLICE_X1Y8.
+ t/vga/AUX_addra_31_addsub0000<10> : SLICE_X1Y9.
+ t/vga/cury_cmp_eq0002_wg_cy<1> : SLICE_X14Y10.
+ t/vga/cury_cmp_eq0002_wg_cy<3> : SLICE_X14Y11.
+ cpu/Regfile_19_19 : SLICE_X14Y12.
+ cpu/Regfile_25_19 : SLICE_X14Y13.
+ t/vga/addrb<0> : SLICE_X17Y15.
+ t/vga/addrb<2> : SLICE_X17Y16.
+ t/vga/addrb<4> : SLICE_X17Y17.
+ t/vga/addrb<6> : SLICE_X17Y18.
+ t/vga/addrb<8> : SLICE_X17Y19.
+ t/vga/addrb<10> : SLICE_X17Y20.
+ cpu/mux10_5_f5 : SLICE_X20Y0.
+ cpu/mux10_6_f5 : SLICE_X20Y1.
+ cpu/mux10_6_f52 : SLICE_X20Y2.
+ cpu/mux10_7_f51 : SLICE_X20Y3.
+ cpu/mux10_6_f51 : SLICE_X21Y0.
+ cpu/RA<19> : SLICE_X21Y1.
+ cpu/mux10_7_f52 : SLICE_X21Y2.
+ cpu/Regfile_17_19 : SLICE_X21Y3.
+ cpu/mux17_5_f5 : SLICE_X16Y82.
+ cpu/mux17_6_f5 : SLICE_X16Y83.
+ cpu/mux17_6_f52 : SLICE_X16Y84.
+ cpu/mux17_7_f51 : SLICE_X16Y85.
+ cpu/mux17_6_f51 : SLICE_X17Y82.
+ cpu/RA<25> : SLICE_X17Y83.
+ cpu/mux17_7_f52 : SLICE_X17Y84.
+ cpu/Regfile_4_24 : SLICE_X17Y85.
+ cpu/mux_5_f5 : SLICE_X14Y28.
+ cpu/mux_6_f5 : SLICE_X14Y29.
+ cpu/mux_6_f52 : SLICE_X14Y30.
+ cpu/mux_7_f51 : SLICE_X14Y31.
+ cpu/mux_6_f51 : SLICE_X15Y28.
+ cpu/RA<0> : SLICE_X15Y29.
+ cpu/mux_7_f52 : SLICE_X15Y30.
+ cpu/cReg_17_24 : SLICE_X15Y31.
+ cpu/Mmux__old_Alures_16_13_f51 : SLICE_X12Y34.
+ cpu/Mmux__old_Alures_16_14_f53 : SLICE_X12Y35.
+ cpu/Mmux__old_Alures_16_14_f55 : SLICE_X12Y36.
+ cpu/Mmux__old_Alures_16_15_f54 : SLICE_X12Y37.
+ cpu/Mmux__old_Alures_16_14_f54 : SLICE_X13Y34.
+ cpu/Mmux__old_Alures_16_10_f81 : SLICE_X13Y35.
+ cpu/Mmux__old_Alures_16_15_f55 : SLICE_X13Y36.
+ t/vga/ttyWFlag : SLICE_X13Y37.
+ cpu/Mmux__old_Alures_16_13_f57 : SLICE_X18Y34.
+ cpu/Mmux__old_Alures_16_14_f521 : SLICE_X18Y35.
+ cpu/Mmux__old_Alures_16_14_f523 : SLICE_X18Y36.
+ cpu/Mmux__old_Alures_16_15_f522 : SLICE_X18Y37.
+ cpu/Mmux__old_Alures_16_14_f522 : SLICE_X19Y34.
+ cpu/Mmux__old_Alures_16_10_f87 : SLICE_X19Y35.
+ cpu/Mmux__old_Alures_16_15_f523 : SLICE_X19Y36.
+ cpu/cReg_4_18 : SLICE_X19Y37.
+ cpu/Memwrite_mux0000<1>1 : SLICE_X39Y22.
+ cpu/PC<8> : SLICE_X39Y26.
+ cpu/Dst<4> : SLICE_X30Y20.
+ t/writedata<0> : SLICE_X12Y27.
+ t/writedata<2> : SLICE_X14Y34.
+ cpu/Dst<1> : SLICE_X33Y21.
+ cpu/Dst<2> : SLICE_X28Y23.
+ cpu/Dst<3> : SLICE_X31Y21.
+ t/vga/curx<5> : SLICE_X12Y6.
+ t/vga/curx<1> : SLICE_X17Y6.
+ cpu/cReg_13_10 : SLICE_X19Y33.
+ cpu/cReg_13_7 : SLICE_X23Y20.
+ cpu/cReg_13_6 : SLICE_X31Y24.
+ N1135 : SLICE_X14Y36.
+ N277 : SLICE_X12Y17.
+ cpu/cReg_27_11 : SLICE_X39Y28.
+ cpu/cReg_27_4 : SLICE_X27Y25.
+ cpu/cReg_27_8 : SLICE_X26Y23.
+ cpu/cReg_2_16 : SLICE_X17Y40.
+ cpu/cReg_7_11 : SLICE_X33Y26.
+ cpu/cReg_8_10 : SLICE_X20Y38.
+ cpu/cReg_8_13 : SLICE_X21Y38.
+ cpu/Regfile_13_0 : SLICE_X20Y30.
+ cpu/Regfile_27_0 : SLICE_X22Y31.
+ cpu/Regfile_3_13 : SLICE_X18Y33.
+ cpu/Regfile_8_13 : SLICE_X17Y32.
+ cpu/cReg_12_9 : SLICE_X35Y24.
+ cpu/cReg_19_13 : SLICE_X18Y39.
+ cpu/Regfile_28_13 : SLICE_X15Y26.
+ cpu/Regfile_29_10 : SLICE_X27Y22.
+ cpu/cReg_29_0 : SLICE_X17Y39.
+ cpu/cReg_3_10 : SLICE_X20Y36.
+ cpu/Regfile_8_18 : SLICE_X25Y17.
+ cpu/cReg_25_18 : SLICE_X17Y37.
+ cpu/cReg_27_13 : SLICE_X27Y24.
+ cpu/Regfile_25_13 : SLICE_X19Y30.
+ cpu/Regfile_18_23 : SLICE_X19Y20.
+ cpu/Regfile_28_23 : SLICE_X18Y20.
+ cpu/cReg_11_8 : SLICE_X31Y22.
+ cpu/cReg_24_6 : SLICE_X39Y29.
+ cpu/cReg_28_8 : SLICE_X35Y27.
+ cpu/Regfile_12_10 : SLICE_X30Y24.
+ cpu/cReg_20_8 : SLICE_X26Y24.
+ cpu/cReg_23_8 : SLICE_X31Y25.
+ cpu/cReg_5_13 : SLICE_X28Y25.
+ cpu/Regfile_9_13 : SLICE_X15Y32.
+ cpu/Regfile_9_25 : SLICE_X23Y84.
+ cpu/Regfile_10_18 : SLICE_X24Y16.
+ cpu/Regfile_11_13 : SLICE_X13Y28.
+ cpu/Regfile_21_18 : SLICE_X23Y13.
+ cpu/Regfile_30_13 : SLICE_X18Y26.
+ cpu/Regfile_22_18 : SLICE_X16Y20.
+ cpu/Regfile_15_13 : SLICE_X21Y30.
+ cpu/Regfile_16_18 : SLICE_X18Y12.
+ cpu/Regfile_24_18 : SLICE_X20Y13.
+ cpu/Regfile_25_18 : SLICE_X18Y13.
+ cpu/cReg_3_7 : SLICE_X35Y19.
+ cpu/Regfile_18_25 : SLICE_X23Y83.
+ cpu/Regfile_26_25 : SLICE_X21Y80.
+ cpu/Regfile_27_16 : SLICE_X30Y11.
+ cpu/Regfile_28_18 : SLICE_X19Y13.
+ cpu/cReg_28_16 : SLICE_X22Y34.
+ cpu/cReg_8_7 : SLICE_X33Y28.
+ cpu/cReg_9_7 : SLICE_X32Y27.
+ cpu/cReg_16_7 : SLICE_X26Y25.
+ cpu/cReg_27_7 : SLICE_X26Y22.
+ cpu/cReg_28_6 : SLICE_X37Y28.
+ cpu/cReg_28_7 : SLICE_X21Y17.
+ cpu/Regfile_1_19 : SLICE_X22Y11.
+ cpu/cReg_30_10 : SLICE_X18Y40.
+ cpu/Regfile_10_8 : SLICE_X20Y24.
+ cpu/cReg_19_10 : SLICE_X23Y31.
+ cpu/Regfile_5_14 : SLICE_X20Y15.
+ cpu/Regfile_18_0 : SLICE_X35Y22.
+ cpu/Regfile_6_10 : SLICE_X19Y17.
+ cpu/Regfile_19_0 : SLICE_X18Y28.
+ clk_OBUF1 : SLICE_X16Y33.
+ cpu/Regfile_21_0 : SLICE_X22Y28.
+ cpu/Regfile_20_8 : SLICE_X38Y27.
+ cpu/Regfile_3_10 : SLICE_X15Y24.
+ cpu/Regfile_2_18 : SLICE_X21Y15.
+ cpu/Regfile_4_13 : SLICE_X19Y28.
+ cpu/Regfile_6_25 : SLICE_X24Y84.
+ t/kb/hold_released : SLICE_X21Y74.
+ cpu/Regfile_20_0 : SLICE_X21Y31.
+ cpu/cReg_25_7 : SLICE_X34Y27.
+ t/VMwrite : SLICE_X13Y33.
+ cpu/cReg_28_0 : SLICE_X17Y36.
+ cpu/cReg_4_8 : SLICE_X32Y29.
+ cpu/IR<17> : SLICE_X19Y25.
+ cpu/Memout<3> : SLICE_X39Y27.
+ cpu/Regfile_3_8 : SLICE_X20Y25.
+ cpu/cReg_16_10 : SLICE_X15Y40.
+ cpu/cReg_29_16 : SLICE_X16Y36.
+ cpu/Regfile_14_19 : SLICE_X21Y9.
+ cpu/Regfile_27_19 : SLICE_X17Y0.
+ cpu/cReg_19_8 : SLICE_X41Y23.
+ cpu/cReg_30_18 : SLICE_X19Y38.
+ cpu/Regfile_10_19 : SLICE_X4Y2.
+ cpu/cReg_10_8 : SLICE_X34Y23.
+ cpu/cReg_30_8 : SLICE_X40Y28.
+ t/at/tickgen/Acc<13> : SLICE_X3Y9.
+ t/vga/vga_controller/VS_and000039 : SLICE_X21Y32.
+ cpu/Regfile_15_12 : SLICE_X22Y19.
+ cpu/Regfile_7_18 : SLICE_X16Y14.
+ cpu/cReg_3_16 : SLICE_X14Y39.
+ t/vga/vga_controller/hcounter_cmp_eq000029 : SLICE_X13Y38.
+ cpu/cReg_10_16 : SLICE_X14Y38.
+ cpu/cReg_21_16 : SLICE_X17Y34.
+ cpu/cReg_18_16 : SLICE_X16Y40.
+ cpu/cReg_5_10 : SLICE_X16Y37.
+ cpu/cReg_9_18 : SLICE_X17Y51.
+ cpu/cReg_7_13 : SLICE_X24Y20.
+ cpu/cReg_18_13 : SLICE_X28Y18.
+ cpu/Regfile_21_19 : SLICE_X24Y5.
+ cpu/Regfile_16_19 : SLICE_X12Y5.
+ cpu/Regfile_18_13 : SLICE_X15Y27.
+ cpu/Regfile_28_19 : SLICE_X16Y0.
+ t/vga/page : SLICE_X13Y23.
+ cpu/cReg_29_13 : SLICE_X29Y25.
+ cpu/Regfile_13_16 : SLICE_X30Y12.
+ cpu/Regfile_2_19 : SLICE_X23Y3.
+ cpu/Regfile_7_19 : SLICE_X22Y0.
+ cpu/Regfile_26_19 : SLICE_X22Y4.
+ cpu/cReg_10_13 : SLICE_X33Y27.
+ cpu/cReg_25_17 : SLICE_X34Y26.
+ cpu/cReg_0_18 : SLICE_X21Y37.
+ cpu/cReg_1_13 : SLICE_X29Y24.
+ t/vga/ttyWFlag_and0000 : SLICE_X16Y15.
+ N282.23947 : SLICE_X12Y24.
+ t/vga/curx<7> : SLICE_X17Y11.
+ t/vga/curx<8> : SLICE_X3Y5.
+ t/vga/backflag : SLICE_X12Y23.
+ t/vga/curx<11> : SLICE_X18Y5.
+ t/vga/curx<13> : SLICE_X14Y8.
+ t/vga/curx<15> : SLICE_X14Y7.
+ t/vga/curx<24> : SLICE_X17Y13.
+ t/vga/curx<25> : SLICE_X16Y12.
+ t/vga/curx_not0002 : SLICE_X13Y7.
+ t/vga/Maddsub_cury_share0000_lut<3> : SLICE_X3Y8.
+ t/vga/cury_not0001 : SLICE_X2Y13.
+ cpu/Regfile_6_19 : SLICE_X20Y6.
+ cpu/Regfile_8_19 : SLICE_X21Y11.
+ cpu/cReg_20_16 : SLICE_X15Y36.
+ cpu/cReg_16_16 : SLICE_X14Y40.
+ N1111.24227 : SLICE_X17Y21.
+ cpu/Regfile_19_18 : SLICE_X18Y15.
+ N964.23918 : SLICE_X13Y22.
+ N288 : SLICE_X12Y21.
+ t/vga/curx<3> : SLICE_X14Y9.
+ t/vga/N02 : SLICE_X13Y24.
+ t/vga/curx_mux0001 : SLICE_X17Y10.
+ N19 : SLICE_X3Y7.
+ N410 : SLICE_X13Y27.
+ t/vga/curx<20> : SLICE_X3Y0.
+ cpu/Regfile_17_18 : SLICE_X19Y15.
+ cpu/Regfile_20_19 : SLICE_X16Y7.
+ cpu/Regfile_20_18 : SLICE_X14Y22.
+ t/vga/curx<16> : SLICE_X16Y10.
+ t/vga/curx<26> : SLICE_X13Y13.
+ t/vga/curx<31> : SLICE_X15Y17.
+ t/vga/backflag_not0001 : SLICE_X12Y22.
+ cpu/Regfile_7_13 : SLICE_X13Y26.
+ cpu/Addr<30> : SLICE_X40Y24.
+ cpu/Addr<31> : SLICE_X41Y26.
+ cpu/Addr<28> : SLICE_X39Y25.
+ cpu/Addr<0> : SLICE_X38Y28.
+ cpu/Addr<2> : SLICE_X28Y22.
+ cpu/Addr<7> : SLICE_X35Y20.
+ cpu/Regfile_2_8 : SLICE_X23Y29.
+ cpu/Regfile_4_19 : SLICE_X22Y3.
+ cpu/Regfile_6_13 : SLICE_X17Y33.
+ cpu/Regfile_9_19 : SLICE_X22Y2.
+ cpu/cReg_20_13 : SLICE_X20Y32.
+ cpu/Regfile_15_19 : SLICE_X21Y7.
+ cpu/Regfile_19_12 : SLICE_X26Y18.
+ cpu/cReg_26_10 : SLICE_X24Y32.
+ cpu/cReg_19_1 : SLICE_X38Y22.
+ cpu/Regfile_26_11 : SLICE_X41Y25.
+ cpu/Regfile_10_5 : SLICE_X28Y24.
+ cpu/Regfile_3_2 : SLICE_X41Y28.
+ cpu/Regfile_26_10 : SLICE_X30Y21.
+ t/at/TxD_state_FSM_FFd4 : SLICE_X2Y10.
+ t/at/TxD_shift<6> : SLICE_X3Y11.
+ cpu/cReg_5_8 : SLICE_X40Y27.
+ cpu/cReg_1_10 : SLICE_X17Y38.
+ t/vga/N9 : SLICE_X18Y25.
+ cpu/cReg_12_16 : SLICE_X16Y35.
+ cpu/cReg_12_6 : SLICE_X34Y22.
+ cpu/Regfile_28_5 : SLICE_X30Y22.
+ cpu/Regfile_1_13 : SLICE_X38Y26.
+ cpu/cReg_12_18 : SLICE_X15Y37.
+ cpu/cReg_12_7 : SLICE_X32Y26.
+ cpu/Regfile_2_0 : SLICE_X22Y30.
+ cpu/Regfile_13_12 : SLICE_X23Y18.
+ cpu/Regfile_1_0 : SLICE_X23Y28.
+ cpu/cReg_12_10 : SLICE_X17Y35.
+ cpu/cReg_12_1 : SLICE_X24Y18.
+ cpu/cReg_12_4 : SLICE_X40Y29.
+ cpu/cReg_2_18 : SLICE_X17Y41.
+ t/VMwrite_or0000 : SLICE_X13Y32.
+ mem/tmp<39> : SLICE_X39Y23.
+ cpu/PC_mux0000<29>4 : SLICE_X35Y25.
+ cpu/Regfile_24_0 : SLICE_X22Y29.
+ cpu/Regfile_2_10 : SLICE_X14Y24.
+ cpu/cReg_24_11 : SLICE_X36Y28.
+ cpu/cReg_26_18 : SLICE_X18Y38.
+ cpu/cReg_4_9 : SLICE_X36Y26.
+ cpu/Regfile_10_10 : SLICE_X15Y25.
+ cpu/cReg_9_4 : SLICE_X32Y28.
+ cpu/Regfile_12_12 : SLICE_X27Y21.
+ cpu/Regfile_13_10 : SLICE_X14Y25.
+ cpu/Regfile_31_13 : SLICE_X17Y31.
+ cpu/Regfile_18_12 : SLICE_X26Y20.
+ cpu/Regfile_27_13 : SLICE_X18Y30.
+ cpu/Memout<22> : SLICE_X30Y23.
+ t/vga/curx<9> : SLICE_X3Y6.
+ t/vga/ttyWFlag_and0001 : SLICE_X19Y24.
+ cpu/Regfile_5_10 : SLICE_X13Y25.
+ cpu/Regfile_10_0 : SLICE_X17Y30.
+ cpu/cReg_18_0 : SLICE_X30Y27.
+ cpu/cReg_0_1 : SLICE_X28Y26.
+ cpu/cReg_17_0 : SLICE_X26Y69.
+ cpu/cReg_26_9 : SLICE_X37Y27.
+ cpu/cReg_19_21 : SLICE_X36Y29.
+ mem/Memout<11> : SLICE_X40Y23.
+ cpu/cReg_21_4 : SLICE_X29Y26.
+ cpu/cReg_25_3 : SLICE_X23Y32.
+ BUS<25>_MLTSRCEDGE : SLICE_X36Y27.
+ cpu/cReg_29_3 : SLICE_X35Y26.
+ N719 : SLICE_X38Y24.
+ cpu/Regfile_8_8 : SLICE_X41Y29.
+ t/vga/vga_controller/vcounter_and0000 : SLICE_X15Y38.
+ cpu/cReg_11_10 : SLICE_X22Y32.
+ cpu/cReg_18_11 : SLICE_X42Y24.
+ cpu/Regfile_31_25 : SLICE_X23Y82.
+ cpu/Regfile_16_10 : SLICE_X31Y23.
+ cpu/Regfile_19_25 : SLICE_X22Y82.
+ t/readdata<1> : SLICE_X14Y23.
+ t/readdata<4> : SLICE_X19Y23.
+ t/readdata<6> : SLICE_X25Y20.
+ cpu/cReg_24_7 : SLICE_X37Y25.
+ cpu/cReg_16_8 : SLICE_X27Y23.
+ t/readdata<2> : SLICE_X19Y32.
+ cpu/Regfile_22_8 : SLICE_X30Y25.
+ cpu/Regfile_5_8 : SLICE_X37Y26.
+ cpu/cReg_21_11 : SLICE_X40Y26.
+ cpu/cReg_25_10 : SLICE_X20Y37.
+ cpu/cReg_27_16 : SLICE_X14Y37.
+ cpu/Regfile_18_18 : SLICE_X22Y12.
+ cpu/cReg_0_13 : SLICE_X14Y48.
+ t/keypress : SLICE_X37Y23.
+ t/TxD_data<0> : SLICE_X13Y17.
+ t/vga/curx<21> : SLICE_X14Y15.
+ cpu/cReg_27_18 : SLICE_X15Y39.
+ cpu/cReg_1_18 : SLICE_X16Y38.
+ cpu/cReg_4_10 : SLICE_X16Y39.
+ cpu/Regfile_5_13 : SLICE_X18Y32.
 
 
 The following Components are new/changed.
 -----------------------------------------
- N745.20761 : SLICE_X48Y48.
- cpu/old_Alures_16_mux0001<20>149 : SLICE_X52Y51.
- N280 : SLICE_X54Y53.
- N277 : SLICE_X65Y57.
- cpu/old_Alures_16_mux0001<14>38 : SLICE_X67Y66.
- vga/addrb<4> : SLICE_X49Y65.
- vga/addrb<7> : SLICE_X48Y64.
- N2261 : SLICE_X67Y50.
- N613 : SLICE_X65Y50.
- cpu/old_Alures_16_mux0001<0>45 : SLICE_X55Y48.
- N1037 : SLICE_X49Y31.
- N1047 : SLICE_X40Y51.
- cpu/Sh21 : SLICE_X65Y59.
- N6421 : SLICE_X48Y51.
- N648 : SLICE_X52Y52.
- N535.19318 : SLICE_X41Y31.
- vga/addrb<0> : SLICE_X50Y62.
- vga/addrb<8> : SLICE_X50Y63.
- vga/addrb<2> : SLICE_X50Y66.
- vga/addrb<5> : SLICE_X51Y62.
+ t/vga/AUX_addra_30_addsub0000<0> : SLICE_X14Y0.
+ t/vga/AUX_addra_30_addsub0000<2> : SLICE_X14Y1.
+ t/vga/AUX_addra_30_addsub0000<4> : SLICE_X14Y2.
+ t/vga/AUX_addra_30_addsub0000<6> : SLICE_X14Y3.
+ t/vga/AUX_addra_30_addsub0000<8> : SLICE_X14Y4.
+ t/vga/AUX_addra_30_addsub0000<10> : SLICE_X14Y5.
+ t/vga/AUX_addra_31_addsub0001<0> : SLICE_X0Y12.
+ t/vga/AUX_addra_31_addsub0001<2> : SLICE_X0Y13.
+ t/vga/AUX_addra_31_addsub0001<4> : SLICE_X0Y14.
+ t/vga/AUX_addra_31_addsub0001<6> : SLICE_X0Y15.
+ t/vga/AUX_addra_31_addsub0001<8> : SLICE_X0Y16.
+ t/vga/AUX_addra_31_addsub0001<10> : SLICE_X0Y17.
+ t/vga/AUX_addra_30_sub0000<0> : SLICE_X13Y0.
+ t/vga/AUX_addra_30_sub0000<2> : SLICE_X13Y1.
+ t/vga/AUX_addra_30_sub0000<4> : SLICE_X13Y2.
+ t/vga/AUX_addra_30_sub0000<6> : SLICE_X13Y3.
+ t/vga/AUX_addra_30_sub0000<8> : SLICE_X13Y4.
+ t/vga/AUX_addra_30_sub0000<10> : SLICE_X13Y5.
+ t/vga/_AUX_addra_30<11> : SLICE_X12Y30.
+ cpu/Regfile_24_10 : SLICE_X29Y23.
+ t/vga/_AUX_addra_30<0> : SLICE_X17Y14.
+ t/vga/_AUX_addra_30<1> : SLICE_X13Y14.
+ t/vga/_AUX_addra_30<5> : SLICE_X13Y16.
+ t/vga/_AUX_addra_30<6> : SLICE_X13Y18.
+ t/vga/_AUX_addra_30<8> : SLICE_X12Y15.
+ t/vga/_AUX_addra_30<9> : SLICE_X13Y21.
+ t/vga/_AUX_addra_31<8> : SLICE_X18Y80.
+ t/vga/_AUX_addra_30<4> : SLICE_X13Y15.
 
 
 The following Nets were re-routed.
 ----------------------------------
- cpu/Regfile_18_and0000.
- cpu/Regfile_1_mux0000<30>.
- cpu/Regfile_17_and0000.
- cpu/cReg_9_26.
- cpu/Regfile_1_mux0000<26>.
- cpu/Regfile_1_mux0000<21>.
- cpu/Regfile_1_mux0000<31>.
- cpu/cReg_11_23.
- cpu/cReg_15_29.
- cpu/cReg_18_31.
- cpu/cReg_19_31.
- cpu/Regfile_10_11.
- cpu/PC_addsub0000<9>.
- cpu/PC<9>.
- N621.
- cpu/PC_mux0000<9>4.
- cpu/PC_mux0000<0>90.
- mem/douta<8>.
- N13.
- cpu/PC_cmp_eq0000.
- cpu/stage<1>.
- N5.
- mem/tmp<40>.
- cpu/Regfile_17_2.
- cpu/Regfile_29_and0000.
- cpu/Memout_and0000.
- cpu/Memout<8>.
- cpu/cReg_29_29.
- cpu/IR<1>.
- N232.
- cpu/Memwrite<1>.
- cpu/signal<3>.
- cpu/cReg_2_3.
- cpu/Regfile_26_31.
- cpu/Regfile_28_15.
- mem/tmp<25>.
- cpu/cReg_22_3.
- cpu/cReg_7_30.
- cpu/Regfile_21_12.
- cpu/Regfile_14_11.
- cpu/Regfile_10_and0000764.
- cpu/Regfile_10_and0000787.
- N947.
- cpu/Regfile_28_0.
- cpu/Regfile_1_and0000.
- cpu/Regfile_28_9.
- cpu/Regfile_30_27.
- cpu/PC_mux0000<3>4.
- cpu/Regfile_31_30.
- cpu/Regfile_16_10.
- cpu/Regfile_16_22.
- cpu/Regfile_16_15.
- cpu/cReg_12_30.
- cpu/Memwrite<0>.
- N66.
- cpu/Regfile_7_30.
- cpu/cReg_30_30.
- cpu/cReg_19_30.
- mem/tmp<36>.
- cpu/cReg_21_3.
- cpu/cReg_22_1.
- cpu/cReg_30_1.
- cpu/cReg_15_2.
- cpu/cReg_26_1.
- N40.
- cpu/Alures<27>.
- cpu/Alures<12>.
- cpu/Regfile_1_12.
- cpu/RA<19>.
- cpu/PC_addsub0000<8>.
- cpu/PC_mux0000<19>18.
- cpu/RA<4>.
- cpu/PC<4>.
- cpu/PC_mux0000<4>63.
- cpu/PC_mux0000<8>21.
- cpu/PC<23>.
- cpu/PC_mux0000<23>18.
- cpu/Regfile_8_15.
- N103.
- cpu/IR<7>.
- cpu/PC_mux0000<8>18.
- cpu/PC_mux0000<8>67.
- cpu/cReg_19_2.
- cpu/Regfile_1_mux0000<7>.
- cpu/RA<29>.
- cpu/PC_mux0000<29>17.
- cpu/Regfile_31_7.
- cpu/cReg_18_8.
- cpu/cReg_4_30.
- cpu/cReg_5_19.
- cpu/cReg_9_29.
- cpu/Regfile_26_30.
- cpu/Regfile_27_15.
- cpu/Regfile_28_30.
- cpu/Regfile_29_15.
- cpu/cReg_11_5.
- cpu/cReg_1_26.
- cpu/cReg_1_29.
- N949.
- N1097.
- cpu/cReg_19_28.
- cpu/cReg_28_25.
- cpu/PC_addsub0000<6>.
- cpu/INT.
- cpu/PC_mux0000<6>4.
- cpu/cReg_27_29.
- N41.
- cpu/Alures<26>.
- N46.
- cpu/Regfile_1_26.
- cpu/Regfile_1_21.
- cpu/IR_31_1.
- N309.
- cpu/IR_29_1.
- cpu/Regfile_10_6.
- cpu/cReg_12_29.
- cpu/cReg_29_6.
- N1103.
- cpu/cReg_12_mux0000<0>17.
- N1099.
- cpu/cReg_15_1.
- cpu/cReg_12_mux0000<0>126_SW0/O.
- cpu/cReg_9_8.
- cpu/B_cmp_eq0000.
- cpu/IR<15>.
- cpu/PC_addsub0000<10>.
- cpu/PC_mux0000<2>4.
- N112.
- cpu/cReg_14_and0000.
- cpu/cReg_1_1.
- cpu/PC_addsub0000<20>.
- cpu/PC<20>.
- cpu/PC_mux0000<20>4.
- cpu/PC_mux0000<27>20.
- cpu/Regfile_19_27.
- cpu/cReg_14_4.
- cpu/PC_mux0000<4>38.
- cpu/PC_mux0000<4>112.
- cpu/cReg_8_8.
- cpu/PC_addsub0000<19>.
- cpu/PC_mux0000<19>4.
- cpu/cReg_24_30.
- cpu/cReg_25_2.
- N1107.
- cpu/cReg_15_31.
- cpu/cReg_28_2.
- cpu/PC_mux0000<20>18.
- cpu/old_Alures_16_mux0001<0>321.
- cpu/RA<8>.
- cpu/cReg_11_1.
- cpu/Mmux__old_Alures_19_10_f829.
- N1105.
- N1101.
- N671.
- cpu/old_Alures_16_mux0002<16>4.
- cpu/Mmux__old_Alures_19_10_f88.
- cpu/old_Alures_16_mux0002<18>7.
- cpu/old_Alures_16_addsub0000<18>.
- N118.
- cpu/old_Alures_16_mux0002<18>4.
- cpu/old_Alures_16_mux0002<18>13.
- cpu/Regfile_20_0.
- cpu/old_Alures_16_mux0002<1>0.
- cpu/old_Alures_16_mux0002<1>57/O.
- cpu/old_Alures_16_addsub0000<1>.
- N959.
- cpu/old_Alures_16_mux0002<1>85.
- cpu/Regfile_23_9.
- N1091.
- cpu/old_Alures_16_mux0002<13>84.
- cpu/old_Alures_16_mux0001<7>112.
- cpu/_sub0000<7>.
- N1081.
- cpu/cReg_18_2.
- cpu/PC_mux0000<7>4.
- cpu/PC_mux0000<7>44/O.
- cpu/IR<6>.
- cpu/PC_mux0000<7>18.
- cpu/cReg_6_1.
- cpu/Memout<30>.
- N661.
- cpu/Regfile_30_15.
- cpu/PC_mux0000<11>21.
- N1087.
- cpu/cReg_24_1.
- N115.
- cpu/old_Alures_16_addsub0000<10>.
- N1049.
- cpu/Alures<5>.
- N62.
- cpu/old_Alures_16_mux0002<20>4.
- cpu/cReg_31_30.
- cpu/old_Alures_16_mux0002<30>4.
- cpu/cReg_26_30.
- cpu/signal<12>_mmx_out26.
- cpu/PC_mux0000<28>17.
- cpu/old_Alures_16_mux0002<16>7.
- cpu/old_Alures_16_addsub0000<16>.
- cpu/_old_A_12<16>.
- cpu/old_Alures_16_mux0002<16>13.
- cpu/cReg_29_1.
- cpu/Mmux__old_Alures_19_10_f828.
- cpu/signal<12>_mmx_out13.
- cpu/PC<1>.
- cpu/Alures<6>.
- N1093.
- cpu/cReg_8_1.
- cpu/signal<12>_mmx_out11.
- cpu/_old_A_12<17>.
- N54.
- cpu/old_Alures_16_mux0001<10>253.
- cpu/old_Alures_14_add0000<14>.
- cpu/old_Alures_16_mux0001<14>149.
- cpu/RA<10>.
- cpu/PC_mux0000<10>18.
- cpu/old_Alures_16_mux0002<19>4.
- cpu/old_Alures_16_mux0002<23>4.
- cpu/old_Alures_16_mux0002<29>4.
- cpu/PC_mux0000<31>4.
- cpu/PC_mux0000<31>17.
- cpu/old_Alures_16_mux0002<14>84.
- cpu/Alures<13>.
- cpu/old_Alures_16_mux0001<6>253.
- cpu/_sub0000<10>.
- cpu/old_Alures_16_mux0001<10>239.
- cpu/cReg_0_1.
- cpu/PC_mux0000<0>12.
- N711.
- cpu/old_Alures_14_add0000<9>.
- cpu/Mmux__old_Alures_19_10_f83.
- cpu/_sub0000<9>.
- cpu/old_Alures_14_add0000<15>.
- cpu/old_Alures_16_mux0001<15>149.
- cpu/Regfile_21_15.
- cpu/Mmux__old_Alures_19_10_f831.
- cpu/signal<12>_mmx_out9.
- cpu/_old_A_12<31>.
- cpu/old_Alures_16_mux0001<27>187.
- cpu/signal<12>_mmx_out23.
- cpu/old_Alures_16_mux0001<16>168.
- cpu/old_Alures_16_mux0001<27>149.
- N403.
- cpu/old_Alures_16_mux0002<27>4.
- cpu/cReg_28_30.
- cpu/Mmux__old_Alures_19_10_f817.
- cpu/signal<12>_mmx_out24.
- cpu/Alures<25>.
- cpu/old_Alures_16_mux0002<21>7/O.
- cpu/old_Alures_16_addsub0000<21>.
- cpu/old_Alures_16_mux0002<21>4.
- cpu/old_Alures_16_mux0002<21>13.
- cpu/_sub0000<8>.
- N353.
- cpu/old_Alures_16_mux0001<11>239.
- cpu/cReg_25_1.
- N1095.
- cpu/cReg_19_1.
- N1089.
- N315.
- N615.
- cpu/PC<25>.
- cpu/_sub0000<19>.
- cpu/old_Alures_16_mux0001<19>186.
- cpu/old_Alures_16_mux0001<25>149.
- cpu/_sub0000<20>.
- N407.
- cpu/old_Alures_16_mux0001<20>186.
- cpu/old_Alures_16_mux0002<27>7.
- cpu/old_Alures_16_addsub0000<27>.
- cpu/old_Alures_16_mux0002<27>13.
- cpu/Regfile_26_15.
- cpu/_sub0000<23>.
- cpu/_old_A_12<29>.
- cpu/old_Alures_16_mux0001<23>186.
- cpu/old_Alures_16_mux0002<30>7.
- cpu/old_Alures_16_addsub0000<30>.
- cpu/old_Alures_16_mux0002<30>13.
- cpu/cReg_16_30.
- cpu/old_Alures_14_add0000<30>.
- cpu/old_Alures_16_mux0002<24>4.
- cpu/old_Alures_16_mux0001<30>60.
- cpu/old_Alures_14_add0000<29>.
- cpu/_sub0000<25>.
- cpu/old_Alures_16_mux0001<29>62.
- cpu/old_Alures_14_add0000<31>.
- cpu/old_Alures_16_mux0002<26>4.
- cpu/old_Alures_16_mux0001<31>60.
- cpu/_sub0000<24>.
- cpu/old_Alures_16_mux0001<0>312.
- cpu/signal<12>_mmx_out28.
- cpu/old_Alures_16_mux0001<24>149.
- N409.
- cpu/old_Alures_16_mux0002<0>167_SW1_SW0/O.
- N957.
- cpu/cReg_27_1.
- cpu/old_Alures_14_add0000<13>.
- cpu/old_Alures_16_mux0002<0>134.
- cpu/_old_A_12<9>.
- cpu/cReg_0_3.
- cpu/cReg_2_2.
- cpu/old_Alures_16_mux0002<31>4.
- cpu/old_Alures_16_mux0002<31>13.
- cpu/signal<12>_mmx_out25.
- cpu/old_Alures_16_mux0002<2>70/O.
- cpu/old_Alures_16_addsub0000<2>.
- cpu/old_Alures_16_mux0002<2>84.
- cpu/Memout<31>.
- cpu/old_Alures_16_mux0001<0>272.
- cpu/old_Alures_16_mux0001<1>321.
- cpu/_sub0000<1>.
- cpu/Regfile_18_9.
- cpu/old_Alures_14_add0000<3>.
- cpu/_old_B_13<3>.
- cpu/Memout<23>.
- cpu/old_Alures_16_mux0001<20>149.
- cpu/_sub0000<26>.
- N417.
- cpu/old_Alures_16_mux0001<26>187.
- cpu/old_Alures_16_mux0001<26>149.
- N405.
- N101.
- cpu/signal<12>_mmx_out10.
- cpu/Alures<30>.
- cpu/_old_A_12<22>.
- cpu/signal<12>_mmx_out20.
- cpu/_sub0000<21>.
- cpu/old_Alures_16_mux0001<21>186.
- cpu/cReg_16_29.
- cpu/old_Alures_14_add0000<5>.
- cpu/old_Alures_16_mux0001<5>253.
- N345.
- cpu/_old_A_12<4>.
- N313.
- N617.
- cpu/old_Alures_16_mux0001<0>269.
- cpu/Regfile_12_2.
- BUS<14>_MLTSRCEDGE.
- mem/douta<0>.
- cpu/RA<2>.
- cpu/_sub0000<5>.
- cpu/old_Alures_16_mux0001<5>239.
- mem/tmp<37>.
- cpu/Alures<11>.
- cpu/old_Alures_16_mux0001<11>112.
- N1069.
- N532.
- cpu/Regfile_18_7.
- N319.
- N707.
- N37.
- cpu/_old_A_12<10>.
- N311.
- N619.
- cpu/old_Alures_16_mux0001<0>289.
- N371.
- N351.
- cpu/old_Alures_16_mux0001<4>104/O.
- cpu/old_Alures_16_mux0001<10>86.
- cpu/old_Alures_16_mux0001<0>142.
- cpu/old_Alures_16_mux0001<4>125.
- N38.
- BUS<29>_MLTSRCEDGE.
- N317.
- N709.
- cpu/old_Alures_16_mux0001<12>281.
- cpu/old_Alures_16_mux0001<15>247.
- N544.
- cpu/Regfile_13_7.
- BUS<15>_MLTSRCEDGE.
- N52.
- cpu/old_Alures_16_mux0001<15>125.
- cpu/old_Alures_16_mux0001<15>270_SW1/O.
- cpu/_sub0000<15>.
- N492.
- cpu/Regfile_7_7.
- cpu/old_Alures_16_mux0001<14>125.
- cpu/old_Alures_16_mux0001<14>270_SW1/O.
- cpu/_sub0000<14>.
- cpu/old_Alures_16_mux0001<14>247.
- N494.
- cpu/old_Alures_16_mux0001<30>33.
- cpu/old_Alures_16_mux0001<30>182_SW0/O.
- cpu/_sub0000<30>.
- cpu/old_Alures_16_mux0001<30>20.
- cpu/old_Alures_16_mux0001<30>159.
- N486.
- cpu/Regfile_22_7.
- cpu/Alures<2>.
- cpu/old_Alures_14_add0000<17>.
- cpu/old_Alures_16_mux0001<17>149/O.
- cpu/Sh49.
- N651.
- N745.
- N423.
- cpu/Regfile_27_7.
- cpu/old_Alures_16_mux0001<27>128.
- cpu/old_Alures_16_mux0001<27>34/O.
- cpu/old_Alures_16_mux0001<16>12.
- cpu/Sh59.
- cpu/old_Alures_16_mux0001<16>28.
- cpu/Regfile_14_7.
- cpu/old_Alures_16_mux0001<29>35.
- cpu/old_Alures_16_mux0001<29>184_SW0/O.
- cpu/_sub0000<29>.
- cpu/old_Alures_16_mux0001<29>20.
- cpu/old_Alures_16_mux0001<29>161.
- N488.
- cpu/Regfile_28_7.
- cpu/Alures<31>.
- cpu/old_Alures_16_mux0001<31>20.
- cpu/Regfile_21_7.
- cpu/old_Alures_16_mux0001<3>185/O.
- cpu/_sub0000<3>.
- cpu/old_Alures_16_mux0001<3>178.
- cpu/old_Alures_16_mux0001<3>199.
- mem/tmp<4>.
- cpu/Mmux__old_B_131411.
- mem/tmp<38>.
- N88.
- cpu/_old_B_13<21>.
- cpu/B<21>.
- cpu/old_Alures_16_mux0001<9>104.
- cpu/old_Alures_14_add0000<2>.
- cpu/old_Alures_16_mux0001<2>326.
- N323.
- cpu/_old_B_13<2>.
- N3611.
- BUS<26>_MLTSRCEDGE.
- N333.
- cpu/C/signal<10>_SW7/O.
- N329.
- cpu/C/signal<10>_SW8/O.
- N397.
- N327.
- cpu/old_Alures_16_mux0001<10>104.
- cpu/old_Alures_16_mux0001<28>20.
- cpu/Regfile_19_7.
- cpu/old_Alures_16_mux0001<12>124.
- cpu/old_Alures_16_mux0001<12>269_SW1/O.
- N716.
- cpu/_sub0000<12>.
- cpu/old_Alures_16_mux0001<12>246.
- cpu/Regfile_29_7.
- cpu/old_Alures_16_mux0001<21>128.
- cpu/Regfile_10_7.
- cpu/old_Alures_16_mux0001<26>128.
- cpu/old_Alures_16_mux0001<26>34/O.
- cpu/Sh58.
- cpu/Regfile_17_7.
- cpu/Sh51.
- cpu/old_Alures_16_mux0001<19>34.
- cpu/Regfile_23_7.
- cpu/IR<9>.
- N321.
- cpu/old_Alures_16_mux0001<2>178.
- cpu/old_Alures_16_mux0001<7>104.
- cpu/Regfile_1_30.
- N347.
- cpu/Regfile_26_2.
- cpu/_old_B_13<10>.
- cpu/_old_B_13<13>.
- cpu/B<13>.
- N1067.
- mem/douta<30>.
- cpu/old_Alures_16_mux0001<5>104.
- mem/tmp<30>.
- mem/douta<28>.
- cpu/old_Alures_16_mux0001<13>20.
- mem/tmp<28>.
- cpu/old_Alures_16_mux0001<11>104.
- cpu/Regfile_16_7.
- cpu/Sh48.
- cpu/Sh29.
- cpu/Sh31.
- cpu/old_Alures_16_mux0001<31>33.
- cpu/old_Alures_16_mux0001<12>263.
- cpu/old_Alures_16_mux0001<25>128.
- cpu/old_Alures_16_mux0001<25>34/O.
- cpu/Sh57.
- cpu/Regfile_29_30.
- cpu/old_Alures_16_mux0001<5>7.
- cpu/old_Alures_16_mux0001<13>58.
- cpu/old_Alures_16_mux0001<9>47.
- cpu/Sh53_SW0/O.
- cpu/Sh21.
- cpu/Sh25.
- cpu/Sh53.
- cpu/Regfile_30_7.
- cpu/old_Alures_16_mux0001<6>104.
- cpu/Sh54.
- cpu/B<4>.
- cpu/B<1>.
- cpu/B<3>.
- cpu/old_Alures_16_mux0001<1>22.
- cpu/old_Alures_16_mux0001<0>8.
- cpu/B<5>.
- cpu/B<6>.
- cpu/old_Alures_16_mux0001<2>22.
- cpu/old_Alures_16_mux0001<3>22.
- cpu/B<19>.
- cpu/B<17>.
- N61.
- N237.
- cpu/B<28>.
- cpu/B<26>.
- cpu/Regfile_3_7.
- cpu/Sh30.
- cpu/Sh26/O.
- cpu/Regfile_8_7.
- cpu/old_Alures_16_mux0001<5>47.
- BUS<8>_MLTSRCEDGE.
- cpu/B<31>.
- cpu/Sh510.
- cpu/B<20>.
- cpu/B<22>.
- cpu/Sh14.
- cpu/Sh6.
- cpu/old_Alures_16_mux0001<2>13.
- cpu/B<29>.
- cpu/B<27>.
- cpu/B<30>.
- cpu/Regfile_2_7.
- N961.
- cpu/B<7>.
- N2281.
- cpu/Sh15.
- cpu/Sh7.
- cpu/old_Alures_16_mux0001<3>13.
- N60.
- N58.
- cpu/Sh4920.
- cpu/Sh496/O.
- cpu/cReg_23_29.
- cpu/Sh19.
- cpu/Regfile_4_7.
- cpu/old_Alures_16_mux0001<14>38.
- cpu/old_Alures_16_mux0001<14>20/O.
- cpu/old_Alures_16_mux0001<14>85.
- cpu/old_Alures_16_mux0001<17>128.
- cpu/old_Alures_16_mux0001<10>112.
- cpu/old_Alures_16_mux0001<10>215/O.
- N535.
- cpu/old_Alures_16_mux0001<20>128.
- cpu/old_Alures_16_mux0001<20>34/O.
- cpu/Sh52.
- cpu/B<23>.
- cpu/B<25>.
- cpu/cReg_18_30.
- cpu/old_Alures_16_addsub0000<0>.
- cpu/IR_2_1.
- cpu/old_Alures_16_addsub0000<3>.
- cpu/old_Alures_16_addsub0000<4>.
- cpu/old_Alures_16_addsub0000<5>.
- cpu/old_Alures_16_addsub0000<7>.
- cpu/old_Alures_16_addsub0000<9>.
- cpu/old_Alures_16_addsub0000<12>.
- cpu/old_Alures_16_addsub0000<15>.
- cpu/old_Alures_16_addsub0000<17>.
- cpu/old_Alures_16_addsub0000<19>.
- cpu/old_Alures_16_addsub0000<20>.
- cpu/old_Alures_16_addsub0000<23>.
- cpu/old_Alures_16_addsub0000<24>.
- cpu/old_Alures_16_addsub0000<25>.
- cpu/old_Alures_16_addsub0000<26>.
- cpu/old_Alures_16_addsub0000<28>.
- cpu/old_Alures_16_addsub0000<29>.
- cpu/cReg_29_30.
- cpu/Addr<1>.
+ cpu/Addr<2>.
  mem/addr_addsub0001<0>.
- mem/addr_addsub0001<1>.
- mem/addr_addsub0001<7>.
- cpu/Addr<9>.
- cpu/Addr<11>.
- cpu/PC_addsub0000<1>.
- cpu/PC_addsub0000<4>.
- cpu/PC_addsub0000<5>.
- cpu/cReg_25_30.
- cpu/PC_addsub0000<12>.
- cpu/PC_addsub0000<13>.
- cpu/PC_addsub0000<15>.
- cpu/PC_addsub0000<17>.
- cpu/PC_addsub0000<23>.
- cpu/PC_addsub0000<24>.
- cpu/PC_addsub0000<25>.
- cpu/PC_addsub0000<26>.
- cpu/PC_addsub0000<28>.
- cpu/PC_addsub0000<29>.
- cpu/PC_addsub0000<30>.
- cpu/PC_addsub0000<31>.
- cpu/cReg_14_addsub0000<4>.
+ mem/tmp<17>.
+ cpu/Addr<7>.
+ mem/addr_addsub0001<6>.
+ t/vga/clocking/slow_clk/out_cmp_eq0000.
+ t/vga/add0000_mult0001<0>.
+ t/vga/curx<1>.
+ t/vga/add0000_mult0001<1>.
+ t/vga/curx<3>.
+ t/vga/add0000_mult0001<3>.
+ t/vga/add0000_mult0001<4>.
+ t/vga/curx<5>.
+ t/vga/add0000_mult0001<5>.
+ t/vga/add0000_mult0001<6>.
+ t/vga/curx<7>.
+ t/vga/add0000_mult0001<7>.
+ t/vga/curx<8>.
+ t/vga/add0000_mult0001<8>.
+ t/vga/curx<9>.
+ t/vga/add0000_mult0001<9>.
+ t/vga/add0000_mult0001<10>.
+ t/vga/curx<11>.
+ t/vga/add0000_mult0001<11>.
+ cpu/old_PC_4_add0000<2>.
+ cpu/cReg_14_addsub0000<2>.
+ cpu/old_PC_4_add0000<5>.
+ cpu/cReg_14_addsub0000<5>.
+ cpu/cReg_14_addsub0000<7>.
  cpu/cReg_20_30.
+ cpu/old_PC_4_add0000<10>.
+ cpu/cReg_14_addsub0000<9>.
+ cpu/old_PC_4_add0000<11>.
+ cpu/cReg_14_addsub0000<11>.
+ cpu/cReg_14_addsub0000<12>.
  cpu/cReg_14_addsub0000<13>.
- cpu/cReg_14_addsub0000<17>.
- cpu/cReg_14_addsub0000<18>.
- cpu/old_Alures_14_add0000<4>.
- cpu/_old_B_13<6>.
- cpu/_old_B_13<7>.
- cpu/_old_B_13<8>.
- cpu/_old_B_13<9>.
- cpu/old_Alures_14_add0000<8>.
- cpu/_old_B_13<12>.
- cpu/old_Alures_14_add0000<12>.
- cpu/old_Alures_14_add0000<18>.
- cpu/old_Alures_14_add0000<23>.
- cpu/_old_A_12<24>.
- cpu/_old_B_13<31>.
- cpu/_sub0000<0>.
- cpu/_sub0000<2>.
- cpu/_sub0000<13>.
- cpu/_sub0000<28>.
- cpu/cReg_21_30.
- cpu/_sub0000<31>.
+ cpu/cReg_14_addsub0000<14>.
+ cpu/cReg_14_addsub0000<16>.
+ cpu/old_PC_4_add0000<18>.
+ cpu/cReg_31_31.
+ cpu/old_PC_4_add0000<19>.
+ cpu/cReg_24_31.
+ cpu/cReg_15_30.
+ cpu/cReg_14_addsub0000<27>.
+ cpu/cReg_5_30.
+ N409.
+ cpu/cReg_5_1.
+ N419.
+ cpu/cReg_18_1.
+ cpu/IR_cmp_eq0000.
+ N401.
+ N421.
+ N399.
+ N423.
+ N425.
+ cpu/PC<8>.
+ N1089.
+ N1091.
+ N1093.
+ N1095.
+ N1097.
+ cpu/RA<14>.
+ cpu/cReg_7_31.
+ t/vga/AUX_addra_31_addsub0000<0>.
+ t/vga/AUX_addra_31_addsub0000<1>.
+ t/vga/Madd_AUX_addra_31_addsub0000_cy<1>.
+ t/vga/AUX_addra_31_addsub0000<2>.
+ t/vga/AUX_addra_31_addsub0000<3>.
+ t/vga/Madd_AUX_addra_31_addsub0000_cy<3>.
+ t/vga/AUX_addra_31_addsub0000<4>.
+ t/vga/AUX_addra_31_addsub0000<5>.
+ t/vga/Madd_AUX_addra_31_addsub0000_cy<5>.
+ t/vga/AUX_addra_31_addsub0000<6>.
+ t/vga/AUX_addra_31_addsub0000<7>.
+ t/vga/Madd_AUX_addra_31_addsub0000_cy<7>.
+ t/vga/AUX_addra_31_addsub0000<8>.
+ t/vga/AUX_addra_31_addsub0000<9>.
+ t/vga/Madd_AUX_addra_31_addsub0000_cy<9>.
+ t/vga/AUX_addra_31_addsub0000<10>.
+ t/vga/AUX_addra_31_addsub0000<11>.
+ cpu/IR<4>.
+ cpu/Mcompar_old_Alures_13_cmp_lt0001_cy<19>.
+ t/vga/curx<13>.
+ t/vga/cury_cmp_eq0002_wg_cy<1>.
+ t/vga/curx<15>.
+ t/vga/curx<16>.
+ t/vga/curx<18>.
+ t/vga/cury_cmp_eq0002_wg_cy<3>.
+ cpu/Regfile_1_mux0000<19>.
+ t/vga/curx<20>.
+ t/vga/curx<21>.
+ t/vga/curx<22>.
+ t/vga/curx<24>.
+ t/vga/curx<25>.
+ cpu/Regfile_19_19.
+ t/vga/cury_cmp_eq0002_wg_cy<5>.
+ t/vga/curx<26>.
+ t/vga/curx<27>.
+ t/vga/curx<29>.
+ t/vga/curx<30>.
+ t/vga/curx<31>.
+ cpu/Regfile_25_19.
+ t/vga/cury_cmp_eq0002.
+ t/at/tickgen/Acc<6>.
+ t/at/tickgen/Acc<7>.
+ t/at/tickgen/Acc<13>.
+ t/at/tickgen/Acc_addsub0000<13>.
+ t/at/tickgen/Acc<15>.
+ t/at/tickgen/Acc_addsub0000<15>.
  cpu/RA<0>.
- cpu/Regfile_10_1.
- mem/douta<22>.
- cpu/Memout<25>.
- mem/tmp<14>.
- N337.
- N349.
- N335.
- N331.
- N355.
- N357.
- N359.
- N325.
- cpu/_old_B_13<15>.
- cpu/Mcompar_old_Alures_16_cmp_lt0001_cy<19>.
- cpu/cReg_24_0.
+ cpu/IR_1_1.
+ cpu/old_Alures_13_addsub0000<0>.
+ cpu/old_Alures_13_addsub0000<1>.
+ cpu/IR_11_1.
+ cpu/IR_2_1.
+ N775.
+ cpu/old_Alures_13_addsub0000<3>.
+ N773.
+ cpu/IR_5_1.
+ N771.
+ cpu/old_Alures_13_addsub0000<4>.
+ cpu/old_Alures_13_addsub0000<5>.
+ cpu/old_Alures_13_addsub0000<6>.
+ cpu/cReg_23_31.
+ cpu/old_Alures_13_addsub0000<8>.
+ cpu/old_Alures_13_addsub0000<10>.
+ cpu/old_Alures_13_addsub0000<11>.
+ cpu/cReg_16_3.
+ cpu/old_Alures_13_addsub0000<16>.
+ cpu/old_Alures_13_addsub0000<17>.
+ cpu/PC<18>.
+ cpu/RA<19>.
+ cpu/RA<21>.
+ cpu/old_Alures_13_addsub0000<21>.
+ cpu/cReg_9_2.
+ cpu/RA<25>.
+ cpu/old_Alures_13_addsub0000<26>.
+ cpu/old_Alures_13_addsub0000<29>.
+ cpu/cReg_17_31.
+ cpu/_old_B_10<2>.
+ cpu/_old_B_10<4>.
+ cpu/_old_B_10<5>.
+ cpu/old_Alures_11_add0000<4>.
+ cpu/old_Alures_11_add0000<5>.
+ cpu/_old_B_10<6>.
+ cpu/old_Alures_11_add0000<7>.
+ cpu/_old_B_10<9>.
+ cpu/old_Alures_11_add0000<8>.
+ cpu/old_Alures_11_add0000<12>.
+ cpu/old_Alures_11_add0000<13>.
+ cpu/old_Alures_11_add0000<14>.
+ cpu/old_Alures_11_add0000<15>.
+ cpu/old_Alures_11_add0000<16>.
+ cpu/old_Alures_11_add0000<29>.
+ cpu/old_Alures_11_add0000<30>.
+ cpu/old_Alures_11_add0000<31>.
+ t/vga/vga_controller/hcounter_cmp_eq0000.
+ cpu/_sub0000<0>.
+ cpu/_sub0000<1>.
+ cpu/_sub0000<2>.
+ cpu/_sub0000<3>.
+ cpu/_sub0000<5>.
+ cpu/_sub0000<7>.
+ cpu/_sub0000<8>.
+ cpu/_sub0000<11>.
+ cpu/_sub0000<12>.
+ cpu/_sub0000<13>.
+ cpu/_sub0000<15>.
+ cpu/_sub0000<23>.
+ mem/tmp<15>.
+ cpu/_sub0000<24>.
+ cpu/_sub0000<27>.
+ t/vga/curx_mux0001.
+ t/vga/curx_share0000<1>.
+ t/vga/curx_share0000<3>.
+ t/vga/curx_share0000<4>.
+ t/vga/curx_share0000<5>.
+ t/vga/curx_share0000<6>.
+ t/vga/curx_share0000<7>.
+ t/vga/curx_share0000<8>.
+ t/vga/curx_share0000<9>.
+ t/vga/curx_share0000<10>.
+ t/vga/curx_share0000<11>.
+ t/vga/curx_share0000<12>.
+ t/vga/curx_share0000<13>.
+ t/vga/curx_share0000<15>.
+ t/vga/curx_share0000<16>.
+ t/vga/curx_share0000<18>.
+ t/vga/curx_share0000<20>.
+ t/vga/curx_share0000<21>.
+ t/vga/curx_share0000<22>.
+ t/vga/curx_share0000<23>.
+ t/vga/curx_share0000<24>.
+ t/vga/curx_share0000<25>.
+ t/vga/curx_share0000<26>.
+ t/vga/curx_share0000<27>.
+ t/vga/curx_share0000<28>.
+ t/vga/curx_share0000<29>.
+ cpu/Regfile_29_19.
+ t/vga/curx_share0000<30>.
+ t/vga/curx_share0000<31>.
+ t/vga/_add0000<0>.
+ t/vga/_add0000<1>.
+ cpu/cReg_17_16.
+ t/vga/_add0000<2>.
+ t/vga/_add0000<3>.
+ cpu/cReg_8_16.
+ t/vga/_add0000<4>.
+ cpu/cReg_7_0.
+ t/vga/_add0000<5>.
+ cpu/cReg_7_16.
+ t/vga/_add0000<6>.
+ cpu/cReg_20_10.
+ t/vga/_add0000<9>.
+ cpu/cReg_21_6.
+ t/vga/_add0000<10>.
+ t/vga/_add0000<11>.
+ cpu/cReg_8_0.
+ t/vga/_add0000<12>.
+ t/vga/_add0000<13>.
+ t/vga/_add0000<14>.
+ t/vga/_add0000<15>.
+ cpu/cReg_16_13.
+ t/vga/_add0000<16>.
+ t/vga/_add0000<17>.
+ t/vga/_add0000<18>.
+ t/vga/_add0000<19>.
+ cpu/cReg_26_13.
+ t/vga/_add0000<20>.
+ t/vga/_add0000<21>.
+ cpu/Memout<5>.
+ t/vga/_add0000<22>.
+ t/vga/_add0000<23>.
+ cpu/cReg_28_18.
+ cpu/cReg_24_18.
+ t/vga/_add0000<25>.
+ cpu/cReg_24_10.
+ cpu/cReg_20_2.
+ t/vga/_add0000<28>.
+ t/vga/_add0000<29>.
+ cpu/cReg_0_10.
+ t/vga/_add0000<30>.
+ t/vga/_add0000<31>.
+ cpu/cReg_7_18.
+ t/vga/_add0000<32>.
+ cpu/cReg_5_16.
+ cpu/cReg_5_18.
+ t/vga/addrb_mult0000<0>.
+ t/vga/addrb_mult0000<1>.
+ t/vga/addrb<0>.
+ t/vga/addrb<1>.
+ t/vga/Madd_addrb_addsub0000_cy<1>.
+ t/vga/addrb_mult0000<2>.
+ t/vga/addrb_mult0000<3>.
+ t/vga/addrb<2>.
+ t/vga/addrb<3>.
+ t/vga/Madd_addrb_addsub0000_cy<3>.
+ t/vga/addrb_mult0000<4>.
+ t/vga/addrb_mult0000<5>.
+ t/vga/addrb<4>.
+ t/vga/addrb<5>.
+ t/vga/Madd_addrb_addsub0000_cy<5>.
+ t/vga/addrb_mult0000<6>.
+ t/vga/addrb_mult0000<7>.
+ t/vga/addrb<6>.
+ t/vga/addrb<7>.
+ t/vga/Madd_addrb_addsub0000_cy<7>.
+ t/vga/addrb_mult0000<8>.
+ t/vga/addrb_mult0000<9>.
+ t/vga/addrb<8>.
+ t/vga/addrb<9>.
+ t/vga/Madd_addrb_addsub0000_cy<9>.
+ t/vga/addrb_mult0000<10>.
+ t/vga/addrb<10>.
+ t/vga/addrb<11>.
+ cpu/Regfile_13_19.
+ cpu/Regfile_1_mux0000<0>.
+ cpu/Regfile_14_0.
+ cpu/Regfile_17_15.
+ cpu/cReg_10_9.
+ cpu/cReg_27_29.
+ cpu/cReg_28_17.
+ cpu/cReg_22_19.
+ cpu/cReg_30_19.
+ cpu/cReg_1_17.
+ cpu/cReg_16_28.
+ cpu/cReg_15_9.
+ t/vga/vga_controller/vcounter_and0000.
+ cpu/cReg_30_0.
+ cpu/cReg_31_0.
+ cpu/cReg_28_0.
+ cpu/cReg_29_0.
+ cpu/cReg_26_0.
  cpu/cReg_25_0.
+ cpu/cReg_10_0.
+ cpu/cReg_11_0.
+ cpu/cReg_18_0.
+ cpu/cReg_19_0.
+ cpu/cReg_16_0.
+ cpu/cReg_17_0.
+ cpu/cReg_6_0.
+ cpu/cReg_4_0.
+ cpu/cReg_2_0.
+ cpu/cReg_3_0.
+ cpu/cReg_0_0.
+ cpu/cReg_1_0.
+ cpu/cReg_25_9.
+ cpu/Regfile_28_10.
+ cpu/Regfile_29_10.
+ cpu/Regfile_26_10.
+ cpu/Regfile_27_10.
+ cpu/Regfile_24_10.
+ cpu/Regfile_25_10.
+ cpu/Regfile_12_10.
+ cpu/Regfile_13_10.
+ cpu/Regfile_10_10.
+ cpu/Regfile_11_10.
+ cpu/Regfile_9_10.
+ cpu/Regfile_22_10.
+ cpu/Regfile_23_10.
+ cpu/Regfile_19_10.
+ cpu/Regfile_16_10.
+ cpu/Regfile_17_10.
+ cpu/Regfile_6_10.
+ cpu/Regfile_4_10.
  cpu/Regfile_5_10.
- cpu/Regfile_6_11.
- cpu/Regfile_26_14.
+ cpu/Regfile_2_10.
+ cpu/Regfile_3_10.
+ cpu/Regfile_28_11.
+ cpu/Regfile_26_11.
+ cpu/Regfile_27_11.
+ cpu/Regfile_18_11.
+ cpu/Regfile_14_12.
+ cpu/Regfile_15_12.
+ cpu/Regfile_12_12.
+ cpu/Regfile_13_12.
+ cpu/Regfile_18_12.
+ cpu/Regfile_19_12.
+ cpu/Regfile_6_12.
+ cpu/Regfile_5_12.
+ cpu/Regfile_30_13.
+ cpu/Regfile_31_13.
+ cpu/Regfile_28_13.
+ cpu/Regfile_29_13.
+ cpu/Regfile_27_13.
+ cpu/Regfile_24_13.
+ cpu/Regfile_25_13.
+ cpu/Regfile_14_13.
+ cpu/Regfile_15_13.
+ cpu/Regfile_12_13.
+ cpu/Regfile_10_13.
+ cpu/Regfile_11_13.
+ cpu/Regfile_8_13.
+ cpu/Regfile_9_13.
+ cpu/Regfile_22_13.
+ cpu/Regfile_23_13.
+ cpu/Regfile_18_13.
+ cpu/Regfile_19_13.
+ cpu/Regfile_17_13.
+ cpu/Regfile_6_13.
+ cpu/Regfile_7_13.
+ cpu/Regfile_4_13.
+ cpu/Regfile_5_13.
+ cpu/Regfile_2_13.
+ cpu/Regfile_3_13.
+ cpu/Regfile_1_13.
+ cpu/Regfile_14_14.
+ cpu/Regfile_15_14.
+ cpu/Regfile_12_14.
+ cpu/Regfile_8_14.
+ cpu/Regfile_18_14.
+ cpu/Regfile_16_14.
+ cpu/Regfile_5_14.
+ cpu/Regfile_24_15.
  cpu/Regfile_25_15.
+ cpu/Regfile_21_15.
+ cpu/Regfile_19_15.
  cpu/Regfile_4_15.
- cpu/Regfile_2_15.
+ cpu/Regfile_2_and0000.
+ cpu/Regfile_1_15.
+ cpu/Regfile_28_16.
+ cpu/Regfile_26_16.
+ cpu/Regfile_27_16.
+ cpu/Regfile_13_16.
+ cpu/Regfile_22_16.
+ cpu/Regfile_21_16.
+ cpu/Regfile_18_16.
+ cpu/Regfile_6_16.
+ cpu/Regfile_4_16.
+ cpu/Regfile_30_17.
+ cpu/Regfile_31_17.
+ cpu/Regfile_26_17.
  cpu/Regfile_27_17.
- cpu/Regfile_19_1.
+ cpu/Regfile_12_17.
+ cpu/Regfile_13_17.
+ cpu/Regfile_11_17.
+ cpu/Regfile_8_17.
+ cpu/Regfile_20_17.
+ cpu/Regfile_19_17.
+ cpu/Regfile_6_17.
+ cpu/Regfile_7_17.
+ cpu/Regfile_1_17.
+ cpu/Regfile_30_18.
+ cpu/Regfile_31_18.
+ cpu/Regfile_28_18.
+ cpu/Regfile_29_18.
+ cpu/Regfile_27_18.
+ cpu/Regfile_24_18.
+ cpu/Regfile_25_18.
+ cpu/Regfile_15_18.
+ cpu/Regfile_10_18.
+ cpu/Regfile_8_18.
+ cpu/Regfile_22_18.
+ cpu/Regfile_23_18.
+ cpu/Regfile_20_18.
+ cpu/Regfile_21_18.
+ cpu/Regfile_18_18.
+ cpu/Regfile_19_18.
+ cpu/Regfile_16_18.
+ cpu/Regfile_17_18.
+ cpu/Regfile_7_18.
+ cpu/Regfile_4_18.
+ cpu/Regfile_2_18.
+ cpu/Regfile_30_19.
+ cpu/Regfile_28_19.
+ cpu/mux10_5_f5.
+ cpu/mux10_6_f5.
+ cpu/mux10_4_f6.
+ cpu/Regfile_26_19.
+ cpu/Regfile_27_19.
+ cpu/mux10_5_f6.
+ cpu/mux10_3_f7.
+ cpu/Regfile_14_19.
+ cpu/Regfile_15_19.
+ cpu/mux10_6_f52.
+ cpu/mux10_7_f51.
+ cpu/mux10_5_f61.
+ cpu/Regfile_10_19.
+ cpu/Regfile_8_19.
+ cpu/Regfile_9_19.
+ cpu/mux10_6_f6.
+ cpu/mux10_4_f7.
+ cpu/Regfile_22_19.
+ cpu/Regfile_20_19.
+ cpu/Regfile_21_19.
+ cpu/mux10_6_f51.
+ cpu/mux10_7_f5.
+ cpu/Regfile_18_19.
+ cpu/Regfile_16_19.
+ cpu/Regfile_17_19.
+ cpu/Regfile_6_19.
+ cpu/Regfile_7_19.
+ cpu/Regfile_4_19.
+ cpu/Regfile_5_19.
+ cpu/mux10_7_f52.
+ cpu/mux10_8_f5.
+ cpu/Regfile_2_19.
+ cpu/Regfile_3_19.
+ cpu/Regfile_1_19.
+ cpu/Regfile_6_1.
+ cpu/Regfile_7_1.
+ cpu/Regfile_24_21.
+ cpu/Regfile_25_21.
+ cpu/Regfile_14_21.
+ cpu/Regfile_15_21.
+ cpu/Regfile_13_21.
+ cpu/Regfile_1_21.
+ cpu/cReg_4_23.
+ cpu/Regfile_3_2.
+ cpu/Regfile_31_8.
  cpu/Regfile_28_8.
- cpu/Regfile_25_8.
+ cpu/Regfile_29_8.
+ cpu/Regfile_27_8.
+ cpu/Regfile_10_8.
+ cpu/Regfile_8_8.
+ cpu/Regfile_9_8.
+ cpu/Regfile_22_8.
+ cpu/Regfile_20_8.
+ cpu/Regfile_16_8.
+ cpu/Regfile_17_8.
+ cpu/Regfile_7_8.
  cpu/Regfile_5_8.
- cpu/Regfile_21_23.
- cpu/Regfile_24_30.
- cpu/Regfile_23_30.
- cpu/Regfile_21_30.
+ cpu/Regfile_2_8.
+ cpu/Regfile_3_8.
+ cpu/Regfile_1_8.
+ cpu/Regfile_28_23.
+ cpu/Regfile_13_23.
+ cpu/Regfile_18_23.
+ cpu/Regfile_10_30.
+ cpu/Regfile_20_30.
  cpu/Regfile_21_9.
  cpu/Regfile_19_9.
- cpu/Regfile_17_9.
- cpu/Regfile_1_9.
- cpu/Regfile_27_31.
- cpu/Regfile_1_31.
+ cpu/Regfile_4_9.
+ cpu/Regfile_5_9.
+ cpu/Regfile_26_24.
+ cpu/Regfile_4_24.
+ cpu/Regfile_5_24.
+ cpu/IR<17>.
+ cpu/Regfile_30_0.
+ cpu/Regfile_31_0.
+ cpu/Regfile_29_0.
+ cpu/Regfile_27_0.
+ cpu/Regfile_24_0.
+ cpu/Regfile_12_0.
+ cpu/Regfile_13_0.
+ cpu/Regfile_10_0.
+ cpu/Regfile_11_0.
+ cpu/Regfile_8_0.
+ cpu/Regfile_9_0.
+ cpu/Regfile_20_0.
+ cpu/Regfile_21_0.
+ cpu/Regfile_18_0.
+ cpu/Regfile_19_0.
+ cpu/Regfile_17_0.
  cpu/Regfile_4_0.
+ cpu/Regfile_5_0.
+ cpu/Regfile_2_0.
  cpu/Regfile_3_0.
- cpu/Regfile_14_27.
+ cpu/Regfile_1_0.
+ cpu/Regfile_30_25.
+ cpu/Regfile_31_25.
+ cpu/mux17_5_f5.
+ cpu/mux17_6_f5.
+ cpu/mux17_4_f6.
+ cpu/Regfile_26_25.
+ cpu/mux17_5_f6.
+ cpu/mux17_3_f7.
+ cpu/Regfile_15_25.
+ cpu/mux17_6_f52.
+ cpu/mux17_7_f51.
+ cpu/mux17_5_f61.
+ cpu/Regfile_9_25.
+ cpu/mux17_6_f6.
+ cpu/mux17_4_f7.
+ cpu/Regfile_22_25.
+ cpu/mux17_6_f51.
+ cpu/mux17_7_f5.
+ cpu/Regfile_18_25.
+ cpu/Regfile_19_25.
+ cpu/Regfile_6_25.
+ cpu/mux17_7_f52.
+ cpu/mux17_8_f5.
+ cpu/Regfile_30_3.
+ cpu/Regfile_29_3.
+ cpu/Regfile_26_3.
+ cpu/Regfile_24_3.
+ cpu/Regfile_25_3.
+ cpu/Regfile_12_3.
+ cpu/Regfile_11_3.
+ cpu/Regfile_22_3.
+ cpu/Regfile_21_3.
+ cpu/Regfile_18_3.
+ cpu/Regfile_19_3.
+ cpu/Regfile_16_3.
+ cpu/Regfile_7_3.
+ cpu/Regfile_4_3.
+ cpu/Regfile_5_3.
+ cpu/Regfile_3_3.
+ cpu/Regfile_1_3.
+ cpu/cReg_19_3.
+ t/readdata_not0001.
+ t/TxD_data<6>.
+ cpu/Regfile_1_26.
+ cpu/Regfile_24_4.
+ cpu/Regfile_4_4.
+ cpu/Regfile_1_4.
+ cpu/_COND_6<11>.
+ cpu/Regfile_6_and0000.
+ cpu/Regfile_1_27.
+ cpu/cReg_22_24.
+ cpu/Regfile_30_5.
+ cpu/Regfile_28_5.
+ cpu/Regfile_10_5.
+ cpu/Regfile_7_5.
+ cpu/Regfile_4_5.
+ cpu/_COND_6<12>.
  cpu/Memout<29>.
- cpu/RB_1_1.
- cpu/cReg_7_1.
+ cpu/Regfile_10_6.
+ cpu/Regfile_5_6.
+ cpu/_COND_6<6>.
  cpu/Regfile_24_7.
  cpu/Regfile_25_7.
- cpu/Regfile_15_7.
- cpu/Regfile_12_7.
- cpu/Regfile_11_7.
+ cpu/Regfile_10_7.
  cpu/Regfile_20_7.
+ cpu/Regfile_21_7.
  cpu/Regfile_6_7.
- cpu/Regfile_5_7.
- cpu/Regfile_1_7.
- cpu/_COND_9<4>.
+ cpu/Regfile_7_7.
+ cpu/RB_7_1.
+ cpu/_COND_6<2>.
+ cpu/RB_2_1.
+ cpu/_COND_6<8>.
+ cpu/_COND_6<3>.
+ cpu/cReg_23_3.
+ cpu/_COND_6<4>.
+ cpu/RB_4_1.
+ cpu/mux_5_f5.
+ cpu/mux_6_f5.
+ cpu/mux_4_f6.
+ cpu/mux_5_f6.
+ cpu/mux_3_f7.
+ cpu/mux_6_f52.
+ cpu/mux_7_f51.
+ cpu/mux_5_f61.
+ cpu/mux_6_f6.
+ cpu/mux_4_f7.
+ cpu/mux_6_f51.
+ cpu/mux_7_f5.
+ cpu/mux_7_f52.
+ cpu/mux_8_f5.
+ cpu/cReg_17_24.
+ cpu/cReg_30_1.
  cpu/cReg_28_1.
- cpu/cReg_18_1.
- cpu/cReg_16_1.
- cpu/Mmux__old_Alures_19_10_f811.
+ cpu/cReg_27_1.
+ cpu/cReg_15_1.
+ cpu/cReg_12_1.
+ cpu/cReg_8_1.
+ cpu/cReg_9_1.
+ cpu/cReg_22_1.
+ cpu/cReg_23_1.
+ cpu/cReg_20_1.
+ cpu/cReg_21_1.
+ cpu/cReg_19_1.
+ cpu/cReg_17_1.
+ cpu/Mmux__old_Alures_16_10_f811.
+ cpu/cReg_6_1.
  cpu/cReg_4_1.
- cpu/cReg_8_20.
- cpu/Mmux__old_Alures_19_10_f812.
- cpu/cReg_4_20.
- cpu/cReg_3_20.
- cpu/cReg_0_20.
- cpu/cReg_30_29.
- cpu/cReg_26_29.
+ cpu/cReg_2_1.
+ cpu/cReg_3_1.
+ cpu/cReg_0_1.
+ cpu/cReg_28_20.
+ cpu/cReg_25_20.
+ cpu/cReg_22_20.
+ cpu/cReg_23_20.
+ cpu/cReg_18_20.
+ cpu/cReg_17_20.
+ cpu/Mmux__old_Alures_16_10_f812.
+ cpu/cReg_7_20.
+ cpu/cReg_31_29.
  cpu/cReg_24_29.
- cpu/cReg_18_29.
- cpu/cReg_19_29.
- cpu/cReg_17_29.
- cpu/cReg_2_29.
- cpu/cReg_0_29.
+ cpu/cReg_11_29.
+ cpu/cReg_9_29.
+ cpu/cReg_22_29.
+ cpu/cReg_20_29.
+ cpu/cReg_16_29.
+ cpu/cReg_6_29.
+ cpu/cReg_7_29.
+ cpu/cReg_4_29.
+ cpu/cReg_5_29.
+ cpu/cReg_3_29.
+ cpu/cReg_9_22.
+ cpu/cReg_8_21.
+ cpu/cReg_19_21.
+ cpu/cReg_30_2.
+ cpu/cReg_31_2.
+ cpu/cReg_28_2.
  cpu/cReg_29_2.
- cpu/cReg_31_22.
- cpu/cReg_22_22.
- cpu/cReg_7_22.
- cpu/cReg_3_22.
- cpu/cReg_8_9.
- cpu/cReg_27_30.
+ cpu/cReg_26_2.
+ cpu/cReg_27_2.
+ cpu/cReg_24_2.
+ cpu/cReg_15_2.
+ cpu/cReg_10_2.
+ cpu/cReg_11_2.
+ cpu/cReg_8_2.
+ cpu/cReg_22_2.
+ cpu/cReg_23_2.
+ cpu/cReg_21_2.
+ cpu/cReg_18_2.
+ cpu/cReg_19_2.
+ cpu/cReg_16_2.
+ cpu/cReg_17_2.
+ cpu/Mmux__old_Alures_16_10_f822.
+ cpu/cReg_6_2.
+ cpu/cReg_7_2.
+ cpu/cReg_4_2.
+ cpu/cReg_5_2.
+ cpu/cReg_2_2.
+ cpu/cReg_3_2.
+ cpu/cReg_0_2.
+ cpu/cReg_1_2.
+ cpu/cReg_16_22.
+ cpu/cReg_17_22.
+ cpu/cReg_4_22.
+ cpu/cReg_5_22.
+ cpu/cReg_31_9.
+ cpu/cReg_28_9.
+ cpu/cReg_26_9.
+ cpu/cReg_24_9.
+ cpu/cReg_12_9.
+ cpu/cReg_23_9.
+ cpu/cReg_20_9.
+ cpu/cReg_18_9.
+ cpu/cReg_19_9.
+ cpu/cReg_16_9.
+ cpu/cReg_17_9.
+ cpu/cReg_6_9.
+ cpu/cReg_7_9.
+ cpu/cReg_4_9.
+ cpu/cReg_0_9.
+ cpu/cReg_4_4.
+ cpu/cReg_30_30.
+ cpu/cReg_31_30.
+ cpu/cReg_28_30.
+ cpu/cReg_29_30.
+ cpu/cReg_26_30.
  cpu/cReg_10_30.
- cpu/cReg_9_30.
+ cpu/cReg_11_30.
+ cpu/cReg_8_30.
+ cpu/cReg_22_30.
  cpu/cReg_23_30.
- cpu/cReg_17_30.
+ cpu/cReg_21_30.
+ cpu/cReg_16_30.
+ cpu/cReg_6_30.
+ cpu/cReg_4_30.
+ cpu/cReg_2_30.
+ cpu/cReg_0_30.
+ cpu/cReg_31_23.
+ cpu/cReg_29_23.
+ cpu/cReg_26_23.
+ cpu/cReg_27_23.
+ cpu/cReg_15_23.
+ cpu/cReg_8_23.
+ cpu/cReg_22_23.
+ cpu/cReg_23_23.
+ cpu/cReg_21_23.
+ cpu/cReg_19_23.
  cpu/cReg_16_23.
- cpu/cReg_17_23.
- cpu/cReg_27_31.
- cpu/cReg_26_24.
- cpu/cReg_24_24.
- cpu/cReg_15_24.
- cpu/cReg_18_24.
+ cpu/cReg_7_23.
+ cpu/cReg_5_23.
+ cpu/cReg_2_23.
+ cpu/cReg_1_23.
+ cpu/cReg_28_25.
+ cpu/cReg_28_31.
+ cpu/cReg_25_31.
+ cpu/cReg_15_31.
+ cpu/cReg_22_31.
+ cpu/cReg_20_31.
+ cpu/cReg_19_31.
+ cpu/cReg_16_31.
+ cpu/cReg_2_31.
+ cpu/cReg_1_31.
+ cpu/cReg_31_24.
+ cpu/cReg_28_24.
+ cpu/cReg_29_24.
+ cpu/cReg_8_24.
+ cpu/cReg_23_24.
+ cpu/cReg_19_24.
+ cpu/cReg_0_24.
+ cpu/cReg_1_24.
+ cpu/cReg_28_3.
  cpu/cReg_29_3.
+ cpu/cReg_26_3.
+ cpu/cReg_25_3.
+ cpu/cReg_10_3.
+ cpu/cReg_11_3.
+ cpu/cReg_22_3.
+ cpu/Mmux__old_Alures_16_10_f825.
+ cpu/cReg_6_3.
  cpu/cReg_7_3.
- cpu/cReg_1_3.
- cpu/cReg_24_25.
- cpu/cReg_6_25.
- cpu/cReg_4_25.
- cpu/cReg_5_25.
- cpu/cReg_25_4.
- cpu/cReg_20_26.
- cpu/cReg_21_26.
- cpu/cReg_24_5.
- cpu/cReg_10_5.
+ cpu/cReg_4_3.
+ cpu/cReg_5_3.
+ cpu/cReg_23_25.
+ cpu/cReg_30_4.
+ cpu/cReg_31_4.
+ cpu/cReg_28_4.
+ cpu/cReg_29_4.
+ cpu/cReg_27_4.
+ cpu/cReg_14_4.
+ cpu/cReg_15_4.
+ cpu/cReg_12_4.
+ cpu/cReg_11_4.
+ cpu/cReg_8_4.
+ cpu/cReg_9_4.
+ cpu/cReg_22_4.
+ cpu/cReg_20_4.
+ cpu/cReg_21_4.
+ cpu/cReg_18_4.
+ cpu/cReg_19_4.
+ cpu/cReg_16_4.
+ cpu/cReg_17_4.
+ cpu/cReg_7_4.
+ cpu/cReg_2_4.
+ cpu/cReg_1_4.
+ cpu/cReg_15_26.
+ cpu/cReg_9_26.
+ cpu/cReg_17_26.
+ cpu/Mmux__old_Alures_16_10_f818.
+ cpu/cReg_6_26.
+ cpu/cReg_4_26.
+ cpu/cReg_2_26.
+ cpu/cReg_26_5.
+ cpu/cReg_27_5.
+ cpu/cReg_15_5.
+ cpu/cReg_22_5.
+ cpu/cReg_20_5.
  cpu/cReg_17_5.
- cpu/Mmux__old_Alures_19_10_f827.
- cpu/cReg_3_5.
+ cpu/cReg_0_5.
+ cpu/cReg_1_5.
+ cpu/cReg_28_27.
+ cpu/cReg_29_27.
+ cpu/cReg_11_27.
+ cpu/cReg_2_27.
+ cpu/cReg_3_27.
  cpu/cReg_30_6.
  cpu/cReg_31_6.
  cpu/cReg_28_6.
- cpu/cReg_26_6.
- cpu/cReg_27_6.
+ cpu/cReg_24_6.
+ cpu/cReg_25_6.
+ cpu/cReg_15_6.
+ cpu/cReg_12_6.
+ cpu/cReg_13_6.
+ cpu/cReg_11_6.
  cpu/cReg_8_6.
- cpu/cReg_9_6.
+ cpu/cReg_20_6.
+ cpu/cReg_18_6.
  cpu/cReg_19_6.
- cpu/cReg_18_28.
+ cpu/cReg_17_6.
+ cpu/cReg_6_6.
+ cpu/cReg_7_6.
+ cpu/cReg_4_6.
+ cpu/cReg_5_6.
+ cpu/cReg_2_6.
+ cpu/cReg_3_6.
+ cpu/cReg_0_6.
+ cpu/cReg_1_6.
+ cpu/cReg_28_28.
+ cpu/cReg_26_28.
+ cpu/cReg_13_28.
+ cpu/cReg_17_28.
+ cpu/cReg_2_28.
+ cpu/cReg_30_7.
+ cpu/cReg_31_7.
+ cpu/cReg_28_7.
+ cpu/cReg_26_7.
+ cpu/cReg_27_7.
+ cpu/cReg_24_7.
+ cpu/cReg_25_7.
+ cpu/cReg_15_7.
+ cpu/cReg_12_7.
+ cpu/cReg_13_7.
  cpu/cReg_8_7.
  cpu/cReg_9_7.
+ cpu/cReg_21_7.
+ cpu/cReg_18_7.
+ cpu/cReg_16_7.
+ cpu/Mmux__old_Alures_16_10_f829.
+ cpu/cReg_7_7.
+ cpu/cReg_4_7.
+ cpu/cReg_2_7.
+ cpu/cReg_3_7.
+ cpu/cReg_30_8.
+ cpu/cReg_28_8.
+ cpu/cReg_26_8.
+ cpu/cReg_27_8.
+ cpu/cReg_15_8.
+ cpu/cReg_10_8.
+ cpu/cReg_11_8.
+ cpu/cReg_8_8.
+ cpu/cReg_9_8.
+ cpu/cReg_22_8.
+ cpu/cReg_23_8.
+ cpu/cReg_20_8.
+ cpu/cReg_18_8.
+ cpu/cReg_19_8.
+ cpu/cReg_16_8.
  cpu/cReg_17_8.
+ cpu/Mmux__old_Alures_16_10_f830.
+ cpu/cReg_4_8.
+ cpu/cReg_5_8.
+ cpu/cReg_3_8.
+ cpu/cReg_30_10.
+ cpu/cReg_31_10.
+ cpu/cReg_28_10.
+ cpu/cReg_29_10.
+ cpu/Mmux__old_Alures_16_13_f51.
+ cpu/Mmux__old_Alures_16_14_f53.
+ cpu/Mmux__old_Alures_16_12_f61.
+ cpu/cReg_26_10.
+ cpu/cReg_27_10.
+ cpu/cReg_25_10.
+ cpu/Mmux__old_Alures_16_13_f62.
+ cpu/Mmux__old_Alures_16_11_f71.
  cpu/cReg_15_10.
+ cpu/cReg_12_10.
+ cpu/cReg_13_10.
+ cpu/Mmux__old_Alures_16_14_f55.
+ cpu/Mmux__old_Alures_16_15_f54.
+ cpu/Mmux__old_Alures_16_13_f63.
+ cpu/cReg_10_10.
+ cpu/cReg_11_10.
  cpu/cReg_8_10.
  cpu/cReg_9_10.
+ cpu/Mmux__old_Alures_16_14_f61.
+ cpu/Mmux__old_Alures_16_12_f71.
  cpu/cReg_22_10.
+ cpu/cReg_23_10.
+ cpu/cReg_21_10.
+ cpu/Mmux__old_Alures_16_14_f54.
+ cpu/Mmux__old_Alures_16_15_f53.
+ cpu/cReg_18_10.
+ cpu/cReg_19_10.
+ cpu/cReg_16_10.
+ cpu/cReg_17_10.
+ cpu/Mmux__old_Alures_16_10_f81.
+ cpu/cReg_6_10.
  cpu/cReg_7_10.
  cpu/cReg_4_10.
+ cpu/cReg_5_10.
+ cpu/Mmux__old_Alures_16_15_f55.
+ cpu/Mmux__old_Alures_16_16_f51.
+ t/vga/ttyWFlag_and0001.
+ t/vga/ttyWFlag_and0000.
+ cpu/cReg_2_10.
  cpu/cReg_3_10.
  cpu/cReg_1_10.
- cpu/cReg_27_12.
- cpu/Mmux__old_Alures_19_10_f85.
+ t/vga/ttyWFlag.
+ cpu/cReg_28_11.
+ cpu/cReg_26_11.
+ cpu/cReg_27_11.
+ cpu/cReg_24_11.
+ cpu/cReg_15_11.
+ cpu/cReg_8_11.
+ cpu/cReg_22_11.
+ cpu/cReg_23_11.
+ cpu/cReg_20_11.
+ cpu/cReg_21_11.
+ cpu/cReg_18_11.
+ cpu/cReg_19_11.
+ cpu/cReg_7_11.
+ cpu/cReg_0_11.
+ cpu/cReg_8_12.
+ cpu/Mmux__old_Alures_16_10_f83.
+ cpu/cReg_4_12.
+ cpu/cReg_30_13.
+ cpu/cReg_31_13.
+ cpu/cReg_29_13.
+ cpu/cReg_27_13.
+ cpu/cReg_24_13.
+ cpu/cReg_25_13.
+ cpu/cReg_15_13.
+ cpu/cReg_10_13.
+ cpu/cReg_8_13.
+ cpu/cReg_22_13.
+ cpu/cReg_23_13.
+ cpu/cReg_20_13.
+ cpu/cReg_18_13.
+ cpu/cReg_19_13.
+ cpu/cReg_6_13.
+ cpu/cReg_7_13.
+ cpu/cReg_4_13.
+ cpu/cReg_5_13.
+ cpu/cReg_0_13.
+ cpu/cReg_1_13.
+ cpu/cReg_15_14.
+ cpu/cReg_12_14.
+ cpu/cReg_10_14.
+ cpu/cReg_11_14.
+ cpu/cReg_22_14.
+ cpu/cReg_16_14.
+ cpu/cReg_17_14.
+ cpu/cReg_0_14.
+ cpu/cReg_28_15.
+ cpu/cReg_15_15.
+ cpu/cReg_11_15.
+ cpu/cReg_8_15.
+ cpu/cReg_9_15.
+ cpu/Mmux__old_Alures_16_10_f86.
  cpu/cReg_30_16.
+ cpu/cReg_31_16.
+ cpu/cReg_28_16.
+ cpu/cReg_29_16.
+ cpu/Mmux__old_Alures_16_13_f57.
+ cpu/Mmux__old_Alures_16_14_f521.
+ cpu/Mmux__old_Alures_16_12_f67.
+ cpu/cReg_26_16.
  cpu/cReg_27_16.
+ cpu/cReg_24_16.
+ cpu/cReg_25_16.
+ cpu/Mmux__old_Alures_16_13_f614.
+ cpu/Mmux__old_Alures_16_11_f77.
  cpu/cReg_15_16.
+ cpu/cReg_12_16.
+ cpu/Mmux__old_Alures_16_14_f523.
+ cpu/Mmux__old_Alures_16_15_f522.
+ cpu/Mmux__old_Alures_16_13_f615.
+ cpu/cReg_10_16.
+ cpu/cReg_11_16.
+ cpu/cReg_9_16.
+ cpu/Mmux__old_Alures_16_14_f67.
+ cpu/Mmux__old_Alures_16_12_f77.
  cpu/cReg_22_16.
- cpu/cReg_7_16.
+ cpu/cReg_23_16.
+ cpu/cReg_20_16.
+ cpu/cReg_21_16.
+ cpu/Mmux__old_Alures_16_14_f522.
+ cpu/Mmux__old_Alures_16_15_f521.
+ cpu/cReg_18_16.
+ cpu/cReg_19_16.
+ cpu/cReg_16_16.
+ cpu/Mmux__old_Alures_16_10_f87.
+ cpu/cReg_6_16.
  cpu/cReg_4_16.
+ cpu/Mmux__old_Alures_16_15_f523.
+ cpu/Mmux__old_Alures_16_16_f57.
+ cpu/cReg_2_16.
  cpu/cReg_3_16.
- cpu/cReg_15_18.
+ cpu/cReg_0_16.
+ cpu/cReg_1_16.
+ cpu/cReg_4_18.
+ cpu/cReg_30_17.
+ cpu/cReg_24_17.
+ cpu/cReg_25_17.
+ cpu/cReg_12_17.
+ cpu/cReg_11_17.
+ cpu/cReg_9_17.
+ cpu/cReg_23_17.
+ cpu/cReg_20_17.
+ cpu/cReg_21_17.
+ cpu/cReg_17_17.
+ cpu/Mmux__old_Alures_16_10_f88.
+ cpu/cReg_7_17.
+ cpu/cReg_5_17.
+ cpu/cReg_30_18.
+ cpu/cReg_31_18.
+ cpu/cReg_26_18.
+ cpu/cReg_27_18.
+ cpu/cReg_25_18.
+ cpu/cReg_12_18.
+ cpu/cReg_10_18.
+ cpu/cReg_11_18.
+ cpu/cReg_9_18.
  cpu/cReg_21_18.
- cpu/cReg_16_18.
- cpu/cReg_7_19.
- vga/c/douta<13>.
- vga/c/douta<3>.
- cpu/Addr<20>.
- cpu/Addr<13>.
+ cpu/cReg_18_18.
+ cpu/cReg_19_18.
+ cpu/cReg_17_18.
+ cpu/Mmux__old_Alures_16_10_f89.
+ cpu/cReg_6_18.
+ cpu/cReg_2_18.
+ cpu/cReg_0_18.
+ cpu/cReg_1_18.
+ cpu/cReg_28_19.
+ cpu/cReg_29_19.
+ cpu/cReg_26_19.
+ cpu/cReg_27_19.
+ cpu/cReg_25_19.
+ cpu/cReg_8_19.
+ cpu/cReg_9_19.
+ cpu/cReg_23_19.
+ cpu/cReg_18_19.
+ cpu/cReg_19_19.
+ cpu/cReg_17_19.
+ cpu/Mmux__old_Alures_16_10_f810.
+ cpu/cReg_4_19.
+ cpu/cReg_3_19.
+ cpu/cReg_1_19.
+ t/vga/c/d.
+ t/vga/c/douta<6>.
+ t/vga/c/douta<4>.
+ t/vga/c/douta<3>.
+ t/vga/c/douta<2>.
+ t/vga/c/douta<1>.
+ t/vga/c/douta<0>.
+ cpu/Addr<0>.
  cpu/Addr<30>.
+ cpu/Addr<14>.
+ cpu/Addr<31>.
  cpu/Addr<16>.
- cpu/Addr<18>.
- cpu/Addr<19>.
+ cpu/Addr<17>.
  cpu/Addr<28>.
- cpu/Addr<29>.
+ clk_OBUF1.
+ t/keypress.
+ BUS<1>_MLTSRCEDGE.
  BUS<2>_MLTSRCEDGE.
- BUS<4>_MLTSRCEDGE.
- BUS<20>_MLTSRCEDGE.
+ BUS<5>_MLTSRCEDGE.
+ BUS<6>_MLTSRCEDGE.
+ BUS<7>_MLTSRCEDGE.
  BUS<12>_MLTSRCEDGE.
+ BUS<24>_MLTSRCEDGE.
+ BUS<16>_MLTSRCEDGE.
  BUS<25>_MLTSRCEDGE.
- BUS<27>_MLTSRCEDGE.
- BUS<19>_MLTSRCEDGE.
- vga/doutb<6>.
- vga/doutb<5>.
- mem/addr<1>.
- mem/douta<1>.
- mem/douta<3>.
- mem/douta<7>.
- mem/douta<16>.
- mem/douta<20>.
+ BUS<17>_MLTSRCEDGE.
+ BUS<28>_MLTSRCEDGE.
+ t/vga/cury_not0001.
+ t/vga/_mux0002<4>.
+ t/vga/doutb<4>.
+ t/vga/doutb<5>.
+ t/vga/_mux0002<0>.
+ t/vga/_mux0002<1>.
+ t/vga/_mux0002<2>.
+ t/vga/doutb<0>.
+ t/vga/doutb<1>.
+ t/vga/doutb<2>.
+ t/vga/_AUX_addra_31<11>.
+ t/vga/_AUX_addra_31<10>.
+ t/vga/_AUX_addra_31<9>.
+ t/vga/_AUX_addra_31<8>.
+ t/vga/_AUX_addra_31<7>.
+ t/vga/_AUX_addra_31<6>.
+ t/vga/_AUX_addra_31<5>.
+ t/vga/_AUX_addra_31<4>.
+ t/vga/_AUX_addra_31<3>.
+ t/vga/_AUX_addra_31<2>.
+ t/vga/_AUX_addra_31<1>.
+ t/vga/_AUX_addra_31<0>.
+ t/vga/doutb1<4>.
+ t/vga/doutb1<6>.
+ t/vga/_mux0004<3>.
+ t/vga/doutb1<2>.
+ mem/datain<0>.
+ mem/douta<10>.
  mem/douta<21>.
- mem/douta<23>.
- mem/douta<31>.
- mem/tmp<23>.
- mem/tmp<7>.
- mem/tmp<44>.
- N945.
- cpu/PC_mux0000<1>67.
- cpu/signal<12>_mmx_out17.
- cpu/PC_mux0000<3>67.
- cpu/signal<12>_mmx_out14.
- cpu/Memout<11>.
- mem/tmp<27>.
- mem/tmp<11>.
- cpu/PC_mux0000<9>67.
- cpu/old_Alures_16_mux0001<0>80.
- cpu/old_Alures_16_mux0001<4>8.
- N374.
+ mem/douta<22>.
+ mem/douta<26>.
+ mem/douta<28>.
+ N1107.
+ N1111.
+ N1113.
+ cpu/old_Alures_13_mux0001<11>186.
+ cpu/old_Alures_13_mux0001<12>256.
+ cpu/old_Alures_13_mux0001<13>198.
+ cpu/old_Alures_13_mux0001<13>151.
+ cpu/old_Alures_13_mux0001<13>256.
+ cpu/old_Alures_13_mux0001<30>123.
+ t/writedata<0>.
+ t/writedata<2>.
+ cpu/old_Alures_13_mux0001<14>198.
+ cpu/old_Alures_13_mux0001<14>257.
+ cpu/old_Alures_13_mux0001<15>198.
+ cpu/old_Alures_13_mux0001<15>151.
+ cpu/old_Alures_13_mux0001<27>146.
+ cpu/old_Alures_13_mux0001<28>123.
+ cpu/Sh150.
+ cpu/old_Alures_13_mux0001<29>123.
+ cpu/Sh148.
+ t/at/TxD_state_FSM_FFd4.
+ cpu/signal<12>_mmx_out23.
+ N1155.
  cpu/Memwrite_mux0000<1>1.
- N249.
- cpu/Sh5020.
- cpu/Sh5120.
- cpu/Sh20.
- cpu/Sh24.
- cpu/Sh16.
- cpu/Memout<21>.
- mem/tmp<21>.
- cpu/Memout<2>.
- mem/tmp<2>.
- mem/tmp<1>.
- cpu/PC_mux0000<20>67.
+ cpu/PC_mux0000<10>67.
+ cpu/signal<12>_mmx_out30.
  cpu/PC_mux0000<12>67.
- cpu/PC_mux0000<21>67.
- cpu/PC_mux0000<13>67.
- cpu/PC_mux0000<30>40.
  cpu/PC_mux0000<22>67.
- cpu/PC_mux0000<14>67.
- cpu/signal<12>_mmx_out31.
+ cpu/signal<12>_mmx_out9.
  cpu/PC_mux0000<23>67.
- cpu/PC_mux0000<16>67.
- cpu/PC_mux0000<25>67.
- cpu/PC_mux0000<27>40.
- cpu/PC_mux0000<19>67.
- cpu/PC_mux0000<28>40.
- cpu/PC_mux0000<29>40.
- cpu/Memout<5>.
- cpu/B<0>.
- cpu/old_Alures_16_mux0001<0>45.
- N261.
- cpu/old_Alures_16_mux0001<2>90.
- cpu/old_Alures_16_mux0001<3>90.
- cpu/Sh18.
- cpu/Sh10.
- N1035.
- cpu/Sh11.
- cpu/old_Alures_16_mux0001<7>47.
- cpu/Sh12.
- cpu/old_Alures_16_mux0001<8>47.
- N1037.
- N1039.
- cpu/Memout<15>.
- mem/tmp<31>.
- mem/tmp<15>.
- mem/tmp<39>.
- N1041.
- N1043.
- cpu/Memout<4>.
- mem/tmp<20>.
- N1045.
- cpu/Memout<14>.
- cpu/old_Alures_16_mux0002<17>13.
- N5411.
- cpu/old_Alures_16_mux0001<8>253.
- cpu/old_Alures_16_mux0002<8>84.
- cpu/old_Alures_16_mux0002<7>84.
- N939.
- cpu/old_Alures_16_mux0002<6>84.
- cpu/old_Alures_16_mux0002<5>84.
- cpu/old_Alures_16_mux0001<4>257.
- cpu/old_Alures_16_mux0002<3>84.
- cpu/old_Alures_16_mux0001<2>312.
- cpu/Alures<1>.
- N714.
- N1047.
- mem/tmp<33>.
- mem/tmp<41>.
- mem/tmp<5>.
- mem/tmp<35>.
- cpu/Memout<27>.
- mem/tmp<43>.
- mem/tmp<8>.
- cpu/B<16>.
- cpu/B<15>.
- cpu/B<24>.
- cpu/B<18>.
- cpu/Sh22.
- cpu/Sh23.
- cpu/Sh55.
- cpu/old_Alures_16_mux0001<10>47.
- cpu/old_Alures_16_mux0001<11>47.
- cpu/old_Alures_16_mux0001<12>85.
- cpu/old_Alures_16_mux0002<0>124.
- mem/tmp<45>.
- cpu/Memout<12>.
- mem/tmp<12>.
- cpu/Memout<20>.
- N4211.
- cpu/old_Alures_16_mux0001<0>324.
- N425.
- N415.
- cpu/old_Alures_16_mux0002<29>13.
- N490.
- cpu/old_Alures_16_mux0002<20>13.
- N538.
- cpu/Alures<15>.
- cpu/old_Alures_16_mux0002<15>84.
- cpu/old_Alures_16_mux0002<26>13.
- N419.
- cpu/old_Alures_16_mux0002<19>13.
- N484.
- cpu/old_Alures_16_mux0002<24>13.
- N411.
- cpu/old_Alures_16_mux0002<23>13.
- N496.
- N413.
- mem/tmp<32>.
- cpu/old_Alures_16_mux0001<31>159.
- mem/tmp<46>.
- cpu/old_Alures_16_mux0001<28>161.
- cpu/Memout<26>.
- mem/tmp<42>.
- N642.
- N68.
- N421.
- N20.
- N14.
- N12.
- N10.
- N84.
- N610.
- N410.
- N21.
- cpu/PC_mux0000<27>4.
- cpu/PC_mux0000<25>4.
- cpu/C/signal<10>_SW3/O.
- N622.
- N601.
- cpu/cReg_14_mux0000<4>_SW0/O.
- cpu/cReg_14_mux0000<18>_SW0/O.
- cpu/Sh29_SW0/O.
- N18.
- N16.
- N24.
- N22.
- cpu/PC_mux0000<20>21.
- cpu/PC_mux0000<12>4.
- cpu/PC_mux0000<12>18.
- cpu/PC_mux0000<13>4.
- cpu/PC_mux0000<5>4.
- N516.
- cpu/PC_mux0000<2>18.
- cpu/PC_mux0000<3>44/O.
- cpu/PC_mux0000<21>21.
- cpu/PC_mux0000<1>21.
- cpu/PC_mux0000<11>18.
- cpu/PC_mux0000<17>18.
- cpu/PC_mux0000<17>4.
- cpu/PC_mux0000<19>21.
- cpu/PC_mux0000<1>44/O.
- cpu/PC_mux0000<21>18.
- cpu/PC_mux0000<14>4.
- cpu/PC_mux0000<11>4.
- cpu/PC_mux0000<25>21.
- cpu/PC_mux0000<23>21.
- cpu/PC_mux0000<26>21.
- cpu/PC_mux0000<23>4.
- cpu/PC_mux0000<23>44/O.
- cpu/PC_mux0000<15>21.
- cpu/PC_mux0000<25>18.
+ cpu/PC_mux0000<24>67.
+ cpu/PC_mux0000<25>70.
+ t/kb/ascii<0>1138.
+ N578.
+ cpu/old_Alures_13_mux0001<17>146.
+ cpu/old_Alures_13_mux0001<17>158.
+ cpu/old_Alures_13_mux0002<30>13.
+ N710.
+ N709.
+ cpu/old_Alures_13_mux0001<8>123.
+ cpu/old_Alures_13_mux0001<8>244.
+ cpu/old_Alures_13_mux0002<8>84.
+ N713.
+ N712.
+ cpu/old_Alures_13_mux0001<7>123.
+ cpu/old_Alures_13_mux0001<7>244.
+ cpu/old_Alures_13_mux0002<7>84.
+ N715.
+ cpu/old_Alures_13_mux0001<6>123.
+ cpu/old_Alures_13_mux0001<6>244.
+ N782.
+ N781.
+ cpu/old_Alures_13_mux0001<5>123.
+ cpu/old_Alures_13_mux0001<5>244.
+ cpu/old_Alures_13_mux0002<5>84.
+ N785.
+ N784.
+ cpu/old_Alures_13_mux0001<4>123.
+ cpu/old_Alures_13_mux0001<4>244.
+ cpu/old_Alures_13_mux0001<3>13.
+ cpu/old_Alures_13_mux0002<3>84.
+ mem/tmp<18>.
+ cpu/signal<12>_mmx_out17.
+ cpu/Memout<7>.
+ N657.
+ cpu/old_Alures_13_mux0002<1>85.
+ cpu/signal<12>_mmx_out18.
+ N1159.
+ t/kb/ascii<1>1204.
+ cpu/old_Alures_13_mux0001<20>111.
+ cpu/signal<8>.
+ cpu/Dst<4>.
+ t/kb/ascii<2>2316.
+ VMwrite.
+ t/VMwrite_or0000.
+ keyread.
+ _mux0000.
+ t/ar/RxD_data<0>.
+ t/kb/rx_ascii<2>.
+ t/kb/rx_ascii<4>.
+ cpu/_old_B_10<31>.
+ cpu/old_Alures_13_mux0001<31>124.
+ cpu/old_Alures_13_mux0001<24>111.
+ cpu/old_Alures_13_mux0001<16>111.
+ cpu/old_Alures_13_mux0001<25>111.
+ cpu/old_Alures_13_mux0001<17>111.
+ N1067.
+ cpu/old_Alures_13_mux0001<26>111.
+ cpu/_old_B_10<18>.
+ cpu/old_Alures_13_mux0001<18>111.
+ t/kb/ascii<6>1143.
+ t/kb/ascii<6>1248.
+ t/vga/N61.
+ t/VMwrite.
  N1065.
- cpu/cReg_12_mux0000<3>25.
- cpu/PC_mux0000<25>44/O.
- cpu/PC_mux0000<20>44/O.
- cpu/PC_mux0000<0>11.
- N67.
- cpu/C/signal<10>_SW6/O.
- cpu/PC_mux0000<30>4.
- N65.
- cpu/old_Alures_16_mux0001<0>164.
- cpu/old_Alures_16_mux0001<0>130.
- cpu/old_Alures_16_mux0001<1>185/O.
- cpu/old_Alures_16_mux0001<1>178.
- cpu/Sh500.
- cpu/Sh513.
- N955.
- cpu/Sh50.
- cpu/Sh503.
- N1077.
- cpu/B<10>.
- N231.
- cpu/B<8>.
- cpu/old_Alures_16_mux0001<8>112.
- cpu/old_Alures_16_mux0001<8>215/O.
- N1083.
- cpu/old_Alures_16_mux0001<10>2_SW0/O.
- cpu/old_Alures_16_mux0002<3>70/O.
- cpu/old_Alures_16_mux0002<5>70/O.
- cpu/old_Alures_16_mux0001<9>215.
- cpu/old_Alures_16_mux0001<9>112/O.
- cpu/old_Alures_16_mux0001<9>0.
- cpu/old_Alures_16_mux0002<7>70/O.
- N1079.
- cpu/old_Alures_16_mux0002<9>70/O.
- N243.
- cpu/old_Alures_16_mux0001<13>85.
- cpu/old_Alures_16_mux0001<0>88/O.
- cpu/old_Alures_16_mux0001<10>8/O.
- cpu/old_Alures_16_mux0001<15>38.
- cpu/old_Alures_16_mux0001<0>153/O.
- cpu/old_Alures_16_mux0001<11>8/O.
- cpu/old_Alures_16_mux0001<15>85.
- cpu/old_Alures_16_mux0002<15>70/O.
- cpu/old_Alures_16_mux0002<17>4.
- cpu/old_Alures_16_mux0001<7>0/O.
- cpu/old_Alures_16_mux0001<8>104/O.
- cpu/old_Alures_16_mux0001<8>0.
- cpu/old_Alures_16_mux0001<13>124.
- cpu/old_Alures_16_mux0001<13>269_SW1/O.
- cpu/old_Alures_16_mux0001<13>246.
- cpu/old_Alures_16_mux0001<22>128.
- N813.
- cpu/old_Alures_16_mux0001<31>182_SW0/O.
- cpu/C/signal<10>_SW16/O.
- cpu/old_Alures_16_mux0001<23>149/O.
- cpu/old_Alures_16_mux0001<23>128.
- N815.
- cpu/Sh56.
- cpu/old_Alures_16_mux0001<16>128.
- cpu/old_Alures_16_mux0001<18>128.
- cpu/old_Alures_16_mux0001<28>35.
- cpu/old_Alures_16_mux0001<28>184_SW0/O.
- cpu/old_Alures_16_mux0001<19>128.
- cpu/old_Alures_16_mux0001<10>0/O.
- cpu/old_Alures_16_mux0001<11>0/O.
- cpu/C/signal<10>_SW14/O.
- cpu/old_Alures_16_mux0001<12>38.
- cpu/old_Alures_16_mux0001<12>20/O.
- cpu/old_Alures_16_mux0001<15>20/O.
- cpu/old_Alures_16_mux0001<24>128.
- cpu/old_Alures_16_mux0001<24>34/O.
+ N957.
+ N1115.
+ N959.
+ N1117.
+ N1119.
+ cpu/Memout<20>.
+ N478.
+ cpu/PC_mux0000<31>21.
+ cpu/PC<0>.
+ N477.
+ N963.
+ N1121.
+ N965.
+ N1123.
+ mem/Mmux_datain_mux0064226.
  N57.
- N47.
- N51.
- N43.
- N42.
- cpu/_old_B_13<20>.
- cpu/_old_B_13<22>.
- cpu/_old_B_13<30>.
- cpu/_old_B_13<23>.
- cpu/_old_B_13<16>.
- cpu/_old_B_13<24>.
- cpu/_old_B_13<17>.
- cpu/_old_B_13<25>.
- cpu/_old_B_13<18>.
- cpu/_old_B_13<26>.
- cpu/_old_B_13<19>.
- cpu/_old_B_13<27>.
- cpu/_old_B_13<28>.
- cpu/_old_B_13<29>.
- cpu/PC_mux0000<29>4.
- cpu/PC_mux0000<28>4.
- cpu/PC_mux0000<26>18.
- N1085.
- cpu/old_Alures_16_mux0002<20>7.
- cpu/old_Alures_16_mux0002<22>4.
- cpu/old_Alures_16_mux0002<22>7.
- cpu/old_Alures_16_mux0002<23>7.
- cpu/old_Alures_16_mux0002<24>7.
- cpu/old_Alures_16_mux0002<26>7.
- cpu/old_Alures_16_mux0002<19>7.
- cpu/old_Alures_16_mux0002<29>7.
- N1029.
- cpu/PC_mux0000<30>17.
- cpu/PC_mux0000<30>20.
- cpu/old_Alures_16_mux0001<4>235.
- cpu/C/signal<10>_SW4/O.
- cpu/PC_mux0000<0>54/O.
- cpu/PC_mux0000<17>44/O.
- cpu/PC_mux0000<21>4.
- cpu/PC_mux0000<21>44/O.
- cpu/PC_mux0000<19>44/O.
- N581.
- N401.
- N561.
- N381.
- N541.
- N361.
- N521.
- N34.
+ t/kb/ascii<0>_bdd5.
+ t/kb/ascii<2>277.
+ t/kb/ascii<2>223.
+ t/kb/ascii<2>2117.
+ t/kb/ascii<0>_bdd15.
+ t/kb/ascii<2>2245.
+ t/kb/ascii<4>1322.
+ t/kb/ascii<4>1345.
+ t/kb/ascii<5>2660.
+ t/kb/ascii<6>1185.
+ t/kb/ascii<6>1108.
+ cpu/old_Alures_13_mux0001<0>150.
+ cpu/old_Alures_13_mux0001<1>129.
+ cpu/old_Alures_13_mux0001<3>242.
+ cpu/old_Alures_13_mux0002<0>112.
+ cpu/old_Alures_13_mux0002<0>124.
+ cpu/Dst<1>.
+ cpu/Dst<2>.
+ cpu/Dst<3>.
+ cpu/old_Alures_13_mux0001<5>186.
+ t/vga/vga_controller/HS_and000044.
+ cpu/old_Alures_13_mux0001<9>186.
+ N576.
+ N575.
+ cpu/old_Alures_13_mux0001<18>146.
+ cpu/old_Alures_13_mux0001<18>158.
+ cpu/old_Alures_13_mux0002<18>13.
+ cpu/signal<12>_mmx_out.
+ N446.
+ cpu/old_Alures_13_mux0002<0>134.
+ N449.
+ cpu/Memout<28>.
+ N499.
+ N498.
+ cpu/old_Alures_13_mux0002<20>13.
+ N502.
  N501.
- N32.
- N481.
- N30.
+ cpu/old_Alures_13_mux0002<28>13.
+ N505.
+ cpu/old_Alures_13_mux0002<27>13.
+ cpu/signal<12>_mmx_out22.
+ cpu/old_Alures_13_mux0001<9>123.
+ cpu/old_Alures_13_mux0001<9>244.
+ cpu/old_Alures_13_mux0002<9>84.
+ cpu/old_Alures_13_mux0002<15>84.
+ N5511.
+ cpu/old_Alures_13_mux0001<26>146.
+ cpu/old_Alures_13_mux0002<26>13.
+ N573.
+ cpu/old_Alures_13_mux0002<24>13.
+ N692.
+ N691.
+ cpu/old_Alures_13_mux0001<14>123.
+ cpu/old_Alures_13_mux0002<14>84.
+ N561.
+ N560.
+ cpu/old_Alures_13_mux0001<23>146.
+ cpu/old_Alures_13_mux0001<23>158.
+ cpu/old_Alures_13_mux0002<23>13.
+ N695.
+ N694.
+ cpu/old_Alures_13_mux0002<13>84.
+ N563.
+ cpu/old_Alures_13_mux0001<22>146.
+ cpu/old_Alures_13_mux0002<22>13.
+ N698.
+ N697.
+ cpu/old_Alures_13_mux0001<12>123.
+ cpu/old_Alures_13_mux0002<12>84.
+ N701.
+ cpu/old_Alures_13_mux0001<11>123.
+ cpu/old_Alures_13_mux0001<11>244.
+ N704.
+ N703.
+ cpu/old_Alures_13_mux0001<10>123.
+ t/vga/N71.
+ t/vga/curx_not0002.
+ t/vga/N14.
+ t/vga/Mmux_curx_mux000010210.
+ N1135.
+ t/kb/ascii<3>19.
+ t/kb/ascii<3>172.
+ t/kb/ascii<3>1122.
+ t/kb/ascii<3>1236.
+ N1063.
+ N1151.
+ cpu/old_Alures_13_mux0002<10>13.
+ N54.
+ N50.
+ N49.
+ mem/Mmux_datain_mux00644626.
+ mem/Mmux_datain_mux00645426.
+ N42.
+ mem/Mmux_datain_mux00646428.
+ mem/tmp<14>.
+ t/vga/page.
+ t/vga/N9.
+ t/vga/N131.
+ N273.
+ cpu/old_Alures_13_mux0002<8>13.
+ N163.
+ mem/Memout<25>.
+ N1471.
+ cpu/Memout<25>.
+ cpu/B<14>.
+ cpu/B<1>.
+ cpu/B<3>.
+ cpu/old_Alures_13_mux0002<21>4.
+ N167.
+ mem/Mmux_datain_mux00642611.
+ mem/Mmux_datain_mux00642824.
+ N469.
+ N381.
+ cpu/C/signal<10>_SW13/O.
+ cpu/B<13>.
+ mem/Mmux_datain_mux00643011.
+ mem/Mmux_datain_mux00643024.
+ mem/Mmux_datain_mux00643211.
+ mem/Mmux_datain_mux00643224.
+ cpu/Regfile_1_mux0000<13>.
+ N2.
+ N127.
+ cpu/Memout<21>.
+ N139.
+ cpu/Memout<26>.
+ cpu/Regfile_16_and0000_bdd4.
+ N149.
+ cpu/Memout<15>.
+ mux0000_cmp_eq0000.
+ mem/Mmux_datain_mux00642024.
+ cpu/B<20>.
+ mem/Memout<7>.
+ N133.
+ mem/tmp<2>.
+ N169.
+ t/readdata<0>.
+ cpu/Memout<0>.
+ BUS<0>_MLTSRCEDGELogicTrst_SW0/O.
+ mem/Memout<12>.
+ N131.
+ cpu/Memout<10>.
+ t/vga/vga_controller/video_enable.
+ N1671.
+ mem/Mmux_datain_mux00641824.
+ mem/tmp<33>.
+ cpu/Regfile_1_mux0000<17>.
+ cpu/Alures<26>.
+ cpu/IR_26_1.
+ cpu/IR_29_1.
+ cpu/Regfile_10_and0000_bdd4.
+ cpu/RB_3_1.
+ N455.
+ cpu/cReg_14_mux0000<5>_SW0/O.
+ cpu/cReg_14_mux0000<12>_SW0/O.
+ cpu/cReg_14_mux0000<14>_SW0/O.
+ cpu/RB_10_1.
+ N467.
+ cpu/Memout<2>.
+ cpu/Memout<4>.
+ N159.
  N461.
- N28.
- N441.
- N26.
- cpu/PC_mux0000<28>20.
+ N153.
+ mem/tmp<11>.
+ mem/Memout<0>.
+ cpu/RB_5_1.
+ mem/tmp<23>.
+ mem/tmp<21>.
+ cpu/Alures<7>.
+ t/kb/hold_released_and0000.
+ t/kb/hold_released.
+ cpu/Memout<16>.
+ t/vga/vga_controller/vcounter_and000028.
+ t/vga/vga_controller/HS_and00004.
+ N945.
+ t/vga/vga_controller/hcounter_cmp_eq00008.
+ mem/tmp<12>.
+ mem/Memout<28>.
+ mem/Memout<29>.
+ mem/Memout<3>.
+ mem/tmp<8>.
+ mem/Memout<9>.
+ N151.
+ mem/Memout<17>.
+ cpu/Memout<3>.
+ N157.
+ N165.
+ mem/Memout<18>.
+ mem/Memout<26>.
+ mem/Memout<21>.
+ N155.
+ mem/Memout<5>.
+ t/readdata<5>.
+ cpu/Memout<23>.
+ cpu/Memout<30>.
+ N137.
+ mem/Memout<6>.
+ mem/Mmux_datain_mux00645011.
+ mem/tmp<39>.
+ t/ar/RxD_data_ready.
+ t/at/N01.
+ t/readdata<1>.
+ t/readdata<2>.
+ t/at/TxD_shift<3>.
+ t/at/TxD_shift<6>.
+ t/TxD_data<0>.
+ t/at/TxD_shift<4>.
+ t/readdata<4>.
+ t/vga/vga_controller/VS_and000039.
+ mem/Memout<4>.
+ t/vga/vga_controller/hcounter_cmp_eq000029.
+ t/vga/vga_controller/vcounter_and000011.
+ N141.
+ t/vga/curx_mux0002.
+ N105.
+ N1035.
+ t/vga/Maddsub_cury_share0000_lut<1>1/O.
+ N226.
+ t/vga/Maddsub_cury_share0000_cy<2>11/O.
+ t/vga/Maddsub_cury_share0000_lut<3>.
+ N2771.
+ N279.
+ t/vga/N02.
+ t/vga/N121.
+ t/vga/backflag_not0001.
+ t/vga/cury_cmp_eq0001.
+ t/vga/backflag.
+ N1125.
+ t/vga/cury_or0001.
+ t/vga/cury_mux0000<1>24.
+ t/vga/cury_mux0000<1>221.
+ N17.
+ N1103.
+ N1153.
+ t/vga/N15.
+ N21.
+ N107.
+ N97.
+ N73.
+ cpu/Addr_mux0000<30>_SW0/O.
+ N71.
+ cpu/Addr_mux0000<31>_SW0/O.
+ N87.
+ N69.
+ N85.
+ N671.
+ N651.
+ N811.
+ N631.
+ cpu/Addr_mux0000<28>_SW0/O.
+ N1011.
+ cpu/Alures<0>.
+ N791.
+ N571.
+ N431.
+ N411.
+ mem/Mmux_datain_mux00643411.
+ mem/Memout<1>.
+ BUS<1>_MLTSRCEDGELogicTrst_SW0/O.
+ cpu/Memout<1>.
+ cpu/Memout<13>.
+ N171.
+ cpu/Memout<27>.
+ mem/Mmux_datain_mux00641624.
+ mem/Mmux_datain_mux00643424.
+ mem/Mmux_datain_mux00644011.
+ mem/Mmux_datain_mux00643611.
+ mem/Mmux_datain_mux00644811.
+ mem/Mmux_datain_mux00644824.
+ mem/Mmux_datain_mux00644211.
+ mem/Mmux_datain_mux00644224.
+ mem/Mmux_datain_mux00644249.
+ mem/Mmux_datain_mux00645024.
+ cpu/Memout<22>.
+ N1083.
+ N341.
+ mem/Memout<13>.
+ N1081.
+ mem/Mmux_datain_mux00643811.
+ mem/Mmux_datain_mux00643824.
+ mem/Memout<11>.
+ N1291.
+ mem/Mmux_datain_mux00644424.
+ N292.
+ mem/Mmux_datain_mux00646449.
+ mem/tmp<40>.
+ mem/Memout<2>.
+ t/vga/vga_controller/hcounter_cmp_eq000020.
+ cpu/Regfile_10_and0000764.
+ cpu/B<12>.
+ N383.
+ cpu/C/signal<10>_SW12/O.
+ cpu/PC_mux0000<20>18.
+ cpu/PC_mux0000<20>21.
+ cpu/PC_mux0000<20>67.
+ cpu/old_PC_15_cmp_eq000091_SW1/O.
+ cpu/PC_mux0000<13>67.
+ cpu/old_PC_15_cmp_eq00001111_SW1/O.
+ cpu/PC_mux0000<30>67.
+ cpu/old_PC_15_cmp_eq000081_SW1/O.
+ N615.
+ cpu/PC_mux0000<14>67.
+ cpu/PC_mux0000<0>4.
+ cpu/PC_mux0000<0>99_SW1/O.
+ N442.
+ cpu/PC_mux0000<15>18.
+ cpu/PC_mux0000<15>21.
+ cpu/PC_mux0000<15>67.
+ cpu/PC_mux0000<16>67.
+ cpu/PC_mux0000<1>4.
+ N759.
+ cpu/old_PC_15_cmp_eq0000231_SW1/O.
+ cpu/old_PC_15_cmp_eq000041_SW1/O.
+ N735.
+ cpu/PC_mux0000<18>67.
+ cpu/PC_mux0000<2>4.
+ N762.
+ cpu/old_PC_15_cmp_eq0000211_SW1/O.
+ N738.
+ cpu/old_PC_15_cmp_eq0000201_SW1/O.
+ N493.
+ N815.
+ cpu/C/signal<9>2.
+ N453.
+ N457.
+ cpu/B<9>.
+ cpu/old_Alures_13_mux0001<0>192/O.
+ cpu/old_Alures_13_mux0001<0>207.
+ cpu/old_Alures_13_mux0002<0>65.
+ cpu/old_Alures_13_mux0002<10>37.
+ cpu/old_Alures_13_mux0001<6>104/O.
+ cpu/old_Alures_13_mux0002<0>25/O.
+ cpu/old_Alures_13_mux0002<0>49.
+ cpu/old_Alures_13_mux0002<6>70/O.
+ cpu/old_Alures_13_mux0002<7>37.
+ cpu/Alures_mux0000<0>1.
+ cpu/old_Alures_13_mux0001<14>104.
+ cpu/Memout<8>.
+ cpu/old_Alures_13_mux0002<16>7.
+ cpu/_old_B_10<28>.
+ cpu/PC_mux0000<29>4.
+ cpu/cReg_12_mux0000<0>35.
+ cpu/Memread_mux000037.
+ N68.
+ cpu/PC_mux0000<13>44/O.
+ cpu/PC_mux0000<13>18.
+ cpu/PC_mux0000<13>21.
+ cpu/PC_mux0000<21>4.
+ N360.
+ cpu/PC_mux0000<12>4.
+ cpu/PC_mux0000<30>4.
+ cpu/_old_INT_3.
+ cpu/PC_mux0000<18>21.
+ cpu/PC_mux0000<14>21.
+ cpu/PC_mux0000<21>21.
+ N344.
+ cpu/PC_mux0000<14>4.
+ N245.
+ cpu/PC_mux0000<12>44/O.
+ cpu/PC_mux0000<12>21.
+ cpu/PC_mux0000<18>4.
+ cpu/PC_mux0000<18>18.
+ cpu/PC_mux0000<19>21.
+ cpu/PC_mux0000<28>4.
+ cpu/PC_mux0000<28>18.
+ cpu/PC_mux0000<28>67.
+ cpu/PC_mux0000<25>0.
+ cpu/PC_mux0000<14>44/O.
+ cpu/PC_mux0000<14>18.
+ cpu/PC_mux0000<16>18.
+ cpu/PC_mux0000<16>21.
+ cpu/PC_mux0000<8>4.
+ cpu/PC_mux0000<7>21.
+ cpu/PC_mux0000<30>44/O.
+ cpu/PC_mux0000<30>18.
+ cpu/PC_mux0000<30>21.
+ cpu/Regfile_10_and0000787.
+ N1029.
+ N244.
+ cpu/PC_mux0000<9>4.
+ cpu/PC_mux0000<5>4.
+ cpu/PC_mux0000<5>44/O.
+ cpu/PC_mux0000<5>18.
+ cpu/PC_mux0000<5>21.
+ cpu/PC_mux0000<24>21.
+ cpu/PC_mux0000<26>21.
+ cpu/PC_mux0000<11>4.
+ cpu/PC_mux0000<17>18.
+ cpu/PC_mux0000<25>21.
+ cpu/Mmux__old_B_1031_SW1_SW0/O.
+ cpu/PC_mux0000<9>18.
+ cpu/PC_mux0000<11>21.
+ cpu/PC_mux0000<9>44/O.
+ cpu/PC_mux0000<9>21.
+ cpu/PC_mux0000<8>18.
+ cpu/PC_mux0000<6>18.
+ cpu/PC_mux0000<8>21.
+ t/write_inv.
+ cpu/PC_mux0000<26>4.
+ cpu/PC_mux0000<26>18.
+ cpu/PC_mux0000<22>4.
+ cpu/PC_mux0000<22>18.
+ cpu/old_Alures_13_mux0002<18>7.
+ cpu/old_Alures_13_mux0002<18>4.
+ cpu/PC_mux0000<11>18.
+ cpu/old_Alures_13_mux0001<10>13.
+ cpu/PC_mux0000<19>18.
+ cpu/old_Alures_13_mux0002<20>4.
+ cpu/PC_mux0000<8>44/O.
+ cpu/PC_mux0000<24>18.
+ cpu/old_Alures_13_mux0002<13>70/O.
+ N819.
+ N821.
+ cpu/old_Alures_13_mux0002<17>4.
+ N817.
+ cpu/old_Alures_13_mux0002<19>4.
+ BUS<6>_MLTSRCEDGELogicTrst_SW0/O.
+ t/readdata<6>.
+ cpu/Memout<6>.
+ cpu/old_Alures_13_mux0001<10>104/O.
+ cpu/PC_mux0000<29>67.
+ cpu/_old_Alures_16<2>.
+ cpu/old_Alures_13_mux0001<18>19.
+ cpu/old_Alures_13_mux0002<19>7.
+ cpu/old_Alures_13_mux0002<15>70/O.
+ cpu/_old_B_10<27>.
+ cpu/old_Alures_13_mux0002<9>13.
+ cpu/old_Alures_13_mux0001<0>122.
+ cpu/old_Alures_13_mux0002<8>37.
+ cpu/old_Alures_13_mux0002<8>84_SW0/O.
+ cpu/old_Alures_13_mux0002<31>13/O.
+ cpu/old_Alures_13_mux0002<27>4.
+ cpu/old_Alures_13_mux0002<25>7.
+ cpu/old_Alures_13_mux0002<1>13.
+ cpu/old_Alures_13_mux0002<9>84_SW0/O.
+ cpu/old_Alures_13_mux0001<3>291/O.
+ cpu/old_Alures_13_mux0001<24>19.
+ cpu/old_Alures_13_mux0002<29>4.
+ cpu/old_Alures_13_mux0001<7>13.
+ N440.
+ cpu/old_Alures_13_mux0001<0>13.
+ cpu/old_Alures_13_mux0001<18>14.
+ cpu/old_Alures_13_mux0001<17>19.
+ cpu/old_Alures_13_mux0001<8>214/O.
+ cpu/old_Alures_13_mux0001<8>186.
+ N742.
+ cpu/old_PC_15_cmp_eq000071_SW0/O.
+ cpu/old_Alures_13_mux0002<3>70/O.
+ t/vga/vga_controller/vcounter_and000020.
+ cpu/PC_mux0000<29>18.
+ cpu/old_Alures_13_mux0001<17>14.
+ cpu/old_Alures_13_mux0001<5>214/O.
+ mem/Mmux_datain_mux00646049.
+ t/kb/ascii<0>150.
+ t/kb/ascii<1>1502.
+ t/kb/ascii<2>2445.
+ t/kb/ascii<2>2398.
+ t/kb/ascii<4>1231.
+ t/kb/ascii<4>1512.
+ N247.
+ t/kb/ascii<4>171.
+ t/kb/ascii<2>2353.
+ t/kb/ascii<0>122.
+ t/kb/ascii<5>2592.
+ t/kb/ascii<4>1461.
+ t/kb/ascii<4>1444.
+ t/kb/ascii<0>1350.
+ t/kb/ascii<5>2350.
+ t/kb/ascii<6>118.
+ t/kb/ascii<6>170.
+ t/kb/ascii<0>_bdd40.
+ t/kb/hold_released_and0000115.
+ cpu/old_Alures_13_mux0002<28>4.
+ cpu/C/signal<10>_SW11/O.
+ cpu/RB_11_1.
+ cpu/old_Alures_13_mux0002<26>7.
+ cpu/old_Alures_13_mux0002<29>7.
+ cpu/old_Alures_13_mux0001<4>104/O.
+ cpu/old_Alures_13_mux0002<5>70/O.
+ cpu/old_Alures_13_mux0001<31>159.
+ cpu/old_Alures_13_mux0002<9>37.
 
 
 The following Nets are new/changed.
 -----------------------------------
- N307.
- N218.
- N01.
- N1063.
- N1027.
- N214.
- N937.
- N369.
- N539.
- N712.
- N536.
- N663.
- N375.
- N482.
- N1033.
- N514.
- N695.
- N613.
- N547.
- N645.
- N735.
- N4011.
- N648.
- N953.
- N603.
- N811.
- N705.
- N743.
- N1075.
- N530.
- N283.
- N277.
- N2341.
- N247.
- N235.
- N258.
- N246.
- N280.
- vga/addrb<0>.
- vga/addrb<1>.
- vga/addrb<2>.
- vga/addrb<3>.
- vga/addrb<4>.
- vga/addrb<5>.
- vga/addrb<6>.
- vga/addrb<7>.
- vga/addrb<8>.
- vga/addrb<9>.
- N343.
- N241.
- N2261.
- N268.
- N286.
- N259.
- N274.
- N542.
- N694.
- N734.
- N372.
- N533.
- N6421.
- N6511.
- N943.
- N395.
- N240.
- N2291.
- N807.
- N779.
- N550.
+ t/vga/AUX_addra_30_addsub0000<0>.
+ t/vga/AUX_addra_30_addsub0000<1>.
+ t/vga/Madd_AUX_addra_30_addsub0000_cy<1>.
+ t/vga/AUX_addra_30_addsub0000<2>.
+ t/vga/AUX_addra_30_addsub0000<3>.
+ t/vga/Madd_AUX_addra_30_addsub0000_cy<3>.
+ t/vga/AUX_addra_30_addsub0000<4>.
+ t/vga/AUX_addra_30_addsub0000<5>.
+ t/vga/Madd_AUX_addra_30_addsub0000_cy<5>.
+ t/vga/AUX_addra_30_addsub0000<6>.
+ t/vga/AUX_addra_30_addsub0000<7>.
+ t/vga/Madd_AUX_addra_30_addsub0000_cy<7>.
+ t/vga/AUX_addra_30_addsub0000<8>.
+ t/vga/AUX_addra_30_addsub0000<9>.
+ t/vga/Madd_AUX_addra_30_addsub0000_cy<9>.
+ t/vga/AUX_addra_30_addsub0000<10>.
+ t/vga/AUX_addra_30_addsub0000<11>.
+ t/vga/AUX_addra_31_addsub0001<0>.
+ t/vga/AUX_addra_31_addsub0001<1>.
+ t/vga/Msub_AUX_addra_31_addsub0001_cy<1>.
+ t/vga/AUX_addra_31_addsub0001<2>.
+ t/vga/AUX_addra_31_addsub0001<3>.
+ t/vga/Msub_AUX_addra_31_addsub0001_cy<3>.
+ t/vga/AUX_addra_31_addsub0001<4>.
+ t/vga/AUX_addra_31_addsub0001<5>.
+ t/vga/Msub_AUX_addra_31_addsub0001_cy<5>.
+ t/vga/AUX_addra_31_addsub0001<6>.
+ t/vga/AUX_addra_31_addsub0001<7>.
+ t/vga/Msub_AUX_addra_31_addsub0001_cy<7>.
+ t/vga/AUX_addra_31_addsub0001<8>.
+ t/vga/AUX_addra_31_addsub0001<9>.
+ t/vga/Msub_AUX_addra_31_addsub0001_cy<9>.
+ t/vga/AUX_addra_31_addsub0001<10>.
+ t/vga/AUX_addra_31_addsub0001<11>.
+ t/vga/AUX_addra_30_sub0000<0>.
+ t/vga/AUX_addra_30_sub0000<1>.
+ t/vga/Msub_AUX_addra_30_sub0000_cy<1>.
+ t/vga/AUX_addra_30_sub0000<2>.
+ t/vga/AUX_addra_30_sub0000<3>.
+ t/vga/Msub_AUX_addra_30_sub0000_cy<3>.
+ t/vga/AUX_addra_30_sub0000<4>.
+ t/vga/AUX_addra_30_sub0000<5>.
+ t/vga/Msub_AUX_addra_30_sub0000_cy<5>.
+ t/vga/AUX_addra_30_sub0000<6>.
+ t/vga/AUX_addra_30_sub0000<7>.
+ t/vga/Msub_AUX_addra_30_sub0000_cy<7>.
+ t/vga/AUX_addra_30_sub0000<8>.
+ t/vga/AUX_addra_30_sub0000<9>.
+ t/vga/Msub_AUX_addra_30_sub0000_cy<9>.
+ t/vga/AUX_addra_30_sub0000<10>.
+ t/vga/AUX_addra_30_sub0000<11>.
+ t/vga/_AUX_addra_30<11>.
+ t/vga/_AUX_addra_30<10>.
+ t/vga/_AUX_addra_30<9>.
+ t/vga/_AUX_addra_30<8>.
+ t/vga/_AUX_addra_30<7>.
+ t/vga/_AUX_addra_30<6>.
+ t/vga/_AUX_addra_30<5>.
+ t/vga/_AUX_addra_30<4>.
+ t/vga/_AUX_addra_30<3>.
+ t/vga/_AUX_addra_30<2>.
+ t/vga/_AUX_addra_30<1>.
+ t/vga/_AUX_addra_30<0>.
+ N186.
 
 
 The following Nets were partially guided.
 -----------------------------------------
- cpu/Regfile_1_mux0000<1>.
- cpu/Regfile_4_and0000.
- clk_OBUF.
- cpu/Regfile_4_1.
- cpu/Regfile_1_mux0000<3>.
- cpu/Regfile_1_mux0000<6>.
- cpu/Regfile_5_and0000.
- cpu/Regfile_6_and0000.
- cpu/Regfile_6_6.
- cpu/Regfile_7_and0000.
- cpu/Regfile_11_and0000.
- cpu/Regfile_21_and0000.
- cpu/Regfile_30_and0000.
- cpu/Regfile_14_and0000.
- cpu/Regfile_25_and0000.
- cpu/Regfile_27_and0000.
- cpu/Regfile_28_and0000.
- cpu/RB<5>.
- cpu/cReg_6_and0000.
- cpu/Regfile_17_30.
- cpu/RB<3>.
- cpu/cReg_17_and0000.
- cpu/RB<26>.
- cpu/cReg_9_and0000.
- cpu/Regfile_1_mux0000<17>.
- cpu/Regfile_1_mux0000<27>.
- cpu/Regfile_1_mux0000<11>.
- cpu/Regfile_8_and0000.
- cpu/Regfile_1_mux0000<12>.
- cpu/Regfile_8_12.
- cpu/Regfile_8_20.
- cpu/Regfile_1_mux0000<13>.
- cpu/Regfile_8_21.
- cpu/Regfile_1_mux0000<24>.
- cpu/Regfile_8_25.
- cpu/Regfile_9_and0000.
- cpu/Regfile_9_11.
- cpu/Regfile_9_12.
- cpu/Regfile_9_20.
- cpu/Regfile_1_mux0000<15>.
- cpu/Regfile_9_15.
- cpu/Regfile_1_mux0000<16>.
- cpu/RB<31>.
- cpu/cReg_10_and0000.
- cpu/RB<23>.
- cpu/cReg_11_and0000.
- cpu/RB<29>.
- cpu/cReg_21_and0000.
- cpu/RB<14>.
- cpu/cReg_30_and0000.
- cpu/cReg_31_and0000.
- cpu/cReg_15_and0000.
- cpu/cReg_16_and0000.
- cpu/RB<15>.
- cpu/cReg_24_and0000.
- cpu/RB<17>.
- cpu/RB<21>.
- cpu/cReg_18_and0000.
- cpu/cReg_19_and0000.
- cpu/cReg_29_and0000.
- cpu/RB<0>.
- cpu/cReg_0_and0000.
- cpu/RB<4>.
- cpu/RB<7>.
- cpu/RB<9>.
- cpu/Regfile_10_and0000.
- cpu/cReg_8_and0000.
- cpu/Regfile_12_and0000.
- cpu/Regfile_20_and0000.
- cpu/Regfile_20_21.
- cpu/Regfile_12_15.
- cpu/Regfile_20_26.
- cpu/cReg_14_17.
- N7.
- N81.
- cpu/RB<11>.
- cpu/signal<0>.
- cpu/IR<26>.
- cpu/Mcompar_PC_cmp_eq0003_cy<15>.
- cpu/PC_and0000.
- cpu/IR<31>.
- cpu/IR<27>.
- cpu/IR<28>.
+ cpu/Addr<1>.
+ cpu/Addr<3>.
+ mem/douta<17>.
  mem/st.
  clk_50mhz_BUFGP.
- cpu/stage<2>.
- N216.
- cpu/stage<0>.
- cpu/Addr<10>.
- cpu/Regfile_1_mux0000<2>.
- cpu/Regfile_11_2.
- cpu/Regfile_20_2.
- cpu/Regfile_1_mux0000<0>.
- cpu/Regfile_13_and0000.
- cpu/Regfile_30_2.
- cpu/Regfile_23_and0000.
- cpu/Regfile_23_2.
- cpu/Regfile_1_mux0000<8>.
- cpu/Regfile_22_and0000.
- cpu/Regfile_1_mux0000<9>.
- cpu/Regfile_30_9.
- cpu/Regfile_16_and0000.
- cpu/Regfile_25_0.
- cpu/Regfile_26_and0000.
- cpu/Regfile_26_0.
- cpu/Regfile_29_9.
- cpu/Regfile_1_mux0000<10>.
- cpu/Regfile_2_and0000.
- cpu/Regfile_2_10.
- cpu/Regfile_1_mux0000<14>.
- cpu/Regfile_3_and0000.
- cpu/RB<8>.
- cpu/RB<28>.
- cpu/cReg_22_and0000.
- cpu/IR<0>.
- cpu/signal<12>.
- cpu/IR<30>.
- cpu/C/signal_cmp_eq0000.
- N8.
- cpu/cReg_2_and0000.
- cpu/cReg_1_and0000.
- cpu/Regfile_1_mux0000<23>.
- cpu/Regfile_23_31.
- cpu/Regfile_19_and0000.
- cpu/cReg_27_and0000.
- cpu/RB<12>.
- cpu/RB<30>.
- cpu/cReg_7_and0000.
- cpu/RB<27>.
- cpu/Regfile_13_20.
- cpu/Regfile_21_20.
- cpu/Regfile_22_11.
- cpu/Regfile_21_27.
- cpu/Regfile_22_20.
- cpu/Regfile_21_28.
- cpu/Regfile_30_30.
- cpu/Dst<2>.
- cpu/Dst<1>.
- cpu/Regfile_10_and0000_bdd8.
- cpu/Regfile_14_and0000_bdd4.
- cpu/Dst<4>.
- cpu/Dst<3>.
- cpu/Regfile_16_and0000_bdd4.
- cpu/Dst<0>.
- cpu/Regfile_30_17.
- cpu/Regfile_30_26.
- cpu/Regfile_15_and0000.
- cpu/Regfile_31_and0000.
- cpu/Regfile_10_and0000_bdd4.
- cpu/PC<3>.
- cpu/IR_cmp_eq0000.
- cpu/Regfile_15_21.
- cpu/Regfile_31_15.
- cpu/Regfile_23_17.
+ cpu/Addr<6>.
+ cpu/Addr<8>.
+ cpu/Regfile_1_mux0000<6>.
  cpu/Regfile_24_and0000.
- cpu/Regfile_31_27.
- cpu/Regfile_23_28.
- cpu/Regfile_24_14.
- cpu/Regfile_24_23.
- cpu/Regfile_25_11.
- cpu/Regfile_17_12.
- cpu/Regfile_18_10.
- N92.
- cpu/Alures<28>.
- cpu/signal<4>.
- cpu/old_PC_18_cmp_eq0000.
- cpu/cReg_12_mux0000<0>126.
- BUS<1>_MLTSRCEDGE.
- cpu/Memread.
- cpu/Regfile_22_9.
- cpu/RB<20>.
- cpu/RB<19>.
- cpu/cReg_23_and0000.
- cpu/cReg_25_and0000.
- cpu/RB<10>.
- cpu/RB<16>.
- cpu/cReg_3_and0000.
- cpu/cReg_4_and0000.
- cpu/cReg_5_and0000.
- mem/tmp<18>.
- cpu/RB<1>.
- cpu/RB<2>.
- cpu/cReg_26_and0000.
- cpu/PC<19>.
- cpu/PC<8>.
- cpu/Regfile_24_15.
- cpu/Regfile_12_10.
- cpu/RA<23>.
- cpu/PC<29>.
- cpu/Regfile_25_27.
- cpu/Regfile_26_22.
- cpu/Regfile_26_17.
- cpu/Regfile_19_11.
- cpu/Regfile_1_mux0000<5>.
- cpu/Regfile_30_3.
- cpu/Regfile_27_22.
- cpu/Regfile_19_16.
- cpu/Regfile_28_16.
- cpu/Regfile_29_10.
- cpu/Regfile_29_16.
- vga/vga_controller/hcounter<10>.
- cpu/RB<6>.
- cpu/RB<13>.
- cpu/RB<22>.
- cpu/RB<24>.
- cpu/cReg_28_and0000.
- cpu/RB<25>.
- cpu/RB<18>.
- cpu/Regfile_15_27.
- cpu/Regfile_15_15.
- N45.
- cpu/Regfile_12_and0000_bdd4.
- cpu/IR<22>.
- cpu/PC<6>.
- cpu/Alures<21>.
- cpu/IR_26_1.
- cpu/signal<10>.
- cpu/IR<4>.
- cpu/IR<2>.
- cpu/IR<3>.
- cpu/IR<5>.
- cpu/Regfile_6_21.
+ clk_OBUF.
+ cpu/Addr<9>.
+ cpu/Regfile_1_mux0000<2>.
+ cpu/Regfile_19_and0000.
+ cpu/RB<28>.
+ cpu/cReg_19_and0000.
+ t/vga/clocking/slow_clk/counter<1>.
+ cpu/RB<29>.
+ cpu/cReg_10_and0000.
+ cpu/cReg_30_and0000.
+ t/vga/curx<0>.
+ t/vga/curx<2>.
+ t/vga/add0000_mult0001<2>.
+ t/vga/curx<4>.
+ t/vga/curx<6>.
+ t/vga/curx<10>.
+ cpu/Regfile_13_and0000.
+ cpu/old_PC_4_add0000<1>.
+ cpu/Regfile_10_and0000.
+ cpu/old_PC_4_add0000<3>.
+ cpu/Regfile_1_mux0000<23>.
+ cpu/Regfile_30_and0000.
+ cpu/Regfile_30_23.
+ cpu/RB<30>.
  cpu/cReg_20_and0000.
- cpu/IR<11>.
- cpu/IR<12>.
- cpu/PC<13>.
- cpu/IR<25>.
- cpu/cReg_12_and0000.
- cpu/IR<23>.
- N222.
- cpu/PC<11>.
- N9.
- cpu/RA<18>.
- cpu/PC<18>.
- cpu/Alures<18>.
- N99.
- cpu/IR<14>.
- cpu/IR<13>.
- cpu/PC<10>.
- cpu/cReg_14_3.
- cpu/PC<2>.
- N82.
- cpu/cReg_13_cmp_eq0000.
- N641.
- cpu/cReg_14_27.
- cpu/IR<24>.
- cpu/IR<21>.
- cpu/Regfile_13_15.
- cpu/PC<15>.
- cpu/RA<24>.
- cpu/PC<24>.
- cpu/RA<6>.
- cpu/RA<20>.
- cpu/signal<12>_mmx_out12.
- cpu/PC<14>.
- cpu/Alures<7>.
- cpu/PC<12>.
- cpu/Regfile_8_5.
- cpu/PC<16>.
- N104.
- cpu/IR<29>.
- cpu/Alures<17>.
- cpu/PC<22>.
- N80.
- cpu/_old_A_12<18>.
- N102.
- cpu/Mmux__old_Alures_19_10_f87.
- cpu/signal<12>_mmx_out2.
- cpu/RA<5>.
- cpu/PC<5>.
- cpu/Alures<16>.
- cpu/Regfile_22_15.
- cpu/Regfile_14_9.
- cpu/Regfile_14_10.
- cpu/Regfile_1_5.
- cpu/PC<30>.
- cpu/Mmux__old_Alures_19_10_f815.
- cpu/RA<28>.
- cpu/PC<28>.
- cpu/Alures<23>.
- cpu/_old_A_12<14>.
- cpu/RA<14>.
- cpu/signal<11>.
- cpu/Mmux__old_Alures_19_10_f830.
- cpu/RA<17>.
- cpu/PC<17>.
- cpu/Alures<8>.
- BUS<13>_MLTSRCEDGE.
- cpu/old_Alures_14_add0000<10>.
- cpu/signal<12>_mmx_out30.
- cpu/Alures<19>.
- cpu/_old_A_12<20>.
- cpu/old_Alures_16_mux0000.
- cpu/Alures<9>.
- cpu/Mmux__old_Alures_19_10_f84.
- cpu/signal<12>_mmx_out5.
- cpu/old_Alures_14_add0000<6>.
- cpu/RA<16>.
- cpu/Alures<10>.
- cpu/PC<0>.
- cpu/RA<21>.
- cpu/PC<21>.
- cpu/_old_A_12<21>.
- cpu/signal<12>_mmx_out6.
- cpu/_old_A_12<28>.
- cpu/RA<30>.
- cpu/RA<31>.
- cpu/PC<31>.
- cpu/_old_A_12<30>.
- cpu/RA<26>.
- cpu/PC<26>.
- cpu/_old_A_12<26>.
- cpu/Mmux__old_Alures_19_10_f818.
- cpu/old_Alures_14_add0000<27>.
- cpu/PC<27>.
- cpu/Mmux__old_Alures_19_10_f819.
- cpu/signal<12>_mmx_out22.
- cpu/old_Alures_14_add0000<0>.
- cpu/_old_A_12<13>.
- cpu/RA<13>.
- cpu/_old_A_12<15>.
- cpu/RA<15>.
- cpu/_old_A_12<12>.
- cpu/RA<12>.
- cpu/Mmux__old_Alures_19_10_f8.
+ cpu/old_PC_4_add0000<7>.
+ cpu/old_PC_4_add0000<8>.
+ cpu/Regfile_29_and0000.
+ cpu/Regfile_29_23.
+ cpu/Regfile_17_and0000.
+ cpu/Regfile_17_23.
+ cpu/Regfile_9_and0000.
+ cpu/old_PC_4_add0000<13>.
+ cpu/old_PC_4_add0000<14>.
+ cpu/Regfile_9_23.
+ cpu/Regfile_1_mux0000<15>.
+ cpu/Regfile_12_and0000.
+ cpu/old_PC_4_add0000<16>.
+ cpu/Regfile_12_15.
+ cpu/Regfile_12_23.
+ cpu/RB<31>.
+ cpu/cReg_31_and0000.
+ cpu/cReg_24_and0000.
+ cpu/RB<26>.
+ cpu/cReg_18_and0000.
+ cpu/old_PC_4_add0000<21>.
+ cpu/cReg_27_and0000.
+ cpu/RB<21>.
+ cpu/cReg_15_and0000.
+ cpu/old_PC_4_add0000<25>.
+ cpu/old_PC_4_add0000<26>.
+ cpu/cReg_5_and0000.
+ cpu/old_PC_4_add0000<27>.
+ cpu/old_PC_4_add0000<28>.
+ cpu/RB<22>.
+ cpu/RB<1>.
+ cpu/_old_A_9<0>.
+ cpu/_old_B_10<0>.
+ cpu/_old_A_9<1>.
  cpu/signal<9>.
- cpu/Alures<0>.
- cpu/RA<25>.
- cpu/_old_A_12<25>.
- cpu/old_Alures_14_add0000<25>.
- cpu/_old_A_12<27>.
- cpu/RA<27>.
- cpu/_old_A_12<23>.
- cpu/IR<8>.
- cpu/IR<10>.
- cpu/old_Alures_14_add0000<24>.
- cpu/Memout<16>.
- cpu/RA<3>.
- cpu/_old_A_12<3>.
- cpu/_old_A_12<5>.
- cpu/RA<9>.
- cpu/_old_A_12<8>.
+ cpu/_old_A_9<2>.
+ cpu/_old_A_9<3>.
+ N55.
+ cpu/_old_A_9<4>.
+ cpu/_old_A_9<5>.
+ cpu/IR<12>.
+ cpu/_old_A_9<7>.
+ cpu/_old_A_9<6>.
+ N397.
  cpu/RA<7>.
  cpu/PC<7>.
- cpu/_old_A_12<7>.
- cpu/Mmux__old_Alures_19_10_f820.
- cpu/Alures<24>.
- cpu/signal<12>_mmx_out27.
- cpu/Alures<22>.
- cpu/_old_B_13<1>.
- cpu/_old_A_12<1>.
- cpu/old_Alures_14_add0000<20>.
- cpu/old_Alures_14_add0000<26>.
- cpu/Mmux__old_Alures_19_10_f823.
- cpu/RA<22>.
- cpu/Alures<29>.
- cpu/old_Alures_16_mux0002<10>114.
- cpu/RA<1>.
- cpu/Regfile_12_1.
- cpu/_old_A_12<6>.
- cpu/_old_A_12<0>.
- cpu/_old_B_13<0>.
- cpu/_old_A_12<19>.
- mem/douta<5>.
- cpu/_old_A_12<2>.
- cpu/_old_A_12<11>.
- cpu/_old_B_13<11>.
- BUS<30>_MLTSRCEDGE.
- cpu/_old_B_13<14>.
- cpu/B<14>.
- cpu/Alures<4>.
- cpu/Regfile_9_7.
- N36.
- BUS<31>_MLTSRCEDGE.
- mem/douta<15>.
- mem/douta<6>.
- cpu/Alures<3>.
- cpu/B<2>.
- N64.
- cpu/IR_3_1.
- N87.
- cpu/Memout<9>.
- cpu/Regfile_2_2.
- cpu/Sh28.
- cpu/Memout<6>.
- BUS<6>_MLTSRCEDGE.
- cpu/Sh13.
- cpu/Sh5.
- cpu/Regfile_10_2.
- cpu/B<9>.
- cpu/B<11>.
- BUS<7>_MLTSRCEDGE.
- BUS<9>_MLTSRCEDGE.
- cpu/Alures<14>.
- cpu/Alures<20>.
- vga/vga_controller/hcounter<6>.
+ cpu/signal<11>.
+ cpu/_old_A_9<8>.
+ cpu/_old_A_9<9>.
+ cpu/RA<8>.
+ cpu/RA<9>.
+ cpu/PC<9>.
+ cpu/_old_A_9<10>.
+ cpu/_old_A_9<11>.
+ cpu/RA<10>.
+ cpu/PC<10>.
  cpu/RA<11>.
- cpu/Addr<2>.
- cpu/Addr<4>.
- cpu/Addr<7>.
- cpu/Addr<8>.
- cpu/Regfile_25_23.
- cpu/Regfile_12_27.
- cpu/Regfile_21_21.
- cpu/Regfile_13_27.
- cpu/old_Alures_14_add0000<1>.
- cpu/_old_B_13<4>.
- cpu/_old_B_13<5>.
- cpu/old_Alures_14_add0000<16>.
- cpu/old_Alures_14_add0000<19>.
- cpu/old_Alures_14_add0000<21>.
- cpu/old_Alures_14_add0000<28>.
- vga/vga_controller/hcounter<0>.
- vga/vga_controller/hcounter<1>.
- vga/vga_controller/hcounter<3>.
- cpu/Regfile_6_8.
- cpu/Regfile_25_13.
- vga/vga_controller/vcounter<1>.
- vga/vga_controller/vcounter<2>.
- vga/vga_controller/vcounter<3>.
+ cpu/PC<11>.
+ cpu/_old_A_9<12>.
+ cpu/_old_A_9<13>.
+ cpu/RA<12>.
+ cpu/PC<12>.
+ cpu/RA<13>.
+ cpu/PC<13>.
+ cpu/_old_B_10<13>.
+ cpu/_old_A_9<14>.
+ cpu/_old_A_9<15>.
+ cpu/PC<14>.
+ cpu/_old_B_10<14>.
+ cpu/RA<15>.
+ cpu/PC<15>.
+ cpu/_old_B_10<15>.
+ cpu/_old_A_9<16>.
+ cpu/RB<16>.
+ N125.
+ N143.
+ cpu/_old_A_9<17>.
+ cpu/RB<17>.
+ cpu/_old_A_9<18>.
+ cpu/RB<18>.
+ cpu/_old_A_9<19>.
+ cpu/RB<19>.
+ cpu/_old_A_9<20>.
+ cpu/RB<20>.
+ cpu/_old_A_9<21>.
+ cpu/_old_A_9<22>.
+ cpu/_old_A_9<23>.
+ cpu/RB<23>.
+ cpu/RB<3>.
+ cpu/cReg_21_and0000.
+ cpu/_old_A_9<24>.
+ cpu/RB<24>.
+ cpu/_old_A_9<25>.
+ cpu/RB<25>.
+ cpu/_old_A_9<26>.
+ cpu/_old_A_9<27>.
+ cpu/RB<27>.
+ cpu/cReg_7_and0000.
+ cpu/_old_A_9<28>.
+ cpu/_old_A_9<29>.
+ cpu/_old_A_9<30>.
+ cpu/_old_A_9<31>.
+ cpu/IR<0>.
+ cpu/RA<1>.
+ cpu/PC<1>.
+ cpu/IR<1>.
+ cpu/RA<2>.
+ cpu/PC<2>.
+ cpu/IR<2>.
+ cpu/RA<3>.
+ cpu/PC<3>.
+ cpu/IR<3>.
+ cpu/RA<4>.
+ cpu/PC<4>.
+ cpu/RA<5>.
+ cpu/PC<5>.
+ cpu/IR<5>.
+ cpu/RA<6>.
+ cpu/PC<6>.
+ cpu/IR<6>.
+ cpu/IR<7>.
+ cpu/IR<8>.
+ cpu/IR<9>.
+ cpu/IR<10>.
+ cpu/IR<11>.
+ cpu/IR<13>.
+ cpu/IR<14>.
+ cpu/IR<15>.
+ t/vga/curx<12>.
+ t/vga/curx<14>.
+ t/vga/curx<17>.
+ t/vga/curx<19>.
+ t/vga/curx<23>.
+ cpu/Regfile_25_and0000.
+ t/vga/curx<28>.
+ t/at/tickgen/Acc_addsub0000<1>11.
+ N56.
+ N525.
+ N373.
+ cpu/IR_3_1.
+ cpu/Regfile_1_mux0000<3>.
+ cpu/Regfile_14_and0000.
+ cpu/Regfile_14_3.
+ cpu/cReg_23_and0000.
+ cpu/IR_7_1.
+ cpu/cReg_16_and0000.
+ cpu/IR_12_1.
+ cpu/RA<16>.
+ cpu/PC<16>.
+ cpu/RA<17>.
+ cpu/PC<17>.
+ cpu/RA<18>.
+ cpu/PC<19>.
+ cpu/RA<20>.
+ cpu/PC<20>.
+ cpu/PC<21>.
+ cpu/RB<2>.
+ cpu/cReg_9_and0000.
+ cpu/RA<22>.
+ cpu/RA<23>.
+ cpu/PC<23>.
+ cpu/RA<24>.
+ cpu/PC<24>.
+ cpu/PC<25>.
+ cpu/Regfile_1_mux0000<31>.
+ cpu/RA<26>.
+ cpu/PC<26>.
+ cpu/RA<27>.
+ cpu/PC<27>.
+ cpu/cReg_17_and0000.
+ cpu/RA<28>.
+ cpu/PC<28>.
+ cpu/RA<29>.
+ cpu/PC<29>.
+ cpu/RA<30>.
+ cpu/PC<30>.
+ cpu/RA<31>.
+ cpu/PC<31>.
+ cpu/_old_B_10<1>.
+ cpu/old_Alures_11_add0000<0>.
+ cpu/old_Alures_11_add0000<1>.
+ cpu/_old_B_10<3>.
+ cpu/old_Alures_11_add0000<2>.
+ cpu/old_Alures_11_add0000<3>.
+ cpu/_old_B_10<7>.
+ cpu/_old_B_10<8>.
+ cpu/old_Alures_11_add0000<9>.
+ cpu/_old_B_10<10>.
+ cpu/_old_B_10<11>.
+ cpu/old_Alures_11_add0000<10>.
+ cpu/_old_B_10<12>.
+ N639.
+ N643.
+ N647.
+ N66.
+ cpu/old_Alures_11_add0000<17>.
+ cpu/old_Alures_11_add0000<19>.
+ cpu/old_Alures_11_add0000<20>.
+ cpu/old_Alures_11_add0000<22>.
+ cpu/old_Alures_11_add0000<23>.
+ cpu/old_Alures_11_add0000<25>.
+ cpu/old_Alures_11_add0000<26>.
+ cpu/old_Alures_11_add0000<27>.
+ t/vga/clocking/clk_25mhz.
+ t/vga/vga_controller/hcounter<0>.
+ t/vga/vga_controller/hcounter<1>.
+ t/vga/vga_controller/hcounter<2>.
+ t/vga/vga_controller/hcounter<3>.
+ t/vga/vga_controller/hcounter<4>.
+ t/vga/vga_controller/hcounter<5>.
+ t/vga/vga_controller/hcounter<6>.
+ t/vga/vga_controller/hcounter<7>.
+ t/vga/vga_controller/hcounter<8>.
+ t/vga/vga_controller/hcounter<9>.
+ t/vga/vga_controller/hcounter<10>.
+ cpu/Regfile_1_mux0000<7>.
+ cpu/Regfile_13_7.
+ cpu/Regfile_1_mux0000<5>.
+ cpu/Regfile_18_and0000.
+ cpu/Regfile_1_mux0000<9>.
+ cpu/Regfile_12_9.
+ mem/douta<15>.
+ cpu/Regfile_16_and0000.
+ cpu/Regfile_1_mux0000<18>.
+ cpu/Regfile_26_and0000.
+ cpu/Regfile_26_18.
+ cpu/cReg_8_and0000.
+ cpu/RB<0>.
+ cpu/RB<10>.
+ cpu/RB<6>.
+ cpu/RB<14>.
+ cpu/cReg_3_and0000.
+ cpu/RB<13>.
+ cpu/cReg_26_and0000.
+ cpu/RB<5>.
+ cpu/Memout_and0000.
+ cpu/cReg_28_and0000.
+ cpu/cReg_0_and0000.
+ cpu/RB<15>.
+ cpu/cReg_22_and0000.
+ cpu/RB<12>.
+ cpu/RB<9>.
+ cpu/RB<11>.
+ cpu/cReg_29_and0000.
+ cpu/Regfile_1_mux0000<12>.
+ cpu/Regfile_24_12.
+ cpu/Regfile_31_and0000.
+ cpu/Regfile_31_5.
+ cpu/cReg_1_and0000.
+ cpu/RB<4>.
+ cpu/RB<7>.
+ cpu/Regfile_3_and0000.
+ cpu/RB<8>.
+ cpu/Regfile_9_12.
+ cpu/Mcompar_PC_cmp_eq0002_cy<15>.
+ t/kb/enable_timer_60usec_inv.
+ t/vga/vga_controller/vcounter<0>.
+ t/vga/vga_controller/vcounter<1>.
+ t/vga/vga_controller/vcounter<2>.
+ t/vga/vga_controller/vcounter<3>.
+ t/vga/vga_controller/vcounter<4>.
+ t/vga/vga_controller/vcounter<5>.
+ t/vga/vga_controller/vcounter<6>.
+ t/vga/vga_controller/vcounter<7>.
+ t/vga/vga_controller/vcounter<8>.
+ t/vga/vga_controller/vcounter<10>.
+ cpu/cReg_14_0.
  cpu/cReg_12_0.
+ cpu/cReg_13_0.
+ N121.
+ cpu/Mmux__old_Alures_16_10_f8.
+ cpu/cReg_25_and0000.
+ cpu/IR<22>.
+ cpu/IR<23>.
+ cpu/IR<21>.
  cpu/Regfile_30_10.
- cpu/Regfile_28_10.
+ cpu/Regfile_31_10.
+ cpu/IR<24>.
  cpu/Regfile_15_10.
+ cpu/Regfile_20_10.
+ cpu/Regfile_21_10.
+ cpu/IR<25>.
  cpu/RA_cmp_eq0000.
- cpu/Regfile_19_10.
- cpu/Regfile_17_10.
- cpu/Regfile_6_10.
- cpu/Regfile_4_10.
- cpu/Regfile_3_10.
- cpu/Regfile_20_12.
+ cpu/Regfile_18_10.
+ cpu/Regfile_1_mux0000<10>.
+ cpu/Regfile_15_and0000.
+ cpu/Regfile_1_10.
+ cpu/Regfile_30_11.
+ cpu/Regfile_31_11.
+ cpu/Regfile_24_11.
+ cpu/Regfile_14_11.
+ cpu/Regfile_15_11.
+ cpu/Regfile_13_11.
+ cpu/Regfile_10_11.
+ cpu/Regfile_11_11.
+ cpu/Regfile_8_11.
+ cpu/Regfile_9_11.
+ cpu/Regfile_23_11.
+ cpu/Regfile_21_11.
+ cpu/Regfile_19_11.
+ cpu/Regfile_16_11.
+ cpu/Regfile_27_and0000.
+ cpu/Regfile_27_9.
+ cpu/Regfile_30_12.
+ cpu/Regfile_31_12.
+ cpu/Regfile_29_12.
+ cpu/Regfile_26_12.
+ cpu/Regfile_25_12.
+ cpu/Regfile_10_12.
+ cpu/Regfile_11_12.
+ cpu/Regfile_8_12.
+ cpu/Regfile_22_12.
+ cpu/Regfile_21_12.
+ cpu/Regfile_16_12.
+ cpu/Regfile_7_12.
+ cpu/Regfile_1_12.
+ cpu/Regfile_13_13.
+ cpu/Regfile_20_13.
+ cpu/Regfile_16_13.
+ cpu/Regfile_28_14.
+ cpu/Regfile_29_14.
  cpu/Regfile_27_14.
+ cpu/Regfile_25_14.
+ cpu/Regfile_13_14.
  cpu/Regfile_10_14.
- cpu/Regfile_7_14.
+ cpu/Regfile_11_14.
+ cpu/Regfile_9_14.
+ cpu/Regfile_19_14.
+ cpu/Regfile_17_14.
+ cpu/Regfile_4_14.
+ cpu/Regfile_5_and0000.
+ cpu/Regfile_2_14.
+ cpu/Regfile_3_14.
+ cpu/Regfile_5_15.
+ cpu/Regfile_30_15.
+ cpu/Regfile_29_15.
+ cpu/Regfile_26_15.
+ cpu/Regfile_27_15.
  cpu/Regfile_14_15.
+ cpu/Regfile_15_15.
  cpu/Regfile_10_15.
+ cpu/Regfile_11_15.
+ cpu/Regfile_8_15.
+ cpu/Regfile_9_15.
+ cpu/Regfile_22_15.
+ cpu/Regfile_23_15.
  cpu/Regfile_20_15.
  cpu/Regfile_18_15.
- cpu/Regfile_19_15.
- cpu/Regfile_17_15.
- cpu/Regfile_6_15.
- cpu/Regfile_7_15.
- cpu/Regfile_3_15.
- cpu/Regfile_18_16.
- cpu/Regfile_31_17.
- cpu/Regfile_5_17.
- cpu/Regfile_2_18.
- cpu/Regfile_28_1.
+ cpu/Regfile_1_mux0000<14>.
+ cpu/Regfile_30_16.
+ cpu/Regfile_31_16.
+ cpu/Regfile_15_16.
+ cpu/Regfile_12_16.
+ cpu/Regfile_9_16.
+ cpu/Regfile_16_16.
+ cpu/Regfile_17_16.
+ cpu/Regfile_7_16.
+ cpu/Regfile_5_16.
+ cpu/Regfile_4_and0000.
+ cpu/Regfile_2_16.
+ cpu/Regfile_29_17.
+ cpu/Regfile_24_17.
+ cpu/Regfile_14_17.
+ cpu/Regfile_15_17.
+ cpu/Regfile_10_17.
+ cpu/Regfile_23_17.
+ cpu/Regfile_21_17.
+ cpu/Regfile_18_17.
+ cpu/Regfile_16_17.
+ cpu/Regfile_1_mux0000<11>.
+ cpu/Regfile_2_17.
+ cpu/Regfile_13_18.
+ cpu/Regfile_9_18.
+ cpu/Regfile_6_18.
+ cpu/Regfile_5_18.
+ cpu/Regfile_11_and0000.
+ cpu/Regfile_31_19.
+ cpu/Regfile_24_19.
+ cpu/Regfile_12_19.
+ cpu/Regfile_11_19.
+ cpu/Regfile_23_19.
+ cpu/Regfile_30_1.
+ cpu/Regfile_29_1.
+ cpu/Regfile_24_1.
+ cpu/Regfile_25_1.
  cpu/Regfile_14_1.
- cpu/Regfile_15_1.
- cpu/Regfile_13_1.
+ cpu/Regfile_12_1.
+ cpu/Regfile_10_1.
+ cpu/Regfile_8_1.
+ cpu/Regfile_9_1.
+ cpu/Regfile_22_1.
  cpu/Regfile_23_1.
  cpu/Regfile_20_1.
+ cpu/Regfile_21_1.
  cpu/Regfile_18_1.
- cpu/Regfile_17_1.
- cpu/Regfile_6_1.
+ cpu/Regfile_16_1.
+ cpu/Regfile_1_mux0000<1>.
  cpu/Regfile_2_1.
- cpu/Regfile_3_1.
- cpu/Regfile_12_20.
- cpu/Regfile_2_20.
- cpu/Regfile_4_28.
- cpu/Regfile_5_28.
- cpu/Regfile_30_21.
- cpu/Regfile_31_21.
+ cpu/Regfile_9_20.
+ cpu/Regfile_18_20.
+ cpu/Regfile_1_mux0000<20>.
+ cpu/Regfile_28_28.
+ cpu/Regfile_13_28.
+ cpu/Regfile_1_mux0000<28>.
+ cpu/Regfile_28_21.
+ cpu/Regfile_27_21.
+ cpu/Regfile_8_21.
+ cpu/Regfile_9_21.
+ cpu/Regfile_22_21.
+ cpu/Regfile_20_21.
+ cpu/Regfile_18_21.
+ cpu/Regfile_17_21.
+ cpu/Regfile_6_21.
+ cpu/Regfile_5_21.
+ cpu/cReg_4_and0000.
+ cpu/Regfile_15_29.
+ cpu/Regfile_12_29.
+ cpu/Regfile_20_29.
+ cpu/Regfile_7_29.
+ cpu/Regfile_4_29.
+ cpu/Regfile_5_29.
+ cpu/Regfile_1_mux0000<29>.
  cpu/Regfile_3_29.
- cpu/Regfile_17_22.
- cpu/Regfile_25_2.
- cpu/Regfile_3_2.
- cpu/Regfile_1_2.
+ cpu/Regfile_1_29.
+ cpu/Regfile_26_22.
+ cpu/Regfile_7_22.
+ cpu/Regfile_4_22.
+ cpu/Regfile_5_22.
+ cpu/Regfile_28_2.
+ cpu/Regfile_10_2.
+ cpu/Regfile_22_2.
+ cpu/Regfile_21_2.
+ cpu/Regfile_6_2.
+ cpu/Regfile_5_2.
+ cpu/Regfile_2_2.
  cpu/Regfile_30_8.
- cpu/Regfile_31_8.
- cpu/Regfile_29_8.
- cpu/Regfile_15_8.
+ cpu/Regfile_26_8.
+ cpu/Regfile_25_8.
+ cpu/Regfile_14_8.
  cpu/Regfile_12_8.
  cpu/Regfile_13_8.
+ cpu/Regfile_23_8.
  cpu/Regfile_21_8.
- cpu/Regfile_17_8.
- cpu/Regfile_1_8.
+ cpu/Regfile_18_8.
+ cpu/Regfile_19_8.
+ cpu/Regfile_6_8.
+ cpu/Regfile_4_8.
  cpu/Regfile_31_23.
- cpu/Regfile_20_30.
+ cpu/Regfile_24_23.
+ cpu/Regfile_14_23.
+ cpu/Regfile_8_23.
+ cpu/Regfile_22_23.
+ cpu/Regfile_23_23.
+ cpu/Regfile_20_23.
+ cpu/Regfile_21_23.
+ cpu/Regfile_19_23.
+ cpu/Regfile_16_23.
+ cpu/Regfile_6_23.
+ cpu/Regfile_4_23.
+ cpu/Regfile_5_23.
+ cpu/cReg_11_and0000.
+ cpu/Regfile_2_23.
+ cpu/Regfile_3_23.
+ cpu/Regfile_1_23.
+ cpu/Regfile_28_30.
  cpu/Regfile_18_30.
+ cpu/Regfile_16_30.
  cpu/Regfile_6_30.
- cpu/Regfile_10_9.
- cpu/Regfile_8_9.
+ cpu/Regfile_7_30.
+ cpu/Regfile_1_mux0000<30>.
+ cpu/Regfile_22_and0000.
+ cpu/Regfile_31_9.
+ cpu/Regfile_28_9.
+ cpu/Regfile_29_9.
+ cpu/Regfile_26_9.
+ cpu/Regfile_13_9.
+ cpu/Regfile_9_9.
+ cpu/Regfile_23_9.
  cpu/Regfile_20_9.
- cpu/Regfile_4_9.
- cpu/Regfile_5_9.
+ cpu/Regfile_18_9.
+ cpu/Regfile_16_9.
+ cpu/Regfile_7_9.
  cpu/Regfile_2_9.
  cpu/Regfile_3_9.
- cpu/Regfile_29_31.
- cpu/Regfile_22_31.
- cpu/Regfile_18_31.
- cpu/Regfile_19_31.
- cpu/IR<17>.
+ cpu/Regfile_1_9.
+ cpu/Regfile_30_24.
+ cpu/Regfile_12_24.
+ cpu/Regfile_13_24.
+ cpu/Regfile_8_24.
+ cpu/Regfile_31_31.
+ cpu/Regfile_14_31.
  cpu/IR<18>.
  cpu/IR<16>.
+ cpu/Regfile_28_0.
  cpu/IR<19>.
- cpu/Regfile_27_0.
- cpu/Regfile_10_0.
- cpu/Regfile_21_0.
+ cpu/Regfile_26_0.
+ cpu/Regfile_25_0.
+ cpu/Regfile_15_0.
+ cpu/Regfile_22_0.
+ cpu/Regfile_23_0.
  cpu/IR<20>.
  cpu/Regfile_16_0.
+ cpu/Regfile_6_0.
  cpu/Regfile_7_0.
- cpu/Regfile_2_0.
+ cpu/Regfile_23_and0000.
+ cpu/Regfile_28_25.
+ cpu/Regfile_29_25.
+ cpu/Regfile_27_25.
+ cpu/Regfile_24_25.
+ cpu/Regfile_25_25.
+ cpu/Regfile_14_25.
+ cpu/Regfile_12_25.
+ cpu/Regfile_13_25.
+ cpu/Regfile_10_25.
+ cpu/Regfile_11_25.
+ cpu/Regfile_8_25.
+ cpu/Regfile_23_25.
+ cpu/Regfile_20_25.
+ cpu/Regfile_21_25.
+ cpu/Regfile_16_25.
+ cpu/Regfile_17_25.
+ cpu/Regfile_7_25.
+ cpu/Regfile_4_25.
+ cpu/Regfile_5_25.
+ cpu/Regfile_1_mux0000<24>.
+ cpu/Regfile_2_25.
+ cpu/Regfile_3_25.
  cpu/Regfile_1_25.
  cpu/Regfile_31_3.
- cpu/Regfile_26_3.
+ cpu/Regfile_28_3.
+ cpu/Regfile_27_3.
+ cpu/Regfile_13_3.
+ cpu/Regfile_10_3.
+ cpu/Regfile_8_3.
+ cpu/Regfile_9_3.
+ cpu/Regfile_23_3.
+ cpu/Regfile_20_3.
  cpu/Regfile_2_3.
- cpu/Regfile_4_26.
- cpu/Regfile_29_4.
- cpu/Regfile_13_4.
- cpu/Regfile_8_27.
+ cpu/Regfile_7_and0000.
+ t/kb/rx_ascii<6>.
+ cpu/Regfile_1_mux0000<26>.
+ cpu/Regfile_26_4.
+ cpu/Regfile_27_4.
+ cpu/Regfile_15_4.
+ cpu/Regfile_9_4.
+ cpu/Regfile_5_4.
+ cpu/cReg_6_and0000.
+ cpu/Regfile_9_27.
  cpu/Regfile_29_5.
+ cpu/Regfile_26_5.
+ cpu/Regfile_14_5.
+ cpu/Regfile_12_5.
+ cpu/Regfile_13_5.
  cpu/Regfile_11_5.
- cpu/Regfile_20_5.
- cpu/Regfile_20_6.
- cpu/Regfile_16_6.
- cpu/Regfile_26_7.
+ cpu/Regfile_8_5.
+ cpu/Regfile_9_5.
+ cpu/Regfile_22_5.
+ cpu/Regfile_23_5.
+ cpu/Regfile_19_5.
+ cpu/Regfile_16_5.
+ cpu/Regfile_6_5.
+ cpu/Regfile_21_and0000.
+ cpu/Regfile_1_5.
+ cpu/Regfile_29_6.
+ cpu/Regfile_14_6.
+ cpu/Regfile_15_6.
+ cpu/Regfile_12_6.
+ cpu/Regfile_11_6.
+ cpu/Regfile_9_6.
+ cpu/Regfile_22_6.
+ cpu/Regfile_4_6.
+ cpu/Regfile_28_7.
+ cpu/Regfile_27_7.
+ cpu/Regfile_12_7.
+ cpu/Regfile_8_7.
+ cpu/Regfile_9_7.
+ cpu/Regfile_18_7.
+ cpu/Regfile_19_7.
+ cpu/Regfile_17_7.
+ cpu/Regfile_4_7.
+ cpu/Regfile_1_mux0000<21>.
+ cpu/Regfile_1_mux0000<25>.
+ cpu/Regfile_8_and0000.
+ cpu/Regfile_1_mux0000<16>.
+ cpu/Regfile_1_mux0000<4>.
  cpu/cReg_14_1.
- cpu/cReg_12_1.
- N83.
+ cpu/cReg_13_1.
  cpu/cReg_14_20.
- cpu/cReg_14_29.
- cpu/cReg_13_29.
- cpu/cReg_14_21.
- cpu/cReg_12_21.
- cpu/cReg_14_2.
- cpu/Mmux__old_Alures_19_10_f822.
+ cpu/Mmux__old_Alures_16_10_f821.
+ cpu/cReg_14_22.
+ cpu/Mmux__old_Alures_16_10_f814.
+ cpu/cReg_14_9.
+ cpu/cReg_13_9.
  cpu/cReg_14_30.
- cpu/cReg_13_30.
+ cpu/cReg_12_30.
  cpu/cReg_14_23.
  cpu/cReg_12_23.
+ cpu/cReg_13_23.
+ cpu/cReg_14_31.
+ cpu/cReg_12_31.
  cpu/cReg_13_31.
+ cpu/cReg_14_24.
+ cpu/cReg_14_3.
  cpu/cReg_13_3.
- cpu/Mmux__old_Alures_19_10_f825.
- cpu/Mmux__old_Alures_19_10_f826.
+ cpu/cReg_12_3.
+ cpu/cReg_13_4.
+ cpu/Mmux__old_Alures_16_10_f826.
  cpu/cReg_14_26.
+ cpu/cReg_13_26.
  cpu/cReg_14_5.
- cpu/cReg_12_5.
- cpu/cReg_13_6.
+ cpu/cReg_14_27.
+ cpu/cReg_12_27.
+ cpu/Mmux__old_Alures_16_10_f819.
+ cpu/cReg_14_6.
+ cpu/cReg_14_28.
+ cpu/cReg_12_28.
+ cpu/Mmux__old_Alures_16_10_f820.
+ cpu/cReg_14_8.
  cpu/cReg_12_8.
  cpu/cReg_13_8.
  cpu/cReg_14_10.
- cpu/cReg_12_10.
- cpu/Mmux__old_Alures_19_10_f81.
- cpu/Mmux__old_Alures_19_10_f82.
+ cpu/cReg_14_11.
+ cpu/cReg_13_11.
+ cpu/cReg_14_12.
+ cpu/cReg_13_12.
  cpu/cReg_14_13.
- cpu/Mmux__old_Alures_19_10_f86.
+ cpu/Mmux__old_Alures_16_10_f84.
+ cpu/cReg_14_14.
+ cpu/cReg_13_14.
+ cpu/Mmux__old_Alures_16_10_f85.
+ cpu/cReg_14_15.
+ cpu/cReg_13_15.
  cpu/cReg_14_16.
- cpu/cReg_12_16.
+ cpu/cReg_13_16.
+ cpu/cReg_14_17.
+ cpu/cReg_13_17.
  cpu/cReg_14_18.
+ cpu/cReg_13_18.
  cpu/cReg_14_19.
- cpu/Addr<0>.
+ t/kb/m1_state<3>.
+ t/kb/bit_count<0>.
+ t/kb/bit_count_or0000_bdd4.
  cpu/Addr<12>.
- cpu/Addr<21>.
  cpu/Addr<22>.
- cpu/Addr<14>.
- cpu/Addr<31>.
- cpu/Addr<23>.
- cpu/Addr<15>.
  cpu/Addr<24>.
  cpu/Addr<25>.
  cpu/Addr<26>.
+ cpu/Addr<18>.
  cpu/Addr<27>.
- clk_OBUF1.
+ cpu/Addr<19>.
+ cpu/Addr<29>.
+ cpu/Memread.
  BUS<0>_MLTSRCEDGE.
+ N98.
  BUS<3>_MLTSRCEDGE.
- BUS<10>_MLTSRCEDGE.
- BUS<11>_MLTSRCEDGE.
- BUS<21>_MLTSRCEDGE.
- BUS<22>_MLTSRCEDGE.
- BUS<18>_MLTSRCEDGE.
- vga/doutb<4>.
- vga/doutb<3>.
- vga/doutb<2>.
- vga/doutb<0>.
- mem/addr<11>.
- mem/addr<10>.
+ BUS<4>_MLTSRCEDGE.
+ cpu/Memwrite<0>.
+ cpu/Memwrite<1>.
+ t/vga/cury_cmp_eq0000.
+ t/vga/_mux0005<7>.
+ t/vga/_mux0005<6>.
+ t/vga/_mux0005<3>.
+ t/vga/_mux0005<1>.
+ t/vga/_mux0005<0>.
  mem/addr<8>.
  mem/addr<6>.
- mem/addr<5>.
  mem/addr<4>.
  mem/addr<3>.
- mem/addr<2>.
- mem/addr<0>.
+ mem/addr<1>.
+ mem/douta<1>.
  mem/douta<2>.
- cpu/BUS_Memout_not0000_inv.
- cpu/Memout<7>.
- cpu/signal<12>_mmx_out18.
- mem/tmp<29>.
+ mem/datain<7>.
+ mem/douta<5>.
+ mem/douta<7>.
+ mem/datain<9>.
+ mem/datain<10>.
+ mem/datain<13>.
+ mem/douta<13>.
+ mem/douta<16>.
+ mem/douta<19>.
+ mem/douta<20>.
+ mem/douta<23>.
+ mem/douta<24>.
+ mem/douta<25>.
+ mem/douta<27>.
+ mem/douta<29>.
+ mem/douta<30>.
+ mem/douta<31>.
+ cpu/IR<29>.
+ cpu/IR<26>.
+ cpu/IR<27>.
+ cpu/IR<31>.
+ cpu/IR<28>.
+ t/kb/q<5>.
+ t/kb/q<2>.
+ t/kb/q<6>.
+ t/kb/q<4>.
+ t/kb/q<7>.
+ N62.
+ cpu/Sh111.
+ cpu/Sh119.
+ cpu/Sh107.
+ cpu/Sh115.
+ t/writedata<4>.
+ t/vga/ttywrite_and0000.
+ t/writedata<1>.
+ t/vga/ttywrite_mux0000.
+ N299.
+ cpu/Sh118.
+ N297.
+ cpu/Sh127.
+ cpu/Sh151.
+ t/at/TxD_state_FSM_FFd1.
+ t/at/TxD_state_FSM_FFd2.
+ t/at/TxD_state_FSM_FFd3.
+ N94.
+ N10.
+ cpu/signal<12>_mmx_out24.
+ cpu/signal<12>_mmx_out25.
+ cpu/signal<12>_mmx_out26.
+ cpu/signal<12>_mmx_out27.
+ N332.
+ N24.
+ cpu/stage<2>.
  cpu/signal<12>_mmx_out8.
- cpu/signal<12>_mmx_out29.
- cpu/signal<12>_mmx_out4.
+ cpu/signal<12>_mmx_out11.
+ cpu/signal<12>_mmx_out12.
+ cpu/signal<12>_mmx_out13.
+ cpu/signal<12>_mmx_out14.
+ cpu/B_cmp_eq0000.
+ cpu/signal<12>.
+ cpu/Alures<31>.
+ cpu/old_Alures_13_mux0002<10>114.
+ cpu/old_Alures_13_mux0000.
+ cpu/signal<12>_mmx_out10.
+ cpu/Alures<3>.
+ cpu/Alures<2>.
+ t/kb/q<3>.
+ t/kb/q<1>.
+ N4.
+ N22.
+ N96.
+ cpu/IR<30>.
+ cpu/Sh117.
+ cpu/Sh109.
+ cpu/Sh113.
+ cpu/BUS_Memout_not0000_inv.
+ t/kb/rx_released.
+ t/kb/rx_ascii<0>.
+ t/kb/rx_ascii<1>.
+ t/ar/RxD_data<2>.
+ t/kb/rx_ascii<3>.
+ t/writedata<3>.
+ t/ar/RxD_data<4>.
+ t/ar/RxD_data<5>.
+ t/kb/rx_ascii<5>.
+ t/writedata<5>.
+ t/at/tickgen/Acc<17>.
+ N81.
+ t/at/TxD_shift_not0001.
+ cpu/Sh123.
+ t/kb/q<8>.
+ t/kb/bit_count<1>.
+ t/kb/bit_count<2>.
+ t/kb/rx_output_event.
+ N60.
+ cpu/Sh125.
+ cpu/Sh145.
+ cpu/Sh122.
+ cpu/Sh146.
+ cpu/Sh147.
+ t/vga/cury<0>.
+ t/vga/cury_mux0000<1>224.
+ cpu/signal<12>_mmx_out19.
+ N51.
+ _mux0001<1>.
+ N67.
+ N41.
+ N39.
+ cpu/Regfile_28_and0000.
+ t/kb/ascii<2>_bdd16.
+ t/kb/ascii<0>_bdd11.
+ cpu/Sh14420.
+ cpu/old_Alures_13_mux0001<0>312.
+ cpu/Sh1447.
+ cpu/Sh101.
+ cpu/Sh105.
+ N321.
+ cpu/Dst<0>.
+ cpu/old_Alures_13_mux0001<12>172.
+ cpu/signal<12>_mmx_out20.
+ cpu/signal<12>_mmx_out21.
  cpu/signal<12>_mmx_out3.
- cpu/signal<12>_mmx_out15.
- cpu/PC_mux0000<0>92.
- cpu/Sh8.
- cpu/signal<8>.
- N2.
- cpu/Memout<17>.
- cpu/Memout<19>.
+ cpu/signal<12>_mmx_out4.
+ cpu/signal<12>_mmx_out5.
+ cpu/signal<12>_mmx_out6.
+ t/vga/N13.
+ t/vga/clocking/clk_1hz.
+ N138.
+ cpu/Regfile_1_mux0000<8>.
+ t/kb/ascii<0>_bdd21.
+ t/kb/bit_count_or0001.
+ N37.
+ N53.
+ N36.
+ N52.
+ N48.
+ N64.
+ N65.
+ N47.
+ N43.
+ N59.
+ N40.
+ N46.
+ N58.
+ mem/tmp<16>.
+ N61.
+ t/vga/cury<2>.
+ cpu/old_Alures_13_mux0001<31>30.
+ cpu/Alures<22>.
+ cpu/cReg_2_and0000.
+ cpu/Alures<25>.
+ cpu/B<2>.
+ cpu/Alures<28>.
+ cpu/signal<10>.
+ N375.
+ N839.
+ N119.
+ _mux0001<0>.
+ N387.
+ cpu/B<10>.
+ cpu/B<5>.
+ cpu/B<23>.
+ cpu/B<21>.
+ N277.
+ N173.
+ cpu/Regfile_1_and0000.
+ cpu/signal<4>.
+ cpu/Alures<9>.
+ cpu/Regfile_20_and0000.
+ mem/Memout<14>.
+ N129.
+ cpu/Alures<16>.
+ cpu/Alures<14>.
+ cpu/Alures<10>.
+ N177.
+ cpu/Regfile_12_and0000_bdd4.
+ cpu/Regfile_10_and0000_bdd8.
+ cpu/IR_31_1.
+ cpu/IR_30_1.
+ cpu/Regfile_14_and0000_bdd4.
+ cpu/IR_28_1.
+ cpu/IR_27_1.
+ N0.
+ N117.
+ N93.
+ N100.
+ N349.
+ N348.
+ cpu/Alures<17>.
+ cpu/Alures<19>.
+ cpu/Alures<6>.
+ mem/Memout<22>.
+ cpu/Alures<18>.
+ cpu/stage<1>.
+ cpu/stage<0>.
+ N132.
+ cpu/Memread_mux000041.
+ cpu/signal<3>.
+ cpu/Alures<24>.
+ clk_cmp_eq0000.
+ tmp<2>.
+ mem/tmp<28>.
+ mem/tmp<25>.
  mem/tmp<19>.
  mem/tmp<24>.
+ t/readdata<3>.
+ mem/Memout<30>.
  mem/tmp<26>.
- cpu/Memout<24>.
- N69.
- N3.
- cpu/B<12>.
+ mem/tmp<27>.
+ N345.
+ t/at/TxD_busy.
+ t/vga/ttydata<4>.
+ t/vga/ttydata<1>.
+ t/vga/ttydata<7>.
+ t/vga/ttydata<3>.
+ t/vga/ttydata<0>.
+ t/vga/cury<1>.
+ t/vga/cury_mux00011.
+ t/vga/cury<3>.
+ t/vga/cury<4>.
+ t/vga/cury<5>.
+ t/writedata<7>.
+ N99.
  N6.
- N63.
+ cpu/Alures<11>.
+ cpu/Alures<12>.
+ cpu/Alures<20>.
+ cpu/Alures<13>.
+ cpu/Alures<30>.
+ cpu/Alures<15>.
+ cpu/Alures<23>.
+ cpu/Alures<27>.
+ cpu/Alures<29>.
+ cpu/Alures<8>.
+ mem/Memout<10>.
+ cpu/B<22>.
+ N346.
+ N145.
+ cpu/cReg_12_and0000.
+ cpu/B<25>.
+ cpu/C/signal<9>21.
+ cpu/C/signal<10>1.
+ N364.
+ cpu/signal<0>.
+ cpu/old_Alures_13_mux0001<10>105.
+ N180.
+ N9.
+ cpu/C/signal<10>.
+ N393.
+ cpu/B<8>.
+ N3911.
+ N179.
+ cpu/old_Alures_13_mux0001<12>13.
+ cpu/old_Alures_13_mux0001<0>5.
+ cpu/old_Alures_13_mux0001<16>19.
+ cpu/Sh153.
+ cpu/Sh155.
+ cpu/old_Alures_13_mux0001<27>19.
+ cpu/old_Alures_13_mux0001<10>135.
+ cpu/old_Alures_13_mux0001<29>30.
+ cpu/old_Alures_13_mux0001<28>7.
+ cpu/old_Alures_13_mux0001<28>23.
+ N359.
+ cpu/old_PC_15_cmp_eq0000.
+ cpu/old_Alures_13_mux0002<0>67.
+ cpu/INT.
+ cpu/old_Alures_13_mux0001<16>128.
+ N147.
+ N79.
+ cpu/old_INT_3_and0000.
+ N8.
+ cpu/PC_and0000.
+ N347.
+ cpu/PC_mux0000<0>21.
+ cpu/old_Alures_13_mux0001<13>13.
+ cpu/PC_mux0000<0>44.
+ N148.
+ cpu/PC_mux0000<2>70.
+ cpu/PC_mux0000<3>70.
+ cpu/PC_mux0000<4>70.
+ cpu/PC_mux0000<1>70.
+ cpu/old_Alures_13_mux0002<0>7.
+ cpu/old_Alures_13_mux0001<8>13.
+ N135.
+ cpu/old_Alures_13_mux0001<19>19.
+ cpu/old_Alures_13_mux0001<30>30.
+ N377.
+ cpu/old_Alures_13_mux0001<14>13.
+ cpu/old_Alures_13_mux0001<1>13.
+ cpu/old_Alures_13_mux0001<6>13.
+ cpu/Sh152.
+ cpu/old_Alures_13_mux0001<9>13.
+ cpu/old_Alures_13_mux0001<5>13.
+ cpu/Sh149.
+ cpu/old_Alures_13_mux0001<10>160.
+ t/kb/right_shift_key.
+ t/kb/ascii<0>_bdd33.
+ t/kb/left_shift_key.
+ t/kb/ascii<5>_bdd5.

@@ -20,6 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module CPU(clk,rst,BUS,
 		   Memread,Memwrite,Addr,INTin,INTnum
+		   // ,INT
 		  // ,output reg [31:0] A,output reg [31:0]PC,output reg [31:0] IR,output reg [31:0] Alures
     );
 input clk;// CPU clock
@@ -81,8 +82,11 @@ reg [31:0] IR;// instruction
 
 
 
-wire [31:0] shiftRes;// shifted
-shifter S(B,shamt,shiftRes);// srl
+wire [31:0] RshiftRes;// shifted
+wire [31:0] LshiftRes;// shifted
+
+Rshifter RRS(B,shamt,RshiftRes);// srl
+Lshifter LLS(B,shamt,LshiftRes);// sll
 
 assign BUS = Memwrite?Memout:32'bz;// BUS adapter
 assign Memin = BUS;// recieve data
@@ -107,6 +111,7 @@ initial begin
 	for(i=0;i<32;i=i+1)
 	begin 
 		Regfile[i]=i;
+		cReg[i] = 0;
 	end
 end
 
@@ -146,21 +151,23 @@ always @(posedge clk or posedge rst) begin
 				PC = PC + 2;
 				Memread = 1;
 				// Check INT from outside
-				if (INTin & STATUS[0]) begin
-					INT = 1;
+				if (INTin == 1 && STATUS[0] == 0) begin
+					INT = 1'b1;
 					cReg[13] = INTnum;
+				end
+				if (INT == 1'b1) begin
+					cReg[14] = PC - 2;
+					PC = 32'h40;
+					INT = 1'b0;
+					cReg[12] = cReg[12] | 32'h1;
+					stage = -1;
 				end
 			end
 			3'h1:begin			
 				// deal with memory & control latency	
 				IR = Memin;
 				// interrupt here
-				if (INT) begin
-					cReg[14] = PC - 2;
-					PC = 16;
-					INT = 0;
-					cReg[12] = cReg[12] & 32'hFFFFFFF7;
-				end
+
 			end
 			3'h2:begin
 				Memread = 0;
@@ -195,7 +202,8 @@ always @(posedge clk or posedge rst) begin
 						6'h27: Alures = ~(A | B);
 						6'h2A: Alures = ((A - B) & 32'h80000000 == 32'h80000000)? 1:0;
 						6'h2B: Alures = (A < B)? 1:0;
-						6'h2 : Alures = shiftRes;//srl
+						6'h0 : Alures = LshiftRes;//sll
+						6'h2 : Alures = RshiftRes;//srl
 						6'h8: begin // JR
 							PC = {RA[31:0]};
 						end
@@ -229,7 +237,7 @@ always @(posedge clk or posedge rst) begin
 						// 5'h4: cReg[RD] = Regfile[RT]; // mtc
 						5'h10: begin // eret
 							PC = cReg[14];
-							cReg[12] = cReg[12] | 1;
+							cReg[12] = cReg[12] & 32'hFFFFFFFE;
 						end
 					endcase
 				end
@@ -286,7 +294,15 @@ always @(posedge clk or posedge rst) begin
 end
 endmodule
 
-module shifter(data,b,result);
+module Rshifter(data,b,result);
+	parameter Nminus1 = 31; /* 32-bit shifter */
+	input [Nminus1:0] data;  /*compute parity of these bits */
+	input [4:0] b; /* amount to shift */
+	output [Nminus1:0] result; /* shift result */
+
+	assign result = data >> b; 
+endmodule
+module Lshifter(data,b,result);
 	parameter Nminus1 = 31; /* 32-bit shifter */
 	input [Nminus1:0] data;  /*compute parity of these bits */
 	input [4:0] b; /* amount to shift */

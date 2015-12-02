@@ -19,7 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module tty(vga_red, vga_green, vga_blue, vga_hsync, vga_vsync,clk_50mhz,ps2_clk,ps2_data,
-			BUS,write,read
+			BUS,write,read,keypress
 			,TxD,RxD
 			// ,writeback,readback
     );
@@ -27,9 +27,10 @@ output vga_red, vga_green, vga_blue, vga_hsync, vga_vsync;
 input clk_50mhz;
 inout ps2_clk,ps2_data;
 inout [31:0]BUS;
-input read,write;
+input read ,write;
+output reg keypress;
 
-reg [7:0] readdata;
+reg [7:0] readdata = 8'h41;
 reg VMwrite;
 wire ttywrite;
 wire [7:0] ascii;
@@ -43,7 +44,7 @@ wire TxD_busy;
 wire RxD_data_ready;
 wire [7:0] RxD_data;
 
-assign BUS = read?readdata:32'bz;
+assign BUS = read?{0,readdata}:32'bz;
 
 reg [7:0] writedata;
 VGA vga(
@@ -68,7 +69,7 @@ ps2_keyboard_interface kb(
 	);
 async_transmitter at(
 	.clk(clk_50mhz),
-	.TxD_start(TxD_start),
+	.TxD_start(released),
 	.TxD_data(TxD_data),
 	.TxD(TxD),
 	.TxD_busy(TxD_busy)
@@ -85,25 +86,34 @@ async_receiver ar(
 
 
 always @(posedge clk_50mhz) begin
-	VMwrite = 0;
-	TxD_start = 0;
-	// if (write == 1 && ttywrite == 0) begin
-	// 	VMwrite = 1;
-	// end
-	if (RxD_data_ready) begin
-		writedata = RxD_data;
-		VMwrite = 1;
-	end
-	if (released == 1) begin
-		readdata = ascii;
-		VMwrite = 1;
-		writedata = ascii;
-		TxD_start = 1;
-		TxD_data = ascii;
-	end
-	if (released == 0) begin
 
-		readdata = 8'hFF;
+	TxD_start = 0;
+	if (write == 1) begin
+		VMwrite = 1;
+		writedata = BUS;
+	end
+	else begin
+		VMwrite = 0;
+		if (RxD_data_ready) begin
+			VMwrite = 1;
+			writedata = RxD_data;
+		end
+		if (released == 1) begin
+			readdata = ascii;
+			keypress = 1;
+			VMwrite = 1;
+			writedata = ascii;
+			// TxD_start = 1;
+			TxD_data = ascii;
+		end
+		if (released == 0) begin
+			// readdata = 8'hFF;
+			keypress = 0;
+		end
+		// if (keypress == 1 && read == 1) begin
+		// 	// readdata = 8'hff;
+			
+		// end
 	end
 end
 endmodule

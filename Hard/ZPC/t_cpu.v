@@ -64,6 +64,9 @@ module t_cpu;
         
 		// Add stimulus here
 		Memin = 32'b10101110000100010000000000000000;
+		#500000;
+		INTin = 1;
+		INTnum = 1;
 	end
    initial forever begin
 		#5;

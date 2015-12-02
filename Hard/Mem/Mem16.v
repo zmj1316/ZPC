@@ -82,15 +82,15 @@ always @(posedge clk or posedge rst) begin
 			end
 			3: begin
 				case(Addrin[0])
-					0: datain = st? tmp[63:32]:{tmp[31:8],BUS[7:0]};
-					1: datain = st? tmp[63:32]:{tmp[31:24],BUS[7:0],tmp[15:0]};
+					0: datain = st? tmp[63:32]:{tmp[31:16],BUS[15:0]};
+					1: datain = st? tmp[63:32]:{BUS[15:0],tmp[15:0]};
 				endcase
 				we = 1;
 			end
 		endcase
 	end
 end
-always @(clk) begin
+always @(posedge clk) begin
 	case(Addrin[0])
 		0: Memout = tmp[31: 0];
 		1: Memout = tmp[47:16];

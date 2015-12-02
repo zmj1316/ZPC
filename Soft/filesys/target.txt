@@ -1,0 +1,313 @@
+/* Copy memory to memory */
+static
+void mem_cpy (void* dst, const void* src, UINT cnt) {
+	BYTE *d = (BYTE*)dst;
+	const BYTE *s = (const BYTE*)src;
+
+#if _WORD_ACCESS == 1
+	while (cnt >= sizeof (int)) {
+		*(int*)d = *(int*)s;
+		d += sizeof (int); s += sizeof (int);
+		cnt -= sizeof (int);
+	}
+#endif
+	while (cnt--)
+		*d++ = *s++;
+}
+
+/* Fill memory */
+static
+void mem_set (void* dst, int val, UINT cnt) {
+	BYTE *d = (BYTE*)dst;
+
+	while (cnt--)
+		*d++ = (BYTE)val;
+}
+
+/* Compare memory to memory */
+static
+int mem_cmp (const void* dst, const void* src, UINT cnt) {
+	const BYTE *d = (const BYTE *)dst, *s = (const BYTE *)src;
+	int r = 0;
+
+	while (cnt-- && (r = *d++ - *s++) == 0) ;
+	return r;
+}
+
+/*-----------------------------------------------------------------------*/
+/* Move/Flush disk access window in the file system object               */
+/*-----------------------------------------------------------------------*/
+#if !_FS_READONLY
+static
+FRESULT sync_window (	/* FR_OK:succeeded, !=0:error */
+	FATFS* fs		/* File system object */
+)
+{
+	DWORD wsect;
+	UINT nf;
+	FRESULT res = FR_OK;
+
+
+	if (fs->wflag) {	/* Write back the sector if it is dirty */
+		wsect = fs->winsect;	/* Current sector number */
+		if (disk_write(fs->drv, fs->win, wsect, 1) != RES_OK) {
+			res = FR_DISK_ERR;
+		} else {
+			fs->wflag = 0;
+		}
+	}
+	return res;
+}
+#endif
+
+
+static
+FRESULT move_window (	/* FR_OK(0):succeeded, !=0:error */
+	FATFS* fs,		/* File system object */
+	DWORD sector	/* Sector number to make appearance in the fs->win[] */
+)
+{
+	FRESULT res = FR_OK;
+
+
+	if (sector != fs->winsect) {	/* Window offset changed? */
+#if !_FS_READONLY
+		res = sync_window(fs);		/* Write-back changes */
+#endif
+		if (res == FR_OK) {			/* Fill sector window with new data */
+			if (disk_read(fs->drv, fs->win, sector, 1) != RES_OK) {
+				sector = 0xFFFFFFFF;	/* Invalidate window if data is not reliable */
+				res = FR_DISK_ERR;
+			}
+			fs->winsect = sector;
+		}
+	}
+	return res;
+}
+
+
+/*-----------------------------------------------------------------------*/
+/* Get sector# from cluster#                                             */
+/*-----------------------------------------------------------------------*/
+/* Hidden API for hacks and disk tools */
+
+DWORD clust2sect (	/* !=0:Sector number, 0:Failed (invalid cluster#) */
+	FATFS* fs,		/* File system object */
+	DWORD clst		/* Cluster# to be converted */
+)
+{
+	clst -= 2;
+	if (clst >= fs->n_fatent - 2) return 0;		/* Invalid cluster# */
+	return clst * fs->csize + fs->database;
+}
+
+
+DWORD get_fat (	/* 0xFFFFFFFF:Disk error, 1:Internal error, 2..0x0FFFFFFF:Cluster status */
+	FATFS* fs,	/* File system object */
+	DWORD clst	/* FAT index number (cluster number) to get the value */
+)
+{
+	UINT wc, bc;
+	BYTE *p;
+	DWORD val;
+
+
+	if (clst < 2 || clst >= fs->n_fatent) {	/* Check if in valid range */
+		val = 1;	/* Internal error */
+
+	} else {
+		val = 0xFFFFFFFF;	/* Default value falls on disk error */
+
+		switch (fs->fs_type) {
+		case FS_FAT12 :
+			bc = (UINT)clst; bc += bc / 2;
+			if (move_window(fs, fs->fatbase + (bc / SS(fs))) != FR_OK) break;
+			wc = fs->win[bc++ % SS(fs)];
+			if (move_window(fs, fs->fatbase + (bc / SS(fs))) != FR_OK) break;
+			wc |= fs->win[bc % SS(fs)] << 8;
+			val = clst & 1 ? wc >> 4 : (wc & 0xFFF);
+			break;
+
+		case FS_FAT16 :
+			if (move_window(fs, fs->fatbase + (clst / (SS(fs) / 2))) != FR_OK) break;
+			p = &fs->win[clst * 2 % SS(fs)];
+			val = LD_WORD(p);
+			break;
+
+		case FS_FAT32 :
+			if (move_window(fs, fs->fatbase + (clst / (SS(fs) / 4))) != FR_OK) break;
+			p = &fs->win[clst * 4 % SS(fs)];
+			val = LD_DWORD(p) & 0x0FFFFFFF;
+			break;
+
+		default:
+			val = 1;	/* Internal error */
+		}
+	}
+
+	return val;
+}
+
+
+
+/*-----------------------------------------------------------------------*/
+/* FAT access - Change value of a FAT entry                              */
+/*-----------------------------------------------------------------------*/
+/* Hidden API for hacks and disk tools */
+
+#if !_FS_READONLY
+FRESULT put_fat (	/* FR_OK(0):succeeded, !=0:error */
+	FATFS* fs,		/* File system object */
+	DWORD clst,		/* FAT index number (cluster number) to be changed */
+	DWORD val		/* New value to be set to the entry */
+)
+{
+	UINT bc;
+	BYTE *p;
+	FRESULT res;
+
+
+	if (clst < 2 || clst >= fs->n_fatent) {	/* Check if in valid range */
+		res = FR_INT_ERR;
+
+	} else {
+		switch (fs->fs_type) {
+		case FS_FAT12 :
+			bc = (UINT)clst; bc += bc / 2;
+			res = move_window(fs, fs->fatbase + (bc / SS(fs)));
+			if (res != FR_OK) break;
+			p = &fs->win[bc++ % SS(fs)];
+			*p = (clst & 1) ? ((*p & 0x0F) | ((BYTE)val << 4)) : (BYTE)val;
+			fs->wflag = 1;
+			res = move_window(fs, fs->fatbase + (bc / SS(fs)));
+			if (res != FR_OK) break;
+			p = &fs->win[bc % SS(fs)];
+			*p = (clst & 1) ? (BYTE)(val >> 4) : ((*p & 0xF0) | ((BYTE)(val >> 8) & 0x0F));
+			fs->wflag = 1;
+			break;
+
+		case FS_FAT16 :
+			res = move_window(fs, fs->fatbase + (clst >> 8));
+			// if (res != FR_OK) break;
+			p = &fs->win[clst & 255];
+			// ST_WORD(p, (WORD)val);
+			fs->wflag = 1;
+			break;
+
+		case FS_FAT32 :
+			res = move_window(fs, fs->fatbase + (clst / (SS(fs) / 4)));
+			if (res != FR_OK) break;
+			p = &fs->win[clst * 4 % SS(fs)];
+			val |= LD_DWORD(p) & 0xF0000000;
+			ST_DWORD(p, val);
+			fs->wflag = 1;
+			break;
+
+		default :
+			res = FR_INT_ERR;
+		}
+	}
+
+	return res;
+}
+#endif /* !_FS_READONLY */
+
+
+/*-----------------------------------------------------------------------*/
+/* FAT handling - Remove a cluster chain                                 */
+/*-----------------------------------------------------------------------*/
+#if !_FS_READONLY
+static
+FRESULT remove_chain (	/* FR_OK(0):succeeded, !=0:error */
+	FATFS* fs,			/* File system object */
+	DWORD clst			/* Cluster# to remove a chain from */
+)
+{
+	FRESULT res;
+	DWORD nxt;
+
+	if (clst < 2 || clst >= fs->n_fatent) {	/* Check if in valid range */
+		res = FR_INT_ERR;
+
+	} else {
+		res = FR_OK;
+		while (clst < fs->n_fatent) {			/* Not a last link? */
+			nxt = get_fat(fs, clst);			/* Get cluster status */
+			if (nxt == 0) break;				/* Empty cluster? */
+			if (nxt == 1) { res = FR_INT_ERR; break; }	/* Internal error? */
+			if (nxt == 0xFFFFFFFF) { res = FR_DISK_ERR; break; }	/* Disk error? */
+			res = put_fat(fs, clst, 0);			/* Mark the cluster "empty" */
+			if (res != FR_OK) break;
+			if (fs->free_clust != 0xFFFFFFFF) {	/* Update FSINFO */
+				fs->free_clust++;
+				fs->fsi_flag |= 1;
+			}
+			clst = nxt;	/* Next cluster */
+		}
+	}
+
+	return res;
+}
+#endif
+
+
+
+
+/*-----------------------------------------------------------------------*/
+/* FAT handling - Stretch or Create a cluster chain                      */
+/*-----------------------------------------------------------------------*/
+#if !_FS_READONLY
+static
+DWORD create_chain (	/* 0:No free cluster, 1:Internal error, 0xFFFFFFFF:Disk error, >=2:New cluster# */
+	FATFS* fs,			/* File system object */
+	DWORD clst			/* Cluster# to stretch, 0:Create a new chain */
+)
+{
+	DWORD cs, ncl, scl;
+	FRESULT res;
+
+
+	if (clst == 0) {		/* Create a new chain */
+		scl = fs->last_clust;			/* Get suggested start point */
+		if (!scl || scl >= fs->n_fatent) scl = 1;
+	}
+	else {					/* Stretch the current chain */
+		cs = get_fat(fs, clst);			/* Check the cluster status */
+		if (cs < 2) return 1;			/* Invalid value */
+		if (cs == 0xFFFFFFFF) return cs;	/* A disk error occurred */
+		if (cs < fs->n_fatent) return cs;	/* It is already followed by next cluster */
+		scl = clst;
+	}
+
+	ncl = scl;				/* Start cluster */
+	for (;;) {
+		ncl++;							/* Next cluster */
+		if (ncl >= fs->n_fatent) {		/* Check wrap around */
+			ncl = 2;
+			if (ncl > scl) return 0;	/* No free cluster */
+		}
+		cs = get_fat(fs, ncl);			/* Get the cluster status */
+		if (cs == 0) break;				/* Found a free cluster */
+		if (cs == 0xFFFFFFFF || cs == 1)/* An error occurred */
+			return cs;
+		if (ncl == scl) return 0;		/* No free cluster */
+	}
+
+	res = put_fat(fs, ncl, 0x0FFFFFFF);	/* Mark the new cluster "last link" */
+	if (res == FR_OK && clst != 0) {
+		res = put_fat(fs, clst, ncl);	/* Link it to the previous one if needed */
+	}
+	if (res == FR_OK) {
+		fs->last_clust = ncl;			/* Update FSINFO */
+		if (fs->free_clust != 0xFFFFFFFF) {
+			fs->free_clust--;
+			fs->fsi_flag |= 1;
+		}
+	} else {
+		ncl = (res == FR_DISK_ERR) ? 0xFFFFFFFF : 1;
+	}
+
+	return ncl;		/* Return new cluster number or error code */
+}
+#endif /* !_FS_READONLY */
+

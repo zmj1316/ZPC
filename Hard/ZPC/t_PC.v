@@ -34,7 +34,7 @@ module t_PC;
 	wire vga_blue;
 	wire vga_hsync;
 	wire vga_vsync;
-	wire led;
+	wire INTin;
 	wire [1:0] Memwrite;
 	wire Memread;
 	wire [31:0]Addr;
@@ -49,7 +49,7 @@ module t_PC;
 		.vga_blue(vga_blue), 
 		.vga_hsync(vga_hsync), 
 		.vga_vsync(vga_vsync), 
-		.led(led), 
+		.INTin(INTin), 
 		.BUS(BUS), 
 		.Memwrite(Memwrite), 
 		.Memread(Memread),
@@ -61,10 +61,10 @@ module t_PC;
 		clk_50mhz = 0;
 
 		// Wait 100 ns for global reset to finish
-		#100;
+		#1000;
         
 		// Add stimulus here
-
+		
 	end
    initial forever begin
 	#5;
