@@ -1,4 +1,4 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o F:/Workspace/ASM/Hard/TTY/t_vga_isim_beh.exe -prj F:/Workspace/ASM/Hard/TTY/t_vga_beh.prj work.t_vga work.glbl 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o F:/Workspace/ASM/Hard/TTY/t_tty_isim_beh.exe -prj F:/Workspace/ASM/Hard/TTY/t_tty_beh.prj work.t_tty work.glbl 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
@@ -6,12 +6,27 @@ Determining compilation order of HDL files
 Analyzing Verilog file "F:/Workspace/ASM/Hard/TTY/../VGA/ipcore_dir/CM.v" into library work
 Analyzing Verilog file "F:/Workspace/ASM/Hard/TTY/../VGA/ipcore_dir/VM.v" into library work
 Analyzing Verilog file "F:/Workspace/ASM/Hard/TTY/char.v" into library work
+Analyzing Verilog file "F:/Workspace/ASM/Hard/TTY/../ZPC/async.v" into library work
 Analyzing Verilog file "F:/Workspace/ASM/Hard/TTY/VGA.v" into library work
-Analyzing Verilog file "F:/Workspace/ASM/Hard/TTY/t_vga.v" into library work
+Analyzing Verilog file "F:/Workspace/ASM/Hard/TTY/KB.v" into library work
+Analyzing Verilog file "F:/Workspace/ASM/Hard/TTY/tty.v" into library work
+WARNING:HDLCompiler:327 - "F:/Workspace/ASM/Hard/TTY/tty.v" Line 48: Concatenation with unsized literal; will interpret as 32 bits
+Analyzing Verilog file "F:/Workspace/ASM/Hard/TTY/t_tty.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
-WARNING:HDLCompiler:1016 - "F:/Workspace/ASM/Hard/TTY/t_vga.v" Line 48: Port ttywrite is not connected to this instance
-WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/TTY/VGA.v" Line 66: Size mismatch in connection of port <topval>. Formal port size is 3-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:1330 - "F:/Workspace/ASM/Hard/TTY/../ZPC/async.v" Line 131: Function log2 has no return value assignment
+WARNING:HDLCompiler:1016 - "F:/Workspace/ASM/Hard/TTY/t_tty.v" Line 48: Port BUS is not connected to this instance
+WARNING:HDLCompiler:327 - "F:/Workspace/ASM/Hard/TTY/tty.v" Line 48: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:1016 - "F:/Workspace/ASM/Hard/TTY/tty.v" Line 69: Port reset is not connected to this instance
+WARNING:HDLCompiler:1016 - "F:/Workspace/ASM/Hard/TTY/tty.v" Line 83: Port RxD_idle is not connected to this instance
+WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/TTY/tty.v" Line 63: Size mismatch in connection of port <BUS>. Formal port size is 32-bit while actual signal size is 8-bit.
+WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/TTY/VGA.v" Line 74: Size mismatch in connection of port <wea>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/TTY/VGA.v" Line 75: Size mismatch in connection of port <addra>. Formal port size is 12-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/TTY/VGA.v" Line 76: Size mismatch in connection of port <dina>. Formal port size is 8-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/TTY/VGA.v" Line 85: Size mismatch in connection of port <wea>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/TTY/VGA.v" Line 86: Size mismatch in connection of port <addra>. Formal port size is 12-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/TTY/VGA.v" Line 87: Size mismatch in connection of port <dina>. Formal port size is 8-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:1330 - "F:/Workspace/ASM/Hard/TTY/../ZPC/async.v" Line 131: Function log2 has no return value assignment
 Completed static elaboration
 Compiling module clock_divider
 Compiling module clock_manager
@@ -29,11 +44,17 @@ Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="spart...
 Compiling module CM
 Compiling module char
 Compiling module VGA
-Compiling module t_vga
+Compiling module ps2_keyboard_interface
+Compiling module BaudTickGen(ClkFrequency=5000000...
+Compiling module async_transmitter_default
+Compiling module BaudTickGen(ClkFrequency=5000000...
+Compiling module async_receiver_default
+Compiling module tty
+Compiling module t_tty
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 8 sub-compilation(s) to finish...
-Compiled 18 Verilog Units
-Built simulation executable F:/Workspace/ASM/Hard/TTY/t_vga_isim_beh.exe
-Fuse Memory Usage: 35748 KB
-Fuse CPU Usage: 654 ms
+Waiting for 16 sub-compilation(s) to finish...
+Compiled 24 Verilog Units
+Built simulation executable F:/Workspace/ASM/Hard/TTY/t_tty_isim_beh.exe
+Fuse Memory Usage: 36264 KB
+Fuse CPU Usage: 686 ms

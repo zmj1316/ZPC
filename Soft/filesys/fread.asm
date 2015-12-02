@@ -1,3 +1,9 @@
+#include get_fat
+#include clust2sect
+#include disk_read
+#include mem_cpy
+#include disk_write
+
 fread:
 # $a0 fp 		file struct
 # $a1 buff		buff to write
@@ -7,7 +13,7 @@ fread:
 # $s1 remain	byte remained
 # $s2 rcnt 		
 # $s3 cc
-# $s4 csect
+# $s4 clst
 # $s5 br
 # $s6 fp 	
 # $s7 buff
@@ -35,19 +41,23 @@ fread_loop0:
 	slt $t0 $zero $s8
 	beq $t0 $zero fread_loopexit #btr > 0
 	lw $t0 2($s6)	#fp->fptr
-	and $t1 $t0 255 #fptr % 256
+	andi $t1 $t0 255 #fptr % 256
 	bne $t1 $zero fread_get  
 	#on the boundary
-	bne $t0 $zero 2	#if fptr == 0?
-	# sect = getfat(fp->clust)
+	bne $t0 $zero 4	#if fptr == 0?
+	lw $s4 6($s6)   #clst = fp->sclust
+	#else
+	# clst = getfat(fp->clust)
 	lw $a0 8($s6)   
 	jal getfat
-	add $s0 $zero $v0
-	beq $zero $zero 1
-	#else
-	lw $s0 6($s6)   #sect = fp->sclust
-
-	sw $s0 8($s6)	# fp->clust = sect
+	add $s4 $zero $v0 
+	#endif
+	sw $s0 8($s6)	# fp->clust = clst
+	# sect = clust2sect(fp->fs, fp->clust(//clst))
+	move $a0 $s4
+	jal clust2sect
+	move $s0 $v0
+	
 	srl $s3 $s8 8 # cc = btr / 256(sector size)
 	beq $s3 $zero fread_ccmark # if cc (more than 1 sector)
 	# disk_read(buff,sect)
@@ -60,21 +70,22 @@ fread_ccmark:
 	lw $t0 10($s6) #dsect
 	beq $t0 $s0 fread_dsect # if dsect != sect
 	lw $t1 0($s6) 	#flag
-	and $t1 $t1 0x40#flag & FA__DIRTY
-	beq $t1 $zero fread_ccmark_t1 #if t1 != 0
+	andi $t2 $t1 0x40#flag & FA__DIRTY
+	beq $t2 $zero fread_ccmark_t1 #if t1 != 0
 	# disk_write(fp->buf,fp->dsect)
 	lw $a0 16($s6)
 	lw $a1 10($s6)
 	jal disk_write
 	lw $t1 0($s6) 	#flag
-	and $t1 $t1 0xFFFFFFBF flag &=~FA__DIRTY
+	andi $t1 $t1 0xFFFFFFBF flag &=~FA__DIRTY
+	sw $t1 0($s6)	# fp->flag
 fread_ccmark_t1:
 fread_dsect:
 	sw $s0 10($s6) #fp->dsect = sect
 
 fread_get:
 	lw $t2 2($s6) # fp-> fptr
-	and $t2 $t2 255 # fptr % SS
+	andi $t2 $t2 255 # fptr % SS
 	subi $s2 $t2 256
 	sub $s2 $zero $s2 # rcnt = SS - fptr%SS
 	slt $t0 $s8 $s2 # if s8 < s2

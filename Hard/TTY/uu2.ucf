@@ -1,0 +1,7 @@
+NET "clk" LOC="C9";
+NET "TxD" LOC = "M14";
+NET "RxD" LOC = "R7";
+NET "GPout[0]" LOC = "F12";
+NET "GPout[1]" LOC="E12";
+NET "GPout[2]" LOC = "F11";
+NET "GPout[3]" LOC="E11";

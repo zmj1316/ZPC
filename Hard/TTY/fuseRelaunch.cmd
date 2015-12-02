@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "F:/Workspace/ASM/Hard/TTY/t_vga_isim_beh.exe" -prj "F:/Workspace/ASM/Hard/TTY/t_vga_beh.prj" "work.t_vga" "work.glbl" 
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "F:/Workspace/ASM/Hard/TTY/t_tty_isim_beh.exe" -prj "F:/Workspace/ASM/Hard/TTY/t_tty_beh.prj" "work.t_tty" "work.glbl" 
