@@ -107,6 +107,7 @@ fread_loopend:
 	sub $s8 $s8 $s2 	#btr -= rcnt
 	beq $zero $zero fread_loop0
 fread_loopexit:
+	add $v0 $zero $s5  	#return br
 	pop $s8
 	pop $s7
 	pop $s6
@@ -116,5 +117,5 @@ fread_loopexit:
 	pop $s2
 	pop $s1
 	pop $s0
-	add $v0 $zero $s5  	#return br
+	
 	jr $ra

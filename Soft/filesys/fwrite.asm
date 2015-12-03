@@ -125,7 +125,8 @@ fwrite_loopexit:
 	beq $t3 $zero 1
 	sw $t1 4($s6) # fp->fsize = fp->fptr
 	# fp->flag |= FA__WRITTEN?!
-
+	
+	add $v0 $zero $s5  	#return bw
 	pop $s8
 	pop $s7
 	pop $s6
@@ -135,5 +136,5 @@ fwrite_loopexit:
 	pop $s2
 	pop $s1
 	pop $s0
-	add $v0 $zero $s5  	#return bw
+	
 	jr $ra

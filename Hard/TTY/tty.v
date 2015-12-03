@@ -134,7 +134,7 @@ always @(posedge clk_50mhz) begin
 		// end
 
 		
-		if (i == 100) begin
+		if (i > 100&& i<200) begin
 			signal = 1;
 		end
 		if (i==50000000) begin

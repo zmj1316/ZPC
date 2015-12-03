@@ -1,0 +1,70 @@
+.orign 0
+
+.text
+j main
+
+	#键盘缓冲区指针
+	keyboard_head .word 0x0
+	keyboard_tail .word 0x0
+	#
+.orign 128
+	#文件系统结构体
+	fs_wflag .word 0x0        0
+	fs_last_clust .word 0x0   2
+	fs_free_clust .word 0x0   4
+	fs_fatent .word 0x0       6
+	fs_volbase .word 0x0      8
+	fs_fatbase .word 0x0     10
+	fs_dirbase .word 0x0     12
+	fs_database .word 0x0    14
+	fs_winsect .word 0x0     16
+	fs_win .word 0x0 		 18
+	#256
+.orign 410
+	#文件结构体1
+	f0_flag .word 0x0 	# 0
+	f0_fptr .word 0x0 	# 2
+	f0_fsize .word 0x0 	# 4
+	f0_sclust .word 0x0 # 6
+	f0_clust .word 0x0  # 8
+	f0_dsect .word 0x0  # 10
+	f0_dir_sect .word 0x0 # 12
+	f0_dir_ptr .word 0x0 # 14
+	f0_buf .word 0x0 		#16
+.orign 700
+	#文件结构体2
+	f1_flag .word 0x0
+	f1_fptr .word 0x0
+	f1_fsize .word 0x0
+	f1_sclust .word 0x0
+	f1_clust .word 0x0
+	f1_dsect .word 0x0
+	f1_dir_sect .word 0x0
+	f1_dir_ptr .word 0x0
+	f1_buf .word 0x0
+.orign 990
+	#目录结构体
+	dir_index .word 0x0
+	dir_sclust .word 0x0
+	dir_sect .word 0x0
+	dir_dir .word 0x0
+	dir_sfn .word 0x0
+.orign 1000
+	#文件信息结构体
+	fi_fsize .word 0x0
+	fi_fdate .word 0x0
+	fi_ftiem .word 0x0
+	fi_fattr .word 0x0
+	fi_fname .word 0x0
+	#char [13]
+.orign 1024
+	#中断表开始
+	.data
+	time_counter .word 0x80
+	keyboard .word  0xB0
+	
+.orign
+	#中断入口
+
+.orign 3000
+	#系统程序
