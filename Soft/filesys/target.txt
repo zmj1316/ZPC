@@ -50,7 +50,7 @@ FRESULT sync_window (	/* FR_OK:succeeded, !=0:error */
 
 	if (fs->wflag) {	/* Write back the sector if it is dirty */
 		wsect = fs->winsect;	/* Current sector number */
-		if (disk_write(fs->drv, fs->win, wsect, 1) != RES_OK) {
+		if (disk_write(fs->win, wsect, 1) != RES_OK) {
 			res = FR_DISK_ERR;
 		} else {
 			fs->wflag = 0;

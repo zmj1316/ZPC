@@ -8,17 +8,17 @@ j main
 	keyboard_tail .word 0x0
 	#
 .orign 128
-	#文件系统结构体
+	#文件系统结构体 FATFS
 	fs_wflag .word 0x0        0
-	fs_last_clust .word 0x0   2
-	fs_free_clust .word 0x0   4
-	fs_fatent .word 0x0       6
-	fs_volbase .word 0x0      8
-	fs_fatbase .word 0x0     10
-	fs_dirbase .word 0x0     12
-	fs_database .word 0x0    14
-	fs_winsect .word 0x0     16
-	fs_win .word 0x0 		 18
+	fs_last_clust .word 0x0   0
+	fs_free_clust .word 0x0   0xFFFFFF
+	fs_n_fatent .word 0x0       2
+	fs_volbase .word 0x0     0x80
+	fs_fatbase .word 0x0     
+	fs_dirbase .word 0x0     
+	fs_database .word 0x0    
+	fs_winsect .word 0x0     
+	fs_win .word 0x0 		 
 	#256
 .orign 410
 	#文件结构体1

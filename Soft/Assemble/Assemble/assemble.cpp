@@ -4,6 +4,7 @@
 #include <iostream>
 #include <algorithm>
 #include <iomanip>
+#include <vector>
 
 using namespace std;
 
@@ -14,9 +15,9 @@ typedef unsigned short byte;
 
 struct codeInf
 {
-	//记录真实的行号
+	//录脟脗录脮忙脢碌碌脛脨脨潞脜
 	word realLine;
-	string code[4];
+	vector<string> code;
 };
 
 class assembler
@@ -27,7 +28,7 @@ public:
 	string buf;
 
 	map<string, word> labelMap;
-	map<word, word> addrMap;	//数组里的位置和真实汇编地址的对应表
+	map<word, word> addrMap;	//脢媒脳茅脌茂碌脛脦禄脰脙潞脥脮忙脢碌禄茫卤脿碌脴脰路碌脛露脭脫娄卤铆
 
 	codeInf code[MAX_LINE];
 	
@@ -39,7 +40,7 @@ public:
 		codeLen = 0;
 	}
 
-	word translate(string reg)	//寄存器名, 转换为二进制数
+	word translate(string reg)	//录脛麓忙脝梅脙没, 脳陋禄禄脦陋露镁陆酶脰脝脢媒
 	{
 		if (reg == "$zero" || reg == "$0")
 			return 0;
@@ -93,7 +94,7 @@ public:
 			return 24;
 		else if (reg == "$t9" || reg == "$25")
 			return 25;
-		else if (reg == "$k0" || reg == "$26")
+		else if (reg == "$k0" || reg == "$rf26")
 			return 26;
 		else if (reg == "$k1" || reg == "$27")
 			return 27;
@@ -167,6 +168,7 @@ public:
 	{
 		word realLine = 0;
 		char c;
+		int pos;
 		ifstream fin;
 		fin.open("a.asm");
 
@@ -193,26 +195,36 @@ public:
 			{
 				fin.ignore();
 			}
-			else if (c == '#')	//注释
+			else if (c == '#')	//脳垄脢脥
 			{
 				getline(fin, buf);
 			}
 			else if (c == '.')
 			{
 				getline(fin, buf);
+				if ((pos = buf.find_first_of('#')) != string::npos)
+				{
+					buf = buf.substr(0, pos);
+				}
+
 				transform(buf.begin(), buf.end(), buf.begin(), tolower);
 
-				if (buf.substr(0, 5) == ".data" || buf.substr(0, 5) == ".text")
+				if (buf.length() >= 5 && (buf.substr(0, 5) == ".data" || buf.substr(0, 5) == ".text"))
 				{
 					code[codeLen].realLine = realLine;
-					code[codeLen++].code[0] = buf;
+					code[codeLen++].code.push_back(buf);
 				}
-				else if (buf.substr(0, 6) == ".orign")
+				else if (buf.length() > 6 && buf.substr(0, 6) == ".orign")
 				{
 					int i = 6, j = 6, m = 0;
 					code[codeLen].realLine = realLine;
-					code[codeLen].code[m++] = ".orign";
+					code[codeLen].code.push_back(".orign");
 
+					if(buf[6] != ' ')
+					{
+						cout << "Around Line " << realLine << ": " << " unrecognized word." << endl;
+							return 0;
+					}
 					while (buf[i])
 					{
 						while (buf[i] == ' ' || buf[i] == '\t')
@@ -226,13 +238,13 @@ public:
 							&& buf[j] != '\t' && buf[j] != 0 && buf[j])
 							j++;
 
-						if (j == i)	//未读取到字符
+						if (j == i)	//脦麓露脕脠隆碌陆脳脰路没
 						{
 							cout << "Around Line " << realLine << ": " << " there is a mistake." << endl;
 							return 0;
 						}
 
-						code[codeLen].code[m++] = buf.substr(i, j - i);
+						code[codeLen].code.push_back(buf.substr(i, j - i));
 
 						i = ++j;
 						if (i > buf.length())
@@ -256,11 +268,19 @@ public:
 			else if ((c <= 'z' && c >= 'a') || (c <= 'Z' && c >= 'A') || c == '_')
 			{
 				fin >> buf;
+				if ((pos = buf.find_first_of('#')) != string::npos)
+				{
+					buf = buf.substr(0, pos);
+					string a;
+					getline(fin, a);
+					realLine++;
+				}
+
 				transform(buf.begin(), buf.end(), buf.begin(), tolower);
 
-				int i = 0, j = 0, m = 0;	//分割指令用的下标
+				int i = 0, j = 0, m = 0;	//路脰赂卯脰赂脕卯脫脙碌脛脧脗卤锚
 
-				if (buf[buf.length() - 1] == ':')	//是标号
+				if (buf[buf.length() - 1] == ':')	//脢脟卤锚潞脜
 				{
 					if (labelMap.find(buf.substr(0, buf.length() - 1)) == labelMap.end())
 					{
@@ -272,9 +292,9 @@ public:
 						return 0;
 					}
 
-					realLine--; //去除多计算的一行
+					realLine--; //脠楼鲁媒露脿录脝脣茫碌脛脪禄脨脨
 
-					while (1) //将标号之后到下一条指令前的空白和回车屏蔽
+					while (1) //陆芦卤锚潞脜脰庐潞贸碌陆脧脗脪禄脤玫脰赂脕卯脟掳碌脛驴脮掳脳潞脥禄脴鲁碌脝脕卤脦
 					{
 						c = fin.peek();
 						if (c == '\n')
@@ -294,9 +314,18 @@ public:
 				}
 				else
 				{
-					code[codeLen].code[m++] = buf;
+					code[codeLen].code.push_back(buf);
 
-					getline(fin, buf);	//处理真指令或者其他
+					if (!getline(fin, buf))	//麓娄脌铆脮忙脰赂脕卯禄貌脮脽脝盲脣没
+					{
+						fin.close();
+						return 1;
+					}
+
+					if ((pos = buf.find_first_of('#')) != string::npos)
+					{
+						buf = buf.substr(0, pos);
+					}
 
 					while (buf[i])
 					{
@@ -311,13 +340,13 @@ public:
 							&& buf[j] != '\t' && buf[j] != 0 && buf[j])
 							j++;
 
-						if (j == i)	//未读取到字符
+						if (j == i)	//脦麓露脕脠隆碌陆脳脰路没
 						{
 							cout << "Around Line " << realLine << ": " << " there is a mistake." << endl;
 							return 0;
 						}
 
-						code[codeLen].code[m++] = buf.substr(i, j - i);
+						code[codeLen].code.push_back(buf.substr(i, j - i));
 
 						i = ++j;
 						if (i > buf.length())
@@ -335,7 +364,7 @@ public:
 					codeLen++;
 				}
 			}
-			else	//非正常字符
+			else	//路脟脮媒鲁拢脳脰路没
 			{
 				cout << "Around Line " << realLine << ": " << " there is a mistake." << endl;
 				return 0;
@@ -367,11 +396,22 @@ public:
 			}
 			else if (code[line].code[0] == ".orign")
 			{
+				if(code[line].code.size() != 2)
+				{
+					cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+						return 0;
+				}
 				segment = 0;
 				address = getNum(code[line].code[1]);
 			}
 			else if (segment == 1)	//data
 			{
+				if(code[line].code.size() < 3)
+				{
+					cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+						return 0;
+				}
+
 				if (labelMap.find(code[line].code[0]) == labelMap.end())
 				{
 					labelMap[code[line].code[0]] = line;
@@ -384,18 +424,27 @@ public:
 
 				if (code[line].code[1] == ".asciiz")
 				{
+					for(int i = 3; i < code[line].code.size(); i++)
+					{
+						code[line].code[2] += code[line].code[i];
+					}
+
 					if (code[line].code[2][0] != '\"' || code[line].code[2][code[line].code[2].length() - 1] != '\"')
 					{
 						cout << "Around Line " << code[line].realLine << ": " << " there is a mistake." << endl;
 						return 0;
 					}
 					
-					if ((code[line].code[2].length() - 2) % 2 == 0)
+					if (code[line].code[2].length() % 2 == 0)
 						address += code[line].code[2].length();
 					else
 						address += code[line].code[2].length() - 1;
 				}
 				else if (code[line].code[1] == ".word")
+				{
+					address += CO;
+				}
+				else if (code[line].code[1] == ".addr")
 				{
 					address += CO;
 				}
@@ -407,7 +456,7 @@ public:
 			}
 			else if (segment == 2)	//text
 			{
-				if (code[line].code[0] == "nop") //各种伪指令
+				if (code[line].code[0] == "nop") //赂梅脰脰脦卤脰赂脕卯
 				{
 					address += CO;
 				}
@@ -416,6 +465,10 @@ public:
 					address += CO;
 				}
 				else if (code[line].code[0] == "eret")
+				{
+					address += CO;
+				}
+				else if (code[line].code[0] == "mov")
 				{
 					address += CO;
 				}
@@ -431,12 +484,12 @@ public:
 				{
 					address += 2 * CO;
 				}
-				else //普通指令
+				else //脝脮脥篓脰赂脕卯
 				{
 					address += CO;
 				}
 			}
-			else //未注明段类型
+			else //脦麓脳垄脙梅露脦脌脿脨脥
 			{
 				cout << "There is no segment definatiuon at " << code[line].realLine << endl;
 				return 0;
@@ -445,7 +498,7 @@ public:
 			line++;
 		}
 
-		map<string, word>::iterator it;	//将虚拟地址转换为真实地址
+		map<string, word>::iterator it;	//陆芦脨茅脛芒碌脴脰路脳陋禄禄脦陋脮忙脢碌碌脴脰路
 		for (it = labelMap.begin(); it != labelMap.end(); it++)
 		{
 			it->second = addrMap[it->second];
@@ -526,6 +579,15 @@ public:
 					data = getNum(code[line].code[2].c_str());
 					output(fout, data);
 				}
+				else if (code[line].code[1] == ".addr")
+				{
+					if (labelMap.find(code[line].code[2]) != labelMap.end())
+						data = (int)(labelMap[code[line].code[2]]);
+					else
+						data = getNum(code[line].code[2].c_str());
+
+					output(fout, data);
+				}
 				else
 				{
 					cout << "Around Line " << code[line].realLine << ": " << " there is a mistake." << endl;
@@ -534,18 +596,30 @@ public:
 			}
 			else if(segment == 2)  //text
 			{
-				if (code[line].code[0] == "nop") //各种伪指令
+				if (code[line].code[0] == "nop") //赂梅脰脰脦卤脰赂脕卯
 				{
+					if(code[line].code.size() != 1)
+					{
+						cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+							return 0;
+					}
+
 					output(fout, 0);
 				}
 				else if (code[line].code[0] == "la")	//lui addi  lw
 				{
+					if(code[line].code.size() != 3)
+					{
+						cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+							return 0;
+					}
+
 					im = getAddr(code[line].code[2]) >> 14;
 					ir = (translate(code[line].code[1]) << 16) | (im & 0xffff) | (15 << 26);
 					output(fout, ir);
 
 					im = getAddr(code[line].code[2]);
-					ir = (translate(code[line].code[1]) << 21) | (translate(code[line].code[1]) << 16) | (im & 0xffff) | (8 << 26);
+					ir = (translate(code[line].code[1]) << 21) | (translate(code[line].code[1]) << 16) | (im & 0xffff) | (13 << 26);
 					output(fout, ir);
 				}
 				/*else if (code[line].code[0] == "back")	//lui addi sw
@@ -563,16 +637,34 @@ public:
 				}*/
 				else if (code[line].code[0] == "ret")
 				{
+					if(code[line].code.size() != 1)
+					{
+						cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+							return 0;
+					}
+
 					ir = (31 << 21) | 8;
 					output(fout, ir);
 				}
 				else if (code[line].code[0] == "eret")
 				{
+					if(code[line].code.size() != 1)
+					{
+						cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+							return 0;
+					}
+
 					ir = (16 << 26) | (16 << 21) | 24;
 					output(fout, ir);
 				}
 				else if (code[line].code[0] == "push")
 				{
+					if(code[line].code.size() != 2)
+					{
+						cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+							return 0;
+					}
+
 					ir = (29 << 21) | (29 << 16) | 0xfffe | (8 << 26);
 					output(fout, ir);
 
@@ -581,70 +673,183 @@ public:
 				}
 				else if (code[line].code[0] == "pop")
 				{
+					if(code[line].code.size() != 2)
+					{
+						cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+							return 0;
+					}
+
 					ir = (29 << 21) | (translate(code[line].code[1]) << 16) | (35 << 26);
 					output(fout, ir);
 
 					ir = (29 << 21) | (29 << 16) | 2 | (8 << 26);
 					output(fout, ir);					
 				}
-				else //普通指令
+				else if (code[line].code[0] == "mov")
 				{
-					if (code[line].code[0] == "add")	//R类型
+					if(code[line].code.size() != 3)
 					{
+						cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+							return 0;
+					}
+
+					ir = (translate(code[line].code[2]) << 21) | (translate(code[line].code[1]) << 11) | 32;
+					output(fout, ir);
+				}
+				else //脝脮脥篓脰赂脕卯
+				{
+					if (code[line].code[0] == "add")	//R脌脿脨脥
+					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+
 						ir = (translate(code[line].code[2]) << 21) | (translate(code[line].code[3]) << 16) | (translate(code[line].code[1]) << 11) | 32;
 					}
 					else if (code[line].code[0] == "addu")
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+
 						ir = (translate(code[line].code[2]) << 21) | (translate(code[line].code[3]) << 16) | (translate(code[line].code[1]) << 11) | 33;
 					}
 					else if (code[line].code[0] == "sub")
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						ir = (translate(code[line].code[2]) << 21) | (translate(code[line].code[3]) << 16) | (translate(code[line].code[1]) << 11) | 34;
 					}
 					else if (code[line].code[0] == "subu")
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						ir = (translate(code[line].code[2]) << 21) | (translate(code[line].code[3]) << 16) | (translate(code[line].code[1]) << 11) | 35;
 					}
 					else if (code[line].code[0] == "slt")
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						ir = (translate(code[line].code[2]) << 21) | (translate(code[line].code[3]) << 16) | (translate(code[line].code[1]) << 11) | 42;
 					}
 					else if (code[line].code[0] == "sltu")
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						ir = (translate(code[line].code[2]) << 21) | (translate(code[line].code[3]) << 16) | (translate(code[line].code[1]) << 11) | 43;
 					}
 					else if (code[line].code[0] == "and")
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						ir = (translate(code[line].code[2]) << 21) | (translate(code[line].code[3]) << 16) | (translate(code[line].code[1]) << 11) | 36;
 					}
 					else if (code[line].code[0] == "or")
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						ir = (translate(code[line].code[2]) << 21) | (translate(code[line].code[3]) << 16) | (translate(code[line].code[1]) << 11) | 37;
 					}
 					else if (code[line].code[0] == "nor")
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						ir = (translate(code[line].code[2]) << 21) | (translate(code[line].code[3]) << 16) | (translate(code[line].code[1]) << 11) | 39;
 					}
 					else if (code[line].code[0] == "sll")
 					{
-						ir = (translate(code[line].code[2]) << 21) | (translate(code[line].code[3]) << 16) | (translate(code[line].code[1]) << 11) | 0;
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
+						if ((getNum(code[line].code[3]) >> 5) != 0)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " im is so large." << endl;
+							return 0;
+						}
+
+						ir = (translate(code[line].code[2]) << 16) | (getNum(code[line].code[3]) << 6) | (translate(code[line].code[1]) << 11) | 0;
 					}
 					else if (code[line].code[0] == "srl")
 					{
-						ir = (translate(code[line].code[2]) << 21) | (translate(code[line].code[3]) << 16) | (translate(code[line].code[1]) << 11) | 2;
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+
+						if ((getNum(code[line].code[3]) >> 5) != 0)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " im is so large." << endl;
+							return 0;
+						}
+						
+						ir = (translate(code[line].code[2]) << 16) | (getNum(code[line].code[3]) << 6) | (translate(code[line].code[1]) << 11) | 2;
 					}
 					else if (code[line].code[0] == "xor")
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						ir = (translate(code[line].code[2]) << 21) | (translate(code[line].code[3]) << 16) | (translate(code[line].code[1]) << 11) | 38;
 					}
 					else if (code[line].code[0] == "jr")
 					{
+						if(code[line].code.size() != 2)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						ir = (translate(code[line].code[1]) << 21) | 8;
 					}
 
 
-					else if (code[line].code[0] == "mfc0")	//R类型
+					else if (code[line].code[0] == "mfc0")	//R脌脿脨脥
 					{
+						if(code[line].code.size() != 3)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						im = getNum(code[line].code[2]);
 						if (im > 0x7fff || im < -0x8000)
 						{
@@ -654,8 +859,14 @@ public:
 
 						ir = (translate(code[line].code[1]) << 16) | ((im & 0xffff) << 11) | (16 << 26);
 					}
-					else if (code[line].code[0] == "mtc0")	//R类型
+					else if (code[line].code[0] == "mtc0")	//R脌脿脨脥
 					{
+						if(code[line].code.size() != 3)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						im = getNum(code[line].code[2]);
 						if (im > 0x7fff || im < -0x8000)
 						{
@@ -665,8 +876,14 @@ public:
 
 						ir = (translate(code[line].code[1]) << 16) | ((im & 0xffff) << 11) | (16 << 26) | (4 << 21);
 					}
-					else if (code[line].code[0] == "addi")	//i类型
+					else if (code[line].code[0] == "addi")	//i脌脿脨脥
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						im = getNum(code[line].code[3]);
 						if (im > 0x7fff || im < -0x8000)
 						{
@@ -676,8 +893,31 @@ public:
 
 						ir = (translate(code[line].code[2]) << 21) | (translate(code[line].code[1]) << 16) | (im & 0xffff) | (8 << 26);
 					}
+					else if (code[line].code[0] == "addiu")	//i脌脿脨脥
+					{
+						if (code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+							return 0;
+						}
+
+						im = getNum(code[line].code[3]);
+						if (im > 0x7fff || im < -0x8000)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " im is so large." << endl;
+							return 0;
+						}
+
+						ir = (translate(code[line].code[2]) << 21) | (translate(code[line].code[1]) << 16) | (im & 0xffff) | (9 << 26);
+					}
 					else if (code[line].code[0] == "andi")	
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						im = getNum(code[line].code[3]);
 						if (im > 0x7fff || im < -0x8000)
 						{
@@ -689,6 +929,12 @@ public:
 					}
 					else if (code[line].code[0] == "ori")
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						im = getNum(code[line].code[3]);
 						if (im > 0x7fff || im < -0x8000)
 						{
@@ -700,6 +946,12 @@ public:
 					}
 					else if (code[line].code[0] == "xori")
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						im = getNum(code[line].code[3]);
 						if (im > 0x7fff || im < -0x8000)
 						{
@@ -711,6 +963,12 @@ public:
 					}
 					else if (code[line].code[0] == "slti")
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						im = getNum(code[line].code[3]);
 						if (im > 0x7fff || im < -0x8000)
 						{
@@ -722,6 +980,12 @@ public:
 					}
 					else if (code[line].code[0] == "sltiu")
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						im = getNum(code[line].code[3]);
 						if (im > 0x7fff || im < -0x8000)
 						{
@@ -733,14 +997,26 @@ public:
 					}
 					else if (code[line].code[0] == "lui")
 					{
+						if(code[line].code.size() != 3)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						im = getNum(code[line].code[2]);
 
 						ir = (translate(code[line].code[1]) << 16) | (im & 0xffff) | (15 << 26);
 					}
 					else if (code[line].code[0] == "beq")
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						if (labelMap.find(code[line].code[3]) != labelMap.end())
-							im = (int)(labelMap[code[line].code[3]] - 1 - addrMap[line]);
+							im = (int)(labelMap[code[line].code[3]] - 2 - addrMap[line]);
 						else
 							im = getNum(code[line].code[3]);
 
@@ -750,12 +1026,18 @@ public:
 							return 0;
 						}*/
 
-						ir = (translate(code[line].code[2]) << 21) | (translate(code[line].code[1]) << 16) | ((im & 0xffff) / CO) | (4 << 26);
+						ir = (translate(code[line].code[2]) << 21) | (translate(code[line].code[1]) << 16) | ((im / CO) & 0xffff) | (4 << 26);
 					}
 					else if (code[line].code[0] == "bne")
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						if (labelMap.find(code[line].code[3]) != labelMap.end())
-							im = (int)(labelMap[code[line].code[3]] - 1 - addrMap[line]);
+							im = (int)(labelMap[code[line].code[3]] - 2 - addrMap[line]);
 						else
 							im = getNum(code[line].code[3]);
 
@@ -765,10 +1047,16 @@ public:
 							return 0;
 						}*/
 
-						ir = (translate(code[line].code[2]) << 21) | (translate(code[line].code[1]) << 16) | ((im & 0xffff) / CO) | (5 << 26);
+						ir = (translate(code[line].code[2]) << 21) | (translate(code[line].code[1]) << 16) | ((im / CO) & 0xffff) | (5 << 26);
 					}
 					else if (code[line].code[0] == "sw")
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						im = getNum(code[line].code[2]);
 						if (im > 0x7fff || im < -0x8000)
 						{
@@ -780,6 +1068,12 @@ public:
 					}
 					else if (code[line].code[0] == "sb")
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						im = getNum(code[line].code[2]);
 						if (im > 0x7fff || im < -0x8000)
 						{
@@ -791,6 +1085,12 @@ public:
 					}
 					else if (code[line].code[0] == "lw")	
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						im = getNum(code[line].code[2]);
 						if (im > 0x7fff || im < -0x8000)
 						{
@@ -802,6 +1102,12 @@ public:
 					}
 					else if (code[line].code[0] == "lb")
 					{
+						if(code[line].code.size() != 4)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						im = getNum(code[line].code[2]);
 						if (im > 0x7fff || im < -0x8000)
 						{
@@ -813,10 +1119,20 @@ public:
 					}
 					
 
-					else if (code[line].code[0] == "j")	//j类型
+					else if (code[line].code[0] == "j")	//j脌脿脨脥
 					{
+						if(code[line].code.size() != 2)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						//if (labelMap.find(code[line].code[1]) != labelMap.end())
-						addr = getAddr(code[line].code[1]);
+						
+						if (labelMap.find(code[line].code[1]) != labelMap.end())
+							addr = (int)(labelMap[code[line].code[1]]);
+						else
+							addr = getNum(code[line].code[1]);
 
 						if ((addr >> 26) != 0)
 						{
@@ -830,6 +1146,12 @@ public:
 					}
 					else if (code[line].code[0] == "jal")	//
 					{
+						if(code[line].code.size() != 2)
+						{
+							cout << "Around Line " << code[line].realLine << ": " << " Parameters number wrong." << endl;
+								return 0;
+						}
+						
 						if (labelMap.find(code[line].code[1]) != labelMap.end())
 							addr = labelMap[code[line].code[1]];
 						else
@@ -858,7 +1180,7 @@ public:
 					output(fout, ir);
 				}
 			}
-			else //段未定义
+			else //露脦脦麓露篓脪氓
 			{
 				cout << "Around Line " << code[line].realLine << ": " << " segment not be defined." << endl;
 				return 0;

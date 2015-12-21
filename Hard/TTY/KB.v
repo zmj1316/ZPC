@@ -141,9 +141,9 @@ module ps2_keyboard_interface (
 // Parameters
 
 // The timer value can be up to (2^bits) inclusive.
-parameter TIMER_60USEC_VALUE_PP = 2950; // Number of sys_clks for 60usec.
+parameter TIMER_60USEC_VALUE_PP = 3000; // Number of sys_clks for 60usec.
 parameter TIMER_60USEC_BITS_PP  = 12;   // Number of bits needed for timer
-parameter TIMER_5USEC_VALUE_PP = 186;   // Number of sys_clks for debounce
+parameter TIMER_5USEC_VALUE_PP = 250;   // Number of sys_clks for debounce
 parameter TIMER_5USEC_BITS_PP  = 8;     // Number of bits needed for timer
 parameter TRAP_SHIFT_KEYS_PP = 0;       // Default: No shift key trap.
 

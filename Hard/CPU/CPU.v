@@ -157,7 +157,7 @@ always @(posedge clk or posedge rst) begin
 				end
 				if (INT == 1'b1) begin
 					cReg[14] = PC - 2;
-					PC = 32'h40;
+					PC = 32'h40C;
 					INT = 1'b0;
 					cReg[12] = cReg[12] | 32'h1;
 					stage = -1;
@@ -167,7 +167,6 @@ always @(posedge clk or posedge rst) begin
 				// deal with memory & control latency	
 				IR = Memin;
 				// interrupt here
-
 			end
 			3'h2:begin
 				Memread = 0;
@@ -204,6 +203,7 @@ always @(posedge clk or posedge rst) begin
 						6'h2B: Alures = (A < B)? 1:0;
 						6'h0 : Alures = LshiftRes;//sll
 						6'h2 : Alures = RshiftRes;//srl
+						6'h10: Alures = A * B;//mut
 						6'h8: begin // JR
 							PC = {RA[31:0]};
 						end

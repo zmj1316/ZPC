@@ -23,7 +23,8 @@ module async_transmitter(
 
 parameter ClkFrequency = 50000000;	// 25MHz
 parameter Baud = 115200;
-
+// parameter ClkFrequency = 10;	// 25MHz
+// parameter Baud = 1;
 generate
 	if(ClkFrequency<Baud*8 && (ClkFrequency % Baud!=0)) ASSERTION_ERROR PARAMETER_OUT_OF_RANGE("Frequency incompatible with requested Baud rate");
 endgenerate

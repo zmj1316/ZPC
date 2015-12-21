@@ -55,23 +55,27 @@ reg [7:0] datain;
 // wire [7:0] doutb;
 wire [7:0]doutb;
 wire [7:0]doutb1;
-integer curx = 0;
-reg [5:0] cury = 0;
+wire [7:0]doutb2;
+reg [6:0] curx = 7'h0;
+reg [5:0] cury = 6'h0;
 output reg ttywrite;
 reg [7:0] ttydata;
 reg ttyWFlag;
 reg page = 0;
-reg [11:0] clrcount = 0;
-reg backflag = 0;
+reg [11:0] clrcount = 12'h0;
+reg backflag = 1'b0;
+
+reg btnLine = 0;
+reg [5:0]btnx = 0;
 clock_manager clocking(clk_25mhz, clk_6hz, clk_24hz, clk_50mhz, 1'b0,clk_1hz);
 
 vga_controller_640_60 vga_controller(clk_25mhz, vga_hsync, vga_vsync, h_counter, v_counter, blank);
 
-layer_compositor layering({vga_blue, vga_green, vga_red}, blank, (clk_1hz == 0 && ((curx + cury*40)) == addrb)? h_counter[3:0]==4'h0 ? 3'b111:3'b000: topval);
+layer_compositor layering({vga_blue, vga_green, vga_red}, blank, (clk_1hz == 0 && ((curx + cury*40)) == addrb)? ((h_counter[3:0]==4'h1) ? 3'b111:3'b000): {3{topval[0]}});
 
 VM vm(
 	.clka(clk_25mhz),
-	.wea(page? 1 : ttywrite),
+	.wea(btnLine?0: page? 1 : ttywrite),
 	.addra(page? addrb: (curx + cury*40 - 1)),
 	.dina(page?0:ttydata),
 	// .douta(douta),
@@ -82,7 +86,7 @@ VM vm(
 
 VM vm2(
 	.clka(clk_50mhz),
-	.wea(page ? ttywrite : 1),
+	.wea(btnLine?0: page ? ttywrite : 1),
 	.addra(page?(curx + cury*40 - 1):addrb ),
 	.dina(page?ttydata : 0),
 	// .douta(douta),
@@ -91,7 +95,17 @@ VM vm2(
 	.doutb(doutb1)
 	);
 
-char c(page?doutb1:doutb,h_counter[3:0],v_counter[3:0],topval[0],clk_50mhz);
+LL line(
+	.clka(clk_50mhz),
+	.wea(btnLine ? ttywrite : 1),
+	.addra(btnLine?(btnx - 1):addrb ),
+	.dina(btnLine?ttydata : 0),
+	// .douta(douta),
+	.addrb(addrb[4:0]),
+	.clkb(clk_50mhz),
+	.doutb(doutb2)
+	);
+char c(v_counter[10:4] == 29? doutb2:page?doutb1:doutb,h_counter[3:0],v_counter[3:0],topval[0],clk_50mhz);
 
 initial begin
 	we = 0;
@@ -105,29 +119,30 @@ end
 
 always @(posedge clk_25mhz) begin
 	// we = 0;
-	ttywrite <= 0;
-	addrb <= v_counter[8:4] * 40 + h_counter[9:4];
+	ttywrite = 0;
+	addrb = v_counter[8:4] * 40 + h_counter[9:4];
 	// we = 1;
 	if (backflag) begin
-		backflag <= 0;
-		curx <= curx - 1;
-		if (curx < 0) begin
-			curx <= 39;
-			cury <= cury - 1;
+		backflag = 0;
+		if (btnLine) begin
+			btnx = btnx - 1;
+		end
+		else begin
+			curx = curx - 1;
+
 		end
 	end
 	if (Memwrite==1'b1 && ttyWFlag == 1'b0) begin
-
-		ttyWFlag <= 1;
-		case(BUS)
+		ttyWFlag = 1;
+		case(BUS[7:0])
 			8'h0d: begin 		// enter
-				curx <= 0;
-				cury <= cury + 1;
+				curx = 0;
+				cury = cury + 1;
 			end
 			8'h08: begin 		// backspace
-				ttydata <= 0;
-				ttywrite <= 1;	
-				backflag <= 1;
+				ttydata = 0;
+				ttywrite = 1;	
+				backflag = 1;
 				// curx <= curx - 1;
 				// if (curx < 0) begin
 				// 	curx <= 39;
@@ -136,27 +151,42 @@ always @(posedge clk_25mhz) begin
 
 			end
 			8'h1B:begin 		// esc
-				cury <= 30;
+				cury = 29;
+				curx = 0;
+			end
+			8'h09:begin
+				btnLine=~btnLine;
+				btnx = 0;
 			end
 			default: begin
-				if (curx == 40) begin
-					curx <= 0;
-					cury <= cury + 1;
+				ttydata = BUS;
+				ttywrite = 1;
+				if (btnLine) begin
+					btnx=btnx+1;
 				end
-				ttydata <= BUS;
-				ttywrite <= 1;
-				curx <= curx + 1;
+				else begin
+					curx = curx + 1;
+					if (curx == 40) begin
+						curx = 0;
+						cury = cury + 1;
+					end
+				end
 			end
 		endcase
 	end
 	else if (Memwrite == 1'b0 && ttyWFlag == 1'b1) begin
-		ttyWFlag <= 0;
+		ttyWFlag = 0;
 	end
 	else 
-		ttywrite <= 0;
-	if (cury == 30) begin
-		cury <= 0;
-		page <= ~page;
+		ttywrite = 0;
+	if (cury == 29) begin
+		cury = 0;
+		curx = 0;
+		page = ~page;
+	end
+	if (curx == -1) begin
+		curx = 39;
+		cury = cury - 1;
 	end
 end
 

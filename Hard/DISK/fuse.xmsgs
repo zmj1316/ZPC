@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="1330" delta="unknown" >"F:/Workspace/ASM/Hard/DISK/../ZPC/async.v" Line 131: Function <arg fmt="%s" index="1">log2</arg> has no return value assignment
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"F:/Workspace/ASM/Hard/DISK/t_1_.v" Line 35: Port <arg fmt="%s" index="1">led</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"F:/Workspace/ASM/Hard/DISK/tt_Disk.v" Line 36: Port <arg fmt="%s" index="1">Rstate</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"F:/Workspace/ASM/Hard/DISK/Disk.v" Line 72: Port <arg fmt="%s" index="1">RxD_idle</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"F:/Workspace/ASM/Hard/DISK/tt_Disk.v" Line 43: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">Addrin</arg>&gt;. Formal port size is <arg fmt="%d" index="2">9</arg>-bit while actual signal size is <arg fmt="%d" index="1">12</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1330" delta="unknown" >"F:/Workspace/ASM/Hard/DISK/../ZPC/async.v" Line 131: Function <arg fmt="%s" index="1">log2</arg> has no return value assignment
+</msg>
+
+</messages>
+

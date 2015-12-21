@@ -40,7 +40,7 @@ module t_PC;
 	wire [31:0]Addr;
 	// Bidirs
 	wire [31:0] BUS;
-
+	wire TxD;
 	// Instantiate the Unit Under Test (UUT)
 	PC uut (
 		.clk_50mhz(clk_50mhz), 
@@ -53,7 +53,8 @@ module t_PC;
 		.BUS(BUS), 
 		.Memwrite(Memwrite), 
 		.Memread(Memread),
-		.Addr(Addr)
+		.Addr(Addr),
+		.TxD(TxD)
 	);
 
 	initial begin

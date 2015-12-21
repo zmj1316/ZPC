@@ -11,8 +11,9 @@ get_fat:
 	
 	addi $s2 $zero 128 # fs
 	lw $a0 10($t2) # fatbase
+	add $a0 $a0 $t0 # fatbase + clst/256
 	jal move_window
-	addi $s2 $s2 18
+	addi $s2 $s2 18 # win
 	sll $t1 $s0 8  # clst%256
 	add $s2 $s2 $t1# win+offset
 	lh $s1 0($s2)
@@ -21,3 +22,4 @@ get_fat:
 	pop $s1
 	pop $s0
 	jr $ra
+	
