@@ -154,7 +154,11 @@ always @(posedge clk_25mhz) begin
 				cury = 29;
 				curx = 0;
 			end
-			8'h09:begin
+			8'h09:begin 		// tab
+
+				curx=curx+2;
+			end
+			8'h11:begin 		// capslock
 				btnLine=~btnLine;
 				btnx = 0;
 			end
@@ -163,6 +167,9 @@ always @(posedge clk_25mhz) begin
 				ttywrite = 1;
 				if (btnLine) begin
 					btnx=btnx+1;
+					if (btnx == 40) begin
+						btnx = 0;
+					end
 				end
 				else begin
 					curx = curx + 1;

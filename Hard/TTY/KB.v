@@ -683,7 +683,9 @@ begin
     12'h15d : ascii <= 8'h7c;  // |
     12'h15b : ascii <= 8'h7d;  // }
     12'h10e : ascii <= 8'h7e;  // ~
+    12'h003 : ascii <= 8'h11;  // capslock
     12'h?71 : ascii <= 8'h7f;  // (Delete OR DEL on numeric keypad)
+
     default : ascii <= 8'h2e;  // '.' used for unlisted characters.
   endcase
 end

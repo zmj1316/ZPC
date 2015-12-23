@@ -11,37 +11,40 @@
 <msg type="warning" file="HDLCompiler" num="327" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/../CPU/CPU.v" Line 102: Concatenation with unsized literal; will interpret as 32 bits
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="327" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/../CPU/CPU.v" Line 284: Concatenation with unsized literal; will interpret as 32 bits
+<msg type="warning" file="HDLCompiler" num="327" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/../CPU/CPU.v" Line 283: Concatenation with unsized literal; will interpret as 32 bits
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="1330" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/async.v" Line 132: Function <arg fmt="%s" index="1">log2</arg> has no return value assignment
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/PC.v" Line 64: Port <arg fmt="%s" index="1">rst</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/t_KB.v" Line 50: Port <arg fmt="%s" index="1">lcd_rs</arg> is not connected to this instance
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/PC.v" Line 72: Port <arg fmt="%s" index="1">Rstate</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/PC.v" Line 73: Port <arg fmt="%s" index="1">rst</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/PC.v" Line 81: Port <arg fmt="%s" index="1">Rstate</arg> is not connected to this instance
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="327" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/../CPU/CPU.v" Line 102: Concatenation with unsized literal; will interpret as 32 bits
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="327" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/../CPU/CPU.v" Line 284: Concatenation with unsized literal; will interpret as 32 bits
+<msg type="warning" file="HDLCompiler" num="327" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/../CPU/CPU.v" Line 283: Concatenation with unsized literal; will interpret as 32 bits
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/PC.v" Line 67: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">Memread</arg>&gt;. Formal port size is <arg fmt="%d" index="2">1</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/PC.v" Line 76: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">Memread</arg>&gt;. Formal port size is <arg fmt="%d" index="2">1</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/PC.v" Line 68: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">Memwrite</arg>&gt;. Formal port size is <arg fmt="%d" index="2">2</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/PC.v" Line 77: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">Memwrite</arg>&gt;. Formal port size is <arg fmt="%d" index="2">2</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/PC.v" Line 70: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">Addrin</arg>&gt;. Formal port size is <arg fmt="%d" index="2">12</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/PC.v" Line 79: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">Addrin</arg>&gt;. Formal port size is <arg fmt="%d" index="2">12</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/../DISK/Disk.v" Line 73: Port <arg fmt="%s" index="1">RxD_idle</arg> is not connected to this instance
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/PC.v" Line 79: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">Addrin</arg>&gt;. Formal port size is <arg fmt="%d" index="2">10</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/PC.v" Line 88: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">Addrin</arg>&gt;. Formal port size is <arg fmt="%d" index="2">10</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="327" delta="unknown" >"F:/Workspace/ASM/Hard/ZPC/../TTY/tty.v" Line 47: Concatenation with unsized literal; will interpret as 32 bits

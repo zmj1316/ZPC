@@ -1,0 +1,40 @@
+Release 14.7 - par P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Wed Dec 23 20:29:04 2015
+
+  SmartGuide Results
+  ------------------
+  This section describes the guide results after invoking the Router. This
+  report accurately reflects the differences between the input design
+  and the guide design.
+
+  Number of Components in the input design    |   3661
+    Number of guided Components               |   3661 out of   3661 100.0%
+    Number of re-implemented Components       |      0 out of   3661   0.0%
+    Number of new/changed Components          |      0 out of   3661   0.0%
+  Number of Nets in the input design          |   6714
+    Number of guided Nets                     |   6714 out of   6714 100.0%
+    Number of partially guided Nets           |      0 out of   6714   0.0%
+    Number of re-routed Nets                  |      0 out of   6714   0.0%
+    Number of new/changed Nets                |      0 out of   6714   0.0%
+
+
+The following Components were re-implemented.
+---------------------------------------------
+
+
+The following Components are new/changed.
+-----------------------------------------
+
+
+The following Nets were re-routed.
+----------------------------------
+
+
+The following Nets are new/changed.
+-----------------------------------
+
+
+The following Nets were partially guided.
+-----------------------------------------

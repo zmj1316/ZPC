@@ -199,10 +199,10 @@ always @(posedge clk or posedge rst) begin
 						6'h25: Alures = A | B;
 						6'h26: Alures = A ^ B;
 						6'h27: Alures = ~(A | B);
-						6'h2A: Alures = ((A - B) & 32'h80000000 == 32'h80000000)? 1:0;
-						6'h2B: Alures = (A < B)? 1:0;
-						6'h0 : Alures = LshiftRes;//sll
-						6'h2 : Alures = RshiftRes;//srl
+						6'h2B: Alures = ((A - B) & 32'h80000000 == 32'h80000000)? 1:0;
+						6'h2A: Alures = (A < B)? 1:0;
+						6'h00 : Alures = LshiftRes;//sll
+						6'h02 : Alures = RshiftRes;//srl
 						6'h10: Alures = A * B;//mut
 						6'h8: begin // JR
 							PC = {RA[31:0]};
@@ -225,7 +225,7 @@ always @(posedge clk or posedge rst) begin
 						6'h0D: Alures = A | imme0;
 						6'h0E: Alures = A ^ imme0;
 						6'h0F: Alures = {imme[15:0],16'b0};//lui
-						// 6'h0A: Alures = (A < B)^(A[31]^B[31]) 1 : 0;//slti
+						//6'h0A: Alures = (A < B)^(A[31]^B[31]) 1 : 0;//slti
 						6'h0B: Alures = (A<imme0)?1:0;//sltiu
 					endcase
 				end

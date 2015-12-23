@@ -62,9 +62,8 @@ module t_KB;
 		.Addr(Addr), 
 		.clk(clk), 
 		.TxD(TxD), 
-		.RxD(RxD), 
-		.INTin(INTin)
-	);
+		.RxD(RxD)
+		);
 	reg c2=0;
 	assign ps2_clk = c2;
 	assign ps2_data = c2;

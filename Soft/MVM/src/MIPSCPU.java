@@ -107,7 +107,7 @@ public class MIPSCPU extends JPanel implements Runnable,KeyListener,MouseListene
 			immeSignEx = imme | 0xFFFF0000;
 		else
 			immeSignEx = imme;
-		immeUnsignEx = imme;
+		immeUnsignEx = imme & 0xFFFF;
 		setControl();
 	}
 
@@ -272,6 +272,8 @@ public class MIPSCPU extends JPanel implements Runnable,KeyListener,MouseListene
 				addrBUS = 0;
 				memAddr = PC;
 				PC = PC + 2;
+				if (PC > 5000)
+					return;
 				Instruction = memory.memReadWord(memAddr);
 				try {
 					outputStream.write(String.format("PC:%X\tINST:\t%s\n",PC-2,Reasm.translate(Instruction)).getBytes());
@@ -384,7 +386,8 @@ public class MIPSCPU extends JPanel implements Runnable,KeyListener,MouseListene
 						PC = Reg[rs];
 						try {
 							outputStream.write(String.format("Jr\t%X\n",PC).getBytes());
-						} catch (IOException e) {
+                            outputStream.write(String.format("$v0\t%X\n",Reg[2]).getBytes());
+                        } catch (IOException e) {
 							e.printStackTrace();
 						}
 						break;
@@ -451,7 +454,8 @@ public class MIPSCPU extends JPanel implements Runnable,KeyListener,MouseListene
 				if (JUMP == 1) {
 					PC = (PC >> 27 << 27) | (label << 1);
 					try {
-						outputStream.write(String.format("Jump\t%X\n",PC).getBytes());
+                        outputStream.write(String.format("Jump\t%X\n",PC).getBytes());
+                        outputStream.write(String.format("$a0\t%X\n",Reg[4]).getBytes());
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
@@ -495,8 +499,10 @@ public class MIPSCPU extends JPanel implements Runnable,KeyListener,MouseListene
 						addrBUS = memAddr;
 						dataBUS = memOut & 0xFFFF;
 						char c0 = (char) (dataBUS & 0xFFFF);
-						if(memory.getSegment(memAddr)==0xA000)
-							System.out.print(c0&0xFF);
+						if(memory.getSegment(memAddr)==0xA000){
+//								System.out.print((char)(c0>>8));
+								System.out.print((char)(c0&0xFF));
+						}
 						try {
 							outputStream.write(String.format("SB\t%X\t%X\n",addrBUS,dataBUS).getBytes());
 						} catch (IOException e) {
@@ -520,7 +526,7 @@ public class MIPSCPU extends JPanel implements Runnable,KeyListener,MouseListene
 				if (REGWRITE == 1) {
 					if (MEMTOREG == 1) {
 						if (BYTE == 1)
-							Reg[regAddrIn] = memIn & 0xFF;
+							Reg[regAddrIn] = memIn & 0xFFFF;
 						else
 							Reg[regAddrIn] = memIn;
 					} else {

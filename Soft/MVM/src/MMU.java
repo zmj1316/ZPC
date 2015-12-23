@@ -57,7 +57,7 @@ public class MMU {
 			if (adr == 0x202) {
 				readSector(memD000[0x200]);
 			}
-			return this.memD000[adr];
+			return (char)(this.memD000[adr]&0x00FF);
 		} else {
 			return 0;
 		}
@@ -103,8 +103,8 @@ public class MMU {
 			if (adr == 0x202) {
 				readSector(memD000[0x200]);
 			}
-			low = this.memD000[adr];
-			high = this.memD000[adr + 1];
+			low = this.memD000[adr]&0x00FF;
+			high = 0;
 			return (high << 16) | low;
 		} else {
 			return 0;
@@ -129,8 +129,8 @@ public class MMU {
 			if (adr == 0x202) {
 				writeSector(memD000[0x200]);
 			}
-			this.memD000[adr] = low;
-			this.memD000[adr + 1] = high;
+			this.memD000[adr] = (char) (low&0xFF);
+//			this.memD000[adr + 1] = high;
 		} else {
 			// hehe
 		}
