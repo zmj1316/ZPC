@@ -1,7 +1,7 @@
 Release 14.7 - par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Wed Dec 23 20:29:04 2015
+Thu Dec 24 19:01:08 2015
 
   SmartGuide Results
   ------------------
@@ -9,15 +9,15 @@ Wed Dec 23 20:29:04 2015
   report accurately reflects the differences between the input design
   and the guide design.
 
-  Number of Components in the input design    |   3661
-    Number of guided Components               |   3661 out of   3661 100.0%
-    Number of re-implemented Components       |      0 out of   3661   0.0%
-    Number of new/changed Components          |      0 out of   3661   0.0%
-  Number of Nets in the input design          |   6714
-    Number of guided Nets                     |   6714 out of   6714 100.0%
-    Number of partially guided Nets           |      0 out of   6714   0.0%
-    Number of re-routed Nets                  |      0 out of   6714   0.0%
-    Number of new/changed Nets                |      0 out of   6714   0.0%
+  Number of Components in the input design    |   3713
+    Number of guided Components               |   3713 out of   3713 100.0%
+    Number of re-implemented Components       |      0 out of   3713   0.0%
+    Number of new/changed Components          |      0 out of   3713   0.0%
+  Number of Nets in the input design          |   6887
+    Number of guided Nets                     |   6700 out of   6887  97.3%
+    Number of partially guided Nets           |    161 out of   6887   2.3%
+    Number of re-routed Nets                  |     26 out of   6887   0.4%
+    Number of new/changed Nets                |      0 out of   6887   0.0%
 
 
 The following Components were re-implemented.
@@ -30,6 +30,32 @@ The following Components are new/changed.
 
 The following Nets were re-routed.
 ----------------------------------
+ cpu/cReg_4_13.
+ N1901.
+ cpu/PC_mux0000<15>21.
+ cpu/old_PC_25_cmp_eq000012751.
+ N1113.
+ N1157.
+ N1227.
+ cpu/old_PC_25_cmp_eq000013119.
+ N679.
+ cpu/PC_mux0000<29>47/O.
+ cpu/PC_mux0000<17>67.
+ cpu/_old_Alures_26<14>.
+ mem/Mmux_datain_mux00643649.
+ cpu/Mmult_Alures_mult0001_submult_0_25.
+ cpu/Mmult_Alures_mult0001_submult_1_P_to_Adder_A_11.
+ cpu/Mmult_Alures_mult0001_submult_0_P_to_Adder_A_19.
+ cpu/Mmult_Alures_mult0001_submult_01_P_to_Adder_B_7.
+ cpu/Regfile_11_2.
+ cpu/cReg_22_13.
+ cpu/old_PC_25_cmp_eq000031353.
+ cpu/old_PC_25_cmp_eq000021114.
+ cpu/old_PC_25_cmp_eq000021134.
+ N1231.
+ cpu/old_PC_25_cmp_eq000010196_SW3/O.
+ cpu/C/signal<10>_SW13/O.
+ cpu/RB_10_1.
 
 
 The following Nets are new/changed.
@@ -38,3 +64,164 @@ The following Nets are new/changed.
 
 The following Nets were partially guided.
 -----------------------------------------
+ cpu/Regfile_1_mux0000<22>.
+ cpu/Regfile_17_and0000.
+ cpu/IR<29>.
+ cpu/IR<27>.
+ cpu/IR<11>.
+ cpu/IR<12>.
+ cpu/IR<13>.
+ cpu/IR<15>.
+ cpu/IR<14>.
+ _mux0000.
+ cpu/RB<26>.
+ cpu/PC<25>.
+ cpu/IR<23>.
+ cpu/IR<3>.
+ _mux0001<0>.
+ cpu/PC<10>.
+ cpu/IR<2>.
+ cpu/IR<4>.
+ cpu/IR<9>.
+ cpu/IR<28>.
+ cpu/PC<12>.
+ cpu/PC<4>.
+ cpu/RB<0>.
+ cpu/IR<30>.
+ cpu/IR<31>.
+ mem/douta<28>.
+ mem/douta<23>.
+ cpu/IR<6>.
+ cpu/IR<7>.
+ cpu/_old_B_20<29>.
+ cpu/_old_B_20<31>.
+ cpu/IR<8>.
+ cpu/_old_B_20<8>.
+ cpu/Dst<4>.
+ cpu/Dst<0>.
+ cpu/Dst<3>.
+ cpu/PC<14>.
+ cpu/Regfile_14_and0000_bdd4.
+ cpu/Sh450.
+ cpu/_old_B_20<4>.
+ cpu/_old_B_20<2>.
+ cpu/Sh5.
+ cpu/_old_B_20<7>.
+ cpu/_old_B_20<5>.
+ cpu/signal<11>.
+ cpu/_old_B_20<6>.
+ cpu/IR<1>.
+ cpu/_old_B_20<19>.
+ cpu/_old_B_20<17>.
+ cpu/_old_B_20<21>.
+ cpu/_old_B_20<14>.
+ cpu/_old_B_20<12>.
+ cpu/_old_B_20<23>.
+ cpu/_old_B_20<16>.
+ cpu/_old_B_20<15>.
+ cpu/Sh17.
+ cpu/_old_B_20<22>.
+ cpu/_old_B_20<18>.
+ cpu/_old_B_20<26>.
+ N3611.
+ cpu/C/signal<11>.
+ cpu/IR<10>.
+ cpu/PC<18>.
+ N159.
+ cpu/PC<31>.
+ cpu/PC<30>.
+ cpu/PC<29>.
+ cpu/PC<28>.
+ cpu/IR<0>.
+ N185.
+ N12.
+ cpu/RA<18>.
+ N253.
+ cpu/old_Alures_23_and0000.
+ cpu/_old_B_20<9>.
+ cpu/_old_B_20<13>.
+ cpu/signal<9>.
+ cpu/signal<10>.
+ cpu/RA<19>.
+ cpu/_old_B_20<27>.
+ N221.
+ cpu/PC<21>.
+ N157.
+ cpu/Sh46.
+ cpu/PC<22>.
+ cpu/RA<22>.
+ cpu/Sh127.
+ cpu/Sh108.
+ cpu/Sh37.
+ cpu/Regfile_1_mux0000<6>.
+ cpu/PC<15>.
+ cpu/_old_A_19<1>.
+ cpu/_old_A_19<2>.
+ cpu/RA<2>.
+ cpu/PC<2>.
+ cpu/RA<4>.
+ cpu/_old_A_19<6>.
+ cpu/RA<6>.
+ cpu/_old_A_19<7>.
+ cpu/PC<7>.
+ cpu/_old_A_19<10>.
+ cpu/RA<10>.
+ cpu/PC<11>.
+ cpu/_old_A_19<12>.
+ cpu/RA<12>.
+ cpu/_old_B_20<20>.
+ cpu/_old_A_19<20>.
+ cpu/_old_A_19<14>.
+ cpu/RA<14>.
+ cpu/_old_A_19<22>.
+ cpu/_old_A_19<15>.
+ cpu/RA<15>.
+ cpu/_old_A_19<31>.
+ cpu/RA<31>.
+ cpu/_old_A_19<17>.
+ cpu/_old_A_19<18>.
+ cpu/_old_A_19<19>.
+ cpu/Alures_mult0001<19>.
+ N451.
+ N450.
+ cpu/signal<0>.
+ cpu/_old_B_20<28>.
+ cpu/_old_B_20<25>.
+ cpu/IR<16>.
+ cpu/PC<8>.
+ cpu/IR<25>.
+ cpu/PC<5>.
+ cpu/PC<13>.
+ cpu/IR<21>.
+ N210.
+ cpu/RA<5>.
+ cpu/IR_13_1.
+ cpu/IR_14_1.
+ cpu/Alures<7>.
+ cpu/RA<13>.
+ cpu/PC<23>.
+ cpu/RA<3>.
+ cpu/RA<8>.
+ cpu/_old_A_19<13>.
+ cpu/_old_A_19<16>.
+ cpu/_old_A_19<21>.
+ cpu/_old_A_19<23>.
+ cpu/RA<23>.
+ cpu/_old_A_19<25>.
+ cpu/_old_A_19<26>.
+ cpu/_old_A_19<28>.
+ cpu/_old_A_19<29>.
+ cpu/RA<28>.
+ cpu/IR_6_1.
+ cpu/Regfile_30_16.
+ cpu/Regfile_12_22.
+ cpu/Regfile_13_22.
+ cpu/Regfile_20_22.
+ cpu/Regfile_21_22.
+ cpu/Regfile_2_22.
+ cpu/Regfile_2_2.
+ cpu/Regfile_25_26.
+ mem/addr<7>.
+ mem/addr<0>.
+ cpu/Sh41.
+ cpu/Sh453.

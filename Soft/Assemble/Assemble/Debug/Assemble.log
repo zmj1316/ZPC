@@ -1,8 +1,8 @@
 ﻿  assemble.cpp
-f:\workspace\asm\soft\assemble\assemble\assemble.cpp(142): warning C4018: “<”: 有符号/无符号不匹配
-f:\workspace\asm\soft\assemble\assemble\assemble.cpp(148): warning C4018: “<”: 有符号/无符号不匹配
-f:\workspace\asm\soft\assemble\assemble\assemble.cpp(250): warning C4018: “>”: 有符号/无符号不匹配
-f:\workspace\asm\soft\assemble\assemble\assemble.cpp(352): warning C4018: “>”: 有符号/无符号不匹配
-f:\workspace\asm\soft\assemble\assemble\assemble.cpp(427): warning C4018: “<”: 有符号/无符号不匹配
-f:\workspace\asm\soft\assemble\assemble\assemble.cpp(560): warning C4018: “<”: 有符号/无符号不匹配
+f:\workspace\asm\soft\assemble\assemble\assemble.cpp(144): warning C4018: “<”: 有符号/无符号不匹配
+f:\workspace\asm\soft\assemble\assemble\assemble.cpp(150): warning C4018: “<”: 有符号/无符号不匹配
+f:\workspace\asm\soft\assemble\assemble\assemble.cpp(252): warning C4018: “>”: 有符号/无符号不匹配
+f:\workspace\asm\soft\assemble\assemble\assemble.cpp(356): warning C4018: “>”: 有符号/无符号不匹配
+f:\workspace\asm\soft\assemble\assemble\assemble.cpp(384): warning C4018: “>”: 有符号/无符号不匹配
+f:\workspace\asm\soft\assemble\assemble\assemble.cpp(588): warning C4018: “<”: 有符号/无符号不匹配
   Assemble.vcxproj -> F:\Workspace\ASM\Soft\Assemble\Debug\Assemble.exe

@@ -8,7 +8,7 @@ import java.io.*;
 public class MIPSCPU extends JPanel implements Runnable,KeyListener,MouseListener{
 	private static final long serialVersionUID = 1L;
 	private final int PCstart = 0;// program loading address
-	private final int INTaddr = 0x50;// interrupt vector list
+	private final int INTaddr = 1036;// interrupt vector list
 
 	/* CPU */
 	private MMU memory = new MMU();
@@ -282,6 +282,11 @@ public class MIPSCPU extends JPanel implements Runnable,KeyListener,MouseListene
 				}
 				synchronized (MIPSCPU.class) {
 					if (INTin && (cReg[12] & 1) == 0) {
+						try {
+							outputStream.write(String.format("IR\n").getBytes());
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
 						INT = true;
 						INTin=false;
 						cReg[13] = INTnum;
@@ -393,6 +398,11 @@ public class MIPSCPU extends JPanel implements Runnable,KeyListener,MouseListene
 						break;
 					case 0x0C:// syscall
 						synchronized (MIPSCPU.class) {
+							try {
+								outputStream.write(String.format("syscall\n").getBytes());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
 							cReg[13] = 8;
 							INT = true;
 							break;
@@ -513,7 +523,10 @@ public class MIPSCPU extends JPanel implements Runnable,KeyListener,MouseListene
 						addrBUS = memAddr;
 						dataBUS = memOut;
 						char c0 = (char) (dataBUS & 0xFFFF);
-						if(memory.getSegment(memAddr)==0xA000) System.out.print(c0);
+						if(memory.getSegment(memAddr)==0xA000){
+							System.out.print((char)(c0>>8));
+							System.out.print((char)(c0&0xFF));
+						}
 						try {
 							outputStream.write(String.format("SW\t%X\t%X\n",addrBUS,dataBUS).getBytes());
 						} catch (IOException e) {

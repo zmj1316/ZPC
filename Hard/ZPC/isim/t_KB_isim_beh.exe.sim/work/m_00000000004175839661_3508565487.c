@@ -2694,17 +2694,27 @@ LAB190:    t56 = (t0 + 6088);
     goto LAB138;
 
 LAB128:    xsi_set_current_line(204, ng0);
-    t3 = (t0 + 3928U);
-    t5 = *((char **)t3);
-    t3 = (t0 + 6088);
-    xsi_vlogvar_assign_value(t3, t5, 0, 0, 32);
+    t3 = (t0 + 6408);
+    t5 = (t3 + 56U);
+    t11 = *((char **)t5);
+    t12 = (t0 + 2968U);
+    t29 = *((char **)t12);
+    memset(t36, 0, 8);
+    xsi_vlog_unsigned_lshift(t36, 32, t11, 32, t29, 5);
+    t12 = (t0 + 6088);
+    xsi_vlogvar_assign_value(t12, t36, 0, 0, 32);
     goto LAB138;
 
 LAB130:    xsi_set_current_line(205, ng0);
-    t3 = (t0 + 3768U);
-    t5 = *((char **)t3);
-    t3 = (t0 + 6088);
-    xsi_vlogvar_assign_value(t3, t5, 0, 0, 32);
+    t3 = (t0 + 6408);
+    t5 = (t3 + 56U);
+    t11 = *((char **)t5);
+    t12 = (t0 + 2968U);
+    t29 = *((char **)t12);
+    memset(t36, 0, 8);
+    xsi_vlog_unsigned_rshift(t36, 32, t11, 32, t29, 5);
+    t12 = (t0 + 6088);
+    xsi_vlogvar_assign_value(t12, t36, 0, 0, 32);
     goto LAB138;
 
 LAB132:    xsi_set_current_line(206, ng0);

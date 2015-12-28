@@ -51,7 +51,7 @@ LAB2:    xsi_set_current_line(311, ng0);
     t2 = (t0 + 1344U);
     t4 = *((char **)t2);
     memset(t5, 0, 8);
-    xsi_vlog_unsigned_rshift(t5, 32, t3, 32, t4, 5);
+    xsi_vlog_unsigned_lshift(t5, 32, t3, 32, t4, 5);
     t2 = (t0 + 3064);
     t6 = (t2 + 56U);
     t7 = *((char **)t6);

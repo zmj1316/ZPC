@@ -201,8 +201,8 @@ always @(posedge clk or posedge rst) begin
 						6'h27: Alures = ~(A | B);
 						6'h2B: Alures = ((A - B) & 32'h80000000 == 32'h80000000)? 1:0;
 						6'h2A: Alures = (A < B)? 1:0;
-						6'h00 : Alures = LshiftRes;//sll
-						6'h02 : Alures = RshiftRes;//srl
+						6'h00 : Alures = B<<shamt;//sll
+						6'h02 : Alures = B>>shamt;//srl
 						6'h10: Alures = A * B;//mut
 						6'h8: begin // JR
 							PC = {RA[31:0]};
@@ -308,5 +308,5 @@ module Lshifter(data,b,result);
 	input [4:0] b; /* amount to shift */
 	output [Nminus1:0] result; /* shift result */
 
-	assign result = data >> b; 
+	assign result = data << b; 
 endmodule
