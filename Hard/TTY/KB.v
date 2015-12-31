@@ -236,8 +236,8 @@ reg enable_timer_5usec;
 reg [TIMER_60USEC_BITS_PP-1:0] timer_60usec_count;
 reg [TIMER_5USEC_BITS_PP-1:0] timer_5usec_count;
 reg [7:0] ascii;      // "REG" type only because a case statement is used.
-reg left_shift_key;
-reg right_shift_key;
+reg left_shift_key = 0;
+reg right_shift_key = 0;
 reg hold_extended;    // Holds prior value, cleared at rx_output_strobe
 reg hold_released;    // Holds prior value, cleared at rx_output_strobe
 reg ps2_clk_s;        // Synchronous version of this input

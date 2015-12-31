@@ -110,7 +110,7 @@ public class MIPSCPU extends JPanel implements Runnable,KeyListener,MouseListene
 		immeUnsignEx = imme & 0xFFFF;
 		setControl();
 	}
-
+	
 	private void setControl() {
 		switch (opcode) {
 		case 0x00:// R-type
@@ -280,19 +280,19 @@ public class MIPSCPU extends JPanel implements Runnable,KeyListener,MouseListene
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				synchronized (MIPSCPU.class) {
+				synchronized (this) {
 					if (INTin && (cReg[12] & 1) == 0) {
-						try {
-							outputStream.write(String.format("IR\n").getBytes());
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
 						INT = true;
 						INTin=false;
 						cReg[13] = INTnum;
 					}
 					if (INT) {
 						cReg[14] = PC - 2;
+						try {
+							outputStream.write(String.format("Inter\n").getBytes());
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
 						PC = INTaddr;
 						INT = false;
 						cReg[12] = cReg[12] | 1;
@@ -375,18 +375,6 @@ public class MIPSCPU extends JPanel implements Runnable,KeyListener,MouseListene
 					case 0x02:// srl
 						aluRes = aluB >> shamt;// srl
 						break;
-					case 0x03:// sra
-						aluRes = aluB >> shamt;
-						break;
-					case 0x04:// sllv
-						aluRes = aluB << aluA;
-						break;
-					case 0x06:// srlv
-						aluRes = aluB >>> aluA;
-						break;
-					case 0x07:// srav
-						aluRes = aluB >> aluA;
-						break;
 					case 0x08:// jr
 						PC = Reg[rs];
 						try {
@@ -398,12 +386,7 @@ public class MIPSCPU extends JPanel implements Runnable,KeyListener,MouseListene
 						break;
 					case 0x0C:// syscall
 						synchronized (MIPSCPU.class) {
-							try {
-								outputStream.write(String.format("syscall\n").getBytes());
-							} catch (IOException e) {
-								e.printStackTrace();
-							}
-							cReg[13] = 8;
+							cReg[13] = 2;
 							INT = true;
 							break;
 						}
@@ -425,7 +408,7 @@ public class MIPSCPU extends JPanel implements Runnable,KeyListener,MouseListene
 						aluRes = (aluA < immeUnsignEx) ? 1 : 0;
 						break;
 					case 0x0B:// sltiu
-						aluRes = (((long) aluA & 0xFFFFFFFF) < ((long) immeUnsignEx & 0xFFFFFFFF)) ? 1 : 0;
+						aluRes = (((long) aluA) < ((long) immeUnsignEx & 0xFFFFFFFF)) ? 1 : 0;
 						break;
 					case 0x0C:// andi
 						aluRes = aluA & immeUnsignEx;
@@ -511,6 +494,8 @@ public class MIPSCPU extends JPanel implements Runnable,KeyListener,MouseListene
 						char c0 = (char) (dataBUS & 0xFFFF);
 						if(memory.getSegment(memAddr)==0xA000){
 //								System.out.print((char)(c0>>8));
+								if ((c0&0xFF) == '\r')
+									c0 = '\n';
 								System.out.print((char)(c0&0xFF));
 						}
 						try {
@@ -523,10 +508,7 @@ public class MIPSCPU extends JPanel implements Runnable,KeyListener,MouseListene
 						addrBUS = memAddr;
 						dataBUS = memOut;
 						char c0 = (char) (dataBUS & 0xFFFF);
-						if(memory.getSegment(memAddr)==0xA000){
-							System.out.print((char)(c0>>8));
-							System.out.print((char)(c0&0xFF));
-						}
+						if(memory.getSegment(memAddr)==0xA000) System.out.print(c0);
 						try {
 							outputStream.write(String.format("SW\t%X\t%X\n",addrBUS,dataBUS).getBytes());
 						} catch (IOException e) {
@@ -721,6 +703,7 @@ public class MIPSCPU extends JPanel implements Runnable,KeyListener,MouseListene
 				k += 55;
 			s = s + k;
 		}
+
 		return s;
 	}
 
@@ -730,16 +713,27 @@ public class MIPSCPU extends JPanel implements Runnable,KeyListener,MouseListene
 			System.out.print(i + ":" + Reg[i] + " ");
 		System.out.println();
 	}
-	
+
+	@Override
 	public void keyPressed(KeyEvent e) {
-		synchronized (MIPSCPU.class) {
-			int key = e.getKeyCode();
+			int key = e.getKeyChar();
 			if (!INTin) {
-				INTin = true;
-				INTnum = 1;
-				//System.out.println(key);
-				memory.memWriteWord(0xB0000000, key);
+					INTin = true;
+					INTnum = 1;
+					System.out.print((char)key);
+					if(key == 10)
+						key  = 13;
+					memory.memWriteWord(0xB0000000, key);
+
+
 			}
+	}
+	
+	public void timeInt()
+	{
+		if (!INTin) {
+			//INTin = true;
+			INTnum = 0;
 		}
 	}
 

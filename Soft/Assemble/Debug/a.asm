@@ -1,7 +1,7 @@
 .orign 0
 .text
 	addi $sp, $zero, 6000
-	j main
+	j boot
 
 .orign 4
 .data
@@ -70,12 +70,13 @@
 	fi_fattr .word 0x0
 	fi_fname .word 0x0
 	#char [13]
+
 .orign 1024
 .data
 	#中断表开始
-	time_counter .word 1056
-	keyboard .word  1150
-	
+	time_counter .addr time_int
+	keyboard .addr keyboard_int
+	#syscall .addr syscall_int
 
 .orign 1032
 #留出2个word给输入法缓冲区
@@ -104,48 +105,47 @@ int_end:
 	minute .word 0x0
 	second .word 0x0
 
+
 .text
 	#每秒一次计时器中断
 time_int:
 	push $s5
 	push $s4
 	push $s3
-
+time_int_second:
 	la $s5, second
-	lw $s4, 4($s5)
+	lw $s4, 0($s5)
 	addi $s4, $s4, 1
 	slti $s3, $s4, 60
-	addi $s3, $s3, -1
-	beq $s3, $zero, time_int_next1
-
-	add $s4, $zero, $zero
-	addi $s3, $zero, 1
-time_int_next1:
+	bne $s3, $zero, time_int_second_uncarry
+	mov $s4, $zero
+time_int_second_uncarry:
 	sw $s4, 0($s5)
+	bne $s3, $zero, time_int_end
 
+time_int_minute:
 	la $s5, minute
-	lw $s4, 4($s5)
-	add $s4, $s4, $s3
+	lw $s4, 0($s5)
+	addi $s4, $s4, 1
 	slti $s3, $s4, 60
-	addi $s3, $s3, -1
-	beq $s3, $zero, time_int_next2
-
-	add $s4, $zero, $zero
-	addi $s3, $zero, 1
-time_int_next2:
+	bne $s3, $zero, time_int_minute_uncarry
+	mov $s4, $zero
+time_int_minute_uncarry:
 	sw $s4, 0($s5)
+	bne $s3, $zero, time_int_end
 
+time_int_hour:
 	la $s5, hour
-	lw $s4, 4($s5)
-	add $s4, $s4, $s3
+	lw $s4, 0($s5)
+	addi $s4, $s4, 1
 	slti $s3, $s4, 24
-	addi $s3, $s3, -1
-	beq $s3, $zero, time_int_end
-
-	add $s4, $zero, $zero
-time_int_end:
+	bne $s3, $zero, time_int_hour_uncarry
+	mov $s4, $zero
+time_int_hour_uncarry:
 	sw $s4, 0($s5)
+	bne $s3, $zero, time_int_end
 
+time_int_end:
 	pop $s3
 	pop $s4
 	pop $s5
@@ -160,47 +160,9 @@ keyboard_int:
 	push $s6
 	push $s5
 	push $s4
-	
 	#获得键盘输入的值
 	lui $s7, 0xB000
-	lw $s7, 0($s7)
-
-	#是否是输入法状态
-	lw $s6, 12($zero)
-	slti $s6, $s6, 1
-	beq $zero, $s6, keyboard_shift
-
-	#是否shift
-	addi $s6, $zero, 17
-	bne $s6, $s7, keyboard_enter
-	addi $s6, $s6, 1
-	sw $s6, 12($zero)
-	j keyboard_end
-
-keyboard_enter:
-	#是否回车
-	addi $s6, $zero, 13
-	bne $s6, $s7, keyboard_backspace
-	j keyboard_normal
-
-keyboard_backspace:
-	#是否退格
-	addi $s6, $zero, 8
-	bne $s6, $s7, keyboard_normal
-	la $s6, keyboard_tail
-	lw $s6, 0($s6)
-	la $s5, keyboard_head
-	lw $s5, 0($s5)	
-	beq $s5, $s6, keyboard_end
-	addi $s6, $s6, -1
-	slti $s5, $s6, 0x10
-	beq $s5, $zero, keyboard_backspace_next:
-	addi $s6, $s6, 127
-keyboard_backspace_next:
-	la $s5, keyboard_tail
-	sw $s6, 0($s5)
-
-	j keyboard_end
+	lb $s7, 0($s7)
 
 keyboard_normal:
 	la $s6, keyboard_tail
@@ -212,106 +174,13 @@ keyboard_normal:
 	addi $s6, $s6, 1
 
 	slti $s4, $s6, 128
-	bne $s4, $zero, keyboard_next1
+	bne $s4, $zero, keyboard_next
 	addi $s6, $zero, 0x10
-keyboard_next1:
-	bne $s6, $s5, keyboard_wrong
-	j keyboard_end
-keyboard_next2:
+keyboard_next:
 	la $s7, keyboard_tail
 	sw $s6, 0($s7)
 	j keyboard_end
 
-keyboard_wrong:
-	addi $a0, $zero, 8
-	jal print_char
-	j keyboard_end
-
-keyboard_shift:
-	#是否shift
-	addi $s6, $zero, 17
-	bne $s6, $s7, keyboard_shift_enter
-	sw $zero, 12($zero)
-	lui $s5, 0xA100
-	#输出清屏
-	addi $s4, $zero, 27
-	sw $s4, 0($s5)
-	#恢复输入法缓冲区指针
-	addi $s4, $zero, 1032
-	la $s5, im_head
-	sw $s4, 0($s5)
-	la $s5, im_tail
-	sw $s4, 0($s5)
-	j keyboard_end
-
-keyboard_shift_enter:
-	#是否回车
-	addi $s6, $zero, 13
-	bne $s6, $s7, keyboard_shift_backspace
-	jal input_method
-	j keyboard_end
-
-keyboard_shift_backspace:
-	#是否退格
-	addi $s6, $zero, 8
-	bne $s6, $s7, keyboard_shift_check
-	la $s6, im_tail
-	lw $s6, 0($s6)	
-	addi $s5, $s5, 1032
-	beq $s5, $s6, keyboard_end
-	addi $s6, $s6, -1
-	la $s5, im_tail
-	sw $s6, 0($s5)
-	j keyboard_end
-
-keyboard_shift_check:
-	#检查输入有效性
-	#0-9
-	addi $s6, $zero, 58
-	slt $s5, $s7, $s6
-	beq $s5, $zero, keyboard_shift_wrong
-	addi $s6, $zero, 47
-	slt $s5, $s6, $s7
-	beq $s5, $zero, keyboard_shift_wrong
-	addi $s7, $s7, -48
-	j keyboard_shift_normal
-
-	#A-Z
-	addi $s6, $zero, 91
-	slt $s5, $s7, $s6
-	beq $s5, $zero, keyboard_shift_wrong
-	addi $s6, $zero, 64
-	slt $s5, $s6, $s7
-	beq $s5, $zero, keyboard_shift_wrong
-	addi $s7, $s7, -65
-	j keyboard_shift_normal
-
-	#a-z
-	addi $s6, $zero, 123
-	slt $s5, $s7, $s6
-	beq $s5, $zero, keyboard_shift_wrong
-	addi $s6, $zero, 96
-	slt $s5, $s6, $s7
-	beq $s5, $zero, keyboard_shift_wrong
-	addi $s7, $s7, -97
-
-keyboard_shift_normal:
-	la $s6, im_tail
-	lw $s6, 0($s6)	
-	#是否缓冲区满
-	addi $s4, $zero, 1036
-	beq $s4, $s6, keyboard_shift_wrong
-	sb $s7, 0($s6)
-	addi $s6, $s6, 1
-	la $s5, im_tail
-	sw $s6, 0($s5)
-
-	j keyboard_end
-
-keyboard_shift_wrong:
-	lui $s4, 0xA100
-	addi $s7, $zero, 8
-	sw $s7, 0($s4)
 
 keyboard_end:
 	pop $s4
@@ -321,6 +190,73 @@ keyboard_end:
 	j int_end
 
 
+#include disk_read
+# $a0 buff
+# $a1 sect
+
+disk_read:
+	push $s0
+	push $s1
+	mov $s0 $a0
+	mov $s1 $a1
+	lui $t1 0xD000
+	sb $s1 0x200($t1)
+	lb $t3 0x202($t1)
+disk_read_loop:
+	lb $t2 0x201($t1)
+	bne $t2 $zero disk_read_loop
+	mov $t0 $zero
+	addi $t2 $zero 512
+disk_read_buff_loop:
+	add $t3 $t0 $t1 # D000-
+	lb $t4 0($t3)	# 
+	lb $t5 1($t3)
+	sll $t5 $t5 8	# hi-lo
+	or $t4 $t4 $t5	# 
+	srl $t3 $t0 1	#  /2
+	andi $t3 $t3 0xFF
+	add $t5 $t3 $s0	# buff+i
+	sb $t4 0($t5)	
+	addi $t0 $t0 2  
+	bne $t0 $t2 disk_read_buff_loop
+
+disk_read_buff_loopend:
+
+	pop $s1
+	pop $s0
+	jr $ra
+
+boot:
+	addi $a0 $zero 2000
+	addi $a1 $zero 0x118
+	jal disk_read
+	addi $a0 $zero 2256
+	addi $a1 $zero 0x119
+	jal disk_read
+	addi $a0 $zero 2512
+	addi $a1 $zero 0x11a
+	jal disk_read
+	addi $a0 $zero 2768
+	addi $a1 $zero 0x11b
+	jal disk_read
+	addi $a0 $zero 3024
+	addi $a1 $zero 0x11c
+	jal disk_read
+	addi $a0 $zero 3280
+	addi $a1 $zero 0x11d
+	jal disk_read
+	addi $a0 $zero 3536
+	addi $a1 $zero 0x11e
+	jal disk_read
+	la $a0 startstr
+	jal println_string
+	j main
+
+.data
+	startstr .asciiz "Sys Loaded"
+
+.orign 2000
+.text
 #Head	
 fread:
 # $a0 fp 		file struct
@@ -397,7 +333,8 @@ fread_ccmark:
 	beq $t0 $s0 fread_dsect # if dsect != sect
 	lw $t1 0($s6) 	#flag
 	andi $t2 $t1 0x40#flag & FA__DIRTY
-	beq $t2 $zero fread_ccmark_t1 #if t1 != 0
+#	beq $t2 $zero fread_ccmark_t1 #if t1 != 0
+	beq $zero $zero fread_ccmark_t1 #if t1 != 0
 	# disk_write(fp->buf,fp->dsect)
 	addi $a0 $s6 16
 	lw $a1 10($s6)
@@ -501,41 +438,8 @@ clust2sect:
 	mov $v0 $t1
 	pop $s0
 	jr $ra
-#include disk_read
-# $a0 buff
-# $a1 sect
 
-disk_read:
-	push $s0
-	push $s1
-	mov $s0 $a0
-	mov $s1 $a1
-	lui $t1 0xD000
-	sb $s1 0x200($t1)
-	lb $t3 0x202($t1)
-disk_read_loop:
-	lb $t2 0x201($t1)
-	bne $t2 $zero disk_read_loop
-	mov $t0 $zero
-	addi $t2 $zero 512
-disk_read_buff_loop:
-	add $t3 $t0 $t1 # D000-
-	lb $t4 0($t3)	# 
-	lb $t5 1($t3)
-	sll $t5 $t5 8	# hi-lo
-	or $t4 $t4 $t5	# 
-	srl $t3 $t0 1	#  /2
-	andi $t3 $t3 0xFF
-	add $t5 $t3 $s0	# buff+i
-	sb $t4 0($t5)	
-	addi $t0 $t0 2  
-	bne $t0 $t2 disk_read_buff_loop
 
-disk_read_buff_loopend:
-
-	pop $s1
-	pop $s0
-	jr $ra
 #include move_window
 move_window:
 # $a0 sector
@@ -568,7 +472,9 @@ sync_window:
 	push $s1
 	addi $s1 $zero 128 # fs
 	lw $t0 0($s1) # wflag
-	beq $t0 $zero sync_window_exit
+	#debug
+	beq $zero $zero sync_window_exit
+	#beq $t0 $zero sync_window_exit
 	lw $t1 16($s1) # winsect
 	mov $s0 $t1 # wsect = fs_winsect
 	addi $a0 $s1 18
@@ -645,10 +551,12 @@ disk_write_buff_loopend:
 
 
 printdir:
-	addi $t0 $zero 128
-	lw $t0 12($t0)	# dirbase
+	push $s0
+	addi $s0 $zero 128
+	lw $s0 12($s0)	# dirbase
 	lui $a0 0xF000
-	mov $a1 $t0
+	#mov $a1 $s0
+	addi $a1 $zero 0xF8
 	push $ra
 	jal disk_read
 	pop $ra
@@ -671,14 +579,23 @@ printdir_loop:
 	sb $t2 4($t1)
 	lb $t2 5($t0)
 	sb $t2 5($t1)
+	lb $t2 6($t0)
+	sb $t2 6($t1)
+	lb $t2 7($t0)
+	sb $t2 7($t1)
+	lb $t2 8($t0)
+	sb $t2 8($t1)
+	lb $t2 9($t0)
+	sb $t2 9($t1)
 	addi $t2 $zero 13
 	sb $t2 6($t1)
 	addi $t0 $t0 32
 printdir_loop_end:
 	addi $t4 $t4 1
-	addi $t5 $zero 10
+	addi $t5 $zero 32
 	bne $t4 $t5 printdir_loop
 printdir_loop_exit:
+	pop $s0
 	jr $ra
 
 
@@ -1110,69 +1027,30 @@ print_string_again:
 
 	j print_string_again
 print_string_back:
-
 	pop $s1
 	pop $s0
 	ret
 
-#输入法程序
-input_method:
-	push $s4
-	push $s5
-	push $s6
-	push $s7
 
-	la $s7, im_tail
-	lw $s7, 0($s7)
-	addi $s4, $zero, 1036
-	bne  $s7, $s4, input_method_wrong
-	addi $s4, $zero, 1032
-	mov $s6, $zero
-input_method_again:
-	lb $s5, 0($s4)
-	sll $s6, $s6, 4
-	addi $s6, $s6, $s5
+println_string:
+	push $s0
+	push $s1
 
-	addi $s4, $s4, 1
-	bne $s4, $s7, input_method_again
-	
-	mov $s7, $s6
+	lui $s0, 0xA000
+println_string_again:
+	lb $s1, 0($a0)
+	beq $s1, $zero, println_string_back
+	sb $s1, 0($s0)
+	addi $a0, $a0, 1
 
-input_method_normal:
-	la $s6, keyboard_tail
-	lw $s6, 0($s6)
-	la $s5, keyboard_head
-	lw $s5, 0($s5)	
-	
-	sb $s7, 0($s6)
-	addi $s6, $s6, 1
-
-	slti $s4, $s6, 128
-	bne $s4, $zero, input_method_next1
-	addi $s6, $zero, 0x10
-input_method_next1:
-	bne $s6, $s5, input_method_next2
-	j input_method_end
-input_method_next2:
-	la $s5, im_tail
-	sw $s6, 0($s5)
-
-	#显示
-	lui $s5, 0xA100
-	sb $s7, 0($s5) 
-	
-input_method_end:
-	pop $s7
-	pop $s6
-	pop $s5
-	pop $s4
+	j println_string_again
+println_string_back:
+	addi $s1 $zero 0xD
+	sb $s1, 0($s0)
+	pop $s1
+	pop $s0
 	ret
 
-input_method_wrong:
-	lui $s7, 0xA100
-	addi $s6, $zero, 27
-	sb $s6, 0($s7) 
-	j input_method_end
 
 
 
@@ -1183,28 +1061,52 @@ input_method_wrong:
 
 
 
-
-
+.orign 3600
+.text
 main:
-	lui $t0 0xA000
-	addi $t1 $zero 0x41
-	sb $t1 0($t0)
-	lui $t0 0xA000
-	addi $t1 $zero 0x42
-	sb $t1 0($t0)
-	la $a0 f0_flag
-	addi $a1 $zero 3500
-	addi $a2 $zero 200
-	jal	fread
+#	j main
+#	lui $t0 0xA000
+#	addi $t1 $zero 0x41
+#	sb $t1 0($t0)
+#	lui $t0 0xA000
+#	addi $t1 $zero 0x42
+#	sb $t1 0($t0)
+#	la $a0 f0_flag
+#	addi $a0 $zero 4000
+#	addi $a1 $zero 0x11F
+#	addi $a0 $zero 4256
+#	addi $a1 $zero 0x120
+#	jal	disk_read
+#	la $a0 overstr
+#	jal print_string
+	la $a0 f1_flag
+	addi $a1 $zero 2
+	jal dir_setidx
+	la $a0 f1_flag
+	addi $a1 $zero 4000
+	addi $a2 $zero 3000
+	jal fread
+#	addi $a0 $zero 4000
+#	addi $a1 $zero 0x11F
+#	jal disk_read
+#	addi $a0 $zero 4256
+#	addi $a1 $zero 0x120
+#	jal	disk_read
+	la $a0 overstr
+	jal println_string
 	jal user
 end:
 	j end
+.data
+	overstr .asciiz "starting bash "
 
-.orign 3500
+
+.orign 4000
 .text
 user:
-j user
-bash:
+j bash
+.text
+	bash:
 		la $a0, prompt
 		jal print_string
 	bash_loop:
@@ -1213,21 +1115,127 @@ bash:
 		la $s1, keyboard_tail
 		lw $s1, 0($s1)
 		beq $s0, $s1, bash_loop
+
 		addi $s2, $s1, -1
 		lb $s2, 0($s2)
 		addi $s3, $zero, 13
 		bne $s3, $s2, bash_loop
 	bash_exe:
-		#lb $s2, 0($s0)
-		sb $zero, 0($s1)
+		sb $zero, -1($s1)
 
 		mov $a0, $s0
-		jal print_string
+		jal get_cmd
 
-		la $s0, keyboard_head
+		addi $t0, $zero, -1
+		beq $v0, $t0, bash_error
+
+	bash_dir:
+		addi $t0, $zero, 3
+		bne $v0, $t0, bash_read
+		jal printdir
+
+		j bash_end
+	bash_read:
+		addi $t0, $zero, 4
+		bne $v0, $t0, bash_error
+		la $a0 f1_flag
+		addi $a1 $zero 1
+		jal dir_setidx
+		la $a0 f1_flag
+		lui $a1  0xA000
+		addi $a2 $zero 1000
+		jal fread
+
+		j bash_end
+	bash_end:
+		la $s0, keyboard_tail
+		addi $s1 $zero 0x10
 		sw $s1, 0($s0)
+		la $a0 cmd_done
+		jal print_string
 		j bash
 
+	bash_error:
+		la $a0, error
+		jal print_string
+		j bash_end
 .data
-	prompt .asciiz "ZPC:>"
-	error .asciiz "Command Not Found\n"
+	prompt 	.asciiz	"ZPC:>"
+	error 		.asciiz	"Not Found."
+	para_error	.asciiz	"Parameters needed."
+	cmd_done .asciiz "Command done."
+.text
+#解析命令, 字符串首地址放在a0, 解析后的结果放在v0 v1
+get_cmd:
+	push $s0
+	push $s1
+	push $s2
+	push $s3
+	push $s4
+
+get_cmd_dir:
+	#初始化v0 v1
+	addi $v0, $zero, 3
+	addi $v1, $zero, -1
+
+	mov $s2, $a0
+	la $s3, cmd_dir
+get_cmd_dir_again:
+	lb $s0, 0($s2)
+	lb $s1, 0($s3)
+
+	addi $s2, $s2, 1
+	addi $s3, $s3, 1
+	
+	bne $s1, $zero, get_cmd_dir_check
+	beq $s0, $zero, get_cmd_dir_end
+	j get_cmd_dir_next
+get_cmd_dir_check:
+	sub $s4, $s0, $s1
+	beq $s4, $zero, get_cmd_dir_again
+	j get_cmd_dir_next
+get_cmd_dir_next:
+	j get_cmd_read
+get_cmd_dir_end:
+	j get_cmd_end
+
+get_cmd_read:
+	#初始化v0 v1
+	addi $v0, $zero, 4
+	addi $v1, $zero, -1
+
+	mov $s2, $a0
+	la $s3, cmd_read
+get_cmd_read_again:
+	lb $s0, 0($s2)
+	lb $s1, 0($s3)
+
+	addi $s2, $s2, 1
+	addi $s3, $s3, 1
+	
+	bne $s1, $zero, get_cmd_read_check
+	beq $s0, $zero, get_cmd_read_end
+	j get_cmd_read_next
+get_cmd_read_check:
+	sub $s4, $s0, $s1
+	beq $s4, $zero, get_cmd_read_again
+	j get_cmd_read_next
+get_cmd_read_next:
+	j get_cmd_error
+get_cmd_read_end:
+	j get_cmd_end
+
+get_cmd_error:
+	addi $v0, $zero, -1
+get_cmd_end:
+	pop $s4
+	pop $s3
+	pop $s2
+	pop $s1
+	pop $s0
+	ret
+.data
+	cmd_cat	.asciiz	"cat"
+	cmd_dir .asciiz "dir"
+	cmd_time	.asciiz	"time"
+	cmd_read	.asciiz	"read"

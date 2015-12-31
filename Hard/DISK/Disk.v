@@ -18,14 +18,14 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Disk(clk,TxD,RxD,BUS,Memread,Memwrite,Addrin
+module Disk(clk,TxD,RxD,BUS,Memread,Memwrite,Addrin,debug,PC,IR,Busy
 	,Rstate,Tstate,TxD_busy,TxD_start
 	// ,reading
     );
 
 output reg [9:0] Rstate = 10'h0;
-output reg [9:0] Tstate = 10'h0;
-reg [1:0] Tsignal = 2'h0;
+output reg [15:0] Tstate = 16'h0;
+reg [7:0] Tsignal = 8'h0;
 output reg TxD_start=0;
 
 reg [15:0] BUSdata = 16'h0;
@@ -37,8 +37,12 @@ input RxD;
 inout [31:0]BUS;
 input Memread;
 input Memwrite;
+input debug;
+input [31:0] PC;
+input [31:0] IR;
 input [9:0] Addrin;
 output wire TxD_busy;
+output wire Busy;
 reg anotherbusy = 0;
 wire RxD_data_ready;
 wire [7:0] RxD_data;
@@ -54,6 +58,8 @@ wire [7:0]douta;
 reg [7:0] datain;
 reg reading = 0;
 reg writing = 0;
+assign Busy = reading|writing;
+
 DB ram(
 	.clka(clk),
 	.wea(we),
@@ -122,11 +128,19 @@ always @(posedge clk) begin
 			endcase
 		end
 	end
+	else if(debug&&!Busy) begin
+		Tsignal = 3;
+	end
 	case(Tstate)
-		10'h0: if (Tsignal!=0) begin
+		16'h0: if (Tsignal!=0) begin
 			writing = 1;
 			TxD_data=Tsignal;
-			Tstate=10'h2F1;
+			if (Tsignal != 2'h3) begin
+				Tstate=16'h2F1;
+			end
+			else if(Tsignal == 2'h3) begin
+				Tstate = 16'h300;
+			end
 			TxD_start=1;
 			anotherbusy = 1;
 		end
@@ -134,11 +148,11 @@ always @(posedge clk) begin
 			writing=0;
 			TxD_start = 0;
 		end
-		10'h2F1: begin
+		16'h2F1: begin
 			if (~TxD_busy&&~anotherbusy) begin
 				TxD_start=1;
 				TxD_data=dsect[7:0];
-				Tstate=10'h2F2;
+				Tstate=16'h2F2;
 				anotherbusy = 1;
 			end
 			else begin
@@ -146,11 +160,11 @@ always @(posedge clk) begin
 				TxD_start=0;
 			end
 		end
-		10'h2F2: begin
+		16'h2F2: begin
 			if (~TxD_busy&&~anotherbusy) begin
 				TxD_start=1;
 				TxD_data=dsect[15:8];
-				Tstate=Tsignal[0]?10'h1:10'h2F3;
+				Tstate=Tsignal[0]?16'h1:16'h2F3;
 				anotherbusy=1;
 				Tsignal = 0;
 			end
@@ -159,7 +173,7 @@ always @(posedge clk) begin
 				TxD_start=0;
 			end		
 		end
-		10'h2F3: begin
+		16'h2F3: begin
 			if (~TxD_busy&&~anotherbusy) begin
 	   			reading = 1;
 	   			Tsignal = 0;
@@ -171,7 +185,114 @@ always @(posedge clk) begin
 				TxD_start=0;
 			end		
 		end
-		10'h200: begin
+		16'h300: begin
+			if (~TxD_busy&&~anotherbusy) begin
+				TxD_start=1;
+				TxD_data=PC[7:0];
+				Tstate=16'h301;
+				anotherbusy = 1;
+			end
+			else begin
+				anotherbusy = 0;
+				TxD_start=0;
+			end
+		end
+		16'h301: begin
+			if (~TxD_busy&&~anotherbusy) begin
+				TxD_start=1;
+				TxD_data=PC[15:8];
+				Tstate=16'h302;
+				anotherbusy = 1;
+			end
+			else begin
+				anotherbusy = 0;
+				TxD_start=0;
+			end
+		end
+		16'h302: begin
+			if (~TxD_busy&&~anotherbusy) begin
+				TxD_start=1;
+				TxD_data=PC[23:16];
+				Tstate=16'h303;
+				anotherbusy = 1;
+			end
+			else begin
+				anotherbusy = 0;
+				TxD_start=0;
+			end
+		end
+		16'h303: begin
+			if (~TxD_busy&&~anotherbusy) begin
+				TxD_start=1;
+				TxD_data=PC[31:24];
+				Tstate=16'h304;
+				anotherbusy = 1;
+			end
+			else begin
+				anotherbusy = 0;
+				TxD_start=0;
+			end
+		end
+		16'h304: begin
+			if (~TxD_busy&&~anotherbusy) begin
+				TxD_start=1;
+				TxD_data=IR[7:0];
+				Tstate=16'h305;
+				anotherbusy = 1;
+			end
+			else begin
+				anotherbusy = 0;
+				TxD_start=0;
+			end
+		end
+		16'h305: begin
+			if (~TxD_busy&&~anotherbusy) begin
+				TxD_start=1;
+				TxD_data=IR[15:8];
+				Tstate=16'h306;
+				anotherbusy = 1;
+			end
+			else begin
+				anotherbusy = 0;
+				TxD_start=0;
+			end
+		end
+		16'h306: begin
+			if (~TxD_busy&&~anotherbusy) begin
+				TxD_start=1;
+				TxD_data=IR[23:16];
+				Tstate=16'h307;
+				anotherbusy = 1;
+			end
+			else begin
+				anotherbusy = 0;
+				TxD_start=0;
+			end
+		end
+		16'h307: begin
+			if (~TxD_busy&&~anotherbusy) begin
+				TxD_start=1;
+				TxD_data=IR[31:24];
+				Tstate=16'h308;
+				anotherbusy = 1;
+			end
+			else begin
+				anotherbusy = 0;
+				TxD_start=0;
+			end
+		end
+		16'h308: begin
+			if (~TxD_busy&&~anotherbusy) begin
+				TxD_start=0;
+				Tstate=16'h0;
+				Tsignal=0;
+			end
+			else begin
+				anotherbusy = 0;
+				TxD_start=0;
+			end
+		end
+		16'h200: begin
 			addr = Tstate - 1;
 			if (~TxD_busy&&~anotherbusy) begin
 				TxD_start=1;

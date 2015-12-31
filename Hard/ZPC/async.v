@@ -181,7 +181,7 @@ module BaudTickGen(
 	input clk, enable,
 	output tick  // generate a tick at the specified baud rate * oversampling
 );
-parameter ClkFrequency = 25000000;
+parameter ClkFrequency = 50000000;
 parameter Baud = 115200;
 parameter Oversampling = 1;
 

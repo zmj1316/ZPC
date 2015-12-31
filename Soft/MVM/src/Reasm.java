@@ -44,16 +44,16 @@ public class Reasm{
 				case 16:
 					switch(rs)
 					{
-						case 16: res = "eret";
+						case 16: res = "eret"; break;
 						case 0: res = "mfc0\t" + intToReg(rt) + ", " + rd; break;
 						case 4: res = "mtc0\t" + intToReg(rt) + ", " + rd; break;
-					}
+					} break;
 				case 17:
 					switch(rs)
 					{
 						case 0: res = "mfc1\t" + intToReg(rt) + ", " + rd; break;
 						case 4: res = "mtc1\t" + intToReg(rt) + ", " + rd; break;
-					}
+					} break;
 				case 2:	res = "j\t" + abs_addr; break;
 				case 3:	res = "jal\t" + abs_addr; break;
 				case 14: res = "xori\t" + intToReg(rt) + ", " + intToReg(rs) + ", " + data; break;
@@ -111,7 +111,7 @@ public class Reasm{
 
 	private static void decode(int ir)
 	{
-		op = ir >> 26;
+		op = (ir >> 26) & 63;
 		rs = (ir >> 21) & 31;	
 		rt = (ir >> 16) & 31;	
 		rd = (ir >> 11) & 31;	

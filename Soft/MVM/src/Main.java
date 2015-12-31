@@ -217,10 +217,16 @@ public class Main {
 				}
 				PCLabel.setText(cpu.getPC());
 				panelMsgBox.revalidate();
+//				cpu.timeInt();
 			}
 		};
 		Timer timerRegister=new Timer();
-		timerRegister.schedule(refreshReg, 10, 10);
+		timerRegister.schedule(refreshReg, 10, 1000);
 		//cpuThread.start();
+		
+		while(true)
+		{
+			
+		}
 	}
 }

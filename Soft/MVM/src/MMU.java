@@ -10,10 +10,10 @@ import java.io.RandomAccessFile;
 //AFFF FFFF -->gm end
 
 public class MMU {
-	private final int mem0000Size = 9096;
-	private final int memA000Size = 9096;
-	private final int memB000Size = 9096;
-	private final int memD000Size = 9096;
+	private final int mem0000Size = 8096;
+	private final int memA000Size = 8096;
+	private final int memB000Size = 8096;
+	private final int memD000Size = 8096;
 	private char mem0000[] = new char[mem0000Size];
 	private char memA000[] = new char[memA000Size];
 	private char memB000[] = new char[memB000Size];

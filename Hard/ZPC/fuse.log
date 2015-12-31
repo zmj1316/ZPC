@@ -18,23 +18,23 @@ WARNING:HDLCompiler:327 - "F:/Workspace/ASM/Hard/ZPC/../TTY/tty.v" Line 47: Conc
 Analyzing Verilog file "F:/Workspace/ASM/Hard/ZPC/../Mem/Mem16.v" into library work
 Analyzing Verilog file "F:/Workspace/ASM/Hard/ZPC/../DISK/Disk.v" into library work
 Analyzing Verilog file "F:/Workspace/ASM/Hard/ZPC/../CPU/CPU.v" into library work
-WARNING:HDLCompiler:327 - "F:/Workspace/ASM/Hard/ZPC/../CPU/CPU.v" Line 102: Concatenation with unsized literal; will interpret as 32 bits
-WARNING:HDLCompiler:327 - "F:/Workspace/ASM/Hard/ZPC/../CPU/CPU.v" Line 283: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:327 - "F:/Workspace/ASM/Hard/ZPC/../CPU/CPU.v" Line 106: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:327 - "F:/Workspace/ASM/Hard/ZPC/../CPU/CPU.v" Line 289: Concatenation with unsized literal; will interpret as 32 bits
 Analyzing Verilog file "F:/Workspace/ASM/Hard/ZPC/PC.v" into library work
 Analyzing Verilog file "F:/Workspace/ASM/Hard/ZPC/t_KB.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 WARNING:HDLCompiler:1330 - "F:/Workspace/ASM/Hard/ZPC/async.v" Line 132: Function log2 has no return value assignment
-WARNING:HDLCompiler:1016 - "F:/Workspace/ASM/Hard/ZPC/t_KB.v" Line 50: Port lcd_rs is not connected to this instance
-WARNING:HDLCompiler:1016 - "F:/Workspace/ASM/Hard/ZPC/PC.v" Line 73: Port rst is not connected to this instance
-WARNING:HDLCompiler:1016 - "F:/Workspace/ASM/Hard/ZPC/PC.v" Line 81: Port Rstate is not connected to this instance
-WARNING:HDLCompiler:327 - "F:/Workspace/ASM/Hard/ZPC/../CPU/CPU.v" Line 102: Concatenation with unsized literal; will interpret as 32 bits
-WARNING:HDLCompiler:327 - "F:/Workspace/ASM/Hard/ZPC/../CPU/CPU.v" Line 283: Concatenation with unsized literal; will interpret as 32 bits
-WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/ZPC/PC.v" Line 76: Size mismatch in connection of port <Memread>. Formal port size is 1-bit while actual signal size is 32-bit.
-WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/ZPC/PC.v" Line 77: Size mismatch in connection of port <Memwrite>. Formal port size is 2-bit while actual signal size is 32-bit.
-WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/ZPC/PC.v" Line 79: Size mismatch in connection of port <Addrin>. Formal port size is 12-bit while actual signal size is 32-bit.
-WARNING:HDLCompiler:1016 - "F:/Workspace/ASM/Hard/ZPC/../DISK/Disk.v" Line 73: Port RxD_idle is not connected to this instance
-WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/ZPC/PC.v" Line 88: Size mismatch in connection of port <Addrin>. Formal port size is 10-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:1016 - "F:/Workspace/ASM/Hard/ZPC/t_KB.v" Line 50: Port led is not connected to this instance
+WARNING:HDLCompiler:1016 - "F:/Workspace/ASM/Hard/ZPC/PC.v" Line 78: Port rst is not connected to this instance
+WARNING:HDLCompiler:1016 - "F:/Workspace/ASM/Hard/ZPC/PC.v" Line 86: Port Rstate is not connected to this instance
+WARNING:HDLCompiler:327 - "F:/Workspace/ASM/Hard/ZPC/../CPU/CPU.v" Line 106: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:327 - "F:/Workspace/ASM/Hard/ZPC/../CPU/CPU.v" Line 289: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/ZPC/PC.v" Line 81: Size mismatch in connection of port <Memread>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/ZPC/PC.v" Line 82: Size mismatch in connection of port <Memwrite>. Formal port size is 2-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/ZPC/PC.v" Line 84: Size mismatch in connection of port <Addrin>. Formal port size is 12-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:1016 - "F:/Workspace/ASM/Hard/ZPC/../DISK/Disk.v" Line 79: Port RxD_idle is not connected to this instance
+WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/ZPC/PC.v" Line 93: Size mismatch in connection of port <Addrin>. Formal port size is 10-bit while actual signal size is 32-bit.
 WARNING:HDLCompiler:327 - "F:/Workspace/ASM/Hard/ZPC/../TTY/tty.v" Line 47: Concatenation with unsized literal; will interpret as 32 bits
 WARNING:HDLCompiler:1016 - "F:/Workspace/ASM/Hard/ZPC/../TTY/tty.v" Line 68: Port reset is not connected to this instance
 WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/ZPC/../TTY/tty.v" Line 62: Size mismatch in connection of port <BUS>. Formal port size is 32-bit while actual signal size is 8-bit.
@@ -50,7 +50,6 @@ WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/ZPC/../TTY/VGA.v" Line 102: Siz
 WARNING:HDLCompiler:189 - "F:/Workspace/ASM/Hard/ZPC/../TTY/VGA.v" Line 104: Size mismatch in connection of port <addrb>. Formal port size is 6-bit while actual signal size is 5-bit.
 WARNING:HDLCompiler:1330 - "F:/Workspace/ASM/Hard/ZPC/async.v" Line 132: Function log2 has no return value assignment
 Completed static elaboration
-Compiling module lcd
 Compiling module Rshifter
 Compiling module Lshifter
 Compiling module Ctrl
@@ -99,7 +98,7 @@ Compiling module t_KB
 Compiling module glbl
 Time Resolution for simulation is 1ps.
 Waiting for 34 sub-compilation(s) to finish...
-Compiled 47 Verilog Units
+Compiled 46 Verilog Units
 Built simulation executable F:/Workspace/ASM/Hard/ZPC/t_KB_isim_beh.exe
-Fuse Memory Usage: 37728 KB
-Fuse CPU Usage: 1091 ms
+Fuse Memory Usage: 37724 KB
+Fuse CPU Usage: 1060 ms

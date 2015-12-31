@@ -20,6 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module CPU(clk,rst,BUS,
 		   Memread,Memwrite,Addr,INTin,INTnum
+		   ,debug_PC,debug_IR,debug_PC,Com_busy,debug
 		   // ,INT
 		  // ,output reg [31:0] A,output reg [31:0]PC,output reg [31:0] IR,output reg [31:0] Alures
     );
@@ -28,14 +29,17 @@ input rst;// reset signal
 inout [31:0] BUS;// data BUS
 output reg Memread;// memory read signal
 
-
+output reg [31:0] debug_PC = 0;
+output reg [31:0] debug_IR = 0;
+output reg debug = 0;
+input wire Com_busy;
 output reg [1:0] Memwrite;// memory write
 					  // 0:N/A 1:WORD 2:DMA 3:BYTE
 output reg [31:0] Addr;// memory address
 input INTin;
 input [31:0] INTnum;
 reg INT;
-reg [ 2: 0] stage;// CPU stage counter
+reg [ 3: 0] stage;// CPU stage counter
 
 wire [13:0] signal;// control signal
 /* signal define:
@@ -143,7 +147,7 @@ always @(posedge clk or posedge rst) begin
 		// reset signals
 		// stages
 		case(stage)
-			3'h0:begin
+			4'h0:begin
 				//IFS
 				//read instruction
 				Memwrite = 0;
@@ -163,12 +167,14 @@ always @(posedge clk or posedge rst) begin
 					stage = -1;
 				end
 			end
-			3'h1:begin			
+			4'h1:begin			
 				// deal with memory & control latency	
 				IR = Memin;
+				// debug
+				stage = 7;
 				// interrupt here
 			end
-			3'h2:begin
+			4'h2:begin
 				Memread = 0;
 
 				//IDS
@@ -180,7 +186,7 @@ always @(posedge clk or posedge rst) begin
 					2'b10: Dst = 5'h1F;
 				endcase
 			end
-			3'h3:begin
+			4'h3:begin
 				//EXS
 				A = signal[11]? RA : PC;//ALUsourseA
 				case(signal[10:9])// ALUsourseB
@@ -206,9 +212,10 @@ always @(posedge clk or posedge rst) begin
 						6'h10: Alures = A * B;//mut
 						6'h8: begin // JR
 							PC = {RA[31:0]};
+							stages = -1;
 						end
 						6'hC: begin // syscall
-							cReg[13] = 8;
+							cReg[13] = 2;
 							INT = 1;
 						end
 					endcase
@@ -225,7 +232,7 @@ always @(posedge clk or posedge rst) begin
 						6'h0D: Alures = A | imme0;
 						6'h0E: Alures = A ^ imme0;
 						6'h0F: Alures = {imme[15:0],16'b0};//lui
-						//6'h0A: Alures = (A < B)^(A[31]^B[31]) 1 : 0;//slti
+						6'h0A: Alures = ((A - B) & 32'h80000000 == 32'h80000000)?1:0;//slti
 						6'h0B: Alures = (A<imme0)?1:0;//sltiu
 					endcase
 				end
@@ -262,7 +269,7 @@ always @(posedge clk or posedge rst) begin
 					endcase
 				end
 			end
-			3'h4:begin
+			4'h4:begin
 				//MYS
 				if (signal[4]) begin// Memread
 					Addr = Alures;
@@ -276,7 +283,7 @@ always @(posedge clk or posedge rst) begin
 					Memwrite = signal[13]?3:1;// BYTE?WORD
 				end
 			end
-			3'h7:begin
+			4'h7:begin
 				//WBS
 				if (signal[5]) begin// Reg write
 					if (signal[6]) begin// Mem to Reg
@@ -286,6 +293,27 @@ always @(posedge clk or posedge rst) begin
 						Regfile[Dst] = Alures;
 					end
 					Regfile[0] = 0;// $zero = 0
+				end
+				stage = -1;
+			end
+//debug
+			4'h8:begin
+				if (Com_busy) begin
+					stage = stage-1;
+				end
+				else begin
+					debug_IR = IR;
+					debug_PC = PC - 2;
+					debug = 1;
+				end
+			end
+			4'h9:begin
+				debug = 0;
+				if (Com_busy) begin
+					stage = stage-1;
+				end
+				else begin
+					stage = 1;
 				end
 			end
 		endcase
