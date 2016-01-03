@@ -22,7 +22,7 @@
 *     devices, or systems.  Use in such applications are expressly             *
 *     prohibited.                                                              *
 *                                                                              *
-*     (c) Copyright 1995-2015 Xilinx, Inc.                                     *
+*     (c) Copyright 1995-2016 Xilinx, Inc.                                     *
 *     All rights reserved.                                                     *
 *******************************************************************************/
 // You must compile the wrapper file BB.v when simulating
@@ -89,8 +89,8 @@ output [31 : 0] douta;
     .C_MEM_TYPE(0),
     .C_MUX_PIPELINE_STAGES(0),
     .C_PRIM_TYPE(1),
-    .C_READ_DEPTH_A(7096),
-    .C_READ_DEPTH_B(7096),
+    .C_READ_DEPTH_A(5120),
+    .C_READ_DEPTH_B(5120),
     .C_READ_WIDTH_A(32),
     .C_READ_WIDTH_B(32),
     .C_RST_PRIORITY_A("CE"),
@@ -107,8 +107,8 @@ output [31 : 0] douta;
     .C_USE_SOFTECC(0),
     .C_WEA_WIDTH(1),
     .C_WEB_WIDTH(1),
-    .C_WRITE_DEPTH_A(7096),
-    .C_WRITE_DEPTH_B(7096),
+    .C_WRITE_DEPTH_A(5120),
+    .C_WRITE_DEPTH_B(5120),
     .C_WRITE_MODE_A("READ_FIRST"),
     .C_WRITE_MODE_B("WRITE_FIRST"),
     .C_WRITE_WIDTH_A(32),

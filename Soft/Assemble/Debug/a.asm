@@ -333,8 +333,8 @@ fread_ccmark:
 	beq $t0 $s0 fread_dsect # if dsect != sect
 	lw $t1 0($s6) 	#flag
 	andi $t2 $t1 0x40#flag & FA__DIRTY
-#	beq $t2 $zero fread_ccmark_t1 #if t1 != 0
-	beq $zero $zero fread_ccmark_t1 #if t1 != 0
+	beq $t2 $zero fread_ccmark_t1 #if t1 != 0
+#	beq $zero $zero fread_ccmark_t1 #if t1 != 0
 	# disk_write(fp->buf,fp->dsect)
 	addi $a0 $s6 16
 	lw $a1 10($s6)
@@ -555,8 +555,8 @@ printdir:
 	addi $s0 $zero 128
 	lw $s0 12($s0)	# dirbase
 	lui $a0 0xF000
-	#mov $a1 $s0
-	addi $a1 $zero 0xF8
+	mov $a1 $s0
+#	addi $a1 $zero 0xF8
 	push $ra
 	jal disk_read
 	pop $ra
@@ -564,6 +564,8 @@ printdir:
 	lui $t0 0xD000
 	lui $t1	0xA000
 	addi $t6 $zero 0xE5
+	la $a0 dirstr
+	jal println_string
 printdir_loop:
 	lb $t2 0($t0)
 	beq $t2 $t6 printdir_loop_end
@@ -597,7 +599,9 @@ printdir_loop_end:
 printdir_loop_exit:
 	pop $s0
 	jr $ra
-
+.data
+	dirstr .asciiz "Dir:"
+.text
 
 
 #include create_chain

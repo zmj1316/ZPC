@@ -24,7 +24,7 @@ input clk;// memory clock
 inout [31:0] BUS;// data BUS
 input Memread;
 input [1:0] Memwrite;
-input [13:0] Addrin;
+input [14:0] Addrin;
 input rst;
 //clock divider
 reg st;
@@ -42,7 +42,7 @@ end
 wire [31:0] douta;
 
 reg [31:0] datain;// data to be writeen
-reg [12:0] addr;
+reg [13:0] addr;
 reg [63:0] tmp;
 reg [31:0] Memout;// data to be sent
 reg we;// write enable
@@ -64,11 +64,11 @@ always @(posedge clk or posedge rst) begin
 		we = 0;
 		case(st)
 			0: begin
-				addr = Addrin[13:1];
+				addr = Addrin[14:1];
 				tmp[31:0] = douta;
 			end
 			1: begin
-				addr = Addrin[13:1] + 1;
+				addr = Addrin[14:1] + 1;
 				tmp[63:32] = douta;
 			end
 		endcase

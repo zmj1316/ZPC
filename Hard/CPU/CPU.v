@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module CPU(clk,rst,BUS,
 		   Memread,Memwrite,Addr,INTin,INTnum
-		   ,debug_PC,debug_IR,debug_PC,Com_busy,debug
+		   ,debug_IR,debug_PC,Com_busy,debug
 		   // ,INT
 		  // ,output reg [31:0] A,output reg [31:0]PC,output reg [31:0] IR,output reg [31:0] Alures
     );
@@ -171,7 +171,7 @@ always @(posedge clk or posedge rst) begin
 				// deal with memory & control latency	
 				IR = Memin;
 				// debug
-				stage = 7;
+				//stage = 7;
 				// interrupt here
 			end
 			4'h2:begin
@@ -212,7 +212,6 @@ always @(posedge clk or posedge rst) begin
 						6'h10: Alures = A * B;//mut
 						6'h8: begin // JR
 							PC = {RA[31:0]};
-							stages = -1;
 						end
 						6'hC: begin // syscall
 							cReg[13] = 2;
